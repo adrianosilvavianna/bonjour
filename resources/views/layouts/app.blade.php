@@ -11,6 +11,13 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Bonjour') }}</title>
+
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -44,53 +51,36 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="/">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="/">
                         <i class="material-icons">person</i>
-                        <p>User Profile</p>
+                        <p>Minhas Viagens</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="/">
                         <i class="material-icons">content_paste</i>
-                        <p>Table List</p>
+                        <p>Meus Locais</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="/">
                         <i class="material-icons">library_books</i>
-                        <p>Typography</p>
+                        <p>Meus Destinos</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="/">
                         <i class="material-icons">bubble_chart</i>
-                        <p>Icons</p>
+                        <p>Configurações</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="material-icons">location_on</i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="material-icons text-gray">notifications</i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="material-icons">unarchive</i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -520,7 +510,7 @@
                                         <td>2</td>
                                         <td>Minerva Hooper</td>
                                         <td>$23,789</td>
-                                        <td>Cura�ao</td>
+                                        <td>Curaçao</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
