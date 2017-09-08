@@ -16,6 +16,7 @@ class CreateHitchhikersTable extends Migration
         Schema::create('hitchhikers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
         });
     }
 
