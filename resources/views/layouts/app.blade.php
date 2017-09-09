@@ -124,7 +124,7 @@
                                 <i class="material-icons">person</i>
                                 <p class="hidden-lg hidden-md">Profile</p>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Meu perfil</a></li>
+                                    <li><a href="/prifile">Meu perfil</a></li>
                                     <li><a href="#">Logout</a></li>
                                 </ul>
                             </a>
