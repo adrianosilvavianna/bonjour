@@ -12,8 +12,6 @@
             </div>
 
             <div class="content">
-                <h6 class="category text-gray">{{ $profile->name }} {{ $profile->last_name }}</h6>
-                <h4 class="card-title">{{ $profile->User->email }}</h4>
                 <p class="card-content">
                     País : Afeganistão | Idade : 21  | Genero : Masculino<br>
                     Telefone : (41) 9999-9090 | Telefone : (41) 90909-2131

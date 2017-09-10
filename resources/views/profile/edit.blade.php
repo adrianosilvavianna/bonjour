@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Adress</label>
+                                    <label class="control-label">Endereço</label>
                                     <input type="text" name="address" class="form-control" id="address">
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">City</label>
+                                    <label class="control-label">Cidde</label>
                                     <input type="text" class="form-control" name="city" id="city">
                                 </div>
                             </div>
@@ -67,9 +67,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>About Me</label>
+                                    <label>Sobre mim</label>
                                     <div class="form-group label-floating">
-                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
                                         <textarea class="form-control" rows="5"></textarea>
                                     </div>
                                 </div>
