@@ -26,6 +26,7 @@ class ProfileController extends Controller
     }
 
     public function edit(Profile $profile) {
+        dd($profile);
         return view('profile.edit')->with('profile', $profile);
     }
 
@@ -38,4 +39,22 @@ class ProfileController extends Controller
         $profile->update($request->input());
         return view('profile.edit')->with('success', config('alert.message.success'));
     }
+
+    public function upload(Request $request,Profile $profile)
+    {
+        if ($request->file->isValid()) {
+
+            $path   = $request->file->store('comprovantes');
+
+            $bank->paid_at  = date('Y-m-d');
+            $bank->src_file = $path;
+            $bank->save();
+
+            return back()->with('success','Enviado');
+        }
+
+        return back()->with('errors', 'Arquivo Invalido');
+
+    }
+
 }
