@@ -19,8 +19,12 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile.index')->with('profile', auth()->user()->Profile);
+        if(auth()->User()->Profile){
+            return view('profile.index')->with('profile', auth()->user()->Profile);
+        }
+        return view('profile.create');
     }
+
     public function create() {
         return view('profile.create');
     }
