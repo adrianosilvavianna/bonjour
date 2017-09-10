@@ -62,36 +62,15 @@
                                     <input type="text" class="form-control" name=complement id="complement">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Sobre mim</label>
-                                    <div class="form-group label-floating">
-                                        <textarea class="form-control" rows="5"></textarea>
-                                    </div>
+                                    <i class="material-icons">get_app</i>
+                                    <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">País de origem</label>
-                                    <input type="text" name="country_from" id="get_code" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Cidade de origem</label>
-                                    <input type="text" name="city_from"  class="form-control" >
-                                </div>
-                            </div>
-                        </div>
-
                         <input type="text" name="ibge_number" id="ibge_number" hidden>
-                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                        <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
