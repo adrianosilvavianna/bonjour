@@ -209,8 +209,13 @@
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
 
+        $(".close").click(function(){
+            $("#myAlert").alert('close');
+        });
+
+
     });
-</script>x
+</script>
 
 </body>
 </html>
