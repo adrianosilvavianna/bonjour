@@ -15,3 +15,13 @@ Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
     Route::post('/update', 'ProfileController@update')->name('update');
 
 });
+
+Route::group(['prefix' => 'phone', 'as' =>'phone.'], function () {
+
+    Route::get('/', 'PhoneController@index')->name('index');
+    Route::get('/create', 'PhoneController@create')->name('create');
+    Route::post('/store', 'PhoneController@store')->name('store');
+    Route::get('/{profile}/edit', 'PhoneController@edit')->name('edit');
+    Route::post('/update', 'PhoneController@update')->name('update');
+
+});
