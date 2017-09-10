@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $profile }}">
+                                    <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $profile->name }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
