@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProfileRequest;
-use App\Profile;
+use App\Phone;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
@@ -19,10 +18,7 @@ class PhoneController extends Controller
 
     public function index()
     {
-        if(auth()->User()->Phone){
-            return view('phone.index')->with('phone', auth()->user()->Phone);
-        }
-        return view('phone.create');
+        return view('phone.index');
     }
 
     public function create() {
