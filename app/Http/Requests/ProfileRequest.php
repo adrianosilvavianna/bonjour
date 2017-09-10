@@ -13,14 +13,13 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'name' => 'required|string|max:40',
             'last_name' => 'required|string|max:40',
             'conntry' => 'required|string|max:50',
             'age' => 'required|integer|max:2',
             'genre' => 'required',
-            'phone_one' => 'required|numeric',
-            'phone_two' => 'numeric',
             'photo_address' => 'image'
         ];
     }

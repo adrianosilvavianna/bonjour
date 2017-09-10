@@ -12,7 +12,7 @@
                     <p class="category">Complete seu perfil</p>
                 </div>
                 <div class="card-content">
-                    <form>
+                    <form action="{{ route('user.profile.store') }}" method="post" >
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group label-floating">

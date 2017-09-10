@@ -29,15 +29,19 @@ class ProfileController extends Controller
         return view('profile.create');
     }
 
+    public function store(Request $request) {
+
+        $this->profile->create($request->input());
+
+        return view('profile.index')->with('success', config('alert.message.success'));
+    }
+
     public function edit(Profile $profile) {
 
         return view('profile.edit')->with('profile', $profile);
     }
 
-    public function store(ProfileRequest $request) {
-        $this->profile->create($request);
-        return view('profile.index')->with('success', config('alert.message.success'));
-    }
+
 
     public function update(ProfileRequest $request, Profile $profile) {
         $profile->update($request->input());
@@ -50,9 +54,9 @@ class ProfileController extends Controller
 
             $path   = $request->file->store('comprovantes');
 
-            $bank->paid_at  = date('Y-m-d');
-            $bank->src_file = $path;
-            $bank->save();
+            $profile->paid_at  = date('Y-m-d');
+            $profile->src_file = $path;
+            $profile->save();
 
             return back()->with('success','Enviado');
         }
