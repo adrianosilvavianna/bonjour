@@ -11,7 +11,6 @@
                     <h4 class="title">Edit Profile</h4>
                     <p class="category">Complete your profile</p>
                 </div>
-
                 <div class="card-content">
                     <form>
                         <div class="row">

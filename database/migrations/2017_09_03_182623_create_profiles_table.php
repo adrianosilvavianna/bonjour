@@ -24,9 +24,6 @@ class CreateProfilesTable extends Migration
             $table->string('phone_two')->nullable();
             $table->string('photo_address')->nullable();
 
-            $table->integer('profileable_id');
-            $table->string('proleableable_type');
-
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
