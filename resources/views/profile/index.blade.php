@@ -1,22 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="col-md-3">
+    </div>
     <div class="col-md-6">
         <div class="card card-profile">
             <div class="card-avatar">
-                <a href="#pablo">
-                    <img class="img" src="../assets/img/faces/marc.jpg">
+                <a href="#pablo"  >
+                    <img class="img" id="my_photo" src="{{ asset('assets/img/faces/marc.jpg') }}" title="alterar imagem">
                 </a>
             </div>
 
             <div class="content">
-                <h6 class="category text-gray">NOME SOBRENOME DO MALUCO</h6>
-                <h4 class="card-title"></h4>
+                <h6 class="category text-gray">{{ $profile->name }} {{ $profile->last_name }}</h6>
+                <h4 class="card-title">{{ $profile->User->email }}</h4>
                 <p class="card-content">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens� bed design but the back is...
+                    País : Afeganistão | Idade : 21  | Genero : Masculino<br>
+                    Telefone : (41) 9999-9090 | Telefone : (41) 90909-2131
                 </p>
-                <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">Editar</a>
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+    </div>
 @endsection
+
+@section('scripts')
+
+@show
