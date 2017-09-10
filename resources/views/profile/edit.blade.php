@@ -16,8 +16,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nome</label>
-                                    <input type="text" name="name" class="form-control" >
+                                    <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $profile->name }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -37,7 +36,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Adress</label>
+                                    <label class="control-label">Endereço</label>
                                     <input type="text" name="address" class="form-control" id="address">
                                 </div>
                             </div>
@@ -46,7 +45,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">City</label>
+                                    <label class="control-label">Cidde</label>
                                     <input type="text" class="form-control" name="city" id="city">
                                 </div>
                             </div>
@@ -62,37 +61,15 @@
                                     <input type="text" class="form-control" name=complement id="complement">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>About Me</label>
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                        <textarea class="form-control" rows="5"></textarea>
-                                    </div>
+                                    <i class="material-icons">get_app</i>
+                                    <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">País de origem</label>
-                                    <input type="text" name="country_from" id="get_code" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Cidade de origem</label>
-                                    <input type="text" name="city_from"  class="form-control" >
-                                </div>
-                            </div>
-                        </div>
-
                         <input type="text" name="ibge_number" id="ibge_number" hidden>
-                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                        <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -101,8 +78,6 @@
 
     </div>
 </div>
-
-
 @endsection
 
 @section('scripts')
