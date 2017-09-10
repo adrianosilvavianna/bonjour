@@ -17,6 +17,8 @@
                     Telefone : (41) 9999-9090 | Telefone : (41) 90909-2131
                 </p>
                 <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">Editar</a>
+
+
             </div>
         </div>
     </div>
