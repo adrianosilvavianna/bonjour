@@ -16,43 +16,43 @@
 
 
                         <div class="row ">
-                            <div class="col-md-3 {{ $errors->has('profile[name]') ? ' has-error' : '' }}">
+                            <div class="col-md-3 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nome</label>
-                                    <input type="text" name="profile[name]" class="form-control" value="{{ old('profile[name]') }}">
+                                    <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                 </div>
-                                @if ($errors->has('profile[name]'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('profile[name]') }}</strong>
+                                        <strong class="red-text">{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-3 {{ $errors->has('profile[last_name]') ? ' has-error' : '' }}">
+                            <div class="col-md-3 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Sobrenome</label>
-                                    <input type="text" name="profile[last_name]" class="form-control" value="{{ old('profile[name]') }}">
+                                    <input type="text" name="last_name" class="form-control" value="{{ old('name') }}">
                                 </div>
-                                @if ($errors->has('profile[last_name]'))
+                                @if ($errors->has('last_name'))
                                     <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('profile[last_name]') }}</strong>
+                                        <strong class="red-text">{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-3 {{ $errors->has('profile[last_name]') ? ' has-error' : '' }}">
+                            <div class="col-md-3 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Idade</label>
-                                    <input type="numeric" name="profile[age]" class="form-control" value="{{ old('profile[age]') }}">
+                                    <input type="numeric" name="age" class="form-control" value="{{ old('age') }}">
                                 </div>
-                                @if ($errors->has('profile[age]'))
+                                @if ($errors->has('age'))
                                     <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('profile[age]') }}</strong>
+                                        <strong class="red-text">{{ $errors->first('age') }}</strong>
                                     </span>
                                 @endif
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gênero</label>
-                                    <select type="text" name="profile[gender]" class="form-control">
+                                    <select type="text" name="gender" class="form-control">
                                         <option value="0">Feminino</option>
                                         <option value="1">Masculino</option>
                                     </select>
@@ -60,63 +60,12 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-3 {{ $errors->has('location[zip_code]') ? ' has-error' : '' }}">
-                                <div class="form-group label-floating ">
-                                    <label class="control-label">CEP</label>
-                                    <input type="text" name="location[zip_code]" id="zip_code" class="form-control" value="{{ old('location[zip_code]') }}">
-                                </div>
-                                @if ($errors->has('location[zip_code]'))
-                                    <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('location[zip_code]') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-7">
-                                <div class="form-group label-floating focus">
-                                    <label class="control-label">Endereço</label>
-                                    <input type="text" name="location[address]" class="form-control" id="address">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Número</label>
-                                    <input type="text" name="location[number]" class="form-control" id="address">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group label-floating focus">
-                                    <label class="control-label">Bairro</label>
-                                    <input type="text" class="form-control" name="location[district]" id="district">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group label-floating focus">
-                                    <label class="control-label">Cidade</label>
-                                    <input type="text" class="form-control" name="location[city]" id="city">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group label-floating focus">
-                                    <label class="control-label">Estado</label>
-                                    <input type="text" class="form-control" name="location[uf]" id="uf">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating focus">
-                                    <label class="control-label">Complemento</label>
-                                    <input type="text" class="form-control" name=location[complement]" id="complement">
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <i class="material-icons">get_app</i>
-                                    <input type="file" class="btn btn-primary" name="profile[photo]"/>Carregar foto...
+                                    <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
                                 </div>
                             </div>
                         </div>
