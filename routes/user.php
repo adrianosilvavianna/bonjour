@@ -1,8 +1,5 @@
 <?php
 
-
-Auth::routes();
-
 Route::get('/home', 'UserController@index')->name('home');
 
 

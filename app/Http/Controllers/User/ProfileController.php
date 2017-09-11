@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Profile;
-use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -29,7 +28,7 @@ class ProfileController extends Controller
         return view('profile.create');
     }
 
-    public function store(Request $request) {
+    public function store(ProfileRequest $request) {
 
         $this->profile->create($request->input());
 
