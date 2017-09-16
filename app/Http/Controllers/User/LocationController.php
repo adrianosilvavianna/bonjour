@@ -18,4 +18,8 @@ class LocationController extends Controller
     public function index(){
         return view('location.index');
     }
+
+    public function create(){
+        return view('location.create');
+    }
 }

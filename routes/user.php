@@ -22,3 +22,12 @@ Route::group(['prefix' => 'phone', 'as' =>'phone.'], function () {
     Route::post('/update', 'PhoneController@update')->name('update');
 
 });
+
+Route::group(['prefix' => 'location', 'as' =>'location.'], function () {
+
+    Route::get('/', 'LocationController@index')->name('index');
+    Route::get('/create', 'LocationController@create')->name('create');
+    Route::post('/store', 'LocationController@store')->name('store');
+    Route::get('/delete', 'LocationController@delete')->name('delete');
+
+});
