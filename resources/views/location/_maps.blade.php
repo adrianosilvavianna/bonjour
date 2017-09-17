@@ -53,7 +53,7 @@
     <script type="text/javascript" src="{{ asset('js/maps/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/maps/mapa.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>
-@stop
+@show
 
 </body>
 </html>

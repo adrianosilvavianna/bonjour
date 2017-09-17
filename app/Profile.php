@@ -12,4 +12,10 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getGender()
+    {
+        $this->gender == 0 ? $gender = "Masculino" : $gender = "Feminino";
+        return $gender;
+    }
 }

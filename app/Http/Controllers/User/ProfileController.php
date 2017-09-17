@@ -30,9 +30,9 @@ class ProfileController extends Controller
 
     public function store(ProfileRequest $request) {
 
-        $this->profile->create($request->input());
+        auth()->user()->Profile()->create($request->input());
 
-        return view('profile.index')->with('success', config('alert.message.success'));
+        return redirect(route('user.profile.index'));
     }
 
     public function edit(Profile $profile) {
@@ -40,11 +40,9 @@ class ProfileController extends Controller
         return view('profile.edit')->with('profile', $profile);
     }
 
-
-
     public function update(ProfileRequest $request, Profile $profile) {
         $profile->update($request->input());
-        return view('profile.edit')->with('success', config('alert.message.success'));
+        return view('profile.edit');
     }
 
     public function upload(Request $request,Profile $profile)
