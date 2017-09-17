@@ -56,7 +56,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a href="{{ route('user.index') }}">
+                    <a href="{{ route('home') }}">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
