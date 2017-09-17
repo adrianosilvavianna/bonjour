@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PhoneRequest;
 use App\Phone;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
 {
-    private $profile;
+    private $phone;
 
     public function __construct(Phone $phone)
     {
@@ -18,7 +19,7 @@ class PhoneController extends Controller
 
     public function index()
     {
-        return view('phone.index');
+        return view('phone.index', ['phones' =>  auth()->user()->Phones]);
     }
 
     public function create() {
@@ -26,7 +27,6 @@ class PhoneController extends Controller
     }
 
     public function edit(Phone $phone) {
-
         return view('phone.edit')->with('phone', $phone);
     }
 

@@ -13,14 +13,13 @@
                 <div class="card-content table-responsive">
                     <table class="table table-hover">
                         <thead>
-                        <th>ID</th>
                         <th>Telefone</th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>(41) 9 9528-5444</td>
+                                <td></td>
                             </tr>
+
                         </tbody>
                     </table>
                 </div>
