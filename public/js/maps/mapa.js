@@ -93,7 +93,7 @@ $(document).ready(function () {
 			map.setZoom(16);
 		}
 	});
-	
+
 	$("form").submit(function(event) {
 		event.preventDefault();
 		

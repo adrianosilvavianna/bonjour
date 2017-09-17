@@ -30,6 +30,11 @@
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+
+    @section('css')
+
+        @show
+
 </head>
 <body>
 
@@ -58,20 +63,20 @@
                 </li>
                 <li>
                     <a href="/">
+                        <i class="material-icons">near_me</i>
+                        <p>Solicitar Carona</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>
                 </li>
                 <li>
                     <a href="/">
-                        <i class="material-icons">content_paste</i>
+                        <i class="material-icons">map</i>
                         <p>Meus Locais</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <i class="material-icons">library_books</i>
-                        <p>Meus Destinos</p>
                     </a>
                 </li>
                 <li>

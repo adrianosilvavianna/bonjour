@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Location;
+use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
@@ -21,5 +22,10 @@ class LocationController extends Controller
 
     public function create(){
         return view('location.create');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request);
     }
 }
