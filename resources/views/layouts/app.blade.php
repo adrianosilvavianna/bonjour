@@ -56,19 +56,19 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a href="/">
+                    <a href="{{ route('user.index') }}">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="#">
                         <i class="material-icons">near_me</i>
                         <p>Solicitar Carona</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="{{ route('user.location.create')}}">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>
