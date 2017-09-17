@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Profile;
-use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -29,19 +28,21 @@ class ProfileController extends Controller
         return view('profile.create');
     }
 
+    public function store(ProfileRequest $request) {
+
+        auth()->user()->Profile()->create($request->input());
+
+        return redirect(route('user.profile.index'));
+    }
+
     public function edit(Profile $profile) {
 
         return view('profile.edit')->with('profile', $profile);
     }
 
-    public function store(ProfileRequest $request) {
-        $this->profile->create($request);
-        return view('profile.index')->with('success', config('alert.message.success'));
-    }
-
     public function update(ProfileRequest $request, Profile $profile) {
         $profile->update($request->input());
-        return view('profile.edit')->with('success', config('alert.message.success'));
+        return view('profile.edit');
     }
 
     public function upload(Request $request,Profile $profile)
@@ -50,9 +51,9 @@ class ProfileController extends Controller
 
             $path   = $request->file->store('comprovantes');
 
-            $bank->paid_at  = date('Y-m-d');
-            $bank->src_file = $path;
-            $bank->save();
+            $profile->paid_at  = date('Y-m-d');
+            $profile->src_file = $path;
+            $profile->save();
 
             return back()->with('success','Enviado');
         }

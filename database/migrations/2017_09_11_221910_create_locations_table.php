@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImmigrantsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateImmigrantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('immigrants', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('address')->index();
+            $table->string('latitude');
+            $table->string('longitude');
+
+            $table->integer('locationable_id');
+            $table->string('locationable_type');
 
             $table->timestamps();
         });
@@ -27,6 +33,6 @@ class CreateImmigrantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('immigrants');
+        Schema::dropIfExists('locations');
     }
 }

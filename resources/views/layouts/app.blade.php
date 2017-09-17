@@ -30,6 +30,11 @@
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+
+    @section('css')
+
+        @show
+
 </head>
 <body>
 
@@ -51,31 +56,31 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a href="/">
+                    <a href="{{ route('home') }}">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="#">
+                        <i class="material-icons">near_me</i>
+                        <p>Solicitar Carona</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.location.create')}}">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
-                        <i class="material-icons">content_paste</i>
+                    <a href="#">
+                        <i class="material-icons">map</i>
                         <p>Meus Locais</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
-                        <i class="material-icons">library_books</i>
-                        <p>Meus Destinos</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
+                    <a href="#">
                         <i class="material-icons">bubble_chart</i>
                         <p>Configurações</p>
                     </a>
@@ -121,15 +126,33 @@
                         </li>
                         <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">phone_android</i>
+                                <p class="hidden-lg hidden-md">Meus telefones</p>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('user.phone.index') }}">Meus telefones</a>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">person</i>
                                 <p class="hidden-lg hidden-md">Profile</p>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('user.profile.index') }}">Meu perfil</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                 </ul>
                             </a>
                         </li>
-
                     </ul>
 
                     <form class="navbar-form navbar-right" role="search">
