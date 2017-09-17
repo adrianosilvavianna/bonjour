@@ -25,8 +25,8 @@
                             <li><a href="#intro" class="active">Sobre o Projeto</a></li>
                             <li><a href="#first">Sobre a ONG</a></li>
                             <li><a href="#second">Contatos</a></li>
-                            <a href="{{ route('login') }}">Login</a>
-                            <a href="{{ route('register') }}">Register</a>
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                           <li><a href="{{ route('register') }}">Register</a></li>
                         </ul>
                     </nav>
 
