@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PhoneRequest;
-use App\Phone;
+use App\Domains\Phone;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
