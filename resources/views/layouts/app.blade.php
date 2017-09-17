@@ -74,13 +74,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="#">
                         <i class="material-icons">map</i>
                         <p>Meus Locais</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="#">
                         <i class="material-icons">bubble_chart</i>
                         <p>Configurações</p>
                     </a>
