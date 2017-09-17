@@ -40,7 +40,8 @@
 
 <div class="wrapper">
 
-    <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+  @auth
+      <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -49,7 +50,7 @@
 
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
-                Creative Tim
+                Bonjou
             </a>
         </div>
 
@@ -89,6 +90,9 @@
             </ul>
         </div>
     </div>
+
+
+
 
     <div class="main-panel">
         <nav class="navbar navbar-transparent navbar-absolute">
@@ -168,6 +172,7 @@
             </div>
         </nav>
 
+    @endauth
         <div class="content">
             @yield('content')
         </div>
