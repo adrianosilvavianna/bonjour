@@ -23,6 +23,16 @@ Route::group(['prefix' => 'phone', 'as' =>'phone.'], function () {
 
 });
 
+Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
+
+    Route::get('/', 'VehicleController@index')->name('index');
+    Route::get('/create', 'VehicleController@create')->name('create');
+    Route::post('/store', 'VehicleController@store')->name('store');
+    Route::get('/{profile}/edit', 'VehicleController@edit')->name('edit');
+    Route::post('/update', 'VehicleController@update')->name('update');
+
+});
+
 Route::group(['prefix' => 'location', 'as' =>'location.'], function () {
 
     Route::get('/', 'LocationController@index')->name('index');
