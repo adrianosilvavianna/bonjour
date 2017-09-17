@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Domains;
+namespace App;
 
+use App\Domains\Phone;
+use App\Domains\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
