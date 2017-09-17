@@ -13,7 +13,7 @@ class CreateTripsTable extends Migration
      */
     public function up()
     {
-        Schema::create('trip', function (Blueprint $table) {
+        Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
@@ -21,7 +21,7 @@ class CreateTripsTable extends Migration
 
 
             $table->integer('trip_id')->unsigned();
-            $table->foreign('trip_id')->references('id')->on('trip');
+            $table->foreign('trip_id')->references('id')->on('trips');
 
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateTripsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trip');
+        Schema::dropIfExists('trips');
     }
 }
