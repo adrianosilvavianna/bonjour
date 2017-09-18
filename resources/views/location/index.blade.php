@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{ $location->name }}</td>
                                     <td>{{ $location->txtEndereco }}</td>
-                                    <td><a href="{{ route('user.location.delete') }}"> <i class="material-icons">delete_sweep</i> </a></td>
+                                    <td><a href="{{ route('user.location.delete', $location) }}"> <i class="material-icons">delete_sweep</i> </a></td>
                                 </tr>
                             @endforeach
                             </tbody>

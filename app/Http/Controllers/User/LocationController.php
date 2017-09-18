@@ -17,7 +17,8 @@ class LocationController extends Controller
     }
 
     public function index(){
-        return view('location.index')->with('locations', auth()->user()->Location->all());
+        dd(auth()->user()->Location);
+        return view('location.index');
     }
 
     public function create(){
@@ -28,5 +29,11 @@ class LocationController extends Controller
     {
         auth()->user()->Location()->create($request->input());
         return redirect()->back()->with('success');
+    }
+
+    public function delete(Location $location)
+    {
+        $location->delete();
+        return redirect()->back();
     }
 }
