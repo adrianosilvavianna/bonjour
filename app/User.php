@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Domains\Location;
 use App\Domains\Phone;
 use App\Domains\Profile;
 use Illuminate\Notifications\Notifiable;
@@ -42,6 +43,11 @@ class User extends Authenticatable
     public function Phone()
     {
         return $this->hasMany(Phone::class);
+    }
+
+    public function Location()
+    {
+        return $this->morphOne(Location::class, 'locationable');
     }
 
 }

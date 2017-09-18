@@ -65,17 +65,23 @@
                 <li>
                     <a href="#">
                         <i class="material-icons">near_me</i>
-                        <p>Solicitar Carona</p>
+                        <p>Procurar Caronas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.location.create')}}">
+                    <a href="#">
+                        <i class="material-icons">near_me</i>
+                        <p>Oferecer Carona</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('user.location.index')}}">
                         <i class="material-icons">map</i>
                         <p>Meus Locais</p>
                     </a>

@@ -4,7 +4,7 @@
 <div id="apresentacao">
 
 
-    <form method="post" action="{{ route('user.profile.store') }}">
+    <form method="post" action="{{ route('user.location.store') }}">
 
         <fieldset>
             <div class="row">
@@ -30,7 +30,8 @@
                         </span>
                     @endif
                 </div>
-
+                <input type="hidden" id="txtLatitude" name="txtLatitude" />
+                <input type="hidden" id="txtLongitude" name="txtLongitude" />
                 <div class="col-md-1">
                     <button type="submit" class="btn btn-primary pull-right">Salvar</button>
                 </div>
@@ -38,9 +39,6 @@
             </div>
 
             <div id="mapa"></div>
-
-            <input type="hidden" id="txtLatitude" name="txtLatitude" />
-            <input type="hidden" id="txtLongitude" name="txtLongitude" />
 
         </fieldset>
     </form>
