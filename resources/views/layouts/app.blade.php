@@ -136,17 +136,6 @@
                         </li>
                         <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">phone_android</i>
-                                <p class="hidden-lg hidden-md">Meus telefones</p>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('user.phone.index') }}">Meus telefones</a>
-                                    </li>
-                                </ul>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">person</i>
                                 <p class="hidden-lg hidden-md">Profile</p>
                                 <ul class="dropdown-menu">
