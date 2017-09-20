@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -13,41 +13,43 @@
                     <form action="{{ route('user.profile.store') }}" method="post" >
 
 
-                        <div class="row ">
-                            <div class="col-md-3 {{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="col-md-12 ">
+                            <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nome</label>
                                     <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                 </div>
                                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('name') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('name') }}</strong>
+                                </span>
                                 @endif
                             </div>
-                            <div class="col-md-3 {{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Sobrenome</label>
                                     <input type="text" name="last_name" class="form-control" value="{{ old('name') }}">
                                 </div>
                                 @if ($errors->has('last_name'))
-                                    <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('last_name') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('last_name') }}</strong>
+                                </span>
                                 @endif
                             </div>
-                            <div class="col-md-3 {{ $errors->has('last_name') ? ' has-error' : '' }}">
+                        </div>
+                        <div class="cold-md-12">
+                            <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Idade</label>
                                     <input type="numeric" name="age" class="form-control" value="{{ old('age') }}">
                                 </div>
                                 @if ($errors->has('age'))
-                                    <span class="help-block">
-                                        <strong class="red-text">{{ $errors->first('age') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('age') }}</strong>
+                                </span>
                                 @endif
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gênero</label>
                                     <select type="text" name="gender" class="form-control">
@@ -57,15 +59,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div class="col-md-6 {{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Telefone</label>
+                                    <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
+                                </div>
+                                @if ($errors->has('phone'))
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('phone') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Sobre mim</label>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Escreva um pouco sobre você...</label>
+                                        <textarea class="form-control" name="about" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
                                 <div class="form-group">
                                     <i class="material-icons">get_app</i>
                                     <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -78,4 +102,4 @@
 
 @section('scripts')
 
-    @show
+@show
