@@ -50,4 +50,8 @@ class User extends Authenticatable
         return $this->morphOne(Location::class, 'locationable');
     }
 
+    public function Vehicle()
+    {
+        return $this->hasMany(Vehicle::class);
+    }
 }

@@ -63,6 +63,13 @@
                     </a>
                 </li>
                 <li>
+                <li>
+                    <a href="{{route('user.vehicle.index') }}">
+                        <i class="material-icons">directions_car</i>
+                        <p>Cadastrar Veículo</p>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <i class="material-icons">near_me</i>
                         <p>Procurar Caronas</p>
