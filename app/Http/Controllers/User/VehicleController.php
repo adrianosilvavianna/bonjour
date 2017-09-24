@@ -19,7 +19,7 @@ class VehicleController extends Controller
     }
 
     public function index(){
-        return view('vehicle.index');
+        return view('vehicle.index')->with('vehicles', auth()->user()->Vehicle);
     }
 
     public function create() {
@@ -29,9 +29,11 @@ class VehicleController extends Controller
     public function edit(Vehicle $vehicle) {
         return view('vehicle.edit', compact('vehicle'));
     }
-
+    
     public function store(VehicleRequest $request) {
-        $this->vehicle->create($request->input());
+        auth()->user()->Vehicle()->create($request->input());
+
+        return redirect(route('user.vehicle.index'));
     }
 
     public function update(VehicleRequest $request, Vehicle $vehicle) {

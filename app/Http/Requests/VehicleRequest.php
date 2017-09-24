@@ -21,8 +21,8 @@ class VehicleRequest extends FormRequest
         return [
              'model' => 'required|string|max:40',
              'color' => 'required|string|max:40',
-             'plaque' => 'require|string',
-             'year' => 'require|string',
+             'plaque' => 'required|string',
+             'year' => 'required|string',
              'brand' => 'required',
              'num_passenger' => 'required',
         ];
