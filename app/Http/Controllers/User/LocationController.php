@@ -17,7 +17,7 @@ class LocationController extends Controller
     }
 
     public function index(){
-        dd(auth()->user()->Location);
+
         return view('location.index');
     }
 
