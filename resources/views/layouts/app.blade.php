@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.trip.create') }}">
+                    <a href="{{route('user.trip.index') }}">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>

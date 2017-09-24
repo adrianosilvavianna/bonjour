@@ -1,29 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-        <div class="card card-profile">
-            <div class="card-avatar">
-                <a href="#"  >
-                    <img class="img" id="my_photo" src="{{ asset('assets/img/faces/marc.jpg') }}" title="alterar imagem">
-                </a>
-            </div>
-            <div class="content">
-                <h6 class="category text-gray">...</h6>
-                <h4 class="card-title">{{ $profile->name }} {{ $profile->last_name }}</h4>
-                <p class="card-content">
-                    Idade : {{ $profile->age }} | Genero : {{ $profile->getGender() }}<br>
-
-                </p>
-                <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">Editar</a>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <h4 class="title">Minhas viagens</h4>
+                    <p class="category">Visualize suas últimas viagens</p>
+                </div>
+                <div class="card-content">
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <th>ID</th>
+                            <th>Destino da viagem</th>
+                            <th>Data</th>
+                            <th>Caroneiro</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Campo Largo</td>
+                                    <td>24/01/2017</td>
+                                    <td>Christian</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>São Paulo</td>
+                                    <td>14/09/2017</td>
+                                    <td>Adriano</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-    </div>
+</div>
 @endsection
 
 @section('scripts')

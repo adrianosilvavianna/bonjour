@@ -31,14 +31,12 @@
                                     <td>14/09/2017</td>
                                     <td>Adriano</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
