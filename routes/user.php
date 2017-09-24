@@ -28,8 +28,9 @@ Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
     Route::get('/',                 'VehicleController@index')->name('index');
     Route::get('/create',           'VehicleController@create')->name('create');
     Route::post('/store',           'VehicleController@store')->name('store');
-    Route::get('/{profile}/edit',   'VehicleController@edit')->name('edit');
-    Route::post('/update',          'VehicleController@update')->name('update');
+    Route::get('/{vehicle}/edit',   'VehicleController@edit')->name('edit');
+    Route::post('/{vehicle}/update',          'VehicleController@update')->name('update');
+    Route::post('/{vehicle}/delete',          'VehicleController@delete')->name('delete');
 
 });
 

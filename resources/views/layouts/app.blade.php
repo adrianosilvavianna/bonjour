@@ -64,7 +64,7 @@
                 </li>
                 <li>
                 <li>
-                    <a href="{{route('user.vehicle.ibdex') }}">
+                    <a href="{{route('user.vehicle.index') }}">
                         <i class="material-icons">directions_car</i>
                         <p>Meus veículos</p>
                     </a>

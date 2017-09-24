@@ -19,6 +19,7 @@
                             <th>Placa</th>
                             <th>Cor</th>
                             <th>Nº de passageiros</th>
+                            <th>Ações</th>
                             </thead>
                             <tbody>
                                 @foreach($vehicles as $vehicle)
@@ -29,6 +30,14 @@
                                     <td>{{ $vehicle->plaque }}</td>
                                     <td>{{ $vehicle->color }}</td>
                                     <td>{{ $vehicle->num_passenger }}</td>
+                                    <td>
+                                        <a href="{{ route('user.vehicle.edit', $vehicle) }}">
+                                            <i class="material-icons">border_color</i>
+                                        </a>
+                                        <a href="{{ route('user.vehicle.delete', $vehicle) }}">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
