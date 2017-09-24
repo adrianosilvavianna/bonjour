@@ -35,13 +35,14 @@ class ProfileController extends Controller
     }
 
     public function edit(Profile $profile) {
-
+        
         return view('profile.edit')->with('profile', $profile);
     }
 
     public function update(ProfileRequest $request, Profile $profile) {
-        $profile->update($request->input());
-        return view('profile.edit');
+        
+        $profile = $profile->update($request->input());
+       return redirect(route('user.profile.index'));
     }
 
     public function upload(Request $request,Profile $profile)

@@ -9,7 +9,7 @@ Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
     Route::get('/create',           'ProfileController@create')->name('create');
     Route::post('/store',           'ProfileController@store')->name('store');
     Route::get('/{profile}/edit',   'ProfileController@edit')->name('edit');
-    Route::post('/update',          'ProfileController@update')->name('update');
+    Route::post('/{profile}/update',          'ProfileController@update')->name('update');
 
 });
 

@@ -12,7 +12,7 @@
                     <p class="category">Edite o seu perfil...</p>
                 </div>
                 <div class="card-content">
-                    <form action="{{ route('user.profile.update') }}" method="post" >
+                    <form action="{{ route('user.profile.update', $profile) }}" method="post" >
                         
                         <div class="col-md-12 ">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -77,7 +77,7 @@
                                     <label>Sobre mim</label>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about" value="{{ $profile->age }}" rows="5"></textarea>
+                                        <textarea class="form-control" name="about" rows="5">{{ $profile->about }}</textarea>
                                     </div>
                                 </div>
                             </div>
