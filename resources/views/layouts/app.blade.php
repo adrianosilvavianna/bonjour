@@ -89,7 +89,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="material-icons">bubble_chart</i>
+                        <i class="material-icons">settings</i>
                         <p>Configurações</p>
                     </a>
                 </li>
