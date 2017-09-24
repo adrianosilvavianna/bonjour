@@ -34,6 +34,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <a href="{{ route('user.vehicle.create') }}">
+                        <i class="material-icons">directions_car</i> Cadastrar um veículo
+                    </a>
                 </div>
             </div>
         </div>
