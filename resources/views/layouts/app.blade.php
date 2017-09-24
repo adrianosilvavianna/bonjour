@@ -97,7 +97,7 @@
             </ul>
         </div>
     </div>
-    
+
 
     <div class="main-panel">
         <nav class="navbar navbar-transparent navbar-absolute">

@@ -17,7 +17,6 @@
 <body>
 
 <div id="apresentacao">
-
     <h1>Google Maps API </h1>
 
     <form method="post" action="index.html">

@@ -11,6 +11,7 @@
                     </div>
                     <div class="card-content">
                         @include('location._maps')
+
                     </div>
                 </div>
             </div>

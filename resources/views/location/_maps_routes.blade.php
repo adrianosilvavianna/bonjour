@@ -10,7 +10,6 @@
 <div id="site">
 
     <h1>Google Maps API v3: Criando rotas</h1>
-
     <form method="post" action="index.html">
         <fieldset>
             <legend>Criar rotas</legend>
