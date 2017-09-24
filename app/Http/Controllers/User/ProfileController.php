@@ -61,5 +61,4 @@ class ProfileController extends Controller
         return back()->with('errors', 'Arquivo Invalido');
 
     }
-
 }

@@ -64,7 +64,7 @@
                 </li>
                 <li>
                 <li>
-                    <a href="{{route('user.vehicle.index') }}">
+                    <a href="{{route('user.vehicle.create') }}">
                         <i class="material-icons">directions_car</i>
                         <p>Cadastrar Veículo</p>
                     </a>
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('user.trip.create') }}">
                         <i class="material-icons">person</i>
                         <p>Minhas Viagens</p>
                     </a>
