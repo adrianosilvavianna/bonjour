@@ -25,9 +25,10 @@ class VehicleController extends Controller
     public function create() {
         return view('vehicle.create');
     }
-
+    
     public function edit(Vehicle $vehicle) {
-        return view('vehicle.edit', compact('vehicle'));
+        
+        return view('vehicle.edit')->with('vehicle', $vehicle);
     }
     
     public function store(VehicleRequest $request) {
@@ -35,13 +36,15 @@ class VehicleController extends Controller
 
         return redirect(route('user.vehicle.index'));
     }
-
+    
     public function update(VehicleRequest $request, Vehicle $vehicle) {
-        $vehicle->update($request->input());
-        return redirect()->back()->with('vehicle', $vehicle);
+        
+        $vehicle = $vehicle->update($request->input());
+       return redirect(route('user.vehicle.index'));
     }
 
     public function delete(Vehicle $vehicle) {
-        $vehicle->delete();
+        $vehicle->forceDelete();
+        return redirect(route('user.vehicle.index'));
     }
 }

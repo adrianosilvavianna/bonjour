@@ -64,9 +64,9 @@
                 </li>
                 <li>
                 <li>
-                    <a href="{{route('user.vehicle.create') }}">
+                    <a href="{{route('user.vehicle.index') }}">
                         <i class="material-icons">directions_car</i>
-                        <p>Cadastrar Veículo</p>
+                        <p>Meus veículos</p>
                     </a>
                 </li>
                 <li>

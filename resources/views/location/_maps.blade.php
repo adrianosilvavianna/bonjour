@@ -22,7 +22,7 @@
 
                 <div class="col-md-7 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group label-floating ">
-                        <input type="text" id="txtEnderecoPartida" name="txtEnderecoPartida" placeholder=" Rua, n° - Cidade - Estado"/>
+                        <input type="text" class="form-control" id="txtEnderecoPartida" name="txtEnderecoPartida" placeholder=" Rua, n° - Cidade - Estado"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     @if ($errors->has('txtEndereco'))
@@ -34,7 +34,7 @@
 
                 <div class="col-md-7 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group label-floating ">
-                        <input type="text" id="txtEnderecoChegada" name="txtEnderecoChegada" placeholder=" Rua, n° - Cidade - Estado"/>
+                        <input type="text" class="form-control" id="txtEnderecoChegada" name="txtEnderecoChegada" placeholder=" Rua, n° - Cidade - Estado"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     @if ($errors->has('txtEndereco'))
@@ -47,10 +47,7 @@
 
                 <input type="hidden" id="txtLatitude" name="txtLatitude" />
                 <input type="hidden" id="txtLongitude" name="txtLongitude" />
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-                </div>
-                <input type="submit" id="btnEnviar" name="btnEnviar" value="Enviar" />
+                <input type="submit"id="btnEnviar" class="btn btn-primary" name="btnEnviar" value="Enviar" />
             </div>
 
             <div id="mapa"></div>
