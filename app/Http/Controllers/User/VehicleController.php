@@ -44,6 +44,7 @@ class VehicleController extends Controller
     }
 
     public function delete(Vehicle $vehicle) {
-        $vehicle->delete();
+        $vehicle->forceDelete();
+        return redirect(route('user.vehicle.index'));
     }
 }

@@ -30,7 +30,7 @@ Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
     Route::post('/store',           'VehicleController@store')->name('store');
     Route::get('/{vehicle}/edit',   'VehicleController@edit')->name('edit');
     Route::post('/{vehicle}/update',          'VehicleController@update')->name('update');
-    Route::post('/{vehicle}/delete',          'VehicleController@delete')->name('delete');
+    Route::get('/{vehicle}/delete',          'VehicleController@delete')->name('delete');
 
 });
 
