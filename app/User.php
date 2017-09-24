@@ -5,6 +5,7 @@ namespace App;
 use App\Domains\Location;
 use App\Domains\Phone;
 use App\Domains\Profile;
+use App\Domains\Vehicle;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
