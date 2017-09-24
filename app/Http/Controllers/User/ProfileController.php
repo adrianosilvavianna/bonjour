@@ -29,7 +29,6 @@ class ProfileController extends Controller
     }
 
     public function store(ProfileRequest $request) {
-
         auth()->user()->Profile()->create($request->input());
 
         return redirect(route('user.profile.index'));

@@ -8,74 +8,94 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-background-color="purple">
-                    <h4 class="title">Edit Profile</h4>
-                    <p class="category">Complete your profile</p>
+                    <h4 class="title">Editar perfil</h4>
+                    <p class="category">Edite o seu perfil...</p>
                 </div>
                 <div class="card-content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
+                    <form action="{{ route('user.profile.update') }}" method="post" >
+                        
+                        <div class="col-md-12 ">
+                            <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $profile->name }}">
+                                    <label class="control-label">Nome</label>
+                                    <input type="text" name="name" class="form-control" value="{{ $profile->name }}">
                                 </div>
+                                @if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('name') }}</strong>
+                                </span>
+                                @endif
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Sobrenome</label>
-                                    <input type="text" name="last_name" class="form-control" >
+                                    <input type="text" name="last_name" class="form-control" value="{{ $profile->last_name }}">
+                                </div>
+                                @if ($errors->has('last_name'))
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('last_name') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="cold-md-12">
+                            <div class="col-md-6 {{ $errors->has('age') ? ' has-error' : '' }}">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Idade</label>
+                                    <input type="numeric" name="age" class="form-control" value="{{ $profile->age }}">
+                                </div>
+                                @if ($errors->has('age'))
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('age') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Gênero</label>
+                                    <select type="text" name="gender" class="form-control">
+                                        <option value="0">Feminino</option>
+                                        <option value="1">Masculino</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div class="col-md-6 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">CEP</label>
-                                    <input type="text" name="zip_code" id="get_code" class="form-control" >
+                                    <label class="control-label">Telefone</label>
+                                    <input type="text" name="phone" class="form-control" value="{{ $profile->phone }}">
                                 </div>
+                                @if ($errors->has('phone'))
+                                <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('phone') }}</strong>
+                                </span>
+                                @endif
                             </div>
-                            <div class="col-md-8">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Endereço</label>
-                                    <input type="text" name="address" class="form-control" id="address">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Sobre mim</label>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Escreva um pouco sobre você...</label>
+                                        <textarea class="form-control" name="about" value="{{ $profile->age }}" rows="5"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Cidde</label>
-                                    <input type="text" class="form-control" name="city" id="city">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Estado</label>
-                                    <input type="text" class="form-control" name="uf" id="uf">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Complemento</label>
-                                    <input type="text" class="form-control" name=complement id="complement">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div>
                                 <div class="form-group">
                                     <i class="material-icons">get_app</i>
                                     <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         </div>
-                        <input type="text" name="ibge_number" id="ibge_number" hidden>
-                        <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
