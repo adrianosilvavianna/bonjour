@@ -39,8 +39,8 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::get('/',                 'TripController@index')->name('index');
     Route::get('/create',           'TripController@create')->name('create');
     Route::post('/store',           'TripController@store')->name('store');
-    Route::get('/{profile}/edit',   'TripController@edit')->name('edit');
-    Route::post('/update',          'TripController@update')->name('update');
+    Route::get('/{trip}/edit',   'TripController@edit')->name('edit');
+    Route::post('/{trip}/update',          'TripController@update')->name('update');
 
 });
 

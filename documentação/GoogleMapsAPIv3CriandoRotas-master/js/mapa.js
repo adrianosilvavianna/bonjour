@@ -4,7 +4,7 @@ var directionsService = new google.maps.DirectionsService();
 
 function initialize() {	
 	directionsDisplay = new google.maps.DirectionsRenderer();
-	var latlng = new google.maps.LatLng(-25.427778, -49.273046);
+	var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
 	
     var options = {
         zoom: 5,

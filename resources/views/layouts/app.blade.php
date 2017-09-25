@@ -70,21 +70,21 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.trip.index') }}">
+                    <a href="{{ route('user.trip.create')}}">
                         <i class="material-icons">near_me</i>
                         <p>Procurar Caronas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.trip.index') }}">
+                    <a href="#">
                         <i class="material-icons">near_me</i>
                         <p>Oferecer Carona</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.location.index')}}">
+                    <a href="{{route('user.trip.index') }}">
                         <i class="material-icons">map</i>
-                        <p>Meus Locais</p>
+                        <p>Minhas Viagens</p>
                     </a>
                 </li>
                 <li>

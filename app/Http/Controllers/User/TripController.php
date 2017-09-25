@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
@@ -14,47 +15,31 @@ class TripController extends Controller
     
     public function index()
     {
-        if(auth()->User()->Profile){
-            return view('trip.index')->with('trip', auth()->user()->Profile);
-        }
-        return view('trip.create');
+        return view('trip.index');
     }
 
     public function create() {
         return view('trip.create');
     }
 
-    public function store(ProfileRequest $request) {
-
-        auth()->user()->Profile()->create($request->input());
-
-        return redirect(route('user.trip.index'));
+    public function store(Request $request) {
+        dd($request->input());
     }
 
-    public function edit(Profile $trip) {
-
-        return view('trip.edit')->with('trip', $trip);
-    }
-
-    public function update(ProfileRequest $request, Trip $trip) {
-        $trip->update($request->input());
+    public function edit() {
         return view('trip.edit');
     }
 
-    public function upload(Request $request,Trip $trip)
+    public function update() {
+
+    }
+
+    public function upload()
     {
-        if ($request->file->isValid()) {
 
-            $path   = $request->file->store('comprovantes');
+    }
 
-            $trip->paid_at  = date('Y-m-d');
-            $trip->src_file = $path;
-            $trip->save();
-
-            return back()->with('success','Enviado');
-        }
-
-        return back()->with('errors', 'Arquivo Invalido');
+    public function delete(){
 
     }
 }

@@ -4,7 +4,7 @@ var marker;
 
 
 function initialize() {
-	var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
+	var latlng = new google.maps.LatLng(-25.427778, -49.273046);
 	var options = {
 		zoom: 5,
 		center: latlng,

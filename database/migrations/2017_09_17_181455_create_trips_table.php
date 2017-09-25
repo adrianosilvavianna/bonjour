@@ -16,12 +16,13 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('exit_address');
+            $table->string('arrival_address');
+            $table->date('date');
+            $table->time('time');
+
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-
-
-            $table->integer('trip_id')->unsigned();
-            $table->foreign('trip_id')->references('id')->on('trips');
 
             $table->timestamps();
         });
