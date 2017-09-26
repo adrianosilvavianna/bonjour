@@ -13,13 +13,13 @@
                     <div class="card-content table-responsive">
                         <table class="table table-hover">
                             <thead>
-                            <th>ID</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Placa</th>
-                            <th>Cor</th>
-                            <th>Nº de passageiros</th>
-                            <th>Ações</th>
+                                <th><b>ID</b></th>
+                                <th><b>MARCA</b></th>
+                                <th><b>MODELO</b></th>
+                                <th><b>PLACA</b></th>
+                                <th><b>COR</b></th>
+                                <th><b>Nº DE PASSAGEIROS</b></th>
+                                <th><b>AÇÕES</b></th>
                             </thead>
                             <tbody>
                                 @foreach($vehicles as $vehicle)
@@ -44,7 +44,7 @@
                         </table>
                     </div>
                     <a href="{{ route('user.vehicle.create') }}">
-                        <i class="material-icons">directions_car</i> Cadastrar um veículo
+                        <i class="material-icons">directions_car</i> Cadastrar um veículo...
                     </a>
                 </div>
             </div>

@@ -6,33 +6,41 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-background-color="purple">
-                    <h4 class="title">Minhas viagens</h4>
-                    <p class="category">Visualize suas últimas viagens</p>
+                    <h4 class="title">Minha viagem</h4>
+                    <p class="category">Visualize sua viagem</p>
                 </div>
                 <div class="card-content">
-                    <div class="card-content table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                            <th>ID</th>
-                            <th>Destino da viagem</th>
-                            <th>Data</th>
-                            <th>Caroneiro</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Campo Largo</td>
-                                    <td>24/01/2017</td>
-                                    <td>Christian</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>São Paulo</td>
-                                    <td>14/09/2017</td>
-                                    <td>Adriano</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <h4 class="card-title text-gray">Nome</h4>
+                            <p class="card-content">
+                                Matheus Afornali
+                            </p>
+                            <h4 class="card-title text-gray">Idade</h4>
+                            <p class="card-content">
+                                23 anos
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="card-title text-gray">Origem</h4>
+                            <p class="card-content">
+                                Rua João Florindo Zanetti, nº 164 - Campo Largo
+                            </p>
+                            <h4 class="card-title text-gray">Destino</h4>
+                            <p class="card-content">
+                                Rua Jacarezinho, nº 1691 - Curitiba
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="card-title text-gray">Data</h4>
+                            <p class="card-content">
+                                26/10/2017
+                            </p>
+                            <h4 class="card-title text-gray">Hora</h4>
+                            <p class="card-content">
+                                17:30:00
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.trip.create')}}">
+                    <a href="{{ route('user.trip.index')}}">
                         <i class="material-icons">near_me</i>
                         <p>Procurar Caronas</p>
                     </a>
