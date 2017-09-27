@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Hyperspace by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -9,51 +9,89 @@
 	.features {
 		@include vendor('display', 'flex');
 		@include vendor('flex-wrap', 'wrap');
-		@include vendor('justify-content', 'center');
-		width: calc(100% + #{_size(element-margin)});
-		margin: 0 0 (_size(element-margin) * 1.5) (_size(element-margin) * -1);
-		padding: 0;
-		list-style: none;
+		border-radius: _size(border-radius);
+		border: solid 1px _palette(border);
+		background: _palette(border-bg);
+		margin: 0 0 _size(element-margin) 0;
 
-		li {
-			width: calc(#{(100% / 3)} - #{_size(element-margin)});
-			margin-left: _size(element-margin);
-			margin-top: (_size(element-margin) * 1.5);
-			padding: 0;
+		section {
+			@include padding(3em, 3em, (0.5em, 0, 0, 4em));
+			width: 50%;
+			border-top: solid 1px _palette(border);
+			position: relative;
 
-			&:nth-child(1),
-			&:nth-child(2),
-			&:nth-child(3) {
-				margin-top: 0;
+			&:nth-child(-n + 2) {
+				border-top-width: 0;
 			}
 
-			> :last-child {
-				margin-bottom: 0;
+			&:nth-child(2n) {
+				border-left: solid 1px _palette(border);
+			}
+
+			.icon {
+				@include vendor('transition', (
+					'opacity #{_duration(activation) * 0.5} ease',
+					'transform #{_duration(activation) * 0.5} ease'
+				));
+				@include vendor('transition-delay', '1s');
+				@include vendor('transform', 'scale(1)');
+				position: absolute;
+				left: 3em;
+				top: 3em;
+				opacity: 1;
+			}
+
+			@for $i from 1 through _misc(max-features) {
+				&:nth-child(#{$i}) {
+					.icon {
+						@include vendor('transition-delay', '#{(_duration(transition) * 0.75 * $i)}');
+					}
+				}
+			}
+		}
+
+		&.inactive {
+			section {
+				.icon {
+					@include vendor('transform', 'scale(0.5)');
+					opacity: 0;
+				}
 			}
 		}
 
 		@include breakpoint(medium) {
-			li {
-				width: calc(#{(100% / 2)} - #{_size(element-margin)});
+			display: block;
 
-				&:nth-child(3) {
-					margin-top: (_size(element-margin) * 1.5);
+			section {
+				border-top-width: 1px !important;
+				border-left-width: 0 !important;
+				width: 100%;
+
+				&:first-child {
+					border-top-width: 0 !important;
 				}
 			}
 		}
 
 		@include breakpoint(small) {
-			width: 100%;
-			margin: 0 0 _size(element-margin) 0;
+			section {
+				@include padding(2em, 1.5em, (0.5em, 0, 0, 4em));
 
-			li {
-				width: 100%;
-				margin-left: 0;
-				margin-top: _size(element-margin);
+				.icon {
+					left: 1.5em;
+					top: 2em;
+				}
+			}
+		}
 
-				&:nth-child(2),
-				&:nth-child(3) {
-					margin-top: _size(element-margin);
+		@include breakpoint(xsmall) {
+			section {
+				@include padding(2em, 1.5em, (0, 0, 0, 0));
+
+				.icon {
+					left: 0;
+					position: relative;
+					top: 0;
 				}
 			}
 		}

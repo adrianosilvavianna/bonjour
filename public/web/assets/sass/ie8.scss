@@ -1,83 +1,59 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/skel';
+@import 'libs/_vars';
+@import 'libs/_functions';
+@import 'libs/_mixins';
+@import 'libs/_skel';
 
 /*
-	Stellar by HTML5 UP
+	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 /* Type */
 
-	body {
+	body, input, select, textarea {
 		color: _palette(fg-bold);
 	}
 
 /* Button */
 
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
 	.button {
 		position: relative;
-		border: solid 1px !important;
 
-		&.special {
-			border: none !important;
-		}
-	}
-
-/* Icon */
-
-	.icon {
-		&.major {
-			-ms-behavior: url('assets/js/ie/PIE.htc');
-
-			&:before {
-				font-size: 4em;
-				border: 0;
-			}
-		}
-	}
-
-/* Spotlight */
-
-	.spotlight {
-		.image {
-			position: relative;
-			-ms-behavior: url('assets/js/ie/PIE.htc');
-
-			img {
-				position: relative;
-				-ms-behavior: url('assets/js/ie/PIE.htc');
-			}
+		&:after {
+			display: none;
 		}
 	}
 
 /* Features */
 
 	.features {
-		li {
-			width: 29%;
-		}
+		border: solid 1px;
 	}
 
-/* Footer */
+/* Form */
 
-	#footer {
-		> * {
-			width: 50%;
-			margin-left: 0;
-		}
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	select,
+	textarea {
+		background: transparent;
+		border: solid 1px;
 	}
 
-/* Main */
+/* Split */
 
-	#main {
-		> .main {
-			> .image.main:first-child {
-				margin-top: 0;
-				margin-left: 0;
-				width: 100%;
+	.split {
+		&.style1 {
+			> :first-child {
+				padding-right: 2em;
+				width: 70%;
 			}
 		}
 	}

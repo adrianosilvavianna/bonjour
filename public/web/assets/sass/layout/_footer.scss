@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Hyperspace by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -7,54 +7,32 @@
 /* Footer */
 
 	#footer {
-		@include vendor('display', 'flex');
-		@include vendor('flex-wrap', 'wrap');
-		@include padding(5em, 5em);
-		width: calc(100% + #{_size(element-margin)});
-		margin: 0 0 (_size(element-margin) * 1.5) (_size(element-margin) * -1);
+		#sidebar + #wrapper + & {
+			margin-left: _size(sidebar-width);
 
-		> * {
-			width: calc(50% - #{_size(element-margin)});
-			margin-left: _size(element-margin);
-		}
-
-		.copyright {
-			width: 100%;
-			margin: (_size(element-margin) * 1.25) 0 _size(element-margin) 0;
-			font-size: 0.8em;
-			text-align: center;
-		}
-
-		@include breakpoint(large) {
-			@include padding(4em, 4em);
-		}
-
-		@include breakpoint(medium) {
-			@include padding(4em, 3em);
-			display: block;
-			margin: 0 0 (_size(element-margin) * 1.5) 0;
-			width: 100%;
-
-			> * {
-				width: 100%;
+			@include breakpoint(large) {
 				margin-left: 0;
-				margin-bottom: (_size(element-margin) * 1.5);
-			}
-
-			.copyright {
-				text-align: left;
 			}
 		}
 
-		@include breakpoint(small) {
-			@include padding(3em, 2em);
+		> .inner {
+			a {
+				border-bottom-color: _palette(border);
+
+				&:hover {
+					border-bottom-color: transparent;
+				}
+			}
+
+			.menu {
+				font-size: 0.8em;
+				color: _palette(border);
+			}
 		}
 
-		@include breakpoint(xsmall) {
-			@include padding(3em, 1.5em);
-		}
-
-		@include breakpoint(xsmall) {
-			@include padding(2.5em, 1em);
+		#header + #wrapper + & {
+			> .inner {
+				margin: 0 auto;
+			}
 		}
 	}

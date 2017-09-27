@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Hyperspace by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -30,7 +30,7 @@
 			padding-left: 0;
 
 			li {
-				border-top: solid 1px;
+				border-top: solid _size(border-width) _palette(border);
 				padding: 0.5em 0;
 
 				&:first-child {
@@ -47,10 +47,19 @@
 
 			li {
 				display: inline-block;
-				padding: 0 0.65em 0 0;
+				padding: 0 0.75em 0 0;
 
 				&:last-child {
-					padding-right: 0 !important;
+					padding-right: 0;
+				}
+
+				> a, > span {
+					border: 0;
+					@include icon;
+
+					.label {
+						display: none;
+					}
 				}
 			}
 		}
@@ -136,13 +145,23 @@
 					text-align: center;
 					width: 100%;
 
-					&:first-child {
-						padding-top: 0;
-					}
-
 					> * {
 						width: 100%;
 						margin: 0 !important;
+
+						&.icon {
+							&:before {
+								margin-left: -2em;
+							}
+						}
+					}
+
+					.button {
+						padding: 0;
+					}
+
+					&:first-child {
+						padding-top: 0;
 					}
 				}
 
@@ -154,6 +173,49 @@
 							padding-top: 0;
 						}
 					}
+				}
+			}
+		}
+
+		&.contact {
+			list-style: none;
+			padding: 0;
+
+			> li {
+				padding: 0;
+				margin: 1.5em 0 0 0;
+
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&.menu {
+			list-style: none;
+			padding: 0;
+
+			> li {
+				border-left: solid 1px _palette(border);
+				display: inline-block;
+				line-height: 1;
+				margin-left: 1.5em;
+				padding: 0 0 0 1.5em;
+
+				&:first-child {
+					border-left: 0;
+					margin: 0;
+					padding-left: 0;
+				}
+			}
+
+			@include breakpoint(xsmall) {
+				> li {
+					border-left: 0;
+					display: block;
+					line-height: inherit;
+					margin: 0.5em 0 0 0;
+					padding-left: 0;
 				}
 			}
 		}
@@ -171,42 +233,4 @@
 		dd {
 			margin-left: _size(element-margin);
 		}
-
-		&.alt {
-			dt {
-				display: block;
-				width: 3em;
-				margin: 0;
-				clear: left;
-				float: left;
-			}
-
-			dd {
-				margin: 0 0 0.85em 5.5em;
-			}
-
-			&:after {
-				content: '';
-				display: block;
-				clear: both;
-			}
-		}
 	}
-
-	@mixin color-list($p: null) {
-		ul {
-			&.alt {
-				li {
-					border-top-color: _palette($p, border);
-				}
-			}
-		}
-
-		dl {
-			dt {
-				color: _palette($p, fg-bold);
-			}
-		}
-	}
-
-	@include color-list;

@@ -1,62 +1,88 @@
 /*
-	Stellar by HTML5 UP
+	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Spotlight */
+/* Type */
 
-	.spotlight:after {
-		content: '';
-		display: block;
-		clear: both;
+	h1.major:after {
+		background: #b74e91;
 	}
 
-	.spotlight .content {
-		float: left;
-		width: 60%;
+/* Wrapper */
+
+	.wrapper.fullscreen {
+		min-height: 0;
+		padding-bottom: 6em;
+		padding-top: 6em;
 	}
 
-	.spotlight .image {
-		float: left;
+		body.is-ie .wrapper.fullscreen {
+			height: auto;
+		}
+
+/* Spotlights */
+
+	.spotlights > section {
+		padding-left: 20em;
+		position: relative;
 	}
+
+		.spotlights > section > .image {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 20em;
+		}
+
+		.spotlights > section > .content {
+			width: 100%;
+		}
 
 /* Features */
 
 	.features:after {
+		clear: both;
 		content: '';
 		display: block;
-		clear: both;
 	}
 
-	.features li {
+	.features section {
 		float: left;
 	}
 
-/* Statistics */
+/* Split */
 
-	.statistics {
-		display: inline-block;
-		width: auto;
+	.split:after {
+		clear: both;
+		content: '';
+		display: block;
 	}
 
-		.statistics:after {
-			content: '';
-			display: block;
-			clear: both;
-		}
-
-		.statistics li {
-			float: left;
-			padding: 1.5em 2.5em;
-		}
-
-/* Footer */
-
-	#footer > * {
+	.split > * {
 		float: left;
 	}
 
-	#footer .copyright {
+/* Sidebar */
+
+	#sidebar nav a:after {
+		background-color: #b74e91;
+	}
+
+/* Header */
+
+	#header:after {
 		clear: both;
+		content: '';
+		display: block;
+	}
+
+	#header > .title {
+		float: left;
+	}
+
+	#header > nav {
+		float: right;
 	}

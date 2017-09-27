@@ -1,176 +1,213 @@
 <!DOCTYPE HTML>
 <!--
-    Stellar by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <title>Bonjou</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="{{ asset('web/assets/css/main.css') }}" />
-        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    </head>
-    <body>
+	<head>
+		<title>Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]>
+		<script src="{{ asset('web/assets/js/ie/html5shiv.js') }}"></script><![endif]-->
+		<link rel="stylesheet" href="{{ asset('web/assets/css/main.css') }}" />
+		<!--[if lte IE 9]>
+		<link rel="stylesheet" href="{{ asset('web/assets/css/ie9.css')}}"/><![endif]-->
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="{{ asset('web/assets/css/ie8.css')}}"/><![endif]-->
+	</head>
+	<body>
 
-        <!-- Wrapper -->
-            <div id="wrapper">
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Who we are</a></li>
+							<li><a href="#two">What we do</a></li>
+							<li><a href="#three">Get in touch</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
 
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="#intro" class="active">Sobre o Projeto</a></li>
-                            <li><a href="#first">Sobre a ONG</a></li>
-                            <li><a href="#second">Contatos</a></li>
-                            <li><a href="{{ route('register') }}">Registrar</a></li>
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                        </ul>
-                    </nav>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-                <!-- Main -->
-                    <div id="main">
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>Hyperspace</h1>
+							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
+							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
 
-                        <!-- Introduction -->
-                            <section id="intro" class="main">
-                                <div class="spotlight">
-                                    <div class="content">
-                                        <header class="major">
-                                            <h2>Sobre o Projeto</h2>
-                                        </header>
-                                        <p>Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-                                        adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
-                                        Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
-                                        <ul class="actions">
-                                            <li><a href="generic.html" class="button">Learn More</a></li>
-                                        </ul>
-                                    </div>
-                                    <span class="image"><img src="{{ asset('web/images/pic01.jpg') }}" alt="" /></span>
-                                </div>
-                            </section>
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic01.jpg') }}" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Sed ipsum dolor</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="#" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic02.jpg') }}" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Feugiat consequat</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="#" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic03.jpg') }}" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Ultricies aliquam</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="#" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
 
-                        <!-- First Section -->
-                            <section id="first" class="main special">
-                                <header class="major">
-                                    <h2>Sobre a ONG</h2>
-                                </header>
-                                <p>O projeto da ONG visa a integração de refugiados e migrantes de todas as nacionalidades e apátridas com a população de Curitiba. É um projeto apartidário e laico, onde as diferentes religiões são bem-vindas, assim como pessoas de todas as etnias e povos</p>
-                                <ul class="features">
-                                    <li>
-                                        <span class="icon major style1 fa-code"></span>
-                                        <h3>Ipsum consequat</h3>
-                                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon major style3 fa-copy"></span>
-                                        <h3>Amed sed feugiat</h3>
-                                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon major style5 fa-diamond"></span>
-                                        <h3>Dolor nullam</h3>
-                                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-                                    </li>
-                                </ul>
-                                <footer class="major">
-                                    <ul class="actions">
-                                        <li><a href="generic.html" class="button">Learn More</a></li>
-                                    </ul>
-                                </footer>
-                            </section>
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>What we do</h2>
+							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<div class="features">
+								<section>
+									<span class="icon major fa-code"></span>
+									<h3>Lorem ipsum amet</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+								<section>
+									<span class="icon major fa-lock"></span>
+									<h3>Aliquam sed nullam</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+								<section>
+									<span class="icon major fa-cog"></span>
+									<h3>Sed erat ullam corper</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+								<section>
+									<span class="icon major fa-desktop"></span>
+									<h3>Veroeros quis lorem</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+								<section>
+									<span class="icon major fa-chain"></span>
+									<h3>Urna quis bibendum</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+								<section>
+									<span class="icon major fa-diamond"></span>
+									<h3>Aliquam urna dapibus</h3>
+									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+								</section>
+							</div>
+							<ul class="actions">
+								<li><a href="#" class="button">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
 
-                        <!-- Second Section -->
-                            <section id="second" class="main special">
-                                <header class="major">
-                                    <h2>Contato</h2>
-                                   <div class="container">
-                                        <form>
-                                        <div class="form-group">
-                                          <label for="usr">E-mail:</label>
-                                          <input type="text" class="form-control" id="usr">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="ass">Assunto:</label>
-                                          <input type="text" class="form-control" id="ass">
-                                        </div>
-                                        <div class="container">
-  
-                                          <form>
-                                            <div class="form-group">
-                                              <label for="comment">Mensagem:</label>
-                                              <textarea class="form-control" rows="5" id="comment"></textarea>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </form>
-                                    </div>
+				<!-- Three -->
+					<section id="three" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2>Get in touch</h2>
+							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<div class="split style1">
+								<section>
+									<form method="post" action="#">
+										<div class="field half first">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="5"></textarea>
+										</div>
+										<ul class="actions">
+											<li><a href="" class="button submit">Send Message</a></li>
+										</ul>
+									</form>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Address</h3>
+											<span>12345 Somewhere Road #654<br />
+											Nashville, TN 00000-0000<br />
+											USA</span>
+										</li>
+										<li>
+											<h3>Email</h3>
+											<a href="#">user@untitled.tld</a>
+										</li>
+										<li>
+											<h3>Phone</h3>
+											<span>(000) 000-0000</span>
+										</li>
+										<li>
+											<h3>Social</h3>
+											<ul class="icons">
+												<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
 
-                                <footer class="major">
-                                    <ul class="actions">
-                                        <li><a href="generic.html" class="button">Enviar</a></li>
-                                    </ul>
-                                </footer>
-                            </section>
+			</div>
 
-                            <!-- Get Started
-                            <section id="cta" class="main special">
-                                <header class="major">
-                                    <h2>Entrar</h2>
-                                    <p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-                                    posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-                                </header>
-                                <footer class="major">
-                                    <ul class="actions">
-                                        <li><a href="generic.html" class="button special">Get Started</a></li>
-                                        <li><a href="generic.html" class="button">Learn More</a></li>
-                                    </ul>
-                                </footer>
-                            </section>-->
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
 
-                    </div>
+		<!-- Scripts -->
+			<script src="{{ asset('web/assets/js/jquery.min.js') }}"></script>
+			<script src="{{ asset('web/assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ asset('web/assets/js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ asset('web/assets/js/skel.min.js') }}"></script>
+			<script src="{{ asset('web/assets/js/util.js') }}"></script>
+			<!--[if lte IE 8]>
+		<script src="{{ asset('web/assets/js/ie/respond.min.js') }}"></script><![endif]-->
+			<script src="{{ asset('web/assets/js/main.js') }}"></script>
 
-                <!-- Footer -->
-                    <footer id="footer">
-                        <section>
-                            <h2>Links Uteis</h2>
-                            <p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-                            <ul class="actions">
-                                <li><a href="generic.html" class="button">Learn More</a></li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h2>Dados da ONG</h2>
-                            <dl class="alt">
-                                <dt>Endereço</dt>
-                                <dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-                                <dt>Telefone</dt>
-                                <dd>(000) 000-0000 x 0000</dd>
-                                <dt>Email</dt>
-                                <dd><a href="#">information@untitled.tld</a></dd>
-                            </dl>
-                            <ul class="icons">
-                                <li><a href="https://www.facebook.com/oplanetaeumso" target="_blank" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
-                                <li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
-                                <li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
-                                <li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
-                                <li><a href="#" class="icon fa-dribbble alt"><span class="label">Dribbble</span></a></li>
-                            </ul>
-                        </section>
-                        <p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-                    </footer>
-
-            </div>
-
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/skel.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-            <script src="assets/js/main.js"></script>
-
-    </body>
+	</body>
 </html>

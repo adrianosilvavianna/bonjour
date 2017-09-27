@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Hyperspace by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -8,10 +8,6 @@
 
 	.icon {
 		@include icon;
-		@include vendor('transition', (
-			'background-color #{_duration(transition)} ease-in-out',
-			'color #{_duration(transition)} ease-in-out'
-		));
 		border-bottom: none;
 		position: relative;
 
@@ -20,111 +16,42 @@
 		}
 
 		&.major {
-			border: solid 1px;
-			display: inline-block;
+			width: 2.5em;
+			height: 2.5em;
+			display: block;
+			background: _palette(fg-bold);
 			border-radius: 100%;
-			padding: 0.65em;
-			margin: 0 0 _size(element-margin) 0;
-			cursor: default;
+			color: _palette(bg);
+			text-align: center;
+			line-height: 2.5em;
+			margin: 0 0 (_size(element-margin) * 0.65) 0;
 
 			&:before {
-				display: inline-block;
-				font-size: 6.25rem;
-				width: 2.25em;
-				height: 2.25em;
-				line-height: 2.2em;
-				border-radius: 100%;
-				border: solid 1px;
-				text-align: center;
-			}
-		}
-
-		&.alt {
-			display: inline-block;
-			border: solid 1px;
-			border-radius: 100%;
-
-			&:before {
-				display: block;
 				font-size: 1.25em;
-				width: 2em;
-				height: 2em;
-				text-align: center;
-				line-height: 2em;
-			}
-		}
 
-		&.style1 {
-			color: _palette(accent1);
-		}
-
-		&.style2 {
-			color: _palette(accent2);
-		}
-
-		&.style3 {
-			color: _palette(accent3);
-		}
-
-		&.style4 {
-			color: _palette(accent4);
-		}
-
-		&.style5 {
-			color: _palette(accent5);
-		}
-
-		@include breakpoint(xlarge) {
-			&.major {
-				&:before {
-					font-size: 5.5rem;
+				.wrapper.style1 & {
+					color: _palette(accent1);
 				}
-			}
-		}
 
-		@include breakpoint(large) {
-			&.major {
-				&:before {
-					font-size: 4.75rem;
+				.wrapper.style1-alt & {
+					color: _palette(accent1-alt);
 				}
-			}
-		}
 
-		@include breakpoint(small) {
-			&.major {
-				margin: 0 0 (_size(element-margin) * 0.75) 0;
-				padding: 0.35em;
+				.wrapper.style2 & {
+					color: _palette(accent2);
+				}
 
-				&:before {
-					font-size: 3.5rem;
+				.wrapper.style2-alt & {
+					color: _palette(accent2-alt);
+				}
+
+				.wrapper.style3 & {
+					color: _palette(accent3);
+				}
+
+				.wrapper.style3-alt & {
+					color: _palette(accent3-alt);
 				}
 			}
 		}
 	}
-
-	@mixin color-icon($p: null) {
-		.icon {
-			&.major {
-				border-color: _palette($p, border);
-
-				&:before {
-					border-color: _palette($p, border);
-				}
-			}
-
-			&.alt {
- 				border-color: _palette($p, border);
- 				color: _palette($p, fg-bold);
-
-				&:hover {
-					background-color: _palette($p, border-bg);
-				}
-
-				&:active {
-					background-color: _palette($p, border2-bg);
-				}
- 			}
-		}
-	}
-
-	@include color-icon;

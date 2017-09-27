@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Hyperspace by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -7,109 +7,85 @@
 /* Header */
 
 	#header {
-		@include padding(5em, 5em, (0, 0, -2em, 0));
-		text-align: center;
+		@include vendor('display', 'flex');
+		background-color: _palette(accent1);
+		cursor: default;
+		padding: 1.75em 2em;
 
-		h1 {
-			margin: 0 0 (_size(element-margin) * 0.125) 0;
-		}
-
-		p {
+		> .title {
+			border: 0;
+			color: _palette(fg-bold);
+			display: block;
 			font-size: 1.25em;
-			letter-spacing: _font(letter-spacing);
+			font-weight: _font(weight-bold);
 		}
 
-		&.alt {
-			@include padding(6em, 5em, (1em, 0, 0, 0));
+		> nav {
+			@include vendor('flex', '1');
+			text-align: right;
 
-			h1 {
-				font-size: 3.25em;
-			}
+			> ul {
+				margin: 0;
+				padding: 0;
 
-			> * {
-				@include vendor('transition', 'opacity 3s ease');
-				@include vendor('transition-delay', '0.5s');
-				opacity: 1;
-			}
+				> li {
+					display: inline-block;
+					margin-left: 1.75em;
+					padding: 0;
+					vertical-align: middle;
 
-			.logo {
-				@include vendor('transition', (
-					'opacity 1.25s ease',
-					'transform 0.5s ease'
-				));
-				@include vendor('transition-delay', '0s');
-				display: block;
-				margin: 0 0 (_size(element-margin) * 0.75) 0;
+					&:first-child {
+						margin-left: 0;
+					}
 
-				img {
-					display: block;
-					margin: 0 auto;
-					max-width: 75%;
+					a {
+						border: 0;
+						color: _palette(fg-light);
+						display: inline-block;
+						font-size: 0.6em;
+						font-weight: _font(weight-bold);
+						letter-spacing: _font(kerning-alt);
+						text-transform: uppercase;
+
+						&:hover {
+							color: _palette(fg);
+						}
+
+						&.active {
+							color: _palette(fg-bold);
+						}
+					}
 				}
-			}
-		}
-
-		@include breakpoint(large) {
-			@include padding(4em, 4em, (0, 0, -2em, 0));
-
-			&.alt {
-				@include padding(5em, 4em, (1em, 0, 0, 0));
-			}
-		}
-
-		@include breakpoint(medium) {
-			@include padding(4em, 3em, (0, 0, -2em, 0));
-
-			&.alt {
-				@include padding(4em, 3em, (1em, 0, 0, 0));
 			}
 		}
 
 		@include breakpoint(small) {
-			@include padding(3em, 2em, (0, 0, -1em, 0));
-
-			p {
-				font-size: 1em;
-				letter-spacing: 0;
-
-				br {
-					display: none;
-				}
-			}
-
-			&.alt {
-				@include padding(3em, 2em, (1em, 0, 0, 0));
-
-				h1 {
-					font-size: 2.5em;
-				}
-			}
+			padding: 1em 2em;
 		}
 
 		@include breakpoint(xsmall) {
-			@include padding(3em, 1.5em, (0, 0, -1em, 0));
+			display: block;
+			padding: 0 2em;
+			text-align: left;
 
-			&.alt {
-				@include padding(3em, 1.5em, (1em, 0, 0, 0));
+			.title {
+				font-size: 1.25em;
+				padding: 1em 0;
 			}
-		}
 
-		@include breakpoint(xxsmall) {
-			@include padding(2.5em, 1em, (0, 0, -1em, 0));
+			> nav {
+				border-top: solid 1px _palette(border);
+				text-align: inherit;
 
-			&.alt {
-				@include padding(2.5em, 1em, (1em, 0, 0, 0));
-			}
-		}
+				> ul {
+					> li {
+						margin-left: 1.5em;
 
-		body.is-loading & {
-			&.alt {
-				> * {
-					opacity: 0;
-				}
-
-				.logo {
-					@include vendor('transform', 'scale(0.8) rotate(-30deg)');
+						a {
+							height: 6em;
+							line-height: 6em;
+						}
+					}
 				}
 			}
 		}
