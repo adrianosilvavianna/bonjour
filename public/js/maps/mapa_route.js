@@ -38,18 +38,31 @@ function initialize() {
 
 initialize();
 
+
+
 $("form").submit(function(event) {
 	event.preventDefault();
-	
+
 	var enderecoPartida = $("#txtEnderecoPartida").val();
 	var enderecoChegada = $("#txtEnderecoChegada").val();
-	
+	var date_exit = $("#date").val();
+	var time = $("#time").val();
+	var action = $(this).attr("href");
+
+	if(enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == ''){
+
+		alert("Preencha todos os campos corretamente");
+
+	}
+
 	var request = {
 		origin: enderecoPartida,
 		destination: enderecoChegada,
 		travelMode: google.maps.TravelMode.DRIVING
 	};
-	
+
+
+
 	directionsService.route(request, function(result, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
 			directionsDisplay.setDirections(result);

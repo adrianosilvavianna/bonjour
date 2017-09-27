@@ -4,7 +4,7 @@
 <div id="apresentacao">
 
 
-    <form method="post" action="{{ route('user.trip.store') }}">
+    <form method="post" action="{{ route('user.trip.store') }}" id="form_maps">
 
         <fieldset>
             <div class="row">
@@ -21,7 +21,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-5 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Para onde vou</label>
                         <input type="text" class="form-control" id="txtEnderecoChegada" name="endereco_chegada"/>
@@ -33,18 +33,13 @@
                         </span>
                     @endif
                 </div>
-                <div class="col-md-1">
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"><i class="material-icons">search</i>  </input>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Data de partida</label>
-                        <input type="date" class="form-control" name="date">
+                        <input type="date" class="form-control" name="date" min="{{ new \DateTime(format('Y-m-d')); }}">
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     @if ($errors->has('txtEndereco'))
@@ -54,7 +49,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-5 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Hora de partida</label>
                         <input type="time" class="form-control" name="time">
@@ -65,6 +60,11 @@
                             <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
                         </span>
                     @endif
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"> </input>
+                    </div>
                 </div>
 
             </div>
@@ -80,9 +80,8 @@
 
             <div id="trajeto-texto"></div>
 
-            <button type="submit" class="btn btn-primary pull-right" name="btnEnviar" id="btnEnviar"> Salvar </button>
-
         </fieldset>
+
     </form>
 
 
@@ -93,12 +92,12 @@
     {{--<script type="text/javascript" src="{{ asset('js/maps/jquery.min.js') }}"></script>--}}
     {{--<script type="text/javascript" src="{{ asset('js/maps/mapa.js') }}"></script>--}}
     {{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
+    {{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
 
-    <script type="text/javascript" src="{{ asset('js/maps/jquery.min.js') }}"></script>
 
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;sensor=false"></script>
-    <script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>
+
     <!-- Arquivo de inicialização do mapa -->
     <script type="text/javascript" src="{{ asset('js/maps/mapa_route.js') }}"></script>
 

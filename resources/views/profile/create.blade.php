@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-6 {{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Telefone</label>
                                     <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
@@ -71,12 +71,11 @@
                                 </span>
                                 @endif
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group">
-                                    <label>Sobre mim</label>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about" rows="5"></textarea>
+                                        <textarea class="form-control" name="about"></textarea>
                                     </div>
                                 </div>
                             </div>
