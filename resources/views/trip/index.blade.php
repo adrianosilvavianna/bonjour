@@ -4,9 +4,12 @@
 
     <style>
         .card img {
-            width: 30%;
+            width: 20%;
             height: auto;
             padding: 5%;
+        }
+        p{
+            height: auto;
         }
     </style>
 
@@ -17,14 +20,13 @@
 
                 <div class="card-content">
                     <img class="pull-left" src="../assets/img/faces/marc.jpg" style="border-radius: 50%" >
-                    <p class="category">Com : Nome do cara</p>
                     <h3 class="title">26/09/2017</h3>
                     <strong>De :</strong> Rua Solimoes, 849 - Curitiba <br/>
                     <strong>Para :</strong> Rua Cidade De Tubarão, 849 - Curitiba
                 </div>
                 <div class="card-footer">
                     <div class="stats">
-                         Avaliação : <i class="material-icons">star_rate</i>
+                         Avaliação :
                     </div>
                 </div>
             </div>
