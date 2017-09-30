@@ -17,7 +17,6 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card card-stats">
-
                 <div class="card-content">
                     <img class="pull-left" src="../assets/img/faces/marc.jpg" style="border-radius: 50%" >
                     <h3 class="title">26/09/2017</h3>
