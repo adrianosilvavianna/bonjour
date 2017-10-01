@@ -14,8 +14,17 @@ class CreateMeetingsTable extends Migration
     public function up()
     {
         Schema::create('meetings', function (Blueprint $table) {
+
             $table->increments('id');
+
+            $table->integer('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
+
         });
     }
 
