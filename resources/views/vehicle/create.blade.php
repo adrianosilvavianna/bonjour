@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header" data-background-color="purple">
                     <h4 class="title">Meu Veículo</h4>
-                    <p class="category">Cadastre seu veiculo</p>
+                    <p class="category">Cadastre um veiculo</p>
                 </div>
                 <div class="card-content">
                     <form action="{{ route('user.vehicle.store') }}" method="post" >

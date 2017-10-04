@@ -6,8 +6,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-background-color="purple">
-                    <h4 class="title">Meus Veiculos</h4>
-                    <p class="category">Cadastre seu veiculo</p>
+                    <h4 class="title">
+                        Meus Veiculos
+                        <a href="{{ route('user.vehicle.create') }}" class=" btn-white btn-round btn-just-icon pull-right">
+                            <i class="material-icons">add</i><div class="ripple-container"></div>
+                        </a>
+                    </h4>
+                    <p class="category">Meus veiculos</p>
                 </div>
                 <div class="card-content">
                     <div class="card-content table-responsive">
@@ -19,7 +24,7 @@
                                 <th><b>PLACA</b></th>
                                 <th><b>COR</b></th>
                                 <th><b>Nº DE PASSAGEIROS</b></th>
-                                <th><b>AÇÕES</b></th>
+                                <th><b>#</b></th>
                             </thead>
                             <tbody>
                                 @foreach($vehicles as $vehicle)
@@ -43,9 +48,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="{{ route('user.vehicle.create') }}">
-                        <i class="material-icons">directions_car</i> Cadastrar um veículo...
-                    </a>
                 </div>
             </div>
         </div>
