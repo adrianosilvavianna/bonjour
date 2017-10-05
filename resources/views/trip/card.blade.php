@@ -255,7 +255,7 @@
 
                 <div class="card-image">
                     <a href="#" type="button" class="btn">
-                        <img src="https://farm3.staticflickr.com/2764/4350166105_be2c85cdb5_z_d.jpg" alt="user-image" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user-image" />
                     </a>
                 </div>
 
@@ -294,7 +294,31 @@
         </div>
     </div>
 </div>
+<div class="mainWrapper">
+    <!-- first profile -->
+    <div class="box">
 
+    </div>
+    <!-- fourth profile -->
+    <div class=" container3">
+        <div class="box4">
+            <div class="image2"><a href="#!" class="button3 link">FOLLOW</a></div>
+            <div class="hiddenMessage">Thank You!</div>
+            <div class="contentWrap">
+                <div>
+                    <img class="profileImage2" src="http://imworld.aufeminin.com/dossiers/D20101109/JUPITERIMAGES-08749547-191316_L.jpg">
+                </div>
+
+                {{--<div class="profileImage2"></div>--}}
+                <div class="word-wrap">
+                    <h1>EMMA THOMSON</h1>
+                    <span>GRAPHIC DESIGNER</span>
+                    <p>Life is only a flicker of melted ice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
