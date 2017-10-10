@@ -40,6 +40,7 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::get('/create',           'TripController@create')->name('create');
     Route::post('/store',           'TripController@store')->name('store');
     Route::get('/{trip}/edit',   'TripController@edit')->name('edit');
+    Route::get('/show',   'TripController@show')->name('show');
     Route::post('/{trip}/update',          'TripController@update')->name('update');
 
 });

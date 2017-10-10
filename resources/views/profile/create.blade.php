@@ -13,7 +13,7 @@
                     <form action="{{ route('user.profile.store') }}" method="post" >
 
 
-                        <div class="col-md-12 ">
+                        <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nome</label>
@@ -37,11 +37,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="cold-md-12">
-                            <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
+                        <div class="row">
+                            <div class="col-md-2 {{ $errors->has('age') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Idade</label>
-                                    <input type="numeric" name="age" class="form-control" value="{{ old('age') }}">
+                                    <input type="number" name="age" class="form-control" value="{{ old('age') }}">
                                 </div>
                                 @if ($errors->has('age'))
                                 <span class="help-block">
@@ -58,20 +58,20 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
                             <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Telefone</label>
                                     <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
                                 </div>
                                 @if ($errors->has('phone'))
-                                <span class="help-block">
+                                    <span class="help-block">
                                     <strong class="red-text">{{ $errors->first('phone') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <div class="col-md-8">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
@@ -79,14 +79,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div>
-                                <div class="form-group">
-                                    <i class="material-icons">get_app</i>
-                                    <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
+                            <div class="col-md-4">
+                                <label>Foto</label>
+                                <div class="file-field input-field">
+                                    <input type="file" class="btn btn-default" >
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-12">
+
                             <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
                         </div>
                         <div class="clearfix"></div>
