@@ -39,7 +39,7 @@
                 <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Data de partida</label>
-                        <input type="date" class="form-control" name="date" min="{{ new \DateTime(format('Y-m-d')); }}">
+                        <input type="date" class="form-control" name="date" min="">
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     @if ($errors->has('txtEndereco'))
@@ -74,11 +74,17 @@
                 <input type="hidden" id="txtLongitude" name="txtLongitude" />
 
             </div>
+            <div class="row">
+                <h1>Resumo da carona</h1>
+                <div class="col-md-6">
+                    <div id="mapa"></div>
+                </div>
 
-            <div id="mapa"></div>
+                <div class="col-md-6">
+                    <div id="trajeto-texto"></div>
+                </div>
+            </div>
 
-
-            <div id="trajeto-texto"></div>
 
         </fieldset>
 
