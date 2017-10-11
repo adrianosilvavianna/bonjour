@@ -29,9 +29,14 @@ class ProfileController extends Controller
     }
 
     public function store(ProfileRequest $request) {
-        auth()->user()->Profile()->create($request->input());
 
-        return redirect(route('user.profile.index'));
+        try{
+            $profile = auth()->user()->Profile()->create($request->input());
+            $this->upload($request, $profile);
+            return redirect(route('user.profile.index'));
+        }catch (\Exception $e){
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function edit(Profile $profile) {
@@ -40,25 +45,22 @@ class ProfileController extends Controller
     }
 
     public function update(ProfileRequest $request, Profile $profile) {
-        
         $profile = $profile->update($request->input());
        return redirect(route('user.profile.index'));
     }
 
-    public function upload(Request $request,Profile $profile)
+    public function upload(ProfileRequest $request,Profile $profile)
     {
-        if ($request->file->isValid()) {
 
-            $path   = $request->file->store('comprovantes');
+        if ($request->file('photo_address')->isValid()) {
 
+            $path   = $request->photo_address->move(public_path('img/photos'));
             $profile->paid_at  = date('Y-m-d');
             $profile->src_file = $path;
             $profile->save();
-
-            return back()->with('success','Enviado');
         }
 
-        return back()->with('errors', 'Arquivo Invalido');
+        throw new \Exception('Arquivo Invalido');
 
     }
 }
