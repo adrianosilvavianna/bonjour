@@ -12,7 +12,7 @@
                     <p class="category">Edite o seu perfil...</p>
                 </div>
                 <div class="card-content">
-                    <form action="{{ route('user.profile.update', $profile) }}" method="post">
+                    <form action="{{ route('user.profile.update', $profile) }}" method="put" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about"></textarea>
+                                        <textarea class="form-control" name="about">{{ $profile->about }}</textarea>
                                     </div>
                                 </div>
                                 @if ($errors->has('about'))
@@ -92,8 +92,8 @@
                                 </div>
                                 @if ($errors->has('photo_address'))
                                     <span class="help-block">
-                                    <strong class="red-text">{{ $errors->first('photo_address') }}</strong>
-                                </span>
+                                        <strong class="red-text">{{ $errors->first('photo_address') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                             <div class="col-md-2">

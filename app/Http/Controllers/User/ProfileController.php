@@ -41,16 +41,12 @@ class ProfileController extends Controller
     }
 
     public function edit(Profile $profile) {
-        
         return view('profile.edit')->with('profile', $profile);
     }
 
     public function update(ProfileRequest $request, Profile $profile) {
 
         try{
-
-            dd('ver como funciona a porra desse cod que nao reconhece a tag FILE ');
-
             $request = $this->upload($request);
             $profile->update($request);
             return  back()->with('success', 'Alterado com sucesso!');

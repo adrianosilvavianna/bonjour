@@ -18,14 +18,15 @@ class ProfileRequest extends FormRequest
 
     public function rules()
     {
-
-
          return [
              'name' => 'required|string|max:40',
              'last_name' => 'required|string|max:40',
-             'age' => 'required|integer',
+             'age' => 'required|integer|min:18|max:90',
              'gender' => 'required',
-
+             'photo_address' => 'required|file|image|mimes:jpeg,jpg'
         ];
+
+        //request para update nao pode ter photo_address como obrigatoria
+
     }
 }
