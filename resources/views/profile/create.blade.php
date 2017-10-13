@@ -10,7 +10,7 @@
                     <p class="category">Cadastre seu perfil</p>
                 </div>
                 <div class="card-content">
-                    <form action="{{ route('user.profile.store') }}" method="post" >
+                    <form action="{{ route('user.profile.store') }}" method="post"  enctype="multipart/form-data">
 
 
                         <div class="row">
@@ -82,7 +82,7 @@
                             <div class="col-md-4">
                                 <label>Foto</label>
                                 <div class="file-field input-field">
-                                    <input type="file" class="btn btn-default" >
+                                    <input type="file" class="btn btn-default" name="photo_address">
                                 </div>
                             </div>
                         </div>
