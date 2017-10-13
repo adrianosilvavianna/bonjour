@@ -169,10 +169,29 @@
     @endauth
         <div class="content">
 
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    <button type="button" aria-hidden="true" class="close">×</button>
+                    <span><b> ERRO - </b>{!! session('error') !!}</span>
+                </div>
+            @endif
             @if (session('success'))
                 <div class="alert alert-success">
                     <button type="button" aria-hidden="true" class="close">×</button>
-                    <span><b> Success - </b> This is a regular notification made with ".alert-success"</span>
+                    <span><b> Sucesso - </b>{!! session('success') !!}</span>
+                </div>
+            @endif
+            @if (session('info'))
+                <div class="alert alert-info">
+                    <button type="button" aria-hidden="true" class="close">×</button>
+                    <span><b> Ops - </b>{!! session('info') !!}</span>
+                </div>
+            @endif
+
+            @if (session('warning'))
+                <div class="alert alert-warning">
+                    <button type="button" aria-hidden="true" class="close">×</button>
+                    <span><b> Alerta - </b>{!! session('warning') !!}</span>
                 </div>
             @endif
 

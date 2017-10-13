@@ -13,15 +13,15 @@
                 </div>
                 <div class="card-content">
                     <form action="{{ route('user.profile.update', $profile) }}" method="post">
-                        
-                        <div class="col-md-12 ">
+
+                        <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nome</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $profile->name }}">
+                                    <input type="text" name="name" class="form-control" value="{{ $profile->name  }}">
                                 </div>
                                 @if ($errors->has('name'))
-                                <span class="help-block">
+                                    <span class="help-block">
                                     <strong class="red-text">{{ $errors->first('name') }}</strong>
                                 </span>
                                 @endif
@@ -32,20 +32,20 @@
                                     <input type="text" name="last_name" class="form-control" value="{{ $profile->last_name }}">
                                 </div>
                                 @if ($errors->has('last_name'))
-                                <span class="help-block">
+                                    <span class="help-block">
                                     <strong class="red-text">{{ $errors->first('last_name') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="cold-md-12">
-                            <div class="col-md-6 {{ $errors->has('age') ? ' has-error' : '' }}">
+                        <div class="row">
+                            <div class="col-md-2 {{ $errors->has('age') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Idade</label>
-                                    <input type="numeric" name="age" class="form-control" value="{{ $profile->age }}">
+                                    <input type="number" name="age" class="form-control" value="{{ $profile->age }}">
                                 </div>
                                 @if ($errors->has('age'))
-                                <span class="help-block">
+                                    <span class="help-block">
                                     <strong class="red-text">{{ $errors->first('age') }}</strong>
                                 </span>
                                 @endif
@@ -59,37 +59,49 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-6 {{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Telefone</label>
                                     <input type="text" name="phone" class="form-control" value="{{ $profile->phone }}">
                                 </div>
                                 @if ($errors->has('phone'))
-                                <span class="help-block">
+                                    <span class="help-block">
                                     <strong class="red-text">{{ $errors->first('phone') }}</strong>
                                 </span>
                                 @endif
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Sobre mim</label>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about" rows="5">{{ $profile->about }}</textarea>
+                                        <textarea class="form-control" name="about"></textarea>
                                     </div>
                                 </div>
+                                @if ($errors->has('about'))
+                                    <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('about') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <div class="col-md-4">
+                                <label>Foto</label>
+                                <div class="file-field input-field">
+                                    <input type="file" class="btn btn-default" name="photo_address">
+                                </div>
+                                @if ($errors->has('photo_address'))
+                                    <span class="help-block">
+                                    <strong class="red-text">{{ $errors->first('photo_address') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <div class="col-md-2">
+                                <img class="img" id="my_photo" src="{{ asset($profile->photo_address) }}" title="Imagem de perfil">
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div>
-                                <div class="form-group">
-                                    <i class="material-icons">get_app</i>
-                                    <input type="file" class="btn btn-primary" name="photo"/>Carregar foto...
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
+                            <button type="submit" class="btn btn-primary pull-right">Atualizar perfil</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>

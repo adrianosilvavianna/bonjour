@@ -6,16 +6,15 @@
     <div class="col-md-6">
         <div class="card card-profile">
             <div class="card-avatar">
-                <a href="#"  >
-                    <img class="img" id="my_photo" src="{{ asset('assets/img/faces/marc.jpg') }}" title="alterar imagem">
-                </a>
+                <img class="img" id="my_photo" src="{{ asset($profile->photo_address) }}" title="Imagem de perfil">
             </div>
             <div class="content">
-                <h6 class="category text-gray">...</h6>
-                <h4 class="card-title">{{ $profile->name }} {{ $profile->last_name }}</h4>
+                <h3 class="card-title"> {{ $profile->name }} {{ $profile->last_name }}</h3>
+                <h5 class="category text-gray">{{ $profile->age }} anos</h5>
+                <h6 class="category text-gray">Sexo : {{ $profile->getGender() }}</h6>
+                <h6 class="category text-gray">Telefone : {{ $profile->phone }}</h6>
                 <p class="card-content">
-                    Idade : {{ $profile->age }} | Genero : {{ $profile->getGender() }}<br>
-
+                    {{ $profile->about }}
                 </p>
                 <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">Editar</a>
 

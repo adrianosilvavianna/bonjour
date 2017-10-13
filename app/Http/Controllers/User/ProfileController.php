@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Domains\Profile;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -31,8 +32,8 @@ class ProfileController extends Controller
     public function store(ProfileRequest $request) {
 
         try{
-            $profile = auth()->user()->Profile()->create($request->input());
-            $this->upload($request, $profile);
+            $request = $this->upload($request);
+            auth()->user()->Profile()->create($request);
             return redirect(route('user.profile.index'));
         }catch (\Exception $e){
             return redirect()->back()->with('error', $e->getMessage());
@@ -45,22 +46,39 @@ class ProfileController extends Controller
     }
 
     public function update(ProfileRequest $request, Profile $profile) {
-        $profile = $profile->update($request->input());
-       return redirect(route('user.profile.index'));
+
+        try{
+
+            dd('ver como funciona a porra desse cod que nao reconhece a tag FILE ');
+
+            $request = $this->upload($request);
+            $profile->update($request);
+            return  back()->with('success', 'Alterado com sucesso!');
+        }catch (\Exception $e){
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    public function upload(ProfileRequest $request,Profile $profile)
+    public function upload(ProfileRequest $request)
     {
 
-        if ($request->file('photo_address')->isValid()) {
+        $photo = $request->file('photo_address');
 
-            $path   = $request->photo_address->move(public_path('img/photos'));
-            $profile->paid_at  = date('Y-m-d');
-            $profile->src_file = $path;
-            $profile->save();
+        if ($photo->isValid()) {
+            $extencao = $photo->getClientOriginalExtension();
+
+            if($extencao == 'jpg' || $extencao == 'png' || $extencao == 'jpeg'){
+
+                $src = '/img/photos/';
+                $destinationPath = public_path().$src;
+                $fileName = 'profile-'.auth()->user()->id.'.'.$extencao;
+                $request->photo_address->move($destinationPath, $fileName);
+                $photo_address = $src.$fileName;
+                $request = $request->input()+['photo_address' =>$photo_address];
+                return $request;
+            }
+            return back()->with('error', 'Esse Arquivo precisa ser do tipo JPG ou PNG');
         }
-
         throw new \Exception('Arquivo Invalido');
-
     }
 }

@@ -25,6 +25,7 @@ class ProfileRequest extends FormRequest
              'last_name' => 'required|string|max:40',
              'age' => 'required|integer',
              'gender' => 'required',
+
         ];
     }
 }
