@@ -35,27 +35,6 @@
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="card card-profile">
-            <div class="card-avatar">
-                <a href="#pablo">
-                    <img class="img" src="{{ asset('assets/img/faces/marc.jpg') }}"/>
-                </a>
-            </div>
-
-            <div class="content">
-                <h4 class="card-title">Rogerio De Guimarães Reis</h4>
-                <h5 class="category text-gray">27 anos</h5>
-                <h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>
-                <p class="card-content">
-                    <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
-                    <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
-                </p>
-                <a href="#pablo" class="btn btn-primary btn-round">Entrar em contato</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-header" data-background-color="blue">
                 <i class="fa fa-car"></i>
@@ -79,13 +58,29 @@
         </div>
     </div>
 
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="#pablo">
+                    <img class="img" src="{{ asset('assets/img/faces/marc.jpg') }}"/>
+                </a>
+            </div>
 
+            <div class="content">
+                <h4 class="card-title">Rogerio De Guimarães Reis</h4>
+                <h5 class="category text-gray">27 anos</h5>
+                <h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>
+                <p class="card-content">
+                    <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
+                    <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
+                </p>
+                <a href="#pablo" class="btn btn-primary btn-round">Entrar em contato</a>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
-@section('scripts')
-
-@show
 
 
 

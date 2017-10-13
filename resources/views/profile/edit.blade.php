@@ -12,7 +12,7 @@
                     <p class="category">Edite o seu perfil...</p>
                 </div>
                 <div class="card-content">
-                    <form action="{{ route('user.profile.update', $profile) }}" method="put" enctype="multipart/form-data">
+                    <form action="{{ route('user.profile.update', $profile) }}" method="post" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
