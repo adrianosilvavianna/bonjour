@@ -24,10 +24,10 @@
 				<div class="inner">
 					<nav>
 						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Who we are</a></li>
-							<li><a href="#two">What we do</a></li>
-							<li><a href="#three">Get in touch</a></li>
+							<li><a href="#intro">Bonjou</a></li>
+							<li><a href="#one">O Planeta é um só</a></li>
+							<li><a href="#two">Ajuda e Informações uteis</a></li>
+							<li><a href="#three">Contato</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -40,10 +40,9 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<h1>Bonjou</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
+							<p>O projeto Bonjou, que significa "Bom Dia" em dialeto creóle, pretende ajudar na questão da forte evasão escolar, por falta de meios de transporte, além de promover a aproximação entre Brasileiros e Haitianos</a>.</p>
 							<ul class="actions">
-								<li><a href="/login" class="button scrolly">Login</a></li>
+								<li><a href="#one" class="button scrolly">Sobre O Projeto</a></li>
 							</ul>
 						</div>
 					</section>
@@ -54,11 +53,9 @@
 							<a href="#" class="image"><img src="{{ asset('web/images/pic01.jpg') }}" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Sed ipsum dolor</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul>
+									<h2>Projeto O Planeta é um só</h2>
+									<p>O projeto visa a integração de refugiados e migrantes de todas as nacionalidades e apátridas com a população de Curitiba.</p><p>
+										É um projeto apartidário e laico, onde as diferentes religiões são bem-vindas, assim como pessoas de todas as etnias e povo.</p>
 								</div>
 							</div>
 						</section>
@@ -66,11 +63,9 @@
 							<a href="#" class="image"><img src="{{ asset('web/images/pic02.jpg') }}" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul>
+									<h2>Planeta encontros</h2>
+									<p>encontros nos quais serão realizadas palestras, rodas de conversa, apresentação de projetos de apoio, manifestações artísticas e culturais, feiras de alimentos típicos, produtos e serviços que reverterão fundos para os migrantes e refugiados cadastrados.
+										O evento acontece quinzenalmente a partir do dia 12 de março, sempre aos sábados das 13h30 às 18h, no Instituto Tibagi. O objetivo é receber aqueles que escolheram o Brasil como seu novo lar e discutir, pensar e conhecer projetos a respeito da migração no país.</p>
 								</div>
 							</div>
 						</section>
@@ -78,8 +73,11 @@
 							<a href="#" class="image"><img src="{{ asset('web/images/pic03.jpg') }}" alt="" data-position="25% 25%" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2>Localização dos encontros</h2>
+									<p>Instituto Tibagi
+										</br>Rua Conselheiro Laurindo 600</br>
+										80060100 Curitiba.
+									</p>
 									<ul class="actions">
 										<li><a href="#" class="button">Learn more</a></li>
 									</ul>
@@ -91,8 +89,8 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>Ajuda e Informações Úteis</h2>
+							<p>Localização das escolas, locais para fazer documentos necessários, locais de apoio ao imigrante e contatos uteis.</p>
 							<div class="features">
 								<section>
 									<span class="icon major fa-code"></span>
@@ -134,8 +132,8 @@
 				<!-- Three -->
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>Contato</h2>
+							<p>Escreva a sua duvida, sujestão, pergunta ou escreva uma menssagem pedindo para ser apoiador do projeto O Planeta é um Só.</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="#">
