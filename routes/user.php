@@ -55,6 +55,16 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
 
 });
 
+Route::group(['prefix' => 'avaliation', 'as' =>'avaliation.'], function () {
+
+    Route::get('/',                 'AvaliationController@index')->name('index');
+    Route::get('/create',           'AvaliationController@create')->name('create');
+    Route::post('/store',           'AvaliationController@store')->name('store');
+    Route::get('/{avaliation}/edit',   'AvaliationController@edit')->name('edit');
+    Route::post('/update',          'AvaliationController@update')->name('update');
+
+});
+
 Route::group(['prefix' => 'location', 'as' =>'location.'], function () {
 
     Route::get('/',                 'LocationController@index')->name('index');
