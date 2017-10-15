@@ -18,22 +18,22 @@
                     <div class="card-content table-responsive">
                         <table class="table table-hover">
                             <thead>
-                                <th><b>ID</b></th>
                                 <th><b>MARCA</b></th>
                                 <th><b>MODELO</b></th>
                                 <th><b>PLACA</b></th>
                                 <th><b>COR</b></th>
+                                <th><b>ANO</b></th>
                                 <th><b>Nº DE PASSAGEIROS</b></th>
                                 <th><b>#</b></th>
                             </thead>
                             <tbody>
                                 @foreach($vehicles as $vehicle)
                                 <tr>
-                                    <td>{{ $vehicle->id }}</td>
                                     <td>{{ $vehicle->brand }}</td>
                                     <td>{{ $vehicle->model }}</td>
                                     <td>{{ $vehicle->plaque }}</td>
                                     <td>{{ $vehicle->color }}</td>
+                                    <td>{{ $vehicle->year }}</td>
                                     <td>{{ $vehicle->num_passenger }}</td>
                                     <td>
                                         <a href="{{ route('user.vehicle.edit', $vehicle) }}">

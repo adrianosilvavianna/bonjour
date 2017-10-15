@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Hyperspace by HTML5 UP</title>
+		<title>Bonjou</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]>
@@ -70,16 +70,18 @@
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="{{ asset('web/images/pic03.jpg') }}" alt="" data-position="25% 25%" /></a>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic02.jog') }}" alt="" data-position="25% 25%" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Localização dos encontros</h2>
-									<p>Instituto Tibagi
-										</br>Rua Conselheiro Laurindo 600</br>
-										80060100 Curitiba.
+									<p>Instituto Tibagi</br>
+										Rua Conselheiro Laurindo -  nº 600 - piso 3</br>
+                                        CEP: 80060-100</br>
+                                        Centro, Curitiba - PR</br>
+                                        Tel: (41) 3024-9848 (41) 3029-7393</br>
 									</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
+										<li><a href="http://institutotibagi.org.br"  class="button">Instituto Tibagi</a></li>
 									</ul>
 								</div>
 							</div>
