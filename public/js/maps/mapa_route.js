@@ -47,7 +47,11 @@ $("form").submit(function(event) {
 	var enderecoChegada = $("#txtEnderecoChegada").val();
 	var date_exit = $("#date").val();
 	var time = $("#time").val();
-	var action = $(this).attr("href");
+	var vehicle = $("#vehicle_id").val();
+	var action = $(this).attr("action");
+
+
+	alert("saindo : "+enderecoPartida+" Destino :"+ enderecoChegada+" Data :"+date_exit+" Tempo: "+time+" Veiculo :"+vehicle);
 
 	if(enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == ''){
 
@@ -55,17 +59,46 @@ $("form").submit(function(event) {
 
 	}
 
-	var request = {
+	var dataApi = {
 		origin: enderecoPartida,
 		destination: enderecoChegada,
 		travelMode: google.maps.TravelMode.DRIVING
 	};
 
+	var request = {
+		arrival_address: enderecoPartida,
+		exit_address: enderecoChegada,
+		date: date_exit,
+		time: time,
+		vehicle_id: vehicle
+
+	}
+
+	console.log(request);
+
+	$.post(action, request, function (xhr) {
+
+	})
+		.done(function (xhr) {
+			alert('foi');
+
+			//$('#like_count_' + xhr.data.id).html(xhr.data.likes);
+		})
+		.fail(function () {
+
+			alert('error');
+			//var errors = xhr.responseJSON.errors;
+			//console.log(errors)
+		})
+		.always(function (xhr) {
+
+	});
 
 
-	directionsService.route(request, function(result, status) {
+	directionsService.route(dataApi, function(result, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
 			directionsDisplay.setDirections(result);
 		}
 	});
+
 });

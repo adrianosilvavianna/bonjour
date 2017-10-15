@@ -5,6 +5,7 @@ namespace App;
 use App\Domains\Location;
 use App\Domains\Phone;
 use App\Domains\Profile;
+use App\Domains\Trip;
 use App\Domains\Vehicle;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,7 +42,7 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public function Phone()
+    public function Phones()
     {
         return $this->hasMany(Phone::class);
     }
@@ -51,8 +52,12 @@ class User extends Authenticatable
         return $this->morphOne(Location::class, 'locationable');
     }
 
-    public function Vehicle()
+    public function Vehicles()
     {
         return $this->hasMany(Vehicle::class);
+    }
+
+    public function Trips(){
+        return $this->hasMany(Trip::class);
     }
 }

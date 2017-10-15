@@ -8,24 +8,49 @@ use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
+    private $trip;
 
-    public function __construct()
+    public function __construct(Trip $trip)
     {
         $this->middleware('auth');
+        $this->trip = $trip;
     }
     
     public function index()
     {
-
         return view('trip.index');
     }
 
     public function create() {
-        return view('trip.create');
+
+        return view('trip.create')->with(['vehicles' => auth()->user()->Vehicles->all()]);
     }
 
     public function store(Request $request) {
-        dd($request->input()->with('success', 'Viagem criada com sucesso'));
+
+        try{
+
+            auth()->user()->Trips()->create($request->input());
+
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' => 'Sucesso',
+                    'status' => 200
+                ], 200);
+            }
+
+        }catch (\Exception $e){
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' => $e->getMessage(),
+                    'status' => 400
+                ], 200);
+            }
+        }
+
+
     }
 
     public function edit() {

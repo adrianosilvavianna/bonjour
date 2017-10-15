@@ -4,7 +4,7 @@
 <div id="apresentacao">
 
 
-    <form method="post" action="{{ route('user.trip.store') }}" id="form_maps">
+    <form method="post" action="{{ route('user.trip.store') }}" id="form_maps" >
 
         <fieldset>
             <div class="row">
@@ -36,11 +36,10 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-4 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Data de partida</label>
                         <input type="date" class="form-control" name="date" min="">
-                        {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     @if ($errors->has('txtEndereco'))
                         <span class="help-block">
@@ -49,11 +48,26 @@
                     @endif
                 </div>
 
-                <div class="col-md-5 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-3 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
                     <div class="form-group  ">
                         <label class="control-label">Hora de partida</label>
                         <input type="time" class="form-control" name="time">
-                        {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
+                    </div>
+                    @if ($errors->has('txtEndereco'))
+                        <span class="help-block">
+                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="col-md-4 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                    <div class="form-group  ">
+                        <label class="control-label">Veículo</label>
+                        <select type="text" name="gender" class="form-control" id="vehicle_id">
+                            @foreach($vehicles as $vehicle)
+                                <option value="{{ $vehicle->id }}">Modelo: {{ $vehicle->model }} || Placa: {{ $vehicle->plaque }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     @if ($errors->has('txtEndereco'))
                         <span class="help-block">
@@ -66,7 +80,6 @@
                         <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"> </input>
                     </div>
                 </div>
-
             </div>
 
             <div class="row">
