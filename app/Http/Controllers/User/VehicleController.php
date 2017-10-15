@@ -25,26 +25,32 @@ class VehicleController extends Controller
     public function create() {
         return view('vehicle.create');
     }
-    
-    public function edit(Vehicle $vehicle) {
-        
-        return view('vehicle.edit')->with('vehicle', $vehicle);
-    }
-    
+
     public function store(VehicleRequest $request) {
+
         auth()->user()->Vehicle()->create($request->input());
 
-        return redirect(route('user.vehicle.index'));
+        return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
     }
-    
+
+    public function edit(Vehicle $vehicle) {
+
+        return view('vehicle.edit')->with('vehicle', $vehicle);
+    }
+
     public function update(VehicleRequest $request, Vehicle $vehicle) {
         
         $vehicle = $vehicle->update($request->input());
-       return redirect(route('user.vehicle.index'));
+       return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
     }
 
     public function delete(Vehicle $vehicle) {
-        $vehicle->forceDelete();
-        return redirect(route('user.vehicle.index'));
+        try{
+            $vehicle->forceDelete();
+            return back()->with('success', 'Salvo com sucesso');
+        }catch (\Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+
     }
 }

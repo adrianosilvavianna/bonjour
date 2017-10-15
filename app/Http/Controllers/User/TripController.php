@@ -16,6 +16,7 @@ class TripController extends Controller
     
     public function index()
     {
+
         return view('trip.index');
     }
 
@@ -24,7 +25,7 @@ class TripController extends Controller
     }
 
     public function store(Request $request) {
-        dd($request->input());
+        dd($request->input()->with('success', 'Viagem criada com sucesso'));
     }
 
     public function edit() {

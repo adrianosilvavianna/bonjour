@@ -27,12 +27,12 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         auth()->user()->Location()->create($request->input());
-        return redirect()->back()->with('success');
+        return redirect()->back()->with('success', 'Localização salva com sucesso!');
     }
 
     public function delete(Location $location)
     {
         $location->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Localização excluída com sucesso!');
     }
 }
