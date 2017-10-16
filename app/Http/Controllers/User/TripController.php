@@ -23,7 +23,6 @@ class TripController extends Controller
     }
 
     public function create() {
-
         return view('trip.create')->with(['vehicles' => auth()->user()->Vehicles->all()]);
     }
 
@@ -31,12 +30,13 @@ class TripController extends Controller
 
         try{
 
-            auth()->user()->Trips()->create($request->input());
+            $trip = auth()->user()->Trips()->create($request->input());
 
             if($request->ajax())
             {
                 return response()->json([
                     'message' => 'Sucesso',
+                    'data' => $trip,
                     'status' => 200
                 ], 200);
             }

@@ -8,59 +8,48 @@
 
         <fieldset>
             <div class="row">
-                <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-5 ">
                     <div class="form-group  ">
                         <label class="control-label">Onde Estou</label>
                         <input type="text" class="form-control" id="txtEnderecoPartida" name="endereco_partida"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
-                    @if ($errors->has('txtEndereco'))
-                        <span class="help-block">
-                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
-                        </span>
-                    @endif
+
                 </div>
 
-                <div class="col-md-6 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-5 ">
                     <div class="form-group  ">
                         <label class="control-label">Para onde vou</label>
                         <input type="text" class="form-control" id="txtEnderecoChegada" name="endereco_chegada"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
-                    @if ($errors->has('txtEndereco'))
-                        <span class="help-block">
-                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
-                        </span>
-                    @endif
                 </div>
+
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" name="btnEnviar" id="btnEnviar">Traçar Rota</button>
+                    </div>
+                </div>
+
             </div>
 
             <div class="row">
-                <div class="col-md-4 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-4">
                     <div class="form-group  ">
                         <label class="control-label">Data de partida</label>
-                        <input type="date" class="form-control" name="date" min="">
+                        <input type="date" class="form-control" name="date" min="" id="date">
                     </div>
-                    @if ($errors->has('txtEndereco'))
-                        <span class="help-block">
-                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
-                        </span>
-                    @endif
                 </div>
 
-                <div class="col-md-3 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-3 ">
                     <div class="form-group  ">
                         <label class="control-label">Hora de partida</label>
-                        <input type="time" class="form-control" name="time">
+                        <input type="time" class="form-control" name="time" id="time">
                     </div>
-                    @if ($errors->has('txtEndereco'))
-                        <span class="help-block">
-                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
-                        </span>
-                    @endif
+
                 </div>
 
-                <div class="col-md-4 {{ $errors->has('txtEndereco') ? ' has-error' : '' }}">
+                <div class="col-md-4 ">
                     <div class="form-group  ">
                         <label class="control-label">Veículo</label>
                         <select type="text" name="gender" class="form-control" id="vehicle_id">
@@ -69,15 +58,11 @@
                             @endforeach
                         </select>
                     </div>
-                    @if ($errors->has('txtEndereco'))
-                        <span class="help-block">
-                            <strong class="red-text">{{ $errors->first('txtEndereco') }}</strong>
-                        </span>
-                    @endif
+
                 </div>
                 <div class="col-md-1">
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"> </input>
+                        <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"/>
                     </div>
                 </div>
             </div>
