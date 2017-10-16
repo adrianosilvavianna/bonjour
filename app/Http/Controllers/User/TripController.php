@@ -13,6 +13,7 @@ class TripController extends Controller
     public function __construct(Trip $trip)
     {
         $this->middleware('auth');
+        $this->middleware('vehicle')->only('create');
         $this->trip = $trip;
     }
     

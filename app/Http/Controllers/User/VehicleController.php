@@ -19,7 +19,7 @@ class VehicleController extends Controller
     }
 
     public function index(){
-        return view('vehicle.index')->with('vehicles', auth()->user()->Vehicle);
+        return view('vehicle.index')->with('vehicles', auth()->user()->Vehicles);
     }
 
     public function create() {
@@ -28,7 +28,7 @@ class VehicleController extends Controller
 
     public function store(VehicleRequest $request) {
 
-        auth()->user()->Vehicle()->create($request->input());
+        auth()->user()->Vehicles()->create($request->input());
 
         return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
     }
