@@ -26,6 +26,7 @@ class TripController extends Controller
         return view('trip.create')->with(['vehicles' => auth()->user()->Vehicles->all()]);
     }
 
+
     public function store(Request $request) {
 
         try{

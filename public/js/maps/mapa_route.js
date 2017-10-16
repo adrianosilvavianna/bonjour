@@ -71,11 +71,17 @@ $(document).ready(function() {
 		var action = $(this).attr("action");
 
 
-		alert("saindo : " + enderecoPartida + " Destino :" + enderecoChegada + " Data :" + date_exit + " Tempo: " + time + " Veiculo :" + vehicle);
+		//alert("saindo : " + enderecoPartida + " Destino :" + enderecoChegada + " Data :" + date_exit + " Tempo: " + time + " Veiculo :" + vehicle);
 
 		if (enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == '') {
-			throw new UserException("Preencha todos os campos corretamente");
-			//alert("Preencha todos os campos corretamente");
+			$.notify({
+				title: 'Error',
+				message: 'Algo está errado, verifique se os campos estão preenchidos corretamente',
+			},{
+				type: 'danger',
+			});
+			finish();
+
 		}
 
 		var dataApi = {
@@ -99,15 +105,28 @@ $(document).ready(function() {
 
 		})
 			.done(function (xhr) {
-				alert('foi');
+				$.notify({
+					title: 'Sucesso',
+					message: 'Obrigado por disponibilizar uma viagem.',
+				},{
+					type: 'success',
+				});
 				console.log(xhr);
+
+
 				//$('#like_count_' + xhr.data.id).html(xhr.data.likes);
 			})
 			.fail(function () {
 
-				alert('error');
-				//var errors = xhr.responseJSON.errors;
-				//console.log(errors)
+				$.notify({
+					title: 'Error',
+					message: 'Algo está errado, verifique se os campos estão preenchidos corretamente',
+				},{
+					type: 'danger',
+				});
+
+				var errors = xhr.responseJSON.errors;
+				console.log(errors)
 			})
 			.always(function (xhr) {
 

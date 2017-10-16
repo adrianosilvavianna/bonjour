@@ -1,5 +1,6 @@
 @section('css')
-   <link href="{{ asset('css/maps/estilo_route.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/maps/estilo_route.css') }}" type="text/css" rel="stylesheet"
+          xmlns="http://www.w3.org/1999/html"/>
  @stop
 <div id="apresentacao">
 
@@ -62,7 +63,7 @@
                 </div>
                 <div class="col-md-1">
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"/>
+                        <button type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"/> Enviar </button>
                     </div>
                 </div>
             </div>
