@@ -25,7 +25,7 @@
 					<nav>
 						<ul>
 							<li><a href="#intro">Bonjou</a></li>
-							<li><a href="#one">O Planeta é um só</a></li>
+							<li><a href="#one">O Projeto Bonjou</a></li>
 							<li><a href="#two">Ajuda e Informações uteis</a></li>
 							<li><a href="#three">Contato</a></li>
 						</ul>
@@ -50,12 +50,13 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="{{ asset('web/images/pic01.jpg') }}" alt="" data-position="center center" /></a>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic01.png') }}" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Projeto O Planeta é um só</h2>
-									<p>O projeto visa a integração de refugiados e migrantes de todas as nacionalidades e apátridas com a população de Curitiba.</p><p>
-										É um projeto apartidário e laico, onde as diferentes religiões são bem-vindas, assim como pessoas de todas as etnias e povo.</p>
+									<h2>O Projeto Bonjou</h2>
+									<p>O projeto visa a integração e caronas entre refugiados, migrantes de todas as nacionalidades e pessoas de Curitiba.</p>
+									<p> Sistema Web que possíbilita solicitar e oferecer caronas podendo ser agendadas previamente, auxiliando a locomoção dos refugiados e migrantes.</p>
+									<p>Sistema criado em conjunto com o curso de Analise e Desenvolvimento de Sistemas da Universidade Tuiuti do Paraná</p>
 								</div>
 							</div>
 						</section>
@@ -63,9 +64,9 @@
 							<a href="#" class="image"><img src="{{ asset('web/images/pic02.jpg') }}" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Planeta encontros</h2>
-									<p>encontros nos quais serão realizadas palestras, rodas de conversa, apresentação de projetos de apoio, manifestações artísticas e culturais, feiras de alimentos típicos, produtos e serviços que reverterão fundos para os migrantes e refugiados cadastrados.
-										O evento acontece quinzenalmente a partir do dia 12 de março, sempre aos sábados das 13h30 às 18h, no Instituto Tibagi. O objetivo é receber aqueles que escolheram o Brasil como seu novo lar e discutir, pensar e conhecer projetos a respeito da migração no país.</p>
+									<h2>Projeto O Planeta é um só</h2>
+									<p>O projeto funciona em formato de encontros que visa a integração dos refugiados e migrantes de todas as nascionalidades
+									com pessoas de curitiba que queiram se engajar na inclusão deste grupo na vida da cidade.</p>
 								</div>
 							</div>
 						</section>
@@ -80,9 +81,7 @@
                                         Centro, Curitiba - PR</br>
                                         Tel: (41) 3024-9848 (41) 3029-7393</br>
 									</p>
-									<ul class="actions">
-										<li><a href="http://institutotibagi.org.br"  class="button">Instituto Tibagi</a></li>
-									</ul>
+
 								</div>
 							</div>
 						</section>
@@ -125,17 +124,14 @@
 									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
 								</section>
 							</div>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn more</a></li>
-							</ul>
-						</div>
+
 					</section>
 
 				<!-- Three -->
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Contato</h2>
-							<p>Escreva a sua duvida, sujestão, pergunta ou escreva uma menssagem pedindo para ser apoiador do projeto O Planeta é um Só.</p>
+							<p>Escreva a sua duvida, sujestão, pergunta ou escreva uma mensagem pedindo para ser apoiador do projeto O Planeta é um Só.</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="#">
@@ -152,38 +148,11 @@
 											<textarea name="message" id="message" rows="5"></textarea>
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
+											<li><a href="" class="button submit">Enviar Mensagem</a></li>
 										</ul>
 									</form>
 								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
+
 							</div>
 						</div>
 					</section>
