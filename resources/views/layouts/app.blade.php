@@ -198,14 +198,17 @@
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
 
 <!--Restful-->
-
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
+
+<!-- Mascaras -->
+<script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
+
 
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Material Dashboard javascript methods -->
-<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
+{{--<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>--}}
 
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/js/demo.js') }}"></script>
