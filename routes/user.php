@@ -29,7 +29,7 @@ Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
     Route::get('/create',           'VehicleController@create')->name('create');
     Route::post('/store',           'VehicleController@store')->name('store');
     Route::get('/{vehicle}/edit',   'VehicleController@edit')->name('edit');
-    Route::post('/{vehicle}/update',          'VehicleController@update')->name('update');
+    Route::put('/{vehicle}/update',          'VehicleController@update')->name('update');
     Route::get('/{vehicle}/delete',          'VehicleController@delete')->name('delete');
 
 });
@@ -39,9 +39,10 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::get('/',                 'TripController@index')->name('index');
     Route::get('/create',           'TripController@create')->name('create');
     Route::post('/store',           'TripController@store')->name('store');
-    Route::get('/{trip}/edit',   'TripController@edit')->name('edit');
-    Route::get('/show',   'TripController@show')->name('show');
-    Route::post('/{trip}/update',          'TripController@update')->name('update');
+    Route::get('/{trip}/edit',      'TripController@edit')->name('edit');
+    Route::put('/{trip}/update',    'TripController@update')->name('update');
+    Route::get('/show',             'TripController@show')->name('show');
+
 
 });
 
