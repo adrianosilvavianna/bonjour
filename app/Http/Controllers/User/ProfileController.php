@@ -50,7 +50,7 @@ class ProfileController extends Controller
         try{
             $request->file() ? $request = $this->upload($request) : $request = $request->input();
             $profile->update($request);
-            return  back()->with('success', 'Alterado com sucesso!');
+            return redirect(route('user.profile.index'))->with('success', 'Alterado com sucesso!');
         }catch (\Exception $e){
             return redirect()->back()->with('error', $e->getMessage());
         }
