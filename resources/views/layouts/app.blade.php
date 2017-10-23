@@ -41,7 +41,7 @@
 <div class="wrapper">
 
   @auth
-      <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+      <div class="sidebar" data-color="purple" >
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -116,9 +116,9 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">notifications</i>
+                                <i class="material-icons">person</i>
 <!--                                <span class="notification">5</span>-->
-                                <p class="hidden-lg hidden-md">Notifications</p>
+                                <a href="{{ route('user.profile.index') }}" class="hidden-lg hidden-md">Perfil</a>
                             </a>
                         </li>
                         <li>
@@ -192,9 +192,9 @@
 <script src="{{ asset('assets/js/jquery-3.1.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
-
-
 <script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
 
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
@@ -210,7 +210,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Material Dashboard javascript methods -->
-{{--<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>--}}
+
 
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/js/demo.js') }}"></script>
