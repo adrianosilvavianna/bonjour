@@ -18,7 +18,7 @@
     @foreach($trips as $trip)
 
     <div class="row">
-        <a href="{{ route('user.trip.show') }}">
+        <a href="{{ route('user.trip.show', $trip) }}">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card card-stats">
                     <div class="card-content">

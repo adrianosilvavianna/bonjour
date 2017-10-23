@@ -64,9 +64,8 @@ class TripController extends Controller
 
     }
 
-    public function show(){
-        //return view('trip.show', compact('trip'));
-        return view('trip.show');
+    public function show(Trip $trip){
+        return view('trip.show', compact('trip'));
     }
 
 
