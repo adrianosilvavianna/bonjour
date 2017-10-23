@@ -5,8 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Domains\Profile;
-use Faker\Provider\Image;
-use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+
 
 class ProfileController extends Controller
 {
@@ -70,10 +70,11 @@ class ProfileController extends Controller
                 $fileName = 'profile-'.auth()->user()->id.'.'.$extension;
                 $request->photo_address->move($destinationPath, $fileName);
 
-                $this->resizeImg($extension);
+                $srcResize = $this->resizeImg($fileName, $src);
 
-                $photo_address = $src.$fileName;
+                $photo_address = $srcResize.$fileName;
                 $request = $request->input()+['photo_address' =>$photo_address];
+
                 return $request;
             }
             return back()->with('error', 'Esse Arquivo precisa ser do tipo JPG ou PNG');
@@ -81,10 +82,16 @@ class ProfileController extends Controller
         throw new \Exception('Arquivo Invalido');
     }
 
-    public function resizeImg(String $extension){
-        $image = \Intervention\Image\Facades\Image::make(public_path().'/img/resize' .$extension);
+    public function resizeImg(String $fileName,String $src){
+
+        $srcResize = '/img/resize/';
+
+        $image = Image::make(public_path().$src.$fileName);
         $image->resize(200,200);
-        $image->save('public/upload/news/1.jpg');
+        $image->save(public_path().$srcResize.$fileName);
+
+        return $srcResize;
+
     }
 
 
