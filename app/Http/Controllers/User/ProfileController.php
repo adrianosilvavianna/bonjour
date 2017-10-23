@@ -5,20 +5,21 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Domains\Profile;
+use Faker\Provider\Image;
 use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
     private $profile;
 
-    public function __construct(Profile $profile)
-    {
+    public function __construct(Profile $profile){
+
         $this->middleware('auth');
         $this->profile = $profile;
     }
 
-    public function index()
-    {
+    public function index(){
+
         if(auth()->User()->Profile){
             return view('profile.index')->with('profile', auth()->user()->Profile);
         }
@@ -55,20 +56,22 @@ class ProfileController extends Controller
         }
     }
 
-    public function upload(ProfileRequest $request)
-    {
+    public function upload(ProfileRequest $request){
 
         $photo = $request->file('photo_address');
 
         if ($photo->isValid()) {
-            $extencao = $photo->getClientOriginalExtension();
+            $extension = $photo->getClientOriginalExtension();
 
-            if($extencao == 'jpg' || $extencao == 'png' || $extencao == 'jpeg'){
+            if($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg'){
 
                 $src = '/img/photos/';
                 $destinationPath = public_path().$src;
-                $fileName = 'profile-'.auth()->user()->id.'.'.$extencao;
+                $fileName = 'profile-'.auth()->user()->id.'.'.$extension;
                 $request->photo_address->move($destinationPath, $fileName);
+
+                $this->resizeImg($extension);
+
                 $photo_address = $src.$fileName;
                 $request = $request->input()+['photo_address' =>$photo_address];
                 return $request;
@@ -77,4 +80,12 @@ class ProfileController extends Controller
         }
         throw new \Exception('Arquivo Invalido');
     }
+
+    public function resizeImg(String $extension){
+        $image = \Intervention\Image\Facades\Image::make(public_path().'/img/resize' .$extension);
+        $image->resize(200,200);
+        $image->save('public/upload/news/1.jpg');
+    }
+
+
 }
