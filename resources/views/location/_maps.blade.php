@@ -10,12 +10,13 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-5 ">
-                    <div class="form-group  ">
+                    <div class="form-group">
                         <label class="control-label">Onde Estou</label>
-                        <input type="text" class="form-control" id="txtEnderecoPartida" name="endereco_partida"/>
+                        <input type="text" class="form-control" id="txtEnderecoPartida" name="txtEnderecoPartida"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
-
+                    <input type="hidden" id="txtLatitude" name="txtLatitude" />
+                    <input type="hidden" id="txtLongitude" name="txtLongitude" />
                 </div>
 
                 <div class="col-md-5 ">
@@ -69,11 +70,6 @@
             </div>
 
             <div class="row">
-                <input type="hidden" id="txtLatitude" name="txtLatitude" />
-                <input type="hidden" id="txtLongitude" name="txtLongitude" />
-
-            </div>
-            <div class="row">
                 <h5>Resumo da viagem</h5>
                 <div class="col-md-6">
                     <div id="mapa"></div>
@@ -84,11 +80,8 @@
                 </div>
             </div>
 
-
         </fieldset>
-
     </form>
-
 
 </div>
 
@@ -97,14 +90,14 @@
 {{--<script type="text/javascript" src="{{ asset('js/maps/jquery.min.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('js/maps/mapa.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
-
 
         <!-- Maps API Javascript -->
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;sensor=false"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;"></script>
 
 <!-- Arquivo de inicialização do mapa -->
+<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/maps/mapa_route.js') }}"></script>
+
 
 
 

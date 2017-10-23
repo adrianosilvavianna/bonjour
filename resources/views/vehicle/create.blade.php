@@ -69,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Número de passageiros</label>
-                                    <input type="text" name="num_passenger" class="form-control" value="{{ old('num_passenger') }}">
+                                    <input type="number" name="num_passenger" class="form-control" value="{{ old('num_passenger') }}">
                                 </div>
                             </div>
                         </div>

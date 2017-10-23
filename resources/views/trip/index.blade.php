@@ -23,7 +23,7 @@
                 <div class="card card-stats">
                     <div class="card-content">
                         <img class="pull-left" src="{{ asset($trip->User->Profile->photo_address) }}" style="border-radius: 50%" >
-                        <h3 class="pull-left" style="margin-left: 5%">{{ $trip->User->Profile->name }} <br>
+                        <h3 class="pull-left" style="margin-left: 5%">{{ $trip->User->Profile->name }} {{ $trip->User->Profile->last_name }} <br>
                             <i class="material-icons pull-left">star</i>
                             <i class="material-icons pull-left">star</i>
                             <i class="material-icons pull-left">star</i>
@@ -31,7 +31,7 @@
                             <i class="material-icons pull-left">star_border</i>
                         </h3>
 
-                        <h3 class="title">{{ $trip->date }}  ás {{ $trip->time }}</h3><br>
+                        <h3 class="title"> {{ with(new DateTime($trip->date))->format('d/m/Y') }}  ás {{ $trip->time }}</h3><br>
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
                         <i class="material-icons">group</i> <strong>4</strong> Lugares Disponíveis
