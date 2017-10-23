@@ -47,7 +47,7 @@ class ProfileController extends Controller
     public function update(ProfileRequest $request, Profile $profile) {
 
         try{
-            $request = $this->upload($request);
+            $request->file() ? $request = $this->upload($request) : $request = $request->input();
             $profile->update($request);
             return  back()->with('success', 'Alterado com sucesso!');
         }catch (\Exception $e){

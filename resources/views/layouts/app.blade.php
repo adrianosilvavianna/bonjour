@@ -197,6 +197,10 @@
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
 
+<!--Restful-->
+
+<script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
+
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 

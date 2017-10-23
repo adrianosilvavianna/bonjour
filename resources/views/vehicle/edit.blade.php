@@ -39,7 +39,7 @@
                             <div class="col-md-6 {{ $errors->has('year') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Ano</label>
-                                    <input type="numeric" name="year" class="form-control" value="{{ $vehicle->year }}">
+                                    <input type="numeric" name="year" class="form-control" value="{{ $vehicle->year }}" >
                                 </div>
                                 @if ($errors->has('year'))
                                 <span class="help-block">
@@ -69,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Número de passageiros</label>
-                                    <input type="text" name="num_passenger" class="form-control" value="{{ $vehicle->num_passenger }}">
+                                    <input type="number" name="num_passenger" class="form-control" value="{{ $vehicle->num_passenger }}">
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-content">
                     <form action="{{ route('user.profile.update', $profile) }}" method="post" enctype="multipart/form-data">
-
+                        {{ method_field('PUT') }}
                         <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">

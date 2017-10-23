@@ -18,13 +18,30 @@ class VehicleRequest extends FormRequest
 
     public function rules()
     {
-        return [
-             'model' => 'required|string|max:40',
-             'color' => 'required|string|max:40',
-             'plaque' => 'required|string',
-             'year' => 'required|string',
-             'brand' => 'required',
-             'num_passenger' => 'required',
-        ];
+        switch($this->method())
+        {
+            case 'POST':
+            {
+                return [
+                    'model' => 'required|string|max:40',
+                    'color' => 'required|string|max:40',
+                    'plaque' => 'required|string',
+                    'year' => 'required|string',
+                    'brand' => 'required',
+                    'num_passenger' => 'required|min:1|max:20',
+                ];
+            }
+            case 'PUT':{
+                return [
+                    'model' => 'required|string|max:40',
+                    'color' => 'required|string|max:40',
+                    'plaque' => 'required|string',
+                    'year' => 'required|string',
+                    'brand' => 'required',
+                    'num_passenger' => 'required|min:1|max:20',
+                ];
+            }
+            default:break;
+        }
     }
 }
