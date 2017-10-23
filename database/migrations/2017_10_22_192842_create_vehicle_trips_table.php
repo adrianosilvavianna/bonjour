@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVechicleTripTable extends Migration
+class CreateVehicleTripsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateVechicleTripTable extends Migration
      */
     public function up()
     {
-        Schema::create('vechicle_trip', function (Blueprint $table) {
+        Schema::create('vehicle_trips', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('vehicle_id')->unsigned();
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
 
             $table->integer('trip_id')->unsigned();
             $table->foreign('trip_id')->references('id')->on('trips');
+
+            $table->integer('vehicle_id')->unsigned();
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
 
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateVechicleTripTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vechicle_trip');
+        Schema::dropIfExists('vehicle_trips');
     }
 }

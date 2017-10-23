@@ -32,11 +32,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function User()
-    {
-        return $this->hasOne(User::class);
-    }
-
     public function Profile()
     {
         return $this->hasOne(Profile::class);

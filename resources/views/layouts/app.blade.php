@@ -57,9 +57,9 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('user.trip.index') }}">
                         <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
+                        <p>Caronas</p>
                     </a>
                 </li>
                 <li>
@@ -69,12 +69,7 @@
                         <p>Meus veículos</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('user.trip.index')}}">
-                        <i class="material-icons">near_me</i>
-                        <p>Procurar Caronas</p>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{ route('user.trip.create') }}">
                         <i class="material-icons">near_me</i>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Domains\Trip;
+use App\Domains\VehicleTrip;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class TripController extends Controller
     
     public function index()
     {
-        return view('trip.index');
+        return view('trip.index')->with('trips', auth()->user()->Trips);
     }
 
     public function create() {
@@ -32,6 +33,8 @@ class TripController extends Controller
         try{
 
             $trip = auth()->user()->Trips()->create($request->input());
+
+            //VehicleTrip::create(['trip_id' => $trip->id, 'vechicle_id' => $request->vehicle_id]);
 
             if($request->ajax())
             {
@@ -51,7 +54,6 @@ class TripController extends Controller
                 ], 200);
             }
         }
-
 
     }
 
