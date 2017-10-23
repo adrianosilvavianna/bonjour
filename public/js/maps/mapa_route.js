@@ -40,7 +40,6 @@
 
 		initialize();
 
-
 		$("#btnEnviar").click(function (event) {
 			event.preventDefault();
 			var enderecoPartida = $("#txtEnderecoPartida").val();

@@ -56,6 +56,7 @@ class ProfileController extends Controller
         }
     }
 
+    //metodo que faz o upload da imagem
     public function upload(ProfileRequest $request){
 
         $photo = $request->file('photo_address');
@@ -65,6 +66,7 @@ class ProfileController extends Controller
 
             if($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg'){
 
+                //Declara uma url para img principal
                 $src = '/img/photos/';
                 $destinationPath = public_path().$src;
                 $fileName = 'profile-'.auth()->user()->id.'.'.$extension;
@@ -72,6 +74,7 @@ class ProfileController extends Controller
 
                 $srcResize = $this->resizeImg($fileName, $src);
 
+                //Salva o endereço da img renderizada
                 $photo_address = $srcResize.$fileName;
                 $request = $request->input()+['photo_address' =>$photo_address];
 
@@ -82,6 +85,8 @@ class ProfileController extends Controller
         throw new \Exception('Arquivo Invalido');
     }
 
+
+    //metodo que renderiza a imagem
     public function resizeImg(String $fileName,String $src){
 
         $srcResize = '/img/resize/';
