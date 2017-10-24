@@ -46,7 +46,7 @@ class VehicleController extends Controller
 
     public function delete(Vehicle $vehicle) {
         try{
-            $vehicle->forceDelete();
+            $vehicle->delete();
             return back()->with('success', 'Salvo com sucesso');
         }catch (\Exception $e){
             return back()->with('error', $e->getMessage());

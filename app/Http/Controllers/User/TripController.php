@@ -31,9 +31,8 @@ class TripController extends Controller
     public function store(Request $request) {
 
         try{
-            $trip = auth()->user()->Trips()->create($request->input());
 
-            VehicleTrip::create(['trip_id' => $trip->id, 'vechicle_id' => $request->vehicle_id]);
+            $trip = auth()->user()->Trips()->create($request->input());
 
             if($request->ajax())
             {
