@@ -15,12 +15,13 @@ class TripController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('vehicle')->only('create');
+        $this->middleware('profile');
         $this->trip = $trip;
     }
     
     public function index()
     {
-        return view('trip.index')->with('trips', $this->trip->all());
+        return view('trip.index')->with('trips', $this->trip->orderBy('id', 'desc')->get());
     }
 
     public function create() {
@@ -67,6 +68,9 @@ class TripController extends Controller
         return view('trip.show', compact('trip'));
     }
 
+    public function myTrips(){
+        return view('trip.index')->with(['trips' => auth()->user()->Trips()->orderBy('id', 'desc')->get()]);
+    }
 
     public function delete(){
 
