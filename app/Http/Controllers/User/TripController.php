@@ -20,7 +20,7 @@ class TripController extends Controller
     
     public function index()
     {
-        return view('trip.index')->with('trips', auth()->user()->Trips()->orderBy('id', 'desc')->get());
+        return view('trip.index')->with('trips', $this->trip->all());
     }
 
     public function create() {

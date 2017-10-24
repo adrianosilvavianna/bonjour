@@ -56,7 +56,7 @@
                         <label class="control-label">Veículo</label>
                         <select type="text" name="gender" class="form-control" id="vehicle_id">
                             @foreach($vehicles as $vehicle)
-                                <option value="{{ $vehicle->id }}">Modelo: {{ $vehicle->model }} || Placa: {{ $vehicle->plaque }}</option>
+                                <option value="{{ $vehicle->id }}">Marca: {{ $vehicle->brand }} || Modelo: {{ $vehicle->model }}</option>
                             @endforeach
                         </select>
                     </div>
