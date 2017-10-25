@@ -13,8 +13,5 @@ class UserController extends Controller
         $this->middleware('profile');
     }
     
-    public function index()
-    {
-        return view('home');
-    }
+
 }

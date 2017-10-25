@@ -1,0 +1,18 @@
+configuração de time_zone:
+
+Importante pois a Classe Trip precisa verificar os campos de data e hora,
+se o servidor nao tiver corretamente configurado ocorrerá erro na execução da aplicação.
+
+A configuração do Time_zone no servidor ou no php.ini é sobrescrita pelo laravel.
+
+Para configurar o Time_zone no laravel, tem que ir ao seguinte diretorio:
+
+app/config/app.php
+
+Na linha que tiver :
+
+FROM: 'timezone' => 'UTC'
+
+Troca por :
+
+FROM: 'timezone' => 'America/Sao_Paulo'

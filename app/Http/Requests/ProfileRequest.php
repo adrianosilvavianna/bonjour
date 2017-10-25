@@ -18,7 +18,6 @@ class ProfileRequest extends FormRequest
 
     public function rules()
     {
-
         switch($this->method())
         {
             case 'POST':
@@ -42,9 +41,6 @@ class ProfileRequest extends FormRequest
             }
             default:break;
         }
-
-
-
 
     }
 }

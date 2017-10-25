@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/home', 'UserController@index')->name('home');
+Route::get('/home', 'TripController@index')->name('index');
 
 
 Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {

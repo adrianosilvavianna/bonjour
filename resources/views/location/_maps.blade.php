@@ -35,39 +35,8 @@
 
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group  ">
-                        <label class="control-label">Data de partida</label>
-                        <input type="date" class="form-control" name="date" min="" id="date">
-                    </div>
-                </div>
+            @include('trip._inputs', $vehicles)
 
-                <div class="col-md-2 ">
-                    <div class="form-group  ">
-                        <label class="control-label">Hora de partida</label>
-                        <input type="time" class="form-control" name="time" id="time">
-                    </div>
-
-                </div>
-
-                <div class="col-md-4 ">
-                    <div class="form-group  ">
-                        <label class="control-label">Veículo</label>
-                        <select type="text" name="gender" class="form-control" id="vehicle_id">
-                            @foreach($vehicles as $vehicle)
-                                <option value="{{ $vehicle->id }}">Marca: {{ $vehicle->brand }} || Modelo: {{ $vehicle->model }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                </div>
-                <div class="col-md-1">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar"/> Enviar </button>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <h5>Resumo da viagem</h5>

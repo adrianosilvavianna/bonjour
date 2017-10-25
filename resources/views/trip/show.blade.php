@@ -29,7 +29,7 @@
                 <div class="card-footer ">
 
                     @if(auth()->user()->id == $trip->User->id)
-                        <a href="#pablo" class="btn btn-info btn-round pull-right">Editar Viagem</a>
+                        <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
                     @else
                         <a href="#pablo" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
                     @endif

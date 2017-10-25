@@ -1,1 +1,1 @@
-* para a regra escrita na crasse App\Http\Requests\ProfileRequest funcionar, precisa configurar o arquivo  php.ini e liberar o campo extension=php_fileinfo.dll descrito no link https://stackoverflow.com/questions/30405960/laravel-5-validating-mime-types
+* para a regra escrita na classe App\Http\Requests\ProfileRequest funcionar, precisa configurar o arquivo  php.ini e liberar o campo extension=php_fileinfo.dll descrito no link https://stackoverflow.com/questions/30405960/laravel-5-validating-mime-types

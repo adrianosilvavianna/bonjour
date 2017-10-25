@@ -40,7 +40,7 @@ class VehicleController extends Controller
 
     public function update(VehicleRequest $request, Vehicle $vehicle) {
         
-        $vehicle = $vehicle->update($request->input());
+        $vehicle->update($request->input());
        return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
     }
 
