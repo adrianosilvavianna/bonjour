@@ -26,7 +26,6 @@
 
     <!--  Material Dashboard CSS    -->
     <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
-
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
@@ -95,6 +94,8 @@
 
 
     <div class="main-panel">
+
+        @desktop
         <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -140,6 +141,41 @@
                 </div>
             </div>
         </nav>
+        @elsedesktop
+
+        <nav class="navbar navbar-primary">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-icons">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Bonjou</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="example-navbar-icons">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ route('user.profile.index') }}"><i class="material-icons">person</i> Meu Perfil </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="material-icons">input</i>
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @enddesktop
 
     @endauth
         <div class="content">
@@ -165,9 +201,17 @@
 
             @if (session('warning'))
                 <div class="alert alert-warning">
-                    <button type="button" aria-hidden="true" class="close">×</button>
-                    <span><b> Alerta - </b>{!! session('warning') !!}</span>
+                    <div class="container-fluid">
+                        <div class="alert-icon">
+                            <i class="material-icons">info_outline</i>
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        </button>
+                        <b>Alerta:</b> {!! session('warning') !!}
+                    </div>
                 </div>
+
             @endif
 
             @yield('content')
@@ -191,6 +235,7 @@
 
 <script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
 
+{{--<script src="{{ asset('assets/js/material-kit.js') }}"></script>--}}
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
 

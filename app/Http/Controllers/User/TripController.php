@@ -68,11 +68,29 @@ class TripController extends Controller
         return view('trip.show', compact('trip'));
     }
 
+    public function delete(){
+
+    }
+
     public function myTrips(){
         return view('trip.index')->with(['trips' => auth()->user()->Trips()->orderBy('id', 'desc')->get()]);
     }
 
-    public function delete(){
+    public function search(Request $request){
+
+        if($request->date_trip != '' && $request->location != '') {
+            return view('trip.index')->with(['trips' => $this->trip->where('date' ,'=' ,$request->date_trip)->where('exit_address', 'like', '%'.$request->location.'%')->orWhere('arrival_address', 'like', '%'.$request->location.'%s')->get()]);
+        }
+        if($request->date_trip != ''){
+            return view('trip.index')->with(['trips' => $this->trip->where('date' ,'=' ,$request->date_trip)->get()]);
+        }
+        if($request->location != ''){
+            return view('trip.index')->with(['trips' => $this->trip->where('exit_address', 'like', '%'.$request->location.'%')->orWhere('arrival_address', 'like', '%'.$request->location.'%s')->get()]);
+        }
+
+
+        return view('trip.index')->with(['trips' => $this->trip->where('date' ,'=' ,$request->date_trip)->get()]);
 
     }
+
 }

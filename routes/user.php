@@ -43,6 +43,7 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::put('/{trip}/update',    'TripController@update')->name('update');
     Route::get('/{trip}/show',             'TripController@show')->name('show');
     Route::get('/my_trips',             'TripController@myTrips')->name('myTrips');
+    Route::post('/search',             'TripController@search')->name('search');
 
 
 });
