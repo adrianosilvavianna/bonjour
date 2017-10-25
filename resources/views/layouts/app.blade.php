@@ -182,28 +182,49 @@
 
             @if (session('error'))
                 <div class="alert alert-danger">
-                    <button type="button" aria-hidden="true" class="close">×</button>
-                    <span><b> ERRO - </b>{!! session('error') !!}</span>
+                    <div class="container-fluid">
+                        <div class="alert-icon">
+                            <i class="material-icons">error_outline</i>
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                        </button>
+                        <b>Sucesso:</b> {!! session('error') !!}
+                    </div>
                 </div>
             @endif
             @if (session('success'))
-                <div class="alert alert-success">
-                    <button type="button" aria-hidden="true" class="close">×</button>
-                    <span><b> Sucesso - </b>{!! session('success') !!}</span>
-                </div>
+                    <div class="alert alert-success">
+                        <div class="container-fluid">
+                            <div class="alert-icon">
+                                <i class="material-icons">done</i>
+                            </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                            </button>
+                            <b>Sucesso:</b> {!! session('success') !!}
+                        </div>
+                    </div>
             @endif
             @if (session('info'))
-                <div class="alert alert-info">
-                    <button type="button" aria-hidden="true" class="close">×</button>
-                    <span><b> Ops - </b>{!! session('info') !!}</span>
-                </div>
+                    <div class="alert alert-info">
+                        <div class="container-fluid">
+                            <div class="alert-icon">
+                                <i class="material-icons">info_outline</i>
+                            </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                            </button>
+                            <b>Ops:</b> {!! session('info') !!}
+                        </div>
+                    </div>
             @endif
 
             @if (session('warning'))
                 <div class="alert alert-warning">
                     <div class="container-fluid">
                         <div class="alert-icon">
-                            <i class="material-icons">info_outline</i>
+                            <i class="material-icons">warning</i>
                         </div>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"><i class="material-icons">clear</i></span>
