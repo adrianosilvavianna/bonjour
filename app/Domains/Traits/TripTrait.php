@@ -9,6 +9,7 @@
 namespace App\Domains\Traits;
 
 
+use App\Domains\Trip;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -34,11 +35,22 @@ trait TripTrait
         return view('trip.my_trip')->with(['trips' => auth()->user()->Trips()->orderBy('id', 'desc')->get()]);
     }
 
-    public function getValidationDate(Carbon $dateNow, Carbon $dateRequest){
+    public function getValidationDate(Carbon $dateNow, Carbon $dateRequest, Carbon $dateTrip){
 
         if($dateRequest < $dateNow){
             throw new \Exception("Datas anteriores a dia e hora atual não são válidas");
         }
+
+//        if($dateRequest->toDateString() == $dateNow->toDateString()){
+//
+//            dd($dateRequest->diffInHours($dateTrip));
+//
+//        }
+
+
+        // criar police ou gate para verificar se ainda é possivel alterar a viagem,
+        // definir um tempo minimo ed antecedencia para realizar alteração
+        // criar evento de notificação
 
     }
 

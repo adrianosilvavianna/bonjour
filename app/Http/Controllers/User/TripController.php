@@ -7,7 +7,6 @@ use App\Domains\Trip;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TripRequest;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
@@ -66,16 +65,11 @@ class TripController extends Controller
     public function update(TripRequest $request ,Trip $trip) {
 
         try{
-
             $dateNow = Carbon::now();
-
             $dateRequest = Carbon::parse($request->date.$request->time);
+            $dateTrip = Carbon::parse($trip->date.$trip->time);
 
-            $this->getValidationDate($dateNow, $dateRequest);
-
-            // criar police ou gate para verificar se ainda é possivel alterar a viagem,
-            // definir um tempo minimo ed antecedencia para realizar alteração
-            // criar evento de notificação
+            $this->getValidationDate($dateNow, $dateRequest, $dateTrip);
 
             $trip->update($request->input());
             return back()->with('success', "Atualizado com sucesso");
