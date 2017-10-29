@@ -18,7 +18,7 @@ class MeetingController extends Controller
         try{
 
             $this->verifyTrips($trip);
-            auth()->user()->Mettings()->create(['trip_id'=> $trip->id]);
+            auth()->user()->Meetings()->create(['trip_id'=> $trip->id]);
             return back()->with('success', "Atualizado com sucesso");
 
         }catch (\Exception $e){
@@ -29,18 +29,18 @@ class MeetingController extends Controller
 
     public function verifyTrips(Trip $trip){
 
-        $allTrips = auth()->user()->Meetings->where('date', '=', $trip->date);
+        $meetings = auth()->user()->Meetings;
 
-        if($allTrips->count() > 0){
+        if($meetings->count() > 0){
 
-            foreach($allTrips as $allTrip){
+            foreach($meetings as $meeting){
 
                 $dateTrip = Carbon::parse($trip->date.$trip->time);
 
-                $dateAllTrip = Carbon::parse($allTrip->date.$trip->time);
+                $dateAllTrip = Carbon::parse($meeting->Trip->date.$meeting->Trip->time);
 
                 if($dateTrip->diffInMinutes($dateAllTrip) <= 30){
-                    throw new \Exception("Você já tem uma carona próximo a esse horario");
+                    throw new \Exception("VocÃª jÃ¡ tem uma carona prÃ³ximo a esse horario");
                 }
 
             }
