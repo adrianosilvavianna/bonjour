@@ -24,10 +24,6 @@
 
         </form>
 
-
-
-
-
     @include('trip._cards', $trips)
 
 

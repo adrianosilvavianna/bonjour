@@ -69,10 +69,15 @@ class TripController extends Controller
             $dateRequest = Carbon::parse($request->date.$request->time);
             $dateTrip = Carbon::parse($trip->date.$trip->time);
 
-            $this->getValidationDate($dateNow, $dateRequest, $dateTrip);
+            if($this->getValidationDate($dateNow, $dateRequest, $dateTrip)){
 
-            $trip->update($request->input());
-            return back()->with('success', "Atualizado com sucesso");
+                $trip->update($request->input());
+
+                //notificar integrantes
+
+                return back()->with('success', "Atualizado com sucesso");
+
+            }
 
         }catch (\Exception $e){
 
