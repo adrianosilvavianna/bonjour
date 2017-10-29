@@ -13,16 +13,6 @@ Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
 
 });
 
-Route::group(['prefix' => 'phone', 'as' =>'phone.'], function () {
-
-    Route::get('/',                 'PhoneController@index')->name('index');
-    Route::get('/create',           'PhoneController@create')->name('create');
-    Route::post('/store',           'PhoneController@store')->name('store');
-    Route::get('/{profile}/edit',   'PhoneController@edit')->name('edit');
-    Route::post('/update',          'PhoneController@update')->name('update');
-
-});
-
 Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
 
     Route::get('/',                 'VehicleController@index')->name('index');
@@ -51,9 +41,7 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
 Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
 
     Route::get('/',                 'MeetingController@index')->name('index');
-    Route::get('/create',           'MeetingController@create')->name('create');
-    Route::post('/store',           'MeetingController@store')->name('store');
-    Route::get('/{profile}/edit',   'MeetingController@edit')->name('edit');
+    Route::get('/{trip}/store',           'MeetingController@store')->name('store');
     Route::post('/update',          'MeetingController@update')->name('update');
 
 });
@@ -65,13 +53,6 @@ Route::group(['prefix' => 'avaliation', 'as' =>'avaliation.'], function () {
     Route::post('/store',           'AvaliationController@store')->name('store');
     Route::get('/{avaliation}/edit',   'AvaliationController@edit')->name('edit');
     Route::post('/update',          'AvaliationController@update')->name('update');
-
-});
-
-Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
-
-    Route::get('/',                 'MeetingController@index')->name('index');
-    Route::post('/store',           'MeetingController@store')->name('store');
 
 });
 
