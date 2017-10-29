@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TripRequest extends FormRequest
+class MeetingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class TripRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -28,19 +28,12 @@ class TripRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'exit_address'    => 'required|string|max:255',
-                    'arrival_address' => 'required|string|max:255',
-                    'date'            => 'required|date',
-                    'time'            => 'required',
-                    'vehicle_id'      => 'required|integer',
-                    'num_passenger'   => 'required|integer'
+                    'trip_id' => 'required|integer',
                 ];
             }
             case 'PUT':{
                 return [
-                    'date'            => 'required|date',
-                    'time'            => 'required',
-                    'vehicle_id'      => 'required|integer'
+                    'trip_id' => 'required|integer',
                 ];
             }
             default:break;

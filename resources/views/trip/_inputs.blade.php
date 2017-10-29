@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4 {{ $errors->has('date') ? ' has-error' : '' }}">
+    <div class="col-md-2 {{ $errors->has('date') ? ' has-error' : '' }}">
         <div class="form-group  ">
             <label class="control-label">Data de partida</label>
 
@@ -36,7 +36,7 @@
         <div class="form-group  ">
             <label class="control-label">Veículo</label>
 
-                <select type="text" name="vehicle_id" class="form-control" >
+                <select type="text" name="vehicle_id" class="form-control" id="vehicle_id">
                     @if(!empty($trip))
                         <option value="{{ $trip->Vehicle->id }}">Marca: {{ $trip->Vehicle->brand }} || Modelo: {{ $trip->Vehicle->model }}</option>
                     @endif
@@ -51,6 +51,16 @@
                 <strong class="red-text">{{ $errors->first('vehicle_id') }}</strong>
             </span>
         @endif
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label">N° Passageiros</label>
+            @if(!empty($trip))
+                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="{{ $trip->num_passenger }}">
+            @else
+                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="">
+            @endif
+        </div>
     </div>
     <div class="col-md-1">
         <div class="form-group">

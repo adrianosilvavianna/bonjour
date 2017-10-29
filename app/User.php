@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Domains\Location;
+use App\Domains\Meeting;
 use App\Domains\Phone;
 use App\Domains\Profile;
 use App\Domains\Trip;
@@ -54,5 +55,11 @@ class User extends Authenticatable
 
     public function Trips(){
         return $this->hasMany(Trip::class);
+    }
+
+    public function Meetings(){
+
+        return $this->hasMany(Meeting::class);
+
     }
 }

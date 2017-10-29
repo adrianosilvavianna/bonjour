@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content">
                     <h3 class="title">Viagem</h3>
-                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>4</strong> Lugares Disponíveis</p>
+                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>{{ $trip->num_passenger }}</strong> Lugares Disponíveis</p>
                     <p class="card-content">
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>

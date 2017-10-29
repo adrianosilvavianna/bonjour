@@ -205,12 +205,13 @@
 			var date_exit = $("#date").val();
 			var time = $("#time").val();
 			var vehicle = $("#vehicle_id").val();
+			var num_passenger = $("#num_passenger").val();
 			var action = $(this).attr("action");
 
 
 			//alert("saindo : " + enderecoPartida + " Destino :" + enderecoChegada + " Data :" + date_exit + " Tempo: " + time + " Veiculo :" + vehicle);
 
-			if (enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == '') {
+			if (enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == '' || num_passenger == '') {
 				$.notify({
 					title: 'Error',
 					message: 'Algo está errado, verifique se os campos estão preenchidos corretamente',
@@ -232,7 +233,8 @@
 				exit_address: enderecoChegada,
 				date: date_exit,
 				time: time,
-				vehicle_id: vehicle
+				vehicle_id: vehicle,
+				num_passenger: num_passenger,
 
 			}
 
