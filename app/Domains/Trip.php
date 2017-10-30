@@ -28,7 +28,16 @@ class Trip extends Model
         return $this->hasMany(Meeting::class);
     }
 
+    public function searchMeeting()
+    {
+        foreach($this->Meetings as $meeting)
+        {
+            if($meeting->user_id == auth()->user()->id) {
+
+                return true;
+
+            }
+        }
+    }
+
 }
-
-
-

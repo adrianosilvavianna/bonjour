@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about"></textarea>
+                                        <textarea class="form-control" name="about">{{ old('about') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
     <script>
         $(document).ready(function() {
 
-            $('.phone_with_ddd').mask('(00) 0000-0000');
+            $('.phone_with_ddd').mask('(00) 00000-0000');
             $('.age').mask('00');
         });
     </script>

@@ -87,6 +87,7 @@ class TripController extends Controller
     }
 
     public function show(Trip $trip){
+
         return view('trip.show', compact('trip'));
     }
 

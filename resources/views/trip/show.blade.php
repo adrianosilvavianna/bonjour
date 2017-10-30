@@ -30,6 +30,10 @@
 
                     @if(auth()->user()->id == $trip->User->id)
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
+                    @endif
+
+                    @if($trip->searchMeeting())
+                        <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
                     @else
                         <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
                     @endif

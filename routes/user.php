@@ -42,7 +42,7 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
 
     Route::get('/',                 'MeetingController@index')->name('index');
     Route::get('/{trip}/store',           'MeetingController@store')->name('store');
-    Route::post('/update',          'MeetingController@update')->name('update');
+    Route::post('/{trip}/cancel',          'MeetingController@cancel')->name('cancel');
 
 });
 
