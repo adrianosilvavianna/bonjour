@@ -4,7 +4,6 @@ namespace App;
 
 use App\Domains\Location;
 use App\Domains\Meeting;
-use App\Domains\Phone;
 use App\Domains\Profile;
 use App\Domains\Trip;
 use App\Domains\Vehicle;
@@ -33,23 +32,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function Profile()
-    {
+    public function Profile(){
         return $this->hasOne(Profile::class);
     }
 
-    public function Phones()
-    {
-        return $this->hasMany(Phone::class);
-    }
-
-    public function Location()
-    {
+    public function Location(){
         return $this->morphOne(Location::class, 'locationable');
     }
 
-    public function Vehicles()
-    {
+    public function Vehicles(){
         return $this->hasMany(Vehicle::class);
     }
 
@@ -58,8 +49,6 @@ class User extends Authenticatable
     }
 
     public function Meetings(){
-
         return $this->hasMany(Meeting::class);
-
     }
 }
