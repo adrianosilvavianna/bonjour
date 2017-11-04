@@ -3,16 +3,15 @@
 namespace App\Notifications;
 
 use App\Domains\Meeting;
-use App\Domains\Trip;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class CreateMeeting extends Notification
+class ApprovedMeeting extends Notification
 {
     use Queueable;
 
-    protected $meeting;
+    private $meeting;
 
     /**
      * Create a new notification instance.
@@ -44,14 +43,11 @@ class CreateMeeting extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('AlguÃ©m quer uma carona')
-                    ->greeting('OlÃ¡ '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name)
-                    ->line('AlguÃ©m quer pegar carona com vocÃª!!')
-                    ->line('Referente a sua viagem no dia '.with(new \DateTime($this->meeting->Trip->date))->format('d/m/Y').' Ã s : '. $this->meeting->Trip->time)
-                    ->line('Saindo de : '.$this->meeting->Trip->exit_address)
-                    ->line('Indo para : '.$this->meeting->Trip->arrival_address)
-                    ->action('Ver Carona', url('/user/meeting/'.$this->meeting->Trip->id.'/approved'))
-                    ->line('Obrigado por usar nosso aplicativo');
+                ->greeting('Olá '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
+                ->line('Sua solicitação para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi APROVADA!!')
+                ->line('Entre em contato com o caroneiro, para os ajustes finais.')
+                ->action('Ver Viagem', url('/'))
+                ->line('Obrigado por usar nosso aplicativo.');
     }
 
     /**
