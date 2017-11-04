@@ -70,8 +70,8 @@ class MeetingController extends Controller
     }
 
     public function show(Trip $trip){
-        // falta localizar quem esta egando carona.. uma vez que nao tem autenticação
-        return view('meeting.show', compact($trip));
+
+        return view('meeting.show', compact('trip'));
     }
 
     public function approved(Request $request ,Trip $trip){

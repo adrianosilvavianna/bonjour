@@ -15,6 +15,15 @@ class CreateAvaliationsTable extends Migration
     {
         Schema::create('avaliations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('nota');
+            $table->string('comment');
+
+            $table->integer('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

@@ -23,19 +23,21 @@
                         <i class="material-icons">today</i> <strong>Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
                         <i class="material-icons">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
                     </p>
-                    <p class="category pull-right"> <i class="large material-icons">done</i> A sua reserva será aprovada <strong>Automaticamente</strong></p><br>
+                    <p class="category pull-right"> <i class="large material-icons">done</i> Sua reserva poderá ser aprovada pelo dono da viagem. <strong>Aguarde</strong>.</p><br>
                 </div>
 
                 <div class="card-footer ">
 
                     @if(auth()->user()->id == $trip->User->id)
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
-                    @endif
-
-                    @if($trip->searchMeeting())
-                        <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
                     @else
-                        <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
+
+                        @if($trip->searchMeeting())
+                            <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                        @else
+                            <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
+                        @endif
+
                     @endif
 
                 </div>

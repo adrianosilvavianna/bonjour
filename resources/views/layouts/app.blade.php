@@ -48,8 +48,8 @@
         -->
 
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
-                Bonjou
+            <a href="{{ route('user.profile.index') }}" class="simple-text">
+                {{ auth()->user()->Profile->name }} {{ auth()->user()->Profile->last_name }}
             </a>
         </div>
 
@@ -105,7 +105,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Material Dashboard</a>
+                    <a class="navbar-brand" href="#">BONJOU</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -239,13 +239,13 @@
             @yield('content')
         </div>
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
+        {{--<footer class="footer">--}}
+            {{--<div class="container-fluid">--}}
+                {{--<p class="copyright pull-right">--}}
+
+                {{--</p>--}}
+            {{--</div>--}}
+        {{--</footer>--}}
     </div>
 </div>
 

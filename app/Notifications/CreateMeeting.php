@@ -50,7 +50,7 @@ class CreateMeeting extends Notification
                     ->line('Referente a sua viagem no dia '.with(new \DateTime($this->meeting->Trip->date))->format('d/m/Y').' às : '. $this->meeting->Trip->time)
                     ->line('Saindo de : '.$this->meeting->Trip->exit_address)
                     ->line('Indo para : '.$this->meeting->Trip->arrival_address)
-                    ->action('Ver Carona', url('/user/meeting/'.$this->meeting->Trip->id.'/approved'))
+                    ->action('Ver Carona', url('/user/meeting/'.$this->meeting->Trip->id.'/show'))
                     ->line('Obrigado por usar nosso aplicativo');
     }
 
