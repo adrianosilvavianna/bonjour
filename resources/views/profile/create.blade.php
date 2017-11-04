@@ -41,7 +41,7 @@
                             <div class="col-md-2 {{ $errors->has('age') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Idade</label>
-                                    <input type="number" name="age" class="form-control" value="{{ old('age') }}">
+                                    <input type="number" name="age" class="form-control age" value="{{ old('age') }}">
                                 </div>
                                 @if ($errors->has('age'))
                                 <span class="help-block">
@@ -61,11 +61,11 @@
                             <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Telefone</label>
-                                    <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
+                                    <input type="text" name="phone" class="form-control phone_with_ddd" value="{{ old('phone') }}">
                                 </div>
                                 @if ($errors->has('phone'))
                                     <span class="help-block">
-                                    <strong class="red-text">{{ $errors->first('phone') }}</strong>
+                                    <strong class="red-text ">{{ $errors->first('phone') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Escreva um pouco sobre você...</label>
-                                        <textarea class="form-control" name="about"></textarea>
+                                        <textarea class="form-control" name="about">{{ old('about') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -101,5 +101,11 @@
 @endsection
 
 @section('scripts')
+    <script>
+        $(document).ready(function() {
 
+            $('.phone_with_ddd').mask('(00) 00000-0000');
+            $('.age').mask('00');
+        });
+    </script>
 @show

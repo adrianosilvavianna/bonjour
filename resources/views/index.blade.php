@@ -42,7 +42,11 @@
 							<h1>Bonjou</h1>
 							<p>O projeto Bonjou, que significa "Bom Dia" em dialeto creóle, pretende ajudar na questão da forte evasão escolar, por falta de meios de transporte, além de promover a aproximação entre Brasileiros e Haitianos</a>.</p>
 							<ul class="actions">
-								<li><a href="/login" class="button scrolly">Login</a></li>
+								@if(auth()->guest())
+									<li><a href="/login" class="button scrolly">Login</a></li>
+								@else
+									<li><a href="{{ route('user.home') }}" class="button scrolly">Entrar</a></li>
+								@endif
 							</ul>
 						</div>
 					</section>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-content">
                     <form action="{{ route('user.profile.update', $profile) }}" method="post" enctype="multipart/form-data">
-
+                        {{ method_field('PUT') }}
                         <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
@@ -62,7 +62,7 @@
                             <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Telefone</label>
-                                    <input type="text" name="phone" class="form-control" value="{{ $profile->phone }}">
+                                    <input type="text" name="phone" class="form-control phone_with_ddd" value="{{ $profile->phone }}">
                                 </div>
                                 @if ($errors->has('phone'))
                                     <span class="help-block">
@@ -114,39 +114,9 @@
 
 @section('scripts')
     <script>
-        $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI).ready(function() {
+        $(document).ready(function() {
 
-            $("#get_code").change(function(){
-
-                var zip_code = $(this).val();
-                console.log(zip_code)
-
-                $.getJSON("https://viacep.com.br/ws/"+zip_code+"/json/", function( json )
-                {
-                    console.log(json);
-                })
-                        .done(function(json)
-                        {
-                            $('#address').val(json.logradouro);
-                            $('#district').val(json.bairro);
-                            $('#city').val(json.localidade);
-                            $('#uf').val(json.uf);
-                            $('#ibge_number').val(json.ibge);
-                            $('#complement').val(json.complemento);
-                            btn.html(old);
-
-                        })
-                        .fail(function()
-                        {
-                            $('#address').val('');
-                            $('#district').val('');
-                            $('#city').val('');
-                            $('#uf').val('');
-                            $('#result').html('Cep não encontrado');
-                            btn.html(':( Nova Consulta');
-                        })
-
-            });
+            $('.phone_with_ddd').mask('(00) 00000-0000');
         });
     </script>
 

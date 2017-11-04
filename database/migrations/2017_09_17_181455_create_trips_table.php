@@ -20,11 +20,16 @@ class CreateTripsTable extends Migration
             $table->string('arrival_address');
             $table->date('date');
             $table->time('time');
-            $table->boolean('status')->default(0);
+            $table->integer('num_passenger');
+            $table->boolean('status')->default(true); //significa que a viagem esta em aberto ou nao
+            $table->boolean('canceled')->default(false); //significa se a viagem foi cancelada ou nao
 
+            $table->integer('vehicle_id')->unsigned();
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+
 
             $table->timestamps();
         });

@@ -16,20 +16,32 @@
                 </div>
                 <div class="card-content">
                     <h3 class="title">Viagem</h3>
-                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>4</strong> Lugares Disponíveis</p>
+                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>{{ $trip->num_passenger }}</strong> Lugares Disponíveis</p>
                     <p class="card-content">
-                        <i class="material-icons">room</i> <strong>De :</strong> Rua Solimoes, 849 - Curitiba <br/>
-                        <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> Rua Cidade De Tubarão, 849 - Curitiba <br>
-                        <i class="material-icons">today</i> <strong>Data :</strong> 26/09/2017 <br>
-                        <i class="material-icons">timer</i> <strong>Horário :</strong> 13:30 <br>
+                        <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
+                        <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
+                        <i class="material-icons">today</i> <strong>Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
+                        <i class="material-icons">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
                     </p>
-                    <p class="category pull-right"> <i class="large material-icons">done</i> A sua reserva será aprovada <strong>Automaticamente</strong></p><br>
+                    <p class="category pull-right"> <i class="large material-icons">done</i> Sua reserva poderá ser aprovada pelo dono da viagem. <strong>Aguarde</strong>.</p><br>
                 </div>
 
                 <div class="card-footer ">
 
-                    <a href="#pablo" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
+                    @if(auth()->user()->id == $trip->User->id)
+                        <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
+                    @else
+
+                        @if($trip->searchMeeting())
+                            <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                        @else
+                            <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
+                        @endif
+
+                    @endif
+
                 </div>
+
             </div>
         </div>
 
@@ -38,13 +50,13 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                     <a href="#pablo">
-                        <img class="img" src="{{ asset('assets/img/faces/marc.jpg') }}"/>
+                        <img class="img" src="{{ asset($trip->User->Profile->photo_address) }}"/>
                     </a>
                 </div>
 
                 <div class="content">
-                    <h4 class="card-title">Rogerio De Guimarães Reis</h4>
-                    <h5 class="category text-gray">27 anos</h5>
+                    <h4 class="card-title">{{ $trip->User->Profile->name }} {{ $trip->User->Profile->last_name }}</h4>
+                    <h5 class="category text-gray">{{ $trip->User->Profile->age }} Anos</h5>
                     <h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>
                     <p class="card-content">
                         <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
