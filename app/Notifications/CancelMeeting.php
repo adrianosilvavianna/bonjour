@@ -2,25 +2,29 @@
 
 namespace App\Notifications;
 
-use App\Domains\Meeting;
+use App\Domains\Trip;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ApprovedMeeting extends Notification
+class CancelMeeting extends Notification
 {
     use Queueable;
 
-    private $meeting;
+    private $trip;
+    private $user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Meeting $meeting)
+    public function __construct(Trip $trip, User $user)
     {
-        $this->meeting = $meeting;
+        $this->trip = $trip;
+        $this->user = $user;
     }
 
     /**
@@ -43,12 +47,12 @@ class ApprovedMeeting extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Carona Aprovada')
-                ->greeting('Olá '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
-                ->line('Sua solicitação para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi APROVADA!!')
-                ->line('Entre em contato com o caroneiro, para os ajustes finais.')
-                ->action('Ver Viagem', url('/'))
-                ->line('Obrigado por usar nosso aplicativo.');
+                    ->subject('Carona Cancelada')
+                    ->greeting('Olá '.$this->trip->User->Profile->name.' '.$this->trip->User->Profile->last_name)
+                    ->line($this->user->Profile->name.' '.$this->user->Profile->name.' Não pegará mais carona com você')
+                    ->line('Não fique triste pois logo logo outras pessoas terão interesse em sua viagem.')
+                    ->action('Ver Viagem', url('/'))
+                    ->line('Obrigado por usar nosso aplicativo!');
     }
 
     /**

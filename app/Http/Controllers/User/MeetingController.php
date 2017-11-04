@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Domains\Trip;
+use App\Events\EventCreateMeeting;
 use App\Http\Controllers\Controller;
 use App\Notifications\ApprovedMeeting;
+use App\Notifications\CancelMeeting;
 use App\Notifications\CreateMeeting;
 use App\Notifications\DisapprovedMeeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 
 class MeetingController extends Controller
@@ -56,6 +59,8 @@ class MeetingController extends Controller
 
         try{
             $meeting = $this->searchMettingAuthUser($trip);
+            $user = $meeting->User;
+            $trip->User->notify(new CancelMeeting($trip, $user));
             $meeting->delete();
             return back()->with('success', 'Reserva Cancelada');
 
