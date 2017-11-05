@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Domains\Trip;
-use App\Events\EventCreateMeeting;
-use App\Events\EventTripPassenger;
 use App\Http\Controllers\Controller;
 use App\Notifications\ApprovedMeeting;
 use App\Notifications\CancelMeeting;
@@ -12,8 +10,6 @@ use App\Notifications\CreateMeeting;
 use App\Notifications\DisapprovedMeeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Notification;
 
 class MeetingController extends Controller
 {
