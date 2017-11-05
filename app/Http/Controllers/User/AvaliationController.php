@@ -26,21 +26,4 @@ class AvaliationController extends Controller
 
         return redirect()->route('user.avaliation.index')->with('success', 'Salvo com sucesso!');
     }
-
-    public function edit() {
-        return view('avaliation.edit')->with('avaliation', $avaliation);
-    }
-
-    public function update() {
-       $avaliation = $avaliation->update($request->input());
-       return redirect()->route('user.avaliation.index')->with('success', 'Salvo com sucesso');
-    }
-
-    public function show(){
-
-    }
-
-    public function delete(){
-
-    }
 }

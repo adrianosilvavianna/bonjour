@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Domains\Trip;
 use App\Events\EventCreateMeeting;
+use App\Events\EventTripPassenger;
 use App\Http\Controllers\Controller;
 use App\Notifications\ApprovedMeeting;
 use App\Notifications\CancelMeeting;
@@ -25,7 +26,9 @@ class MeetingController extends Controller
         try{
             $this->verifyTrips($trip);
             $meeting = auth()->user()->Meetings()->create(['trip_id'=> $trip->id]);
-
+            $trip->num_passenger -= 1;
+            $trip->save();
+            //event(new EventTripPassenger($trip));
             $trip->User->notify(new CreateMeeting($meeting));
 
             return back()->with('success', "Atualizado com sucesso");
