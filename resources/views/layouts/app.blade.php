@@ -49,7 +49,7 @@
 
         <div class="logo">
             <a href="{{ route('user.profile.index') }}" class="simple-text">
-                {{ auth()->user()->Profile->name }} {{ auth()->user()->Profile->last_name }}
+                {{ auth()->user()->name }}
             </a>
         </div>
 
