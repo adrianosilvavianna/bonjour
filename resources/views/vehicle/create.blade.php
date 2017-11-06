@@ -70,7 +70,7 @@
                             <div class="col-md-3 {{ $errors->has('plaque') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Placa</label>
-                                    <input type="text" name="plaque" class="form-control" value="{{ old('plaque') }}">
+                                    <input type="text" name="plaque" id="plaque" class="form-control" value="{{ old('plaque') }}">
                                 </div>
                                 @if ($errors->has('plaque'))
                                 <span class="help-block">
@@ -157,6 +157,7 @@
                 $("#modelos").empty();
                 $('#modelos').select2({ data: getModelos(marca) });
             }
+
         });
     </script>
 @show
