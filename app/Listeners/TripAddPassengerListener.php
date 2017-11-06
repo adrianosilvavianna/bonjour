@@ -2,21 +2,16 @@
 
 namespace App\Listeners;
 
-use App\Domains\Trip;
-use App\Events\EventTripPassenger;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ListenerEventTripPassenger
+class TripAddPassengerListener
 {
     /**
      * Create the event listener.
      *
      * @return void
      */
-
-    private $trip;
-
     public function __construct()
     {
         //
@@ -28,8 +23,10 @@ class ListenerEventTripPassenger
      * @param  object  $event
      * @return void
      */
-    public function handle(EventTripPassenger $event)
+    public function handle($event)
     {
-        dd($event->getTrip()->num_passenger);
+        $trip = $event->trip;
+        $trip->num_passenger += 1;
+        $trip->save();
     }
 }

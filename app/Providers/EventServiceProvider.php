@@ -2,13 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
-use App\Events\EventCreateMeeting;
-use App\Events\EventTripPassenger;
-use App\Listeners\ListenerCreateMeeting;
-use App\Listeners\ListenerEventTripPassenger;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-
+use App\Events\TripSubPassenger;
+use App\Events\TripAddPassenger;
+use App\Listeners\TripSubPassengerListener;
+use App\Listeners\TripAddPassengerListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,9 +16,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        TripSubPassenger::class => [
+            TripSubPassengerListener::class
+        ],
+        TripAddPassenger::class => [
+            TripAddPassengerListener::class
+        ]
 
-        EventCreateMeeting::class => [ListenerCreateMeeting::class],
-        EventTripPassenger::class => [ListenerEventTripPassenger::class]
     ];
 
     /**

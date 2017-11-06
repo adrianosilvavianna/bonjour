@@ -2,15 +2,13 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
+use App\Domains\Trip;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class EventTripPassenger
+class TripAddPassenger
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,15 +17,11 @@ class EventTripPassenger
      *
      * @return void
      */
-    private $trip;
+    public $trip;
 
-    public function __construct($trip)
+    public function __construct(Trip $trip)
     {
         $this->trip = $trip;
-    }
-
-    public function getTrip(){
-        return $this->trip;
     }
 
     /**
