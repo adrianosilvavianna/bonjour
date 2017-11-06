@@ -45,11 +45,10 @@
             </div>
         </div>
 
-
         <div class="col-lg-5 col-md-5 col-sm-5">
             <div class="card card-profile">
                 <div class="card-avatar">
-                    <a href="#pablo">
+                    <a href="#">
                         <img class="img" src="{{ asset($trip->User->Profile->photo_address) }}"/>
                     </a>
                 </div>
@@ -70,9 +69,4 @@
 
 
 @endsection
-
-
-
-
-
 

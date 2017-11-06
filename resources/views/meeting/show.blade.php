@@ -66,8 +66,8 @@
                         <strong> {{ $meeting->User->Profile->phone }}</strong><br>
                         <strong>{{ $meeting->User->email }}</strong><br>
                     </p>
-                    <a href="#pablo" class="btn btn-success btn-round">Aceitar</a>
-                    <a href="#pablo" class="btn btn-danger btn-round">Recusar</a>
+                    <a href="#" id="approved" class="btn btn-success btn-round" data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}">Aceitar</a>
+                    <a href="#" id="disapproved" class="btn btn-danger btn-round"data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} ">Recusar</a>
                 </div>
             </div>
         </div>
@@ -78,6 +78,26 @@
 
 @endsection
 
+@section('scripts')
+
+    <script>
+        $("#approved").click(function(){
+
+            var parm = {user_id: $(this).data('user'), meeting_id: $(this).data('meeting')}
+
+            $.ajax({
+                type: 'POST',
+                url: 'user/meeting/approved',
+                data: parm,
+                    success: function(data) {
+                        console.log(data);
+                }
+            });
+
+        })
+    </script>
+
+@show
 
 
 

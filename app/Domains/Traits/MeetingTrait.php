@@ -10,10 +10,7 @@ namespace App\Domains\Traits;
 
 use App\Domains\Trip;
 use App\Events\TripAddPassenger;
-use App\Notifications\ApprovedMeeting;
 use App\Notifications\CancelMeeting;
-use App\Notifications\DisapprovedMeeting;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 trait MeetingTrait
@@ -48,25 +45,6 @@ trait MeetingTrait
             $trip->User->notify(new CancelMeeting($trip, $user));
 
             return back()->with('success', 'Reserva Cancelada');
-
-        }catch (\Exception $e){
-            return back()->with('error', $e->getMessage());
-        }
-    }
-
-    public function approved(Request $request ,Trip $trip){
-
-        try{
-            $meeting = $this->searchMettingAuthUser($trip);
-            $meeting = $meeting->update(['approved' => $request->approved]);
-
-            if($meeting->approved){
-                $meeting->User->notify(new ApprovedMeeting($meeting));
-                return back()->with('success', 'Reserva Aprovada');
-            }else{
-                $meeting->User->notify(new DisapprovedMeeting($meeting));
-                return back()->with('warning', 'Reserva Reprovada');
-            }
 
         }catch (\Exception $e){
             return back()->with('error', $e->getMessage());

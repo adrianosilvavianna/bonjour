@@ -44,7 +44,8 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
     Route::get('/{trip}/store',           'MeetingController@store')->name('store');
     Route::get('/{trip}/cancel',          'MeetingController@cancel')->name('cancel');
     Route::get('/{trip}/show',          'MeetingController@show')->name('show');
-    Route::post('/{trip}/approved',          'MeetingController@approved')->name('approved');
+    Route::post('/approved',          'MeetingController@approved')->name('approved');
+    Route::post('/disapproved',          'MeetingController@disapproved')->name('disapproved');
 
 });
 
