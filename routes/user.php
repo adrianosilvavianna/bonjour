@@ -1,7 +1,6 @@
 <?php
 
-Route::get('/home', 'TripController@index')->name('index');
-
+Route::get('/home',   'TripController@index')->name('index');
 
 Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
 
@@ -44,8 +43,7 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
     Route::get('/{trip}/store',           'MeetingController@store')->name('store');
     Route::get('/{trip}/cancel',          'MeetingController@cancel')->name('cancel');
     Route::get('/{trip}/show',          'MeetingController@show')->name('show');
-    Route::post('/approved',          'MeetingController@approved')->name('approved');
-    Route::post('/disapproved',          'MeetingController@disapproved')->name('disapproved');
+    Route::post('/accept',          'MeetingController@accept')->name('accept');
 
 });
 

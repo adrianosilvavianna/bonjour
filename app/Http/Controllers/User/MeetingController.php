@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Domains\Meeting;
 use App\Domains\Trip;
 use App\Domains\Traits\MeetingTrait;
 use App\Events\TripSubPassenger;
@@ -15,9 +16,12 @@ class MeetingController extends Controller
 {
     use MeetingTrait;
 
-    public function __construct()
+    private $meeting;
+
+    public function __construct(Meeting $meeting)
     {
         $this->middleware('auth');
+        $this->meeting = $meeting;
     }
 
     public function store(Trip $trip){
@@ -41,29 +45,24 @@ class MeetingController extends Controller
         return view('meeting.show', compact('trip'));
     }
 
-    public function approved(Request $request){
+    public function accept(Request $request){
 
         try{
-            dd($request);
+            $meeting = $this->meeting->find($request->meeting_id);
+
+            $meeting->update(['accept' => $request->accept]);
+
+            $request->accept ? $message =  $meeting->User->Profile->name." agora faz parte da sua viagem!!" : $message = $meeting->User->Profile->name." não irá com você";
+
             if($request->ajax())
             {
                 return response()->json([
-                    'message' => 'Sucesso',
-                    'data' => '',
+                    'message' => $message,
+                    'data' => $meeting,
                     'status' => 200
                 ], 200);
             }
 
-//            $meeting = $this->searchMettingAuthUser($trip);
-//            $meeting = $meeting->update(['approved' => $request->approved]);
-//
-//            if($meeting->approved){
-//                $meeting->User->notify(new ApprovedMeeting($meeting));
-//                return back()->with('success', 'Reserva Aprovada');
-//            }else{
-//                $meeting->User->notify(new DisapprovedMeeting($meeting));
-//                return back()->with('warning', 'Reserva Reprovada');
-//            }
         }catch (\Exception $e){
 
             if($request->ajax())
@@ -71,7 +70,7 @@ class MeetingController extends Controller
                 return response()->json([
                     'message' => $e->getMessage(),
                     'status' => 400
-                ], 200);
+                ], 400);
             }
 
             return back()->with('error', $e->getMessage());

@@ -275,10 +275,6 @@
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
 
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
 <!-- Material Dashboard javascript methods -->
 
 

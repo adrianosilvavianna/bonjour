@@ -46,7 +46,7 @@
 									<li><a href="/login" class="button scrolly">Login</a></li>
 									<li><a href="/register" class="button scrolly">Cadastre-se</a></li>
 								@else
-									<li><a href="{{ route('user.home') }}" class="button scrolly">Entrar</a></li>
+									<li><a href="/user/home" class="button scrolly">Entrar</a></li>
 								@endif
 							</ul>
 						</div>
