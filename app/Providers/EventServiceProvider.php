@@ -22,7 +22,6 @@ class EventServiceProvider extends ServiceProvider
         TripAddPassenger::class => [
             TripAddPassengerListener::class
         ]
-
     ];
 
     /**

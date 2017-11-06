@@ -26,7 +26,11 @@ class TripSubPassengerListener
     public function handle($event)
     {
         $trip = $event->trip;
-        $trip->num_passenger -= 1;
-        $trip->save();
+        if($trip->num_passenger){
+            $trip->num_passenger -= 1;
+            $trip->save();
+        }else{
+            throw new \Exception("Não há mais vaga nesta viagem :/");
+        }
     }
 }
