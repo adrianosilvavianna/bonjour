@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+@mobile
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Viagens</a></li>
+      <li class="active">Caronas</li>
+    </ol>
+@endmobile
         <form action="{{ route('user.trip.search') }}" method="post"  class="navbar-form navbar-right" role="search" >
 
                 <div class="form-group ">
