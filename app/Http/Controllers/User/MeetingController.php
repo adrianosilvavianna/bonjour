@@ -52,7 +52,20 @@ class MeetingController extends Controller
 
             $meeting->update(['accept' => $request->accept]);
 
-            $request->accept ? $message =  $meeting->User->Profile->name." agora faz parte da sua viagem!!" : $message = $meeting->User->Profile->name." não irá com você";
+            if($request->accept){
+
+                $meeting->User->notify(new ApprovedMeeting($meeting));
+
+                $message =  $meeting->User->Profile->name." agora faz parte da sua viagem!!";
+            }else{
+
+                $meeting->User->notify(new DisapprovedMeeting($meeting));
+
+                $message = $meeting->User->Profile->name." não irá com você";
+            }
+
+
+
 
             if($request->ajax())
             {

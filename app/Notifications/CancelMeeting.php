@@ -48,9 +48,9 @@ class CancelMeeting extends Notification
     {
         return (new MailMessage)
                     ->subject('Carona Cancelada')
-                    ->greeting('Olá '.$this->trip->User->Profile->name.' '.$this->trip->User->Profile->last_name)
-                    ->line($this->user->Profile->name.' '.$this->user->Profile->name.' Não pegará mais carona com você')
-                    ->line('Não fique triste pois logo logo outras pessoas terão interesse em sua viagem.')
+                    ->greeting('OlÃ¡ '.$this->trip->User->Profile->name.' '.$this->trip->User->Profile->last_name)
+                    ->line($this->user->Profile->name.' '.$this->user->Profile->name.' NÃ£o pegarÃ¡ mais carona com vocÃª')
+                    ->line('NÃ£o fique triste pois logo logo outras pessoas terÃ£o interesse em sua viagem.')
                     ->action('Ver Viagem', url('/'))
                     ->line('Obrigado por usar nosso aplicativo!');
     }

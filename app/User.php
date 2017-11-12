@@ -5,6 +5,7 @@ namespace App;
 use App\Domains\Location;
 use App\Domains\Meeting;
 use App\Domains\Profile;
+use App\Domains\Report;
 use App\Domains\Trip;
 use App\Domains\Vehicle;
 use Illuminate\Notifications\Notifiable;
@@ -51,4 +52,10 @@ class User extends Authenticatable
     public function Meetings(){
         return $this->hasMany(Meeting::class);
     }
+
+    public function Reports()
+    {
+        return $this->morphMany(Report::class, 'reportable');
+    }
+
 }

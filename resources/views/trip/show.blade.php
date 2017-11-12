@@ -33,7 +33,12 @@
                     @else
 
                         @if($trip->searchMeeting())
-                            <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-warning btn-round pull-right">Aguardando Aprovação</a>
+                            @if($trip->searchMyMeeting()->accept)
+                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                            @else
+                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-warning btn-round pull-right">Aguardando Aprovação</a>
+                            @endif
+
                         @else
                             <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
                         @endif
