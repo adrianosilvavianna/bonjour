@@ -44,8 +44,8 @@ class ApprovedMeeting extends Notification
     {
         return (new MailMessage)
                 ->subject('Carona Aprovada')
-                ->greeting('Olá '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
-                ->line('Sua solicitação para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi APROVADA!!')
+                ->greeting('OlÃ¡ '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
+                ->line('Sua solicitaÃ§Ã£o para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi APROVADA!!')
                 ->line('Entre em contato com o caroneiro, para os ajustes finais.')
                 ->action('Ver Viagem', url('/'))
                 ->line('Obrigado por usar nosso aplicativo.');

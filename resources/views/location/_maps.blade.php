@@ -4,7 +4,6 @@
 @stop
 <div id="apresentacao">
 
-
     <form method="post" action="{{ route('user.trip.store') }}" id="form_maps" >
 
         <fieldset>
@@ -26,18 +25,16 @@
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                 </div>
-
                 <div class="col-md-1">
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" name="btnEnviar" id="btnEnviar">Traçar Rota</button>
                     </div>
                 </div>
-
             </div>
 
             @include('trip._inputs', $vehicles)
 
-
+        @desktop
             <div class="row">
                 <h5>Resumo da viagem</h5>
                 <div class="col-md-6">
@@ -48,7 +45,7 @@
                     <div id="trajeto-texto"></div>
                 </div>
             </div>
-
+        @enddesktop
         </fieldset>
     </form>
 

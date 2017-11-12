@@ -16,7 +16,7 @@ class Profile extends Model
 
     public function getGender()
     {
-        $this->gender == 0 ? $gender = "Masculino" : $gender = "Feminino";
+        $this->gender == 0 ? $gender = "Feminino" : $gender = "Masculino";
         return $gender;
     }
 }

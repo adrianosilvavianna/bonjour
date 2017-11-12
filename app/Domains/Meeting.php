@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meeting extends Model
 {
-    protected $fillable = ['trip_id', 'user_id'];
+    protected $fillable = ['trip_id', 'user_id', 'accept'];
 
     public function User(){
         return  $this->belongsTo(User::class);

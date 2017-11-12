@@ -44,11 +44,11 @@ class DisapprovedMeeting extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Olá '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
-                    ->line('Sua solicitação para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi REPORVADA!!')
-                    ->line('Lamentamos, porém não perca a esperança.')
-                    ->line('Confira outras viagens que seja próxima a que você queria.')
-                    ->action('Buscar Viagens', url('/'))
+                    ->greeting('OlÃ¡ '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
+                    ->line('Sua solicitaÃ§Ã£o para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi REPORVADA!!')
+                    ->line('Lamentamos, porÃ©m nÃ£o perca a esperanÃ§a.')
+                    ->line('Confira outras viagens que seja prÃ³xima a que vocÃª queria.')
+                    ->action('Buscar Viagens', url('/user/trip'))
                     ->line('Obrigado por usar nosso aplicativo.');
     }
 

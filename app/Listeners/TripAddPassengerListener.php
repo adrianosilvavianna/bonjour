@@ -2,12 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\EventCreateMeeting;
-use App\Notifications\CreateMeeting;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ListenerCreateMeeting
+class TripAddPassengerListener
 {
     /**
      * Create the event listener.
@@ -25,8 +23,10 @@ class ListenerCreateMeeting
      * @param  object  $event
      * @return void
      */
-    public function handle(EventCreateMeeting $event)
+    public function handle($event)
     {
-        $event->getMeeting()->Trip->User->notify(new CreateMeeting($event->getMeeting()));
+        $trip = $event->trip;
+        $trip->num_passenger += 1;
+        $trip->save();
     }
 }

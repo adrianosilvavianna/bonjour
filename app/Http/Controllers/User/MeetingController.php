@@ -2,28 +2,32 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Domains\Meeting;
 use App\Domains\Trip;
-use App\Events\EventCreateMeeting;
+use App\Domains\Traits\MeetingTrait;
+use App\Events\TripSubPassenger;
 use App\Http\Controllers\Controller;
-use App\Notifications\ApprovedMeeting;
-use App\Notifications\CancelMeeting;
 use App\Notifications\CreateMeeting;
+use App\Notifications\ApprovedMeeting;
 use App\Notifications\DisapprovedMeeting;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Notification;
 
 class MeetingController extends Controller
 {
-    public function __construct()
+    use MeetingTrait;
+
+    private $meeting;
+
+    public function __construct(Meeting $meeting)
     {
         $this->middleware('auth');
+        $this->meeting = $meeting;
     }
 
     public function store(Trip $trip){
         try{
             $this->verifyTrips($trip);
+            event(new TripSubPassenger($trip));
             $meeting = auth()->user()->Meetings()->create(['trip_id'=> $trip->id]);
 
             $trip->User->notify(new CreateMeeting($meeting));
@@ -36,71 +40,54 @@ class MeetingController extends Controller
         }
     }
 
-    public function verifyTrips(Trip $trip){
-
-        $meetings = auth()->user()->Meetings;
-
-        if($meetings->count() > 0){
-
-            foreach($meetings as $meeting){
-
-                $dateTrip = Carbon::parse($trip->date.$trip->time);
-
-                $dateAllTrip = Carbon::parse($meeting->Trip->date.$meeting->Trip->time);
-
-                if($dateTrip->diffInMinutes($dateAllTrip) <= 30){
-                    throw new \Exception("Você já tem uma carona próximo a esse horario");
-                }
-            }
-        }
-    }
-
-    public function cancel(Trip $trip){
-
-        try{
-            $meeting = $this->searchMettingAuthUser($trip);
-            $user = $meeting->User;
-            $trip->User->notify(new CancelMeeting($trip, $user));
-            $meeting->delete();
-            return back()->with('success', 'Reserva Cancelada');
-
-        }catch (\Exception $e){
-            return back()->with('error', $e->getMessage());
-        }
-    }
-
     public function show(Trip $trip){
 
         return view('meeting.show', compact('trip'));
     }
 
-    public function approved(Request $request ,Trip $trip){
+    public function accept(Request $request){
 
         try{
-            $meeting = $this->searchMettingAuthUser($trip);
-            $meeting = $meeting->update(['approved' => $request->approved]);
+            $meeting = $this->meeting->find($request->meeting_id);
 
-            if($meeting->approved){
+            $meeting->update(['accept' => $request->accept]);
+
+            if($request->accept){
+
                 $meeting->User->notify(new ApprovedMeeting($meeting));
-                return back()->with('success', 'Reserva Aprovada');
+
+                $message =  $meeting->User->Profile->name." agora faz parte da sua viagem!!";
             }else{
+
                 $meeting->User->notify(new DisapprovedMeeting($meeting));
-                return back()->with('warning', 'Reserva Reprovada');
+
+                $message = $meeting->User->Profile->name." não irá com você";
+            }
+
+
+
+
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' => $message,
+                    'data' => $meeting,
+                    'status' => 200
+                ], 200);
             }
 
         }catch (\Exception $e){
+
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' => $e->getMessage(),
+                    'status' => 400
+                ], 400);
+            }
+
             return back()->with('error', $e->getMessage());
         }
     }
 
-    public function searchMettingAuthUser(Trip $trip){
-        foreach($trip->Meetings as $meeting)
-        {
-            if($meeting->user_id == auth()->user()->id) {
-                return $meeting;
-            }
-        }
-        throw new \Exception("Usuário não está comprometido a esta viagem");
-
-    }
 }

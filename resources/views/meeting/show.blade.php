@@ -66,8 +66,17 @@
                         <strong> {{ $meeting->User->Profile->phone }}</strong><br>
                         <strong>{{ $meeting->User->email }}</strong><br>
                     </p>
-                    <a href="#pablo" class="btn btn-success btn-round">Aceitar</a>
-                    <a href="#pablo" class="btn btn-danger btn-round">Recusar</a>
+
+                    @if(is_null($meeting->accept))
+                        <button  class="btn btn-success btn-round accept" data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
+                        <button  class="btn btn-danger btn-round accept"data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
+                    @else
+                        @if($meeting->accept)
+                            <p id="acceptResult">Aprovado</p>
+                        @else
+                            <p>Reprovado</p>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
@@ -78,6 +87,51 @@
 
 @endsection
 
+@section('scripts')
+    @parent
+    <script type="application/javascript">
+        $('.accept').click(function(){
+
+            var parm = {
+                user_id: $(this).data('user'),
+                meeting_id: $(this).data('meeting'),
+                accept: $(this).data('accept')
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/user/meeting/accept',
+                data: parm,
+                    success: function(data) {
+                        $('.accept').hide();
+                        if(data.data.accept){
+                            $('#acceptResult').html("Aceito");
+                        }else{
+                            $('#acceptResult').html("Reprevado")
+                        }
+
+                        $.notify({
+                            title: 'Sucesso',
+                            message: data.message,
+                        },{
+                            type: 'success',
+                        });
+                },
+                error: function (error) {
+                    console.log(error);
+                    $.notify({
+                        title: 'Error',
+                        message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
+                    },{
+                        type: 'danger',
+                    });
+                }
+            });
+
+        })
+    </script>
+
+@show
 
 
 

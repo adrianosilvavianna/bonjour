@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+@desktop
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -57,6 +59,40 @@
         </div>
     </div>
 </div>
+@enddesktop
+
+@mobile
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <h4 class="title">
+                        Veículos
+                        <a href="{{ route('user.vehicle.create') }}" class=" btn-white btn-round btn-just-icon pull-right">
+                            <i class="material-icons">add</i><div class="ripple-container"></div>
+                        </a>
+                    </h4>
+                </div>
+                @foreach($vehicles as $vehicle)
+                    <div class="card-content">
+                        <div class="card card-profile">
+                            <div class="content">
+                                <h3 class="card-title"> <b>{{ $vehicle->brand }} / {{ $vehicle->model }}</b></h3>
+                                <h5 class="category text-gray"><b>Placa:</b> {{ $vehicle->plaque }}</h5>
+                                <h6 class="category text-gray"><b>Cor:</b> {{ $vehicle->color }}</h6>
+                                <h6 class="category text-gray"><b>Ano:</b> {{ $vehicle->year }}</h6>
+                                <h6 class="category text-gray"><b>Nº passageiros:</b> {{ $vehicle->num_passenger }}</h6>
+                                <p class="card-content"></p>
+                                <a href="" class="btn btn-primary btn-round">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endmobile
+
 @endsection
 
 @section('scripts')

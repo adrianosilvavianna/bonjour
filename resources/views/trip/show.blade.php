@@ -33,7 +33,12 @@
                     @else
 
                         @if($trip->searchMeeting())
-                            <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                            @if($trip->searchMyMeeting()->accept)
+                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                            @else
+                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-warning btn-round pull-right">Aguardando Aprovação</a>
+                            @endif
+
                         @else
                             <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
                         @endif
@@ -45,11 +50,10 @@
             </div>
         </div>
 
-
         <div class="col-lg-5 col-md-5 col-sm-5">
             <div class="card card-profile">
                 <div class="card-avatar">
-                    <a href="#pablo">
+                    <a href="#">
                         <img class="img" src="{{ asset($trip->User->Profile->photo_address) }}"/>
                     </a>
                 </div>
@@ -70,9 +74,4 @@
 
 
 @endsection
-
-
-
-
-
 

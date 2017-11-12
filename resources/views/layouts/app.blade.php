@@ -178,7 +178,10 @@
         @enddesktop
 
     @endauth
+
+        @desktop
         <div class="content">
+        @enddesktop
 
             @if (session('error'))
                 <div class="alert alert-danger">
@@ -192,8 +195,8 @@
                         <b>Error:</b> {!! session('error') !!}
                     </div>
                 </div>
-
             @endif
+
             @if (session('success'))
                     <div class="alert alert-success">
                         <div class="container-fluid">
@@ -237,7 +240,12 @@
             @endif
 
             @yield('content')
-        </div>
+
+
+        @desktop
+            </div>
+        @enddesktop
+
 
         {{--<footer class="footer">--}}
             {{--<div class="container-fluid">--}}
@@ -266,10 +274,6 @@
 
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
-
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Material Dashboard javascript methods -->
 
