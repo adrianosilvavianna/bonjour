@@ -20,14 +20,15 @@
                     <p class="card-content">
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
-                        <i class="material-icons">today</i> <strong>Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
-                        <i class="material-icons">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
+                        <i class="material-icons">today</i> <strong id="hour" data-hour="{{ $trip->date }}">Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
+                        <i class="material-icons">timer</i> <strong id="time" data-time="{{ $trip->time }}">Horário :</strong> {{ $trip->time }} <br>
                     </p>
                 </div>
 
                 <div class="card-footer ">
 
                     @if(auth()->user()->id == $trip->User->id)
+                        Tempo restante para edição: <strong class="right" id="demo"></strong>
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
                     @else
 
@@ -128,10 +129,42 @@
                 }
             });
 
-        })
+        });
+
+        // Set the date we're counting down to
+        var countDownDate = new Date($("#hour").data('hour')+" "+$("#time").data('time')).getTime();
+
+        console.log();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     </script>
 
 @show
+
 
 
 
