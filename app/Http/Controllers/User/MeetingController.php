@@ -32,7 +32,7 @@ class MeetingController extends Controller
 
             $trip->User->notify(new CreateMeeting($meeting));
 
-            return back()->with('success', "Atualizado com sucesso");
+            return back()->with('success', "Solicitação enviada");
 
         }catch (\Exception $e){
 
@@ -63,9 +63,6 @@ class MeetingController extends Controller
 
                 $message = $meeting->User->Profile->name." não irá com você";
             }
-
-
-
 
             if($request->ajax())
             {

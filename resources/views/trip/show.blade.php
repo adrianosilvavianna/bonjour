@@ -33,10 +33,13 @@
                     @else
 
                         @if($trip->searchMeeting())
-                            @if($trip->searchMyMeeting()->accept == true)
-                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
-                            @elseif($trip->searchMyMeeting()->accept == false)
-                                <a href="#" class="btn btn-info btn-round pull-right">Viagem Reprovada</a>
+                            @if($trip->searchMyMeeting()->accept)
+
+                                @if($trip->searchMyMeeting()->accept == true)
+                                    <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
+                                @else($trip->searchMyMeeting()->accept == false)
+                                    <a href="#" class="btn btn-info btn-round pull-right">Viagem Reprovada</a>
+                                @endif
                             @else
                                 <a href="#" class="btn btn-warning btn-round pull-right">Aguardando Aprovação</a>
                             @endif
@@ -64,10 +67,20 @@
                     <h4 class="card-title">{{ $trip->User->Profile->name }} {{ $trip->User->Profile->last_name }}</h4>
                     <h5 class="category text-gray">{{ $trip->User->Profile->age }} Anos</h5>
                     <h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>
-                    <p class="card-content">
-                        <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
-                        <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
-                    </p>
+                    @if($trip->searchMeeting())
+                        @if($trip->searchMyMeeting()->accept == true)
+                            <p class="card-content">
+                                {{ $trip->User->email }}<br>
+                                {{ $trip->User->Profile->phone }} <br>
+                                {{ $trip->User->Profile->about }}
+                            </p>
+                        @endif
+                    @else
+                        <p class="card-content">
+                            <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
+                            <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
+                        </p>
+                    @endif
                     <a href="#pablo" class="btn btn-primary btn-round">Entrar em contato</a>
                 </div>
             </div>

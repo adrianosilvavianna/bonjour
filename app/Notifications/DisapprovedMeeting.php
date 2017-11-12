@@ -44,6 +44,7 @@ class DisapprovedMeeting extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Carona Não Aprovada')
                     ->greeting('Olá '. $this->meeting->User->Profile->name.' '.$this->meeting->User->Profile->last_name)
                     ->line('Sua solicitação para a viagem do(a) '.$this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' Foi REPORVADA!!')
                     ->line('Lamentamos, porém não perca a esperança.')
