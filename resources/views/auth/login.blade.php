@@ -107,6 +107,11 @@
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lembrar-me
                                     </label>
+                                    <br>
+                                    <br>
+                                    <a href="{{ route('password.request') }}">
+                                        Esqueci minha senha
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -115,8 +120,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Esqueci minha senha
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    Cadastrar-se
                                 </a>
                             </div>
                         </div>
