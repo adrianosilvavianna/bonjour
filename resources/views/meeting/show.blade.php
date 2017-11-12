@@ -20,8 +20,9 @@
                     <p class="card-content">
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
-                        <i class="material-icons">today</i> <strong id="hour" data-hour="{{ $trip->date }}">Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
-                        <i class="material-icons">timer</i> <strong id="time" data-time="{{ $trip->time }}">Horário :</strong> {{ $trip->time }} <br>
+                        <i class="material-icons">today</i> <strong >Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
+                        <i class="material-icons">timer</i> <strong >Horário :</strong> {{ $trip->time }} <br>
+                        <span id="hour-time" data-hour_time="{{ \Carbon\Carbon::parse($trip->date.$trip->time)->subHours(1) }}"></span>
                     </p>
                 </div>
 
@@ -131,10 +132,12 @@
 
         });
 
-        // Set the date we're counting down to
-        var countDownDate = new Date($("#hour").data('hour')+" "+$("#time").data('time')).getTime();
+        console.log($("#hour-time").data('hour_time'));
 
-        console.log();
+        // Set the date we're counting down to
+        var countDownDate = new Date($("#hour-time").data('hour_time'));
+
+
 
         // Update the count down every 1 second
         var x = setInterval(function() {
