@@ -66,7 +66,7 @@
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="{{ asset('web/images/pic02.jpg') }}" alt="" data-position="top center" /></a>
+							<a href="#" class="image"><img src="{{ asset('web/images/pic02.png') }}" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Projeto O Planeta é um só</h2>
