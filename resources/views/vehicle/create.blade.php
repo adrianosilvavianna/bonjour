@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-md-6 {{ $errors->has('model') ? ' has-error' : '' }}">
 
-                                <div class="form-group">
+                                <div class="form-group  label-floating">
                                     <label for="exampleFormControlSelect2">Modelos</label>
                                     <select class="form-control form-control-lg" id="modelos" name="model">
                                         <option>...</option>
@@ -47,8 +47,41 @@
                             </div>
                         </div>
 
-
                         <div class="cold-md-12">
+                            <div class="col-md-3">
+                                <div class="form-group label-floating">
+                                    <label class="">Cor</label>
+                                    <select class="form-control form-control-lg" id="color" name="color">
+                                        <option>Prata</option>
+                                        <option>Preto</option>
+                                        <option>Branco</option>
+                                        <option>Cinza</option>
+                                        <option>Cinza claro</option>
+                                        <option>Cinza escuro</option>
+                                        <option>Marrom</option>
+                                        <option>Vermelho</option>
+                                        <option>Vermelho claro</option>
+                                        <option>Vermelho escuro</option>
+                                        <option>Azul</option>
+                                        <option>Azul claro</option>
+                                        <option>Azul escuro</option>
+                                        <option>Bege</option>
+                                        <option>Verde</option>
+                                        <option>Verde claro</option>
+                                        <option>Verde escuro</option>
+                                        <option>Amarelo</option>
+                                        <option>Amarelo claro</option>
+                                        <option>Amarelo escuro</option>
+                                        <option>Grafite</option>
+                                        <option>Dourado</option>
+                                        <option>Laranja</option>
+                                        <option>Rosa</option>
+                                        <option>Bordo</option>
+                                        <option>Violeta</option>
+                                        <option>Lilas</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-3 {{ $errors->has('year') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Ano</label>
@@ -59,12 +92,6 @@
                                     <strong class="red-text">{{ $errors->first('year') }}</strong>
                                 </span>
                                 @endif
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Cor</label>
-                                    <input type="text" name="color" class="form-control" value="{{ old('color') }}">
-                                </div>
                             </div>
 
                             <div class="col-md-3 {{ $errors->has('plaque') ? ' has-error' : '' }}">
@@ -101,6 +128,7 @@
 
         $(document).ready(function()
         {
+            $("#color").select2();
             //inicia select marca
             $('#marcas').select2({
                 placeholder: 'Marcas', data: getMarcas()
@@ -123,11 +151,13 @@
                     dataType: 'json',
                     success: function(data) {
                         results = data.map(function(item) {
+                            console.log(item.name);
                             return { id: item.id, text: item.name };
                         });
                         marcas = results;
                     }
                 });
+                console.log(marcas);
                 return marcas
             }
             //retorna modelos referente a marca solicitada
@@ -141,9 +171,11 @@
                     async: false,
                     success: function(data) {
 
+                        console.log(data);
                         results = data.map(function(item) {
                             return { id: item.id, text: item.name, };
                         });
+
                         modelos = results;
 
                     }
@@ -159,5 +191,7 @@
             }
 
         });
+
+
     </script>
 @show
