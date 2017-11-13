@@ -12,9 +12,17 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    private $langPtBr;
+    private $langEn;
+    private $langFr;
+
+
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->langPtBr = __DIR__."../../../Lang/pt-br.php";
+        $this->langEn = __DIR__."../../../Lang/en.php";
+        $this->langFr = __DIR__."../../../Lang/fr.php";
     }
 
     /**
@@ -36,6 +44,23 @@ class HomeController extends Controller
         OpenGraph::addProperty('type', 'articles');
         OpenGraph::addProperty('locale', 'pt-br');
 
+        if(!empty($_GET['lang']))
+        {
+            switch($_GET['lang']){
+                case "pt-br":
+                    $this->langPtBr;
+                    break;
+                case "en":
+                    $this->langEn;
+                    break;
+                case "fr":
+                    $this->langFr;
+                    break;
+                default:
+                    $this->langPtBr;
+                    break;
+            }
+        }
 
         return view('index');
     }
