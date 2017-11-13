@@ -34,33 +34,37 @@ class HomeController extends Controller
     {
 
         SEOMeta::setTitle('Bonjou', false);
-        SEOMeta::setDescription('Precisa de carona?? Pegue da maneira mais fácil possível!!');
+        SEOMeta::setDescription('Precisa de carona?? Pegue da maneira mais fï¿½cil possï¿½vel!!');
         SEOMeta::setCanonical('http://bonjou.com.br');
         SEOMeta::addKeyword(['Bonjou', 'caronas', 'caroneiro', 'presico de caronas', 'caronas para ir a aula', 'sou estudante', 'sou imigrante', 'sou negro', 'quero pegar carona']);
 
         OpenGraph::setTitle('Bonjou',false);
-        OpenGraph::setDescription('Precisa de carona?? Pegue da maneira mais fácil possível!!');
+        OpenGraph::setDescription('Precisa de carona?? Pegue da maneira mais fï¿½cil possï¿½vel!!');
         OpenGraph::setUrl('http://bonjou.com.br');
         OpenGraph::addProperty('type', 'articles');
         OpenGraph::addProperty('locale', 'pt-br');
 
+      
+        
         if(!empty($_GET['lang']))
         {
             switch($_GET['lang']){
                 case "pt-br":
-                    $this->langPtBr;
+                    include_once $this->langPtBr;
                     break;
                 case "en":
-                    $this->langEn;
+                    include_once $this->langEn;
                     break;
                 case "fr":
-                    $this->langFr;
+                    include_once $this->langFr;
                     break;
                 default:
-                    $this->langPtBr;
+                    include_once $this->langPtBr;
                     break;
             }
-        }
+        }else{
+                include_once $this->langPtBr;
+            }
 
         return view('index');
     }
