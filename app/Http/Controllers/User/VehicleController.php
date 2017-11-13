@@ -27,10 +27,32 @@ class VehicleController extends Controller
     }
 
     public function store(VehicleRequest $request) {
+      try{
 
-        auth()->user()->Vehicles()->create($request->input());
+        $vehicle = auth()->user()->Vehicles()->create($request->input());
+
+        if($request->ajax())
+        {
+            return response()->json([
+                'message' => "ok deu certo",
+                'data' => $vehicle,
+                'status' => 200
+            ], 200);
+        }
 
         return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
+      }catch (\Exception $e){
+        if($request->ajax())
+        {
+            return response()->json([
+                'message' =>  $e->getMessage(),
+                'data' => $e,
+                'status' => 400
+            ], 400);
+        }
+          return back()->with('error', $e->getMessage());
+      }
+
     }
 
     public function edit(Vehicle $vehicle) {
@@ -39,7 +61,7 @@ class VehicleController extends Controller
     }
 
     public function update(VehicleRequest $request, Vehicle $vehicle) {
-        
+
         $vehicle->update($request->input());
        return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
     }
