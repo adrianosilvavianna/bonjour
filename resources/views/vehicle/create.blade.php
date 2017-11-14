@@ -222,7 +222,7 @@
                             $("#form-vehicle input").val("");
                             $.notify({
                                 title: 'Sucesso',
-                                message: data.message,
+                                message: data.message+ " continue cadastrando!",
                             },{
                                 type: 'success',
                             });
