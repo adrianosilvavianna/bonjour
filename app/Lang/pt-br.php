@@ -10,8 +10,8 @@
 
 define('nomeProjeto', 'Bonjou');
 define('oProjeto', 'O Projeto Bonjou');  //sobreProjeto
-define('ajudaEinformacoes', 'Ajuda e informações úteis'); //ajudaInformacao
-define('contato', 'Contato');
+define('ajudaEinformacoes', 'Aide et informations utiles'); //ajudaInformacao
+define('contato', 'Contactez nous');
 
 //Itens principais da tela inicial.
 
