@@ -66,9 +66,9 @@
                     <div class="content">
                         <div class="inner">
                             <h2>{{ oProjeto }}</h2>
-                            <p>O projeto visa a integração e caronas entre refugiados, migrantes de todas as nacionalidades e pessoas de Curitiba.</p>
-                            <p> Sistema Web que possíbilita solicitar e oferecer caronas podendo ser agendadas previamente, auxiliando a locomoção dos refugiados e migrantes.</p>
-                            <p>Sistema criado em conjunto com o curso de Analise e Desenvolvimento de Sistemas da Universidade Tuiuti do Paraná</p>
+                            <p>{{ objetivoProjeto1 }}</p>
+                            <p> {{ objetivoProjeto2 }}</p>
+                            <p>{{ objetivoProjeto3 }}</p>
                         </div>
                     </div>
                 </section>
@@ -76,9 +76,8 @@
                     <a href="#" class="image"><img src="{{ asset('web/images/pic02.png') }}" alt="" data-position="top center" /></a>
                     <div class="content">
                         <div class="inner">
-                            <h2>Projeto O Planeta é um só</h2>
-                            <p>O projeto funciona em formato de encontros que visa a integração dos refugiados e migrantes de todas as nascionalidades
-                                com pessoas de curitiba que queiram se engajar na inclusão deste grupo na vida da cidade.</p>
+                            <h2>{{ planetaUmSo }}</h2>
+                            <p>{{ sobrePlanetaUmSo }}</p>
                         </div>
                     </div>
                 </section>
@@ -86,7 +85,7 @@
                     <a href="#" class="image"><img src="{{ asset('web/images/pic02.jog') }}" alt="" data-position="25% 25%" /></a>
                     <div class="content">
                         <div class="inner">
-                            <h2>Localização dos encontros</h2>
+                            <h2>{{ localEncontros }}</h2>
                             <p>Instituto Tibagi</br>
                                 Rua Conselheiro Laurindo -  nº 600 - piso 3</br>
                                 CEP: 80060-100</br>
@@ -102,8 +101,8 @@
             <!-- Two -->
             <section id="two" class="wrapper style3 fade-up">
                 <div class="inner">
-                    <h2>Ajuda e Informações Úteis</h2>
-                    <p>Localização das escolas, locais para fazer documentos necessários, locais de apoio ao imigrante e contatos uteis.</p>
+                    <h2>{{ ajudaInfos1 }}</h2>
+                    <p>{{ ajudaInfos2 }}</p>
                     <div class="features">
                         <section>
                             <span class="icon major fa-code"></span>
@@ -142,25 +141,25 @@
             <!-- Three -->
             <section id="three" class="wrapper style1 fade-up">
                 <div class="inner">
-                    <h2>Contato</h2>
-                    <p>Escreva a sua duvida, sujestão, pergunta ou escreva uma mensagem pedindo para ser apoiador do projeto O Planeta é um Só.</p>
+                    <h2>{{ contato }}</h2>
+                    <p>{{ escrevaSuaDuvida }}</p>
                     <div class="split style1">
                         <section>
                             <form method="post" action="#">
                                 <div class="field half first">
-                                    <label for="name">Name</label>
+                                    <label for="name">{{ nome }}</label>
                                     <input type="text" name="name" id="name" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Email</label>
+                                    <label for="email">{{ email }}</label>
                                     <input type="text" name="email" id="email" />
                                 </div>
                                 <div class="field">
-                                    <label for="message">Message</label>
+                                    <label for="message">{{ mensagem }}</label>
                                     <textarea name="message" id="message" rows="5"></textarea>
                                 </div>
                                 <ul class="actions">
-                                    <li><a href="" class="button submit">Enviar Mensagem</a></li>
+                                    <li><a href="" class="button submit">{{ btnEnviarMsg }}</a></li>
                                 </ul>
                             </form>
                         </section>
