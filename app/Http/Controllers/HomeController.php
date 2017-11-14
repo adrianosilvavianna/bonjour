@@ -13,8 +13,6 @@ class HomeController extends Controller
      * @return void
      */
 
-
-
     public function __construct()
     {
           $this->middleware('lang');
@@ -27,7 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         SEOMeta::setTitle('Bonjou', false);
         SEOMeta::setDescription('Precisa de carona?? Pegue da maneira mais f�cil poss�vel!!');
         SEOMeta::setCanonical('http://bonjou.com.br');
