@@ -34,7 +34,7 @@ class VehicleController extends Controller
         if($request->ajax())
         {
             return response()->json([
-                'message' => "ok deu certo",
+                'message' => "Veiculo cadastrado com sucesso",
                 'data' => $vehicle,
                 'status' => 200
             ], 200);

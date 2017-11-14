@@ -9,8 +9,8 @@
 //Itens do menu ao lado esquerdo.
 
 define('nomeProjeto', 'Bonjou');
-define('oProjeto', 'O Projeto Bonjou');
-define('ajudaEinformacoes', 'Ajuda e informações úteis');
+define('oProjeto', 'O Projeto Bonjou');  //sobreProjeto
+define('ajudaEinformacoes', 'Ajuda e informações úteis'); //ajudaInformacao
 define('contato', 'Contato');
 
 //Itens principais da tela inicial.
@@ -38,4 +38,4 @@ define('nome', 'Nome');
 define('email', 'E-mail');
 define('mensagem', 'Mensagem');
 define('btnEnviarMsg', 'Enviar mensagem');
-        
+
