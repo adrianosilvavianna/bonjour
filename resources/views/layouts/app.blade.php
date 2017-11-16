@@ -50,7 +50,9 @@
         <div class="logo">
             <a href="{{ route('user.profile.index') }}" class="simple-text">
                 {{ auth()->user()->name }}
-            </a>
+            </a><a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
+                            <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
+                            <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a>
         </div>
 
         <div class="sidebar-wrapper">
@@ -58,33 +60,33 @@
                 <li class="active">
                     <a href="{{ route('user.trip.index') }}">
                         <i class="material-icons">dashboard</i>
-                        <p>Caronas</p>
+                        <p>{{ caronas }}</p>
                     </a>
                 </li>
                 <li>
                 <li>
                     <a href="{{route('user.vehicle.index') }}">
                         <i class="material-icons">directions_car</i>
-                        <p>Meus veículos</p>
+                        <p>{{ meusVeiculos }}</p>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('user.trip.create') }}">
                         <i class="material-icons">near_me</i>
-                        <p>Oferecer Carona</p>
+                        <p>{{ oferecerCarona }}</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('user.trip.myTrips') }}">
                         <i class="material-icons">map</i>
-                        <p>Minhas Viagens</p>
+                        <p>{{ minhasViagens }}</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <i class="material-icons">settings</i>
-                        <p>Configurações</p>
+                        <p>{{ configuracoes }}</p>
                     </a>
                 </li>
 

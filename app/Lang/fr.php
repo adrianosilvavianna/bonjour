@@ -39,3 +39,23 @@ define('email', 'E-mail');
 define('mensagem', 'Message');
 define('btnEnviarMsg', 'Envoyer message');
 
+//Pagina de Login
+define('senha', 'Password');
+define('lembrarme', 'Se souvenir de moi.');
+define('btnEsqueciSenha', "J'ai oublié mon mot de passe");
+
+//Página user/home
+define('busquePorLocal', 'Rechercher par lieu');
+define('busquePorData', 'Recherche par date');
+
+//Menu lateral esquerdo
+define('caronas', 'Covoiturage');
+define('meusVeiculos', 'Mes véhicules');
+define('oferecerCarona', 'Offre ride');
+define('minhasViagens', 'Mes voyages');
+define('configuracoes', 'Paramètres');
+
+//Card da viagem
+define('de', 'Origine');
+define('para', 'Destination');
+define('lugaresDisponiveis', 'places disponibles!');

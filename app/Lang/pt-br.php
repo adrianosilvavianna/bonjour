@@ -40,4 +40,22 @@ define('mensagem', 'Mensagem');
 define('btnEnviarMsg', 'Enviar mensagem');
 
 //Pagina de Login
-// ja aproveita os nomes de email defino acima
+define('senha', 'Senha');
+define('lembrarme', 'Lembrar-me');
+define('btnEsqueciSenha', 'Esqueci minha senha');
+
+//Página user/home
+define('busquePorLocal', 'Busque por local');
+define('busquePorData', 'Busque por data');
+
+//Menu lateral esquerdo
+define('caronas', 'Caronas');
+define('meusVeiculos', 'Meus veículos');
+define('oferecerCarona', 'Oferecer carona');
+define('minhasViagens', 'Minhas viagens');
+define('configuracoes', 'Configurações');
+
+//Card da viagem
+define('de', 'De');
+define('para', 'Para');
+define('lugaresDisponiveis', 'lugares disponíveis!');

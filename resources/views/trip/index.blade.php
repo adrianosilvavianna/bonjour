@@ -11,13 +11,13 @@
         <form action="{{ route('user.trip.search') }}" method="post"  class="navbar-form navbar-right" role="search" >
 
                 <div class="form-group ">
-                    <label for="location" >Busque por local: </label>
+                    <label for="location" >{{ busquePorLocal }}: </label>
                     <input type="text" class="form-control " id="location" name="location" placeholder="">
                 </div>
 
 
             <div class="form-group ">
-                <label for="date" >Busque por data: </label>
+                <label for="date" >{{ busquePorData }} </label>
                 <input type="date" class="form-control right " id="date" name="date_trip">
                 <span class="material-input"></span>
             </div>
