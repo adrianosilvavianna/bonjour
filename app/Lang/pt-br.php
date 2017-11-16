@@ -67,3 +67,8 @@ define('placa', 'PLACA');
 define('cor', 'COR');
 define('ano', 'ANO');
 define('nPassageiros', 'Nº DE PASSAGEIROS');
+
+//Tela user/trip/create
+define('dataPartida', 'Data de partida');
+define('horaPartida', 'Hora de partida');
+define('veiculo', 'Veículo');

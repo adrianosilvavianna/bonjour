@@ -50,9 +50,9 @@
         <div class="logo">
             <a href="{{ route('user.profile.index') }}" class="simple-text">
                 {{ auth()->user()->name }}
-            </a><a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
+            </a><center><a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
                             <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
-                            <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a>
+                            <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a></center>
         </div>
 
         <div class="sidebar-wrapper">

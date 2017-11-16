@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-2 {{ $errors->has('date') ? ' has-error' : '' }}">
         <div class="form-group  ">
-            <label class="control-label">Data de partida</label>
+            <label class="control-label">{{ dataPartida }}</label>
 
             @if(!empty($trip))
                 <input type="date" class="form-control" name="date" min="{{ date('Y-m-d') }}" id="date" value="{{ $trip->date }}">
@@ -18,7 +18,7 @@
 
     <div class="col-md-2 {{ $errors->has('time') ? ' has-error' : '' }}">
         <div class="form-group  ">
-            <label class="control-label">Hora de partida</label>
+            <label class="control-label">{{ dataPartida }}</label>
             @if(!empty($trip))
                 <input type="time" class="form-control" name="time" id="time" value="{{ $trip->time }}">
             @else
@@ -34,14 +34,14 @@
 
     <div class="col-md-4 {{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
         <div class="form-group  ">
-            <label class="control-label">Veículo</label>
+            <label class="control-label">{{ veiculo }}</label>
 
                 <select type="text" name="vehicle_id" class="form-control" id="vehicle_id">
                     @if(!empty($trip))
-                        <option value="{{ $trip->Vehicle->id }}">Marca: {{ $trip->Vehicle->brand }} || Modelo: {{ $trip->Vehicle->model }}</option>
+                        <option value="{{ $trip->Vehicle->id }}">{{ marca }}: {{ $trip->Vehicle->brand }} || {{ modelo }}: {{ $trip->Vehicle->model }}</option>
                     @endif
                     @foreach($vehicles as $vehicle)
-                        <option value="{{ $vehicle->id }}">Marca: {{ $vehicle->brand }} || Modelo: {{ $vehicle->model }}</option>
+                        <option value="{{ $vehicle->id }}">{{ marca }}: {{ $vehicle->brand }} || {{ modelo }}: {{ $vehicle->model }}</option>
                     @endforeach
                 </select>
 
