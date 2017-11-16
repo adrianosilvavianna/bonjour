@@ -38,4 +38,3 @@ define('nome', 'Nome');
 define('email', 'E-mail');
 define('mensagem', 'Mensagem');
 define('btnEnviarMsg', 'Enviar mensagem');
-
