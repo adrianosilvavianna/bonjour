@@ -30,7 +30,7 @@ define('sobrePlanetaUmSo', 'O projeto funciona em formato de encontros que visa 
 define('localEncontros', 'Localização dos encontros');
 
 define('ajudaInfos1', 'Ajuda e informações úteis.');
-define('ajudaInfos2', 'Localização das escolas, locais para fazer documentos necessários, locais de apoio ao imigrante e contatos uteis.');
+define('ajudaInfos2', 'Localização das   escolas, locais para fazer documentos necessários, locais de apoio ao imigrante e contatos uteis.');
 
 define('escrevaSuaDuvida', 'Escreva a sua duvida, sujestão, pergunta ou escreva uma mensagem pedindo para ser apoiador do projeto O Planeta é um Só.');
 
@@ -38,3 +38,6 @@ define('nome', 'Nome');
 define('email', 'E-mail');
 define('mensagem', 'Mensagem');
 define('btnEnviarMsg', 'Enviar mensagem');
+
+//Pagina de Login
+// ja aproveita os nomes de email defino acima

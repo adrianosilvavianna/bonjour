@@ -8,13 +8,13 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login
-                    <a href="?lang=login-pt-br">
+                    <a href="?lang=login-pt-br" class="pull-right">
                         <img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português">
                     </a>
-                    <a href="?lang=en">
+                    <a href="?lang=en" class="pull-right">
                         <img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês">
                     </a>
-                    <a href="?lang=fr">
+                    <a href="?lang=fr" class="pull-right">
                         <img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês">
                     </a>
                 </div>
