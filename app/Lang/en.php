@@ -59,3 +59,11 @@ define('configuracoes', 'Settings');
 define('de', 'Origin');
 define('para', 'Destiny');
 define('lugaresDisponiveis', 'available places!');
+
+//Tela user/vehicle
+define('marca', 'BRAND');
+define('modelo', 'MODEL');
+define('placa', 'PLAQUE');
+define('cor', 'COLOR');
+define('ano', 'YEAR');
+define('nPassageiros', 'Nº OF PASSENGERS');

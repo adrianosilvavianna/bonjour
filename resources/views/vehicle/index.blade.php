@@ -9,23 +9,22 @@
             <div class="card">
                 <div class="card-header" data-background-color="purple">
                     <h4 class="title">
-                        Meus Veiculos
+                        {{ meusVeiculos }}
                         <a href="{{ route('user.vehicle.create') }}" class=" btn-white btn-round btn-just-icon pull-right">
                             <i class="material-icons">add</i><div class="ripple-container"></div>
                         </a>
                     </h4>
-                    <p class="category">Meus veiculos</p>
                 </div>
                 <div class="card-content">
                     <div class="card-content table-responsive">
                         <table class="table table-hover">
                             <thead>
-                                <th><b>MARCA</b></th>
-                                <th><b>MODELO</b></th>
-                                <th><b>PLACA</b></th>
-                                <th><b>COR</b></th>
-                                <th><b>ANO</b></th>
-                                <th><b>Nº DE PASSAGEIROS</b></th>
+                                <th><b>{{ marca }}</b></th>
+                                <th><b>{{ modelo }}</b></th>
+                                <th><b>{{ placa }}</b></th>
+                                <th><b>{{ cor }}</b></th>
+                                <th><b>{{ ano }}</b></th>
+                                <th><b>{{ nPassageiros }}</b></th>
                                 <th><b>#</b></th>
                             </thead>
                             <tbody>

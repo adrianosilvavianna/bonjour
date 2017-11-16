@@ -59,3 +59,11 @@ define('configuracoes', 'Configurações');
 define('de', 'De');
 define('para', 'Para');
 define('lugaresDisponiveis', 'lugares disponíveis!');
+
+//Tela user/vehicle
+define('marca', 'MARCA');
+define('modelo', 'MODELO');
+define('placa', 'PLACA');
+define('cor', 'COR');
+define('ano', 'ANO');
+define('nPassageiros', 'Nº DE PASSAGEIROS');
