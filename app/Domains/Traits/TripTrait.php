@@ -32,7 +32,12 @@ trait TripTrait
     }
 
     public function myTrips(){
-        return view('trip.my_trip')->with(['trips' => auth()->user()->Trips()->orderBy('id', 'desc')->get()]);
+        $trip = auth()->user()->Trips();
+        $tripsPending = $trip->where('status', '=', true)->orderBy('id', 'desc')->get();
+        $tripsFinished  = $trip->where('status', '=', false)->orderBy('id', 'desc')->get();
+        $tripsCanceled  = $trip->where('canceled', '=', true)->orderBy('id', 'desc')->get();
+
+        return view('trip.my_trip')->with(['tripsPending' => $tripsPending, 'tripsFinished' => $tripsFinished, 'tripsCanceled' => $tripsCanceled]);
     }
 
     public function getValidationDate(Carbon $dateNow, Carbon $dateRequest, Carbon $dateTrip){

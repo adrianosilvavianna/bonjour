@@ -26,7 +26,9 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/user/trip';
-
+    private $langPtBr = __DIR__."../../../../Lang/pt-br.php";
+    private $langEn = __DIR__."../../../../Lang/en.php";
+    private $langFr = __DIR__."../../../../Lang/fr.php";
     /**
      * Create a new controller instance.
      *
@@ -35,6 +37,26 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('lang');
+
+        if(!empty($_GET['lang']))
+        {
+            switch($_GET['lang']){
+                case "pt-br":
+                    include_once $this->langPtBr;
+                    break;
+                case "en":
+                    include_once $this->langEn;
+                    break;
+                case "fr":
+                    include_once $this->langFr;
+                    break;
+                default:
+                    include_once $this->langPtBr;
+                    break;
+            }
+        }
+        else{
+            include_once $this->langPtBr;
+        }
     }
 }

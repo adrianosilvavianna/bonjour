@@ -21,7 +21,7 @@ class CreateTripsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('num_passenger');
-            $table->boolean('status')->default(true); //significa que a viagem esta em aberto ou nao
+            $table->boolean('status')->default(true); //significa que a viagem esta em aberto ou nao true = viagem em aberto e false para viagem finalizada
             $table->boolean('canceled')->default(false); //significa se a viagem foi cancelada ou nao
 
             $table->integer('vehicle_id')->unsigned();

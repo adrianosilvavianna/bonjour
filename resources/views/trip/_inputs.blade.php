@@ -18,7 +18,7 @@
 
     <div class="col-md-2 {{ $errors->has('time') ? ' has-error' : '' }}">
         <div class="form-group  ">
-            <label class="control-label">{{ dataPartida }}</label>
+            <label class="control-label">{{ horaPartida }}</label>
             @if(!empty($trip))
                 <input type="time" class="form-control" name="time" id="time" value="{{ $trip->time }}">
             @else
