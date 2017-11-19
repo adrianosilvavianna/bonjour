@@ -2,20 +2,36 @@
 
 @section('content')
 <div class="container">
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Registro</div>
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <h4 class="title">Cadastrar</h4>
+                    <p class="category">
+                        <a href="?lang=login-pt-br" class="pull-right">
+                            <img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português">
+                        </a>
+                        <a href="?lang=en" class="pull-right">
+                            <img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês">
+                        </a>
+                        <a href="?lang=fr" class="pull-right">
+                            <img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês">
+                        </a>
+                    </p>
+                </div>
+                <div class="card-content">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apelido</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating is-empty {{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label class="control-label">Apelido</label>
+                                    <input type="email" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                    <span class="material-input"></span></div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -25,11 +41,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Endereço de e-mail</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating is-empty {{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <label class="control-label">{{ email }}</label>
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                    <span class="material-input"></span></div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -39,11 +57,27 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Senha</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label class="control-label">Senha</label>
+                                    <input type="password" class="form-control" name="email" value="{{ old('password') }}" required>
+                                    <span class="material-input"></span></div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label class="control-label">Confirma senha</label>
+                                    <input type="password" class="form-control" name="email" value="{{ old('password') }}" required>
+                                    <span class="material-input"></span></div>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -54,21 +88,36 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar senha</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ lembrarme }}
+                                </label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="checkbox">
+                                <label>
+                                    <a class="" href="{{ route('password.request') }}">
+                                        {{ btnEsqueciSenha }}
+                                    </a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8">
                                 <button type="submit" class="btn btn-primary">
-                                    Cadastrar
+                                    {{ btnCadastrarse }}
                                 </button>
+
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    {{ btnLogin }}
+                                </a>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
