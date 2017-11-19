@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Domains\Config;
 use App\Domains\Location;
 use App\Domains\Meeting;
 use App\Domains\Profile;
@@ -58,4 +59,8 @@ class User extends Authenticatable
         return $this->morphMany(Report::class, 'reportable');
     }
 
+    public function Config()
+    {
+        return $this->hasOne(Config::class);
+    }
 }

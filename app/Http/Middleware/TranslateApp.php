@@ -21,10 +21,7 @@ class TranslateApp
 
     public function handle($request, Closure $next)
     {
-
-      if(!empty($_GET['lang']))
-      {
-          switch($_GET['lang']){
+         switch(auth()->user()->Config->lang){
               case "pt-br":
                   include_once $this->langPtBr;
                   break;
@@ -38,10 +35,6 @@ class TranslateApp
                   include_once $this->langPtBr;
                   break;
           }
-      }
-      else{
-              include_once $this->langPtBr;
-      }
 
       return $next($request);
 

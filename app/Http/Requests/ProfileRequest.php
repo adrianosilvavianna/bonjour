@@ -41,6 +41,5 @@ class ProfileRequest extends FormRequest
             }
             default:break;
         }
-
     }
 }
