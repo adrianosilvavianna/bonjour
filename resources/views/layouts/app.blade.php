@@ -111,6 +111,16 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
+                            @if(auth()->user()->Config->lang == "pt-br")
+                                <a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
+                            @elseif(auth()->user()->Config->lang == "en")
+                                <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
+                            @elseif(auth()->user()->Config->lang == "fr")
+                                <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a>
+                            @endif
+                        </li>
+
+                        <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">dashboard</i>
                                 <p class="hidden-lg hidden-md">Dashboard</p>
