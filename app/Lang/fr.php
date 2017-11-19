@@ -53,7 +53,8 @@ define('caronas', 'Covoiturage');
 define('meusVeiculos', 'Mes vÃ©hicules');
 define('oferecerCarona', 'Offre ride');
 define('minhasViagens', 'Mes voyages');
-define('configuracoes', 'ParamÃ¨tres');
+define('minhasCaronas', 'Mes manèges');
+define('configuracoes', 'Paramètres');
 
 //Card da viagem
 define('de', 'Origine');

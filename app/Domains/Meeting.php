@@ -16,4 +16,12 @@ class Meeting extends Model
     public function Trip(){
         return  $this->belongsTo(Trip::class);
     }
+
+    public function myRides(){
+        $meetingApproved =  auth()->user()->Meetings->where('accept', '=', true);
+//        $meetingReproved =  auth()->user()->Meetings->where('accept', '=', false)->where('accept', '<>', NULL);
+//        $meetingPending =  auth()->user()->Meetings->where('accept', 'is',  NULL)->where('accept', '<>', false);
+
+      return $meetingApproved;
+    }
 }

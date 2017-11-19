@@ -41,6 +41,7 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
     Route::get('/{trip}/cancel',          'MeetingController@cancel')->name('cancel');
     Route::get('/{trip}/show',          'MeetingController@show')->name('show');
     Route::post('/accept',          'MeetingController@accept')->name('accept');
+    Route::get('/my_rides',          'MeetingController@myRides')->name('myRides');
 });
 
 Route::group(['prefix' => 'avaliation', 'as' =>'avaliation.'], function () {

@@ -82,6 +82,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('user.meeting.myRides') }}">
+                        <i class="material-icons">room</i>
+                        <p>{{ minhasCaronas }}</p>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('user.config.index') }}">
                         <i class="material-icons">settings</i>
                         <p>{{ configuracoes }}</p>

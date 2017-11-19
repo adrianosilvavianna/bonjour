@@ -53,6 +53,7 @@ define('caronas', 'Caronas');
 define('meusVeiculos', 'Meus veículos');
 define('oferecerCarona', 'Oferecer carona');
 define('minhasViagens', 'Minhas viagens');
+define('minhasCaronas', 'Minhas Caronas');
 define('configuracoes', 'Configurações');
 
 //Card da viagem

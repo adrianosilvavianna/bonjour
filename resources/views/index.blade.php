@@ -24,11 +24,6 @@
             <div class="inner">
                 <nav>
                     <ul>
-                        <li>
-                            <a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
-                            <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
-                            <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a>
-                        </li>
                         <li><a href="#intro">{{ nomeProjeto }}</a></li>
                         <li><a href="#one">{{ oProjeto }}</a></li>
                         <li><a href="#two">{{ ajudaEinformacoes }}</a></li>
@@ -55,6 +50,11 @@
                         @else
                         <li><a href="/user/home" class="button scrolly">{{ btnEntrar }}</a></li>
                         @endif
+                        <li>
+                            <a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
+                            <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
+                            <a href="?lang=fr"><img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês"></a>
+                        </li>
                     </ul>
                 </div>
             </section>

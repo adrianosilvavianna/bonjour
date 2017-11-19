@@ -52,7 +52,6 @@ trait MeetingTrait
     }
 
     public function searchMettingAuthUser(Trip $trip){
-
         foreach($trip->Meetings as $meeting)
         {
             if($meeting->user_id == auth()->user()->id) {
@@ -60,7 +59,11 @@ trait MeetingTrait
             }
         }
         throw new \Exception("Usuário não está comprometido a esta viagem");
-
     }
 
+    public function myRides(){
+        $rides = $this->meeting->myRides();
+
+        return view('meeting.my_rides')->with(['rides' => $rides]);
+    }
 }
