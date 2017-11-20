@@ -69,16 +69,22 @@
                         <strong>{{ $meeting->User->email }}</strong><br>
                     </p>
 
-                    @if(is_null($meeting->accept))
-                        <button  class="btn btn-success btn-round " id="accept-{{ $meeting->id }}"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
-                        <button  class="btn btn-danger btn-round "  id="accept-{{ $meeting->id }}"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
-                    @else
-                        @if($meeting->accept)
-                            <p id="acceptResult">Aprovado</p>
-                        @else
-                            <p>Reprovado</p>
+                    <div class="card-footer">
+                        @if($meeting->accept == 2)
+                            <div id="accept-{{ $meeting->id }}">
+                                <button  class="btn btn-success btn-round accept"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
+                                <button  class="btn btn-danger btn-round accept"   data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
+                            </div>
+                        @elseif($meeting->accept == 1)
+                                <h4 class="text-success">Aprovado</h4>
+                        @elseif($meeting->accept == 0)
+                                <h4 class="text-danger">Reprovado</h4>
+
                         @endif
-                    @endif
+
+                        <h4 id="acceptResult"></h4>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -92,7 +98,10 @@
 @section('scripts')
     @parent
     <script type="application/javascript">
-        $('#accept'+ $(this).data('meeting')).click(function(){
+
+
+
+        $('.accept').click(function(){
 
             var parm = {
                 user_id: $(this).data('user'),
@@ -100,16 +109,18 @@
                 accept: $(this).data('accept')
             };
 
+            $("#accept-"+$(this).data('meeting')).hide();
+
             $.ajax({
                 type: 'POST',
                 url: '/user/meeting/accept',
                 data: parm,
                     success: function(data) {
-                        $('.accept').hide();
+
                         if(data.data.accept){
-                            $('#acceptResult').html("Aceito");
+                            $('#acceptResult').html('Aprovado').addClass('text-success');
                         }else{
-                            $('#acceptResult').html("Reprevado")
+                            $('#acceptResult').html('Reprovado').addClass('text-danger');
                         }
 
                         $.notify({
