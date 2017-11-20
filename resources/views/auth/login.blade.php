@@ -47,7 +47,7 @@
                             <div class="col-md-12">
                                 <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
                                     <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="email" value="{{ old('password') }}" required>
+                                    <input type="password" class="form-control" name="password" value="{{ old('password') }}" required>
                                     <span class="material-input"></span></div>
 
 

@@ -61,9 +61,30 @@ class VehicleController extends Controller
     }
 
     public function update(VehicleRequest $request, Vehicle $vehicle) {
+        try{
+            $vehicle->update($request->input());
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' => "Veiculo atualizado com sucesso",
+                    'data' => $vehicle,
+                    'status' => 200
+                ], 200);
+            }
+            return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
 
-        $vehicle->update($request->input());
-       return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
+        }catch (\Exception $e){
+            if($request->ajax())
+            {
+                return response()->json([
+                    'message' =>  $e->getMessage(),
+                    'data' => $e,
+                    'status' => 400
+                ], 400);
+            }
+            return back()->with('error', $e->getMessage());
+        }
+
     }
 
     public function delete(Vehicle $vehicle) {

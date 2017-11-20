@@ -202,7 +202,8 @@
             }
 
             $( "#form-vehicle" ).submit(function(){
-            		event.preventDefault();
+                event.preventDefault();
+                $.blockUI({ message: '<div class="boxLoading"></div>' });
 
                 var parm = {
                     brand: name_marca,
@@ -220,15 +221,21 @@
                     data: parm,
                         success: function(data) {
                             $("#form-vehicle input").val("");
+                            $.unblockUI();
                             $.notify({
                                 title: 'Sucesso',
-                                message: data.message+ " continue cadastrando!",
+                                message: data.message,
                             },{
                                 type: 'success',
                             });
+
+                            window.setTimeout(function(){
+                                window.location = "/user/vehicle";
+                            }, 1500);
                     },
                     error: function (error) {
                         console.log(error);
+                        $.unblockUI();
                         $.notify({
                             title: 'Error',
                             message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",

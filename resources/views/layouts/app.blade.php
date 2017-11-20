@@ -29,6 +29,8 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
+    <link href="{{ asset('css/loading.css') }}" rel="stylesheet" />
+
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
@@ -276,6 +278,7 @@
 <!--   Core JS Files   -->
 <script src="{{ asset('assets/js/jquery-3.1.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/blockui.js') }}" type="text/javascript" ></script>
 
 <script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
 
@@ -287,6 +290,7 @@
 
 <!--Restful-->
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
+
 
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>

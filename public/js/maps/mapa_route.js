@@ -180,6 +180,8 @@
 
 		$("#btnEnviar").click(function (event) {
 			event.preventDefault();
+			$.blockUI({ message: '<div class="boxLoading"></div>' });
+
 			var enderecoPartida = $("#txtEnderecoPartida").val();
 			var enderecoChegada = $("#txtEnderecoChegada").val();
 
@@ -190,6 +192,7 @@
 			};
 
 			directionsService.route(dataApi, function (result, status) {
+				$.unblockUI();
 				if (status == google.maps.DirectionsStatus.OK) {
 					directionsDisplay.setDirections(result);
 				}
@@ -199,6 +202,7 @@
 
 		$("form").submit(function (event) {
 			event.preventDefault();
+			$.blockUI({ message: '<div class="boxLoading"></div>' });
 
 			var enderecoPartida = $("#txtEnderecoPartida").val();
 			var enderecoChegada = $("#txtEnderecoChegada").val();
@@ -212,6 +216,7 @@
 			//alert("saindo : " + enderecoPartida + " Destino :" + enderecoChegada + " Data :" + date_exit + " Tempo: " + time + " Veiculo :" + vehicle);
 
 			if (enderecoChegada == '' || enderecoPartida == '' || date_exit == '' || time == '' || num_passenger == '') {
+				$.unblockUI();
 				$.notify({
 					title: 'Error',
 					message: 'Algo está errado, verifique se os campos estão preenchidos corretamente',
@@ -244,6 +249,7 @@
 
 			})
 				.done(function (xhr) {
+					$.unblockUI();
 					$.notify({
 						title: 'Sucesso',
 						message: 'Obrigado por disponibilizar uma viagem.',
@@ -254,11 +260,11 @@
 					console.log(xhr);
 					window.setTimeout(function(){
 						window.location = "/user/trip";
-					}, 2000);
+					}, 1500);
 
 				})
 				.fail(function () {
-
+					$.unblockUI();
 					$.notify({
 						title: 'Error',
 						message: 'Algo está errado, verifique se os campos estão preenchidos corretamente',

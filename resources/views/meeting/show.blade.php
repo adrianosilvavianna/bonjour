@@ -41,8 +41,6 @@
 
                     @endif
 
-
-
                 </div>
 
             </div>
@@ -79,9 +77,7 @@
                                 <h4 class="text-success">Aprovado</h4>
                         @elseif($meeting->accept == 0)
                                 <h4 class="text-danger">Reprovado</h4>
-
                         @endif
-
                         <h4 id="acceptResult"></h4>
                     </div>
 
@@ -92,16 +88,15 @@
 
 </div>
 
-
 @endsection
 
 @section('scripts')
     @parent
     <script type="application/javascript">
 
-
-
         $('.accept').click(function(){
+
+            $.blockUI({ message: '<div class="boxLoading"></div>' });
 
             var parm = {
                 user_id: $(this).data('user'),
@@ -116,7 +111,7 @@
                 url: '/user/meeting/accept',
                 data: parm,
                     success: function(data) {
-
+                        $.unblockUI();
                         if(data.data.accept){
                             $('#acceptResult').html('Aprovado').addClass('text-success');
                         }else{
@@ -132,6 +127,7 @@
                 },
                 error: function (error) {
                     console.log(error);
+                    $.unblockUI();
                     $.notify({
                         title: 'Error',
                         message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
@@ -140,15 +136,12 @@
                     });
                 }
             });
-
         });
 
         console.log($("#hour-time").data('hour_time'));
 
         // Set the date we're counting down to
         var countDownDate = new Date($("#hour-time").data('hour_time'));
-
-
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -174,7 +167,8 @@
                 clearInterval(x);
                 document.getElementById("demo").innerHTML = "EXPIRED";
             }
-        }, 1000);
+        }, 1000)
+
     </script>
 
 @show

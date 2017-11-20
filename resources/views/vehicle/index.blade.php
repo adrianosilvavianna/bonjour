@@ -95,5 +95,128 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/select2.min.js') }}"></script>
 
+    <script type="text/javascript">
+
+        $(document).ready(function()
+        {
+            var name_marca= '';
+            var name_modelo = '';
+            $("#color").select2();
+            //inicia select marca
+            $('#marcas').select2({
+                placeholder: 'Marcas', data: getMarcas()
+            })
+                    .on("change", function(e) {
+                        var id_marca    = ($(this).select2('val'));
+                        name_marca  = ($('#marcas option:selected').text());
+                        console.log(name_marca);
+
+                        showModelos(id_marca);
+                    });
+
+            //inicia select modelos
+            $('#modelos').select2({ placeholder: 'Modelos' })
+                    .on("change", function(e) {
+                        var id_modelo    = ($(this).select2('val'));
+                        name_modelo    = ($('#modelos option:selected').text());
+
+                        console.log(name_modelo);
+
+                    });
+
+            //retorna todas as marcas
+            function getMarcas(){
+
+                var marcas   = {};
+                $.ajax({
+                    url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
+                    async: false,
+                    dataType: 'json',
+                    success: function(data) {
+                        results = data.map(function(item) {
+                            console.log(item.name);
+                            return { id: item.id, text: item.name,  };
+                        });
+                        marcas = results;
+                    }
+                });
+                console.log(marcas);
+                return marcas
+            }
+            //retorna modelos referente a marca solicitada
+            function getModelos(marca){
+
+                var marca    = marca+'.json';
+                var modelos  = {};
+
+                $.ajax({
+                    url: "http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
+                    async: false,
+                    success: function(data) {
+
+                        console.log(data);
+                        results = data.map(function(item) {
+                            return { id: item.id, text: item.name, };
+                        });
+                        modelos = results;
+                    }
+                });
+                return modelos;
+            }
+            //exibi na tela os modelos
+            function showModelos(marca) {
+
+                $("#modelos").empty();
+                $('#modelos').select2({ data: getModelos(marca) });
+            }
+
+            $( "#form-vehicle" ).submit(function(){
+                event.preventDefault();
+                $.blockUI({ message: '<div class="boxLoading"></div>' });
+
+                var parm = {
+                    brand: name_marca,
+                    model: name_modelo,
+                    color: $("#color").val(),
+                    plaque: $("#plaque").val(),
+                    year: $("#year").val(),
+                    num_passenger: $("#num_passenger").val()
+                };
+                console.log(parm);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/user/vehicle/update',
+                    data: parm,
+                    success: function(data) {
+                        $("#form-vehicle input").val("");
+                        $.unblockUI();
+                        $.notify({
+                            title: 'Sucesso',
+                            message: data.message+ " Obrigado!",
+                        },{
+                            type: 'success',
+                        });
+                        window.setTimeout(function(){
+                            window.location = "/user/vehicle";
+                        }, 1000);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $.unblockUI();
+                        $.notify({
+                            title: 'Error',
+                            message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
+                        },{
+                            type: 'danger',
+                        });
+                    }
+                });
+
+            });
+
+        });
+    </script>
 @show

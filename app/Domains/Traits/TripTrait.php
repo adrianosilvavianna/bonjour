@@ -42,14 +42,16 @@ trait TripTrait
 
     public function getValidationDate(Carbon $dateNow, Carbon $dateRequest, Carbon $dateTrip){
 
-        if($dateNow->toDateTimeString() <= $dateTrip->subHours(3)->toDateTimeString()){
+        //se a data atual for menor que a data da viagem
 
-            if($dateRequest->diffInHours($dateTrip->addHours(3)) > 1){
+        if($dateNow->toDateTimeString() <= $dateTrip->subHours(1)->toDateTimeString()){
+
+            if($dateRequest->diffInHours($dateTrip->addHours(1)) > 1){
                 return true;
             }
-            throw new \Exception("É necessario 1hr de diferença para seus passageiros se adaptarem a mudança");
+            throw new \Exception("É necessario 3hr de diferença para seus passageiros se adaptarem a mudança");
         }
-        throw new \Exception("TEMPO ESGOTADO - Não é mais possível alterar esta viagem");
+        throw new \Exception("TEMPO ESGOTADO - É necessario 3hr de diferença para seus passageiros se adaptarem a mudança. Não é mais possível alterar esta viagem");
 
     }
 

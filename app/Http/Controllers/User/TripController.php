@@ -73,12 +73,10 @@ class TripController extends Controller
 
                 $trip->update($request->input());
 
-                //notificar integrantes
+                dd($trip->Meetings);
 
                 return back()->with('success', "Atualizado com sucesso");
-
             }
-
         }catch (\Exception $e){
 
             return back()->with('error', $e->getMessage());

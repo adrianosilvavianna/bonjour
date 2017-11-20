@@ -140,6 +140,7 @@
             });
 
             $(".lang").change(function(){
+                $.blockUI({ message: '<div class="boxLoading"></div>' });
                 $.ajax({
                     type: 'POST',
                     url: '/user/config/update',
@@ -147,6 +148,7 @@
 
                     success: function(data) {
                         console.log(data);
+                        $.unblockUI();
                         $.notify({
                             title: 'Sucesso',
                             message: data.message+ "Idioma Alterado",
@@ -155,10 +157,11 @@
                         });
                         window.setTimeout(function(){
                             window.location.reload();
-                        }, 2000);
+                        }, 1000);
                     },
                     error: function (error) {
                         console.log(error);
+                        $.unblockUI();
                         $.notify({
                             title: 'Error',
                             message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
