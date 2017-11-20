@@ -62,8 +62,11 @@ trait MeetingTrait
     }
 
     public function myRides(){
-        $rides = $this->meeting->myRides();
 
-        return view('meeting.my_rides')->with(['rides' => $rides]);
+        $meetingApproved =  auth()->user()->Meetings()->where('accept', '=', 1)->orderBy('id', 'desc')->get();
+        $meetingReproved =  auth()->user()->Meetings()->where('accept', '=', 0)->orderBy('id', 'desc')->get();
+        $meetingPending =   auth()->user()->Meetings()->where('accept', '=', 2)->orderBy('id', 'desc')->get();
+
+        return view('meeting.my_rides')->with(['meetingApproved' => $meetingApproved, 'meetingReproved' => $meetingReproved, 'meetingPending' => $meetingPending]);
     }
 }
