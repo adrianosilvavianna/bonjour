@@ -21,7 +21,7 @@
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
                         <i class="material-icons">today</i> <strong>Data :</strong> {{ with(new DateTime($trip->date))->format('d/m/Y') }} <br>
-                        <i class="material-icons">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
+                        <i class="material-icons" id="hour-time" data-hour_time="{{ \Carbon\Carbon::parse($trip->date.$trip->time)->subHours(1) }}">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
                     </p>
                     <p class="category pull-right"> <i class="large material-icons">done</i> Sua reserva poderá ser aprovada pelo dono da viagem. <strong>Aguarde</strong>.</p><br>
                 </div>
@@ -29,6 +29,9 @@
                 <div class="card-footer ">
 
                     @if(auth()->user()->id == $trip->User->id)
+
+                        Tempo restante para edição: <strong class="right" id="demo"></strong>
+
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
                     @else
 
@@ -89,4 +92,81 @@
 
 
 @endsection
+@section('scripts')
 
+    <script type="application/javascript">
+        $('#accept'+ $(this).data('meeting')).click(function(){
+
+            var parm = {
+                user_id: $(this).data('user'),
+                meeting_id: $(this).data('meeting'),
+                accept: $(this).data('accept')
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/user/meeting/accept',
+                data: parm,
+                success: function(data) {
+                    $('.accept').hide();
+                    if(data.data.accept){
+                        $('#acceptResult').html("Aceito");
+                    }else{
+                        $('#acceptResult').html("Reprevado")
+                    }
+
+                    $.notify({
+                        title: 'Sucesso',
+                        message: data.message,
+                    },{
+                        type: 'success',
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                    $.notify({
+                        title: 'Error',
+                        message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
+                    },{
+                        type: 'danger',
+                    });
+                }
+            });
+
+        });
+
+        console.log($("#hour-time").data('hour_time'));
+
+        // Set the date we're counting down to
+        var countDownDate = new Date($("#hour-time").data('hour_time'));
+
+
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+@show

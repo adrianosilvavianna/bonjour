@@ -3,8 +3,10 @@
 @section('content')
 <div class="container">
 
+    <br><br>
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-3">
             <div class="card">
                 <div class="card-header" data-background-color="purple">
                     <h4 class="title">Cadastrar</h4>
@@ -71,7 +73,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating is-empty {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
@@ -111,7 +112,7 @@
                                     {{ btnCadastrarse }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('register') }}">
+                                <a class="btn btn-link" href="{{ route('login') }}">
                                     {{ btnLogin }}
                                 </a>
                             </div>
