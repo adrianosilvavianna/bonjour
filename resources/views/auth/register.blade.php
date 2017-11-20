@@ -22,14 +22,14 @@
                 </div>
                 <div class="card-content">
 
-                    <form class="" method="POST" action="{{ route('login') }}">
+                    <form class="" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating is-empty {{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label class="control-label">Apelido</label>
-                                    <input type="email" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                                     <span class="material-input"></span></div>
 
 
@@ -61,7 +61,7 @@
                             <div class="col-md-12">
                                 <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
                                     <label class="control-label">Senha</label>
-                                    <input type="password" class="form-control" name="email" value="{{ old('password') }}" required>
+                                    <input type="password" class="form-control" name="password" value="{{ old('password') }}" required>
                                     <span class="material-input"></span></div>
 
                                 @if ($errors->has('password'))
@@ -74,14 +74,14 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label class="control-label">Confirma senha</label>
-                                    <input type="password" class="form-control" name="email" value="{{ old('password') }}" required>
+                                <div class="form-group label-floating is-empty {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                    <label class="control-label">Confirmar senha</label>
+                                    <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" required>
                                     <span class="material-input"></span></div>
 
-                                @if ($errors->has('password'))
+                                @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                 @endif
                             </div>

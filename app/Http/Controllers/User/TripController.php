@@ -21,7 +21,7 @@ class TripController extends Controller
         $this->middleware('profile');
         $this->trip = $trip;
     }
-    
+
     public function index()
     {
         return view('trip.index')->with('trips', $this->trip->orderBy('id', 'desc')->get());
@@ -94,8 +94,4 @@ class TripController extends Controller
     public function delete(){
 
     }
-
-
-
-
 }

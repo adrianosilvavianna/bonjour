@@ -23,7 +23,7 @@ class CreateMeetingsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->boolean('accept')->nullable();
+            $table->integer('accept')->default(2); // 0 para recuzado, 1 para aceito, 2 pendente
 
             $table->timestamps();
 

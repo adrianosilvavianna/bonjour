@@ -70,8 +70,8 @@
                     </p>
 
                     @if(is_null($meeting->accept))
-                        <button  class="btn btn-success btn-round accept" data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
-                        <button  class="btn btn-danger btn-round accept"data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
+                        <button  class="btn btn-success btn-round " id="accept-{{ $meeting->id }}"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
+                        <button  class="btn btn-danger btn-round "  id="accept-{{ $meeting->id }}"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
                     @else
                         @if($meeting->accept)
                             <p id="acceptResult">Aprovado</p>
@@ -92,7 +92,7 @@
 @section('scripts')
     @parent
     <script type="application/javascript">
-        $('.accept').click(function(){
+        $('#accept'+ $(this).data('meeting')).click(function(){
 
             var parm = {
                 user_id: $(this).data('user'),
@@ -167,9 +167,3 @@
     </script>
 
 @show
-
-
-
-
-
-
