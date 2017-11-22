@@ -9,13 +9,19 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-5 ">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('txtEnderecoPartida') ? ' has-error' : '' }}">
                         <label class="control-label">Onde Estou</label>
                         <input type="text" class="form-control" id="txtEnderecoPartida" name="txtEnderecoPartida"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     <input type="hidden" id="txtLatitude" name="txtLatitude" />
                     <input type="hidden" id="txtLongitude" name="txtLongitude" />
+
+                    @if ($errors->has('txtEnderecoPartida'))
+                        <span class="help-block">
+                            <strong class="red-text">{{ $errors->first('txtEnderecoPartida') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <div class="col-md-5 ">

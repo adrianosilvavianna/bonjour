@@ -28,8 +28,7 @@ class TripRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'exit_address'    => 'required|string|max:255',
-                    'arrival_address' => 'required|string|max:255',
+
                     'date'            => 'required|date',
                     'time'            => 'required',
                     'vehicle_id'      => 'required|integer',

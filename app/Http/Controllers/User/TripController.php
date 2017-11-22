@@ -35,7 +35,6 @@ class TripController extends Controller
     public function store(TripRequest $request) {
 
         try{
-
             $trip = auth()->user()->Trips()->create($request->input());
 
             if($request->ajax())
