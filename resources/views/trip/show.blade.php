@@ -31,7 +31,7 @@
                     @if(auth()->user()->id == $trip->User->id)
 
                         Tempo restante para edição: <strong class="right" id="demo"></strong>
-
+                        <a href="{{ route('user.trip.canceled', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
                     @else
 
