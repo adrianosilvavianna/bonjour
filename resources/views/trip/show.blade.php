@@ -24,13 +24,15 @@
                         <i class="material-icons" id="hour-time" data-hour_time="{{ \Carbon\Carbon::parse($trip->date.$trip->time)->subHours(1) }}">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
                     </p>
                     <p class="category pull-right"> <i class="large material-icons">done</i> Sua reserva poderá ser aprovada pelo dono da viagem. <strong>Aguarde</strong>.</p><br>
+                    @if(auth()->user()->id == $trip->User->id)
+                        Tempo restante para edição: <strong class="right" id="demo"></strong>
+                    @endif
                 </div>
 
                 <div class="card-footer ">
 
                     @if(auth()->user()->id == $trip->User->id)
 
-                        Tempo restante para edição: <strong class="right" id="demo"></strong>
                         <a href="{{ route('user.trip.canceled', $trip) }}" class="btn btn-danger btn-round pull-right">Cancelar Viagem</a>
                         <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right">Editar Viagem</a>
                     @else
