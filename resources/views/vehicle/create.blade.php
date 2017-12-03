@@ -238,7 +238,7 @@
                         $.unblockUI();
                         $.notify({
                             title: 'Error',
-                            message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
+                            message: "Algo deu errado ao cadastrar seu veículo, tente novamente!",
                         },{
                             type: 'danger',
                         });
