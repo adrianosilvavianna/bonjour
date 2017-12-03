@@ -86,7 +86,7 @@ define('finalizadas', 'Termine  ');
 define('pendentes', 'En attente');
 define('canceladas', 'Annule');
 define('aceitas', 'Accepte');
-define('tempoEdicao', 'Modifier a expire. Ne pas terminer le voyage, seulement par annulation');
+define('tempoEdicao', "Cela a deja ete ou est en train de se faire!");
 
 //Botoes
 define('btnCancelar', 'Annuler');

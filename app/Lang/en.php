@@ -87,6 +87,7 @@ define('pendentes', 'Pending');
 define('canceladas', 'Canceled');
 define('aceitas', 'Accepted');
 define('tempoEdicao', 'Edit timed out. Not to end the trip, only by cancellation');
+define('tempoEdicao1', 'This has already been or is being done!');
 
 //Botoes
 define('btnCancelar', 'Cancel');

@@ -124,7 +124,7 @@
             event.preventDefault();
             $.notify({
                 title: 'Error',
-                message: "Tempo de edição esgotado. Para não finalizar a viagem, apenas mediante cancelamento",
+                message: "{{ tempoEdicao }}",
             },{
                 type: 'danger',
             });
@@ -137,7 +137,7 @@
             event.preventDefault();
             $.notify({
                 title: 'Error',
-                message: "Essa já foi ou está sendo realizada",
+                message: "{{ tempoEdicao1 }}",
             },{
                 type: 'danger',
             });

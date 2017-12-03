@@ -87,6 +87,7 @@ define('pendentes', 'Pendentes');
 define('canceladas', 'Canceladas');
 define('aceitas', 'Aceitas');
 define('tempoEdicao', 'Tempo de edição esgotado. Para não finalizar a viagem, apenas mediante cancelamento');
+define('tempoEdicao1', 'Essa já foi ou está sendo realizada!');
 
 //Botoes
 define('btnCancelar', 'Cancelar');
