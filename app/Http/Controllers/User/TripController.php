@@ -35,7 +35,7 @@ class TripController extends Controller
 
     public function store(TripRequest $request) {
         try{
-            $trip = auth()->user()->Trips()->create($request->input());
+            auth()->user()->Trips()->create($request->input());
             $this->getSuccessAjax($request);
         }catch (\Exception $e){
             $this->getErrorAjax($request, $e);

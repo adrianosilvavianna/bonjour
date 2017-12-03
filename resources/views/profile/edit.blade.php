@@ -54,8 +54,12 @@
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gênero</label>
                                     <select type="text" name="gender" class="form-control">
-                                        <option value="0">Feminino</option>
-                                        <option value="1">Masculino</option>
+                                        <option value="0">{{ $profile->getGender() }}</option>
+                                        @if($profile->gender == 0)
+                                            <option value="1">Masculino</option>
+                                        @else
+                                            <option value="0">Feminino</option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>

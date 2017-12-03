@@ -132,7 +132,7 @@
     });
 
     $('#reservaTrip').click(function(){
-        alert(verifyDate);
+
         if(verifyDate == false){
             event.preventDefault();
             $.notify({

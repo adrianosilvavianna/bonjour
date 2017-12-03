@@ -40,7 +40,7 @@
 
             @include('trip._inputs', $vehicles)
 
-        @desktop
+
             <div class="row">
                 <h5>{{ resumoViagem  }}</h5>
                 <div class="col-md-6">
@@ -51,7 +51,7 @@
                     <div id="trajeto-texto"></div>
                 </div>
             </div>
-        @enddesktop
+
         </fieldset>
     </form>
 

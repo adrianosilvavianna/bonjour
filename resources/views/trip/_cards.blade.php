@@ -12,12 +12,6 @@
 
 <div class="container-fluid">
 
-    @if(isset($trips))
-        <div class="jumbotron">
-            <p>Não há viagens disponíveis no momento</p>
-        </div>
-    @endif
-
     @foreach($trips as $trip)
 
         <div class="row">
