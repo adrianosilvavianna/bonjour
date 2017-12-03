@@ -239,7 +239,7 @@
                         $.unblockUI();
                         $.notify({
                             title: 'Error',
-                            message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
+                            message: error.message,
                         },{
                             type: 'danger',
                         });
