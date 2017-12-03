@@ -41,12 +41,12 @@
 <!--                                        <a href="{{ route('user.vehicle.edit', $vehicle) }}">-->
                                             <i class="material-icons">edit</i>
 <!--                                        </a>-->
-                                        </button>
+                                        </a>
                                         <a href="{{ route('user.vehicle.delete', $vehicle) }}" rel="tooltip" title="Deletar carro" class="btn btn-danger btn-simple btn-xs">
 <!--                                        <a href="{{ route('user.vehicle.delete', $vehicle) }}">-->
                                             <i class="material-icons">close</i>
 <!--                                        </a>-->
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -76,13 +76,15 @@
                     <div class="card-content">
                         <div class="card card-profile">
                             <div class="content">
-                                <h3 class="card-title"> <b>{{ $vehicle->brand }} / {{ $vehicle->model }}</b></h3>
+                                <h3 class="card-title"> <b>{{ $vehicle->brand }}</b></h3>
+                                <h4 class="card-title"> <b>{{ $vehicle->model }}</b></h4>
                                 <h5 class="category text-gray"><b>Placa:</b> {{ $vehicle->plaque }}</h5>
                                 <h6 class="category text-gray"><b>Cor:</b> {{ $vehicle->color }}</h6>
                                 <h6 class="category text-gray"><b>Ano:</b> {{ $vehicle->year }}</h6>
                                 <h6 class="category text-gray"><b>Nº passageiros:</b> {{ $vehicle->num_passenger }}</h6>
                                 <p class="card-content"></p>
-                                <a href="" class="btn btn-primary btn-round">Editar</a>
+                                <a href="{{ route('user.vehicle.edit', $vehicle) }}" class="btn btn-primary ">Editar</a>
+                                <a href="{{ route('user.vehicle.delete', $vehicle) }}" class="btn btn-danger ">Excluir</a>
                             </div>
                         </div>
                     </div>

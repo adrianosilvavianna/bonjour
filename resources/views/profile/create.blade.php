@@ -28,7 +28,7 @@
                             <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Sobrenome</label>
-                                    <input type="text" name="last_name" class="form-control" value="{{ old('name') }}">
+                                    <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
                                 </div>
                                 @if ($errors->has('last_name'))
                                 <span class="help-block">
