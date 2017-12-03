@@ -85,3 +85,17 @@ define('btnTracarRota', 'Traçar rota');
 define('finalizadas', 'Finalizdas  ');
 define('pendentes', 'Pendentes');
 define('canceladas', 'Canceladas');
+define('aceitas', 'Aceitas');
+define('tempoEdicao', 'Tempo de edição esgotado. Para não finalizar a viagem, apenas mediante cancelamento');
+
+//Botoes
+define('btnCancelar', 'Cancelar');
+define('btnEditar', 'Editar');
+define('btnFinalizar', 'Finalizar');
+define('reservarViagem', 'Reservar viagem');
+
+//Cancelar/Aceitar/Aguardar viagem
+define('cancelarViagem', 'Cancelar viagem');
+define('viagemReprovada', 'Viagem reprovada');
+define('aguardandoAprovacao', 'Aguardando aprovação');
+define('editarViagem', 'Editar viagem');

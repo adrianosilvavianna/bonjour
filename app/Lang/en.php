@@ -86,3 +86,16 @@ define('finalizadas', 'Finished  ');
 define('pendentes', 'Pending');
 define('canceladas', 'Canceled');
 define('aceitas', 'Accepted');
+define('tempoEdicao', 'Edit timed out. Not to end the trip, only by cancellation');
+
+//Botoes
+define('btnCancelar', 'Cancel');
+define('btnEditar', 'Edit');
+define('btnFinalizar', 'Finish');
+define('reservarViagem', 'Book trip');
+
+//Cancelar/Aceitar/Aguardar viagem
+define('cancelarViagem', 'Cancel trip');
+define('viagemReprovada', 'Disapproved travel');
+define('aguardandoAprovacao', 'Waiting for approval');
+define('editarViagem', 'Edit trip');

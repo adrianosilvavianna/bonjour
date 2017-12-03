@@ -78,11 +78,24 @@ define('marca', 'MARQUE');
 define('modelo', 'MODÈLE');
 define('placa', 'PLAQUE');
 define('cor', 'COULEUR');
-define('ano', 'ANNÉE');
-define('nPassageiros', 'Nº DE PASSAGERS');
+define('ano', 'ANNEE');
+define('nPassageiros', 'N� DE PASSAGERS');
 
 //Tela user/trip/my_trips
 define('finalizadas', 'Termine  ');
 define('pendentes', 'En attente');
 define('canceladas', 'Annule');
 define('aceitas', 'Accepte');
+define('tempoEdicao', 'Modifier a expire. Ne pas terminer le voyage, seulement par annulation');
+
+//Botoes
+define('btnCancelar', 'Annuler');
+define('btnEditar', 'Modifier');
+define('btnFinalizar', 'Terminer');
+define('reservarViagem', 'Voyage de livre');
+
+//Cancelar/Aceitar/Aguardar viagem
+define('cancelarViagem', 'Annuler le voyage');
+define('viagemReprovada', 'Voyage refuse');
+define('aguardandoAprovacao', "En attente d'approbation");
+define('editarViagem', 'Modifier le voyage');
