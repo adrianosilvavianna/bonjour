@@ -19,6 +19,7 @@ define('significadoBonjou', "Le projet Bonjou, qui signifie «bonjour» en diale
 define('btnLogin', 'Login');
 define('btnCadastrarse', 'Inscrivez-vous');
 define('btnEntrar', 'Connexion');
+define('btnEnviar', 'Envoyer');
 
 define('objetivoProjeto1', "Le projet vise l'intégration et le covoiturage parmi les réfugiés, les migrants de toutes les nationalités et les habitants de Curitiba.");
 define('objetivoProjeto2', 'Un système Web qui peut demander et offrir des auto-stoppeurs peut être programmé auparavant, en aidant les réfugiés et les migrants.');
@@ -60,6 +61,17 @@ define('configuracoes', 'Param�tres');
 define('de', 'Origine');
 define('para', 'Destination');
 define('lugaresDisponiveis', 'places disponibles!');
+
+//Tela user/trip/create
+define('novaViagem', 'Nouveau voyage');
+define('pontosEncontro', 'Meeting and arrival points');
+define('dataPartida', 'Date de depart');
+define('horaPartida', 'Heure de depart');
+define('veiculo', 'Vehicule');
+define('ondeEstou', "Ou je suis");
+define('paraOndeVou', 'Ou je vais');
+define('resumoViagem', 'Resume du voyage');
+define('btnTracarRota', 'Route de la mite');
 
 //Tela user/vehicle
 define('marca', 'MARQUE');

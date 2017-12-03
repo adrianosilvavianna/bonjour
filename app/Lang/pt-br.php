@@ -19,6 +19,7 @@ define('significadoBonjou', 'O projeto Bonjou, que significa "Bom Dia" em dialet
 define('btnLogin', 'Login');
 define('btnCadastrarse', 'Cadastrar-se');
 define('btnEntrar', 'Entrar');
+define('btnEnviar', 'Enviar');
 
 define('objetivoProjeto1', 'O projeto visa a integração e caronas entre refugiados, migrantes de todas as nacionalidades e pessoas de Curitiba.');
 define('objetivoProjeto2', 'Sistema Web que possíbilita solicitar e oferecer caronas podendo ser agendadas previamente, auxiliando a locomoção dos refugiados e migrantes.');
@@ -70,6 +71,12 @@ define('ano', 'ANO');
 define('nPassageiros', 'Nº DE PASSAGEIROS');
 
 //Tela user/trip/create
+define('novaViagem', 'Nova viagem');
+define('pontosEncontro', 'Meeting and arrival points');
 define('dataPartida', 'Data de partida');
 define('horaPartida', 'Hora de partida');
 define('veiculo', 'Veículo');
+define('ondeEstou', 'Onde estou');
+define('paraOndeVou', 'Para onde vou');
+define('resumoViagem', 'Resumo da viagem');
+define('btnTracarRota', 'Traçar rota');
