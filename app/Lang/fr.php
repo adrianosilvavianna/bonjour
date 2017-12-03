@@ -64,7 +64,7 @@ define('lugaresDisponiveis', 'places disponibles!');
 
 //Tela user/trip/create
 define('novaViagem', 'Nouveau voyage');
-define('pontosEncontro', 'Meeting and arrival points');
+define('pontosEncontro', "Points de rencontre et d'arrivee");
 define('dataPartida', 'Date de depart');
 define('horaPartida', 'Heure de depart');
 define('veiculo', 'Vehicule');
