@@ -54,8 +54,8 @@ define('caronas', 'Covoiturage');
 define('meusVeiculos', 'Mes vÃ©hicules');
 define('oferecerCarona', 'Offre ride');
 define('minhasViagens', 'Mes voyages');
-define('minhasCaronas', 'Mes manèges');
-define('configuracoes', 'Paramètres');
+define('minhasCaronas', 'Mes maneges');
+define('configuracoes', 'Parametres');
 
 //Card da viagem
 define('de', 'Origine');
@@ -80,3 +80,9 @@ define('placa', 'PLAQUE');
 define('cor', 'COULEUR');
 define('ano', 'ANNÃ‰E');
 define('nPassageiros', 'NÂº DE PASSAGERS');
+
+//Tela user/trip/my_trips
+define('finalizadas', 'Termine  ');
+define('pendentes', 'En attente');
+define('canceladas', 'Annule');
+define('aceitas', 'Accepte');

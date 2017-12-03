@@ -24,19 +24,19 @@
                                 <li class="active">
                                     <a href="#finished" data-toggle="tab">
                                         <i class="material-icons">bug_report</i>
-                                        Finalizadas
+                                        {{ finalizadas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                                 <li class="">
                                     <a href="#pending" data-toggle="tab">
                                         <i class="material-icons">code</i>
-                                        Pendentes
+                                        {{ pendentes }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                                 <li class="">
                                     <a href="#canceled" data-toggle="tab">
                                         <i class="material-icons">cloud</i>
-                                        Canceladas
+                                        {{ canceladas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                             </ul>

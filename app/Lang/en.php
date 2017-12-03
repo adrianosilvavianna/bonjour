@@ -80,3 +80,9 @@ define('placa', 'PLAQUE');
 define('cor', 'COLOR');
 define('ano', 'YEAR');
 define('nPassageiros', 'Nº OF PASSENGERS');
+
+//Tela user/trip/my_trips
+define('finalizadas', 'Finished  ');
+define('pendentes', 'Pending');
+define('canceladas', 'Canceled');
+define('aceitas', 'Accepted');
