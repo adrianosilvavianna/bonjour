@@ -41,9 +41,9 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
 
-        if(!empty($_GET['lang_e']))
+        if(!empty($_GET['lang']))
         {
-            switch($_GET['lang_e']){
+            switch($_GET['lang']){
                 case "pt-br":
                     include_once $this->langPtBr;
                     break;
@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $user->Config()->create(['lang_e' => 'pt-br']);
+        $user->Config()->create(['lang' => 'pt-br']);
 
         return $user;
     }

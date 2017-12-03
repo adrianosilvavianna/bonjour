@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Config extends Model
 {
-    protected $fillable = ['lang_e'];
+    protected $fillable = ['lang'];
 
     public function User(){
         return  $this->belongsTo(User::class);
