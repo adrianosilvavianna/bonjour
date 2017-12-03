@@ -54,7 +54,7 @@
     </div>
     <div class="col-md-2">
         <div class="form-group">
-            <label class="control-label">N° Passageiros</label>
+            <label class="control-label">{{ nPassageiros  }}</label>
             @if(!empty($trip))
                 <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="{{ $trip->num_passenger }}">
             @else
@@ -64,7 +64,7 @@
     </div>
     <div class="col-md-1">
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="btnEnviar"/> Enviar </button>
+            <button type="submit" class="btn btn-primary" id="btnEnviar"/> {{ btnEnviar  }} </button>
         </div>
     </div>
 </div>
