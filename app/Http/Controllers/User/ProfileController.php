@@ -90,10 +90,9 @@ class ProfileController extends Controller
     public function resizeImg(String $fileName,String $src){
 
         $srcResize = '/img/resize/';
+        $path = public_path().$srcResize.$fileName;
 
-        $image = Image::make(public_path().$src.$fileName);
-        $image->resize(200,200);
-        $image->save(public_path().$srcResize.$fileName);
+        $image = Image::make(public_path().$src.$fileName)->resize(200,200)->save($path);
 
         return $srcResize;
 
