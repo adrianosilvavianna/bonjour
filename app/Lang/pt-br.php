@@ -72,7 +72,7 @@ define('nPassageiros', 'Nº DE PASSAGEIROS');
 
 //Tela user/trip/create
 define('novaViagem', 'Nova viagem');
-define('pontosEncontro', 'Meeting and arrival points');
+define('pontosEncontro', 'Pontos de encontro e chegada');
 define('dataPartida', 'Data de partida');
 define('horaPartida', 'Hora de partida');
 define('veiculo', 'Veículo');
