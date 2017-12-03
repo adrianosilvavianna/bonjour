@@ -20,7 +20,7 @@
                 <div class="card-header" data-background-color="purple">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title">Tasks:</span>
+
                             <ul class="nav nav-tabs" data-tabs="tabs">
                                 <li class="active">
                                     <a href="#accept" data-toggle="tab">

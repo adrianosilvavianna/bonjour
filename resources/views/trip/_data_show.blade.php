@@ -14,9 +14,7 @@
                     <i class="material-icons" id="hour-time" data-hour_time="{{ \Carbon\Carbon::parse($trip->date.$trip->time)->subHours(1) }}">timer</i> <strong>Horário :</strong> {{ $trip->time }} <br>
                 </p>
                 <p class="category pull-right"> <i class="large material-icons">done</i> Sua reserva poderá ser aprovada pelo dono da viagem. <strong>Aguarde</strong>.</p><br>
-                @if(auth()->user()->id == $trip->User->id)
-                    Tempo restante para edição: <strong class="right" id="demo"></strong>
-                @endif
+                Tempo restante para realizar a viagem: <strong class="right" id="demo"></strong>
             </div>
 
             <div class="card-footer ">
@@ -40,7 +38,7 @@
                         @endif
 
                     @else
-                        <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right">Reservar Viagem</a>
+                        <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right" id="reservaTrip">Reservar Viagem</a>
                     @endif
 
                 @endif
@@ -126,6 +124,19 @@
             $.notify({
                 title: 'Error',
                 message: "Tempo de edição esgotado. Para não finalizar a viagem, apenas mediante cancelamento",
+            },{
+                type: 'danger',
+            });
+        }
+    });
+
+    $('#reservaTrip').click(function(){
+        alert(verifyDate);
+        if(verifyDate == false){
+            event.preventDefault();
+            $.notify({
+                title: 'Error',
+                message: "Essa já foi ou está sendo realizada",
             },{
                 type: 'danger',
             });
