@@ -100,3 +100,15 @@ define('cancelarViagem', 'Cancelar viagem');
 define('viagemReprovada', 'Viagem reprovada');
 define('aguardandoAprovacao', 'Aguardando aprovação');
 define('editarViagem', 'Editar viagem');
+
+//Tela index profile
+define('anos', 'anos');
+define('sexo', 'Sexo');
+define('telefone', 'Telefone');
+define('sobrenome', 'Sobrenome');
+define('idade', 'Idade');
+define('genero', 'Gênero');
+define('masculino', 'Masculino');
+define('feminino', 'Feminino');
+define('sobreVoce', 'Escreva um pouco sobre você...');
+define('attPerfil', 'Atualizar perfil');

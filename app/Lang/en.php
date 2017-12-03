@@ -100,3 +100,15 @@ define('cancelarViagem', 'Cancel trip');
 define('viagemReprovada', 'Disapproved travel');
 define('aguardandoAprovacao', 'Waiting for approval');
 define('editarViagem', 'Edit trip');
+
+//Tela index profile
+define('anos', 'years');
+define('sexo', 'Genre');
+define('telefone', 'Phone');
+define('sobrenome', 'Last name');
+define('idade', 'Age');
+define('genero', 'Genre');
+define('masculino', 'Male');
+define('feminino', 'Female');
+define('sobreVoce', 'Write a little about yourself...');
+define('attPerfil', 'Update Profile');

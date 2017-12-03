@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Nome</label>
+                                    <label class="control-label">{{ nome }}</label>
                                     <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                 </div>
                                 @if ($errors->has('name'))
@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Sobrenome</label>
+                                    <label class="control-label">{{ sobrenome }}</label>
                                     <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
                                 </div>
                                 @if ($errors->has('last_name'))
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-md-2 {{ $errors->has('age') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Idade</label>
+                                    <label class="control-label">{{ idade }}</label>
                                     <input type="number" name="age" class="form-control age" value="{{ old('age') }}">
                                 </div>
                                 @if ($errors->has('age'))
@@ -51,16 +51,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Gênero</label>
+                                    <label class="control-label">{{ genero }}</label>
                                     <select type="text" name="gender" class="form-control">
-                                        <option value="0">Feminino</option>
-                                        <option value="1">Masculino</option>
+                                        <option value="0">{{ feminino }}</option>
+                                        <option value="1">{{ masculino }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4 {{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Telefone</label>
+                                    <label class="control-label">{{ telefone }}</label>
                                     <input type="text" name="phone" class="form-control phone_with_ddd" value="{{ old('phone') }}">
                                 </div>
                                 @if ($errors->has('phone'))
@@ -74,7 +74,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="form-group label-floating">
-                                        <label class="control-label">Escreva um pouco sobre você...</label>
+                                        <label class="control-label">{{ sobreVoce }}</label>
                                         <textarea class="form-control" name="about">{{ old('about') }}</textarea>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-md-12">
 
-                            <button type="submit" class="btn btn-primary pull-right">Salvar perfil</button>
+                            <button type="submit" class="btn btn-primary pull-right">{{ btnSalvarPerfil }}</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>

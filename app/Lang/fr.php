@@ -99,3 +99,15 @@ define('cancelarViagem', 'Annuler le voyage');
 define('viagemReprovada', 'Voyage refuse');
 define('aguardandoAprovacao', "En attente d'approbation");
 define('editarViagem', 'Modifier le voyage');
+
+//Tela index profile
+define('anos', 'ans');
+define('sexo', 'Genre');
+define('telefone', 'Telephone');
+define('sobrenome', 'Nom de famille');
+define('idade', 'Age');
+define('genero', 'Genre');
+define('masculino', 'Homme');
+define('feminino', 'Femmes');
+define('sobreVoce', 'Ecrivez un peu de vous...');
+define('attPerfil', 'Mettre le profil');

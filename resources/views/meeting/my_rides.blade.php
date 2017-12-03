@@ -131,9 +131,9 @@
                                                         </h3>
 
                                                         <h3 class="title"> {{ with(new DateTime($meeting->Trip->date))->format('d/m/Y') }}  às {{ $meeting->Trip->time }}</h3><br>
-                                                        <i class="material-icons">room</i> <strong>De :</strong> {{ $meeting->Trip->arrival_address }} <br/>
-                                                        <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $meeting->Trip->exit_address }} <br>
-                                                        <i class="material-icons">group</i> <strong> {{ $meeting->Trip->num_passenger }} </strong> Lugares Disponíveis
+                                                        <i class="material-icons">room</i> <strong>{{ de }}</strong> {{ $meeting->Trip->arrival_address }} <br/>
+                                                        <i class="material-icons">radio_button_checked</i> <strong>{{ para }}</strong> {{ $meeting->Trip->exit_address }} <br>
+                                                        <i class="material-icons">group</i> <strong> {{ $meeting->Trip->num_passenger }} </strong> {{ lugaresDisponiveis }}
                                                     </div>
                                                 </div>
                                             </div>
