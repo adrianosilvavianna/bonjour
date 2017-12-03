@@ -31,8 +31,10 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::put('/{trip}/update',            'TripController@update')->name('update');
     Route::get('/{trip}/show',              'TripController@show')->name('show');
     Route::get('/{trip}/canceled',          'TripController@canceled')->name('canceled');
+    Route::post('/{trip}/finish',                  'TripController@finish')->name('finish');
     Route::get('/my_trips',                 'TripController@myTrips')->name('myTrips');
     Route::post('/search',                  'TripController@search')->name('search');
+
 });
 
 Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {

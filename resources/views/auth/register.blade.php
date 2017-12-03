@@ -15,7 +15,7 @@
                             <img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português">
                         </a>
                         <a href="?lang=en" class="pull-right">
-                            <img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês">
+                            <img src="{{ asset('lang_e') }}" alt="Idioma Inglês">
                         </a>
                         <a href="?lang=fr" class="pull-right">
                             <img src="{{ asset('/img/lang/franca.png') }}" alt="Idioma Francês">

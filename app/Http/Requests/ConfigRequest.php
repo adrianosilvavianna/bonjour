@@ -28,7 +28,7 @@ class ConfigRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'lang' => 'required|string|max:40',
+                    'lang_e' => 'required|string|max:40',
                 ];
             }
             default:break;

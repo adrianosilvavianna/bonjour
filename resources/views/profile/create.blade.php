@@ -79,11 +79,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 {{ $errors->has('photo_address') ? ' has-error' : '' }}">
                                 <label>Foto</label>
                                 <div class="file-field input-field">
                                     <input type="file" class="btn btn-default" name="photo_address">
                                 </div>
+                                @if ($errors->has('photo_address'))
+                                    <span class="help-block">
+                                    <strong class="red-text ">{{ $errors->first('photo_address') }}</strong>
+                                </span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-12">
