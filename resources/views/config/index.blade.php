@@ -37,7 +37,7 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td>Protuguês</td>
+                                    <td>Português</td>
                                 </tr>
                                 <tr>
                                     <td>

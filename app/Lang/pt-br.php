@@ -112,3 +112,4 @@ define('masculino', 'Masculino');
 define('feminino', 'Feminino');
 define('sobreVoce', 'Escreva um pouco sobre você...');
 define('attPerfil', 'Atualizar perfil');
+define('btnSalvarPerfil', 'Salvar Perfil');
