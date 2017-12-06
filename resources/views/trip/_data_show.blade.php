@@ -17,31 +17,35 @@
                 Tempo restante para realizar a viagem: <strong class="right" id="demo"></strong>
             </div>
 
-            <div class="card-footer ">
+            <div class="card-footer">
 
-                @if(auth()->user()->id == $trip->User->id)
-
-                    <a href="{{ route('user.trip.canceled', $trip) }}" class="btn btn-danger btn-round pull-right">{{ btnCancelar }}</a>
-                    <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right" id="editTrip">{{ btnEditar }}</a>
-                    <a href="{{ route('user.trip.finish', $trip) }}" class="btn btn-success btn-round pull-right" id="editTrip">{{ btnFinalizar }}</a>
+                @if($trip->canceled == true)
+                    <p class="text-center text-danger"> VIAGEM CANCELADA </p>
                 @else
+                    @if(auth()->user()->id == $trip->User->id)
 
-                    @if($trip->searchMeeting())
-                        @if($trip->searchMyMeeting()->accept)
+                        <a href="{{ route('user.trip.canceled', $trip) }}" class="btn btn-danger btn-round pull-right">{{ btnCancelar }}</a>
+                        <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right" id="editTrip">{{ btnEditar }}</a>
+                        <a href="{{ route('user.trip.finish', $trip) }}" class="btn btn-success btn-round pull-right" id="editTrip">{{ btnFinalizar }}</a>
+                    @else
 
-                            @if($trip->searchMyMeeting()->accept == true)
-                                <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">{{ cancelarViagem }}</a>
-                            @else($trip->searchMyMeeting()->accept == false)
-                                <a href="#" class="btn btn-info btn-round pull-right">{{ viagemReprovada }}</a>
+                        @if($trip->searchMeeting())
+                            @if($trip->searchMyMeeting()->accept)
+
+                                @if($trip->searchMyMeeting()->accept == true)
+                                    <a href="{{ route('user.meeting.cancel', $trip) }}" class="btn btn-danger btn-round pull-right">{{ cancelarViagem }}</a>
+                                @else($trip->searchMyMeeting()->accept == false)
+                                    <a href="#" class="btn btn-info btn-round pull-right">{{ viagemReprovada }}</a>
+                                @endif
+                            @else
+                                <a href="#" class="btn btn-warning btn-round pull-right">{{ aguardadndoAprovacao }}</a>
                             @endif
+
                         @else
-                            <a href="#" class="btn btn-warning btn-round pull-right">{{ aguardadndoAprovacao }}</a>
+                            <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right" id="reservaTrip">{{ reservarViagem }}</a>
                         @endif
 
-                    @else
-                        <a href="{{ route('user.meeting.store', $trip) }}" class="btn btn-success btn-round pull-right" id="reservaTrip">{{ reservarViagem }}</a>
                     @endif
-
                 @endif
 
             </div>
@@ -75,7 +79,6 @@
                         <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
                     </p>
                 @endif
-                <a href="#pablo" class="btn btn-primary btn-round">Entrar em contato</a>
             </div>
         </div>
     </div>
