@@ -16,7 +16,7 @@
                             </li>
                             <li class="">
                                 <a href="#messages" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">person</i> Usuário
+                                    <i class="material-icons">person</i> Usuário 
                                     <div class="ripple-container"></div>
                                 </a>
                             </li>
