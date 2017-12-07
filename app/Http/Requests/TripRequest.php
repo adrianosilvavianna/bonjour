@@ -32,14 +32,14 @@ class TripRequest extends FormRequest
                     'date'            => 'required|date',
                     'time'            => 'required',
                     'vehicle_id'      => 'required|integer',
-                    'num_passenger'   => 'required|integer'
+                    'num_passenger'   => 'required|integer|max:10'
                 ];
             }
             case 'PUT':{
                 return [
                     'date'            => 'required|date',
                     'time'            => 'required',
-                    'vehicle_id'      => 'required|integer'
+                    'vehicle_id'      => 'required|integer|max:10'
                 ];
             }
             default:break;
