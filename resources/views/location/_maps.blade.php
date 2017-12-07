@@ -9,34 +9,40 @@
         <fieldset>
             <div class="row">
                 <div class="col-md-5 ">
-                    <div class="form-group">
-                        <label class="control-label">Onde Estou</label>
+                    <div class="form-group {{ $errors->has('txtEnderecoPartida') ? ' has-error' : '' }}">
+                        <label class="control-label">{{ ondeEstou  }}</label>
                         <input type="text" class="form-control" id="txtEnderecoPartida" name="txtEnderecoPartida"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                     <input type="hidden" id="txtLatitude" name="txtLatitude" />
                     <input type="hidden" id="txtLongitude" name="txtLongitude" />
+
+                    @if ($errors->has('txtEnderecoPartida'))
+                        <span class="help-block">
+                            <strong class="red-text">{{ $errors->first('txtEnderecoPartida') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <div class="col-md-5 ">
                     <div class="form-group  ">
-                        <label class="control-label">Para onde vou</label>
+                        <label class="control-label">{{ paraOndeVou  }}</label>
                         <input type="text" class="form-control" id="txtEnderecoChegada" name="endereco_chegada"/>
                         {{--<input type="text" id="txtEndereco" name="txtEndereco" class="form-control" placeholder="Endereço">--}}
                     </div>
                 </div>
                 <div class="col-md-1">
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary" name="btnEnviar" id="btnEnviar">Traçar Rota</button>
+                        <button type="button" class="btn btn-primary" name="btnEnviar" id="btnEnviar">{{ btnTracarRota }}</button>
                     </div>
                 </div>
             </div>
 
             @include('trip._inputs', $vehicles)
 
-        @desktop
+
             <div class="row">
-                <h5>Resumo da viagem</h5>
+                <h5>{{ resumoViagem  }}</h5>
                 <div class="col-md-6">
                     <div id="mapa"></div>
                 </div>
@@ -45,7 +51,7 @@
                     <div id="trajeto-texto"></div>
                 </div>
             </div>
-        @enddesktop
+
         </fieldset>
     </form>
 

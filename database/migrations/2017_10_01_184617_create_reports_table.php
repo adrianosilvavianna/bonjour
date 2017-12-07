@@ -17,7 +17,7 @@ class CreateReportsTable extends Migration
             $table->increments('id');
             $table->string('description');
 
-            $table->morphs('likeable');
+            //$table->morphs('likeable');
 
 //            $table->integer('meeting_id')->unsigned();
 //            $table->foreign('meeting_id')->references('id')->on('meetings');

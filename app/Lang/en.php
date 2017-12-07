@@ -19,6 +19,7 @@ define('significadoBonjou', 'The Bonjou project, which means "Good Morning" in C
 define('btnLogin', 'Login');
 define('btnCadastrarse', 'Register');
 define('btnEntrar', 'Get in');
+define('btnEnviar', 'Send');
 
 define('objetivoProjeto1', 'The project aims at integration and carpooling among refugees, migrants of all nationalities and people of Curitiba.');
 define('objetivoProjeto2', 'Web system that can request and offer hitchhikers can be scheduled previously, helping the refugees and migrants.');
@@ -61,6 +62,17 @@ define('de', 'Origin');
 define('para', 'Destiny');
 define('lugaresDisponiveis', 'available places!');
 
+//Tela user/trip/create
+define('novaViagem', 'New trip');
+define('pontosEncontro', 'Meeting and arrival points');
+define('dataPartida', 'Departure date');
+define('horaPartida', 'Departure time');
+define('veiculo', 'Vehicle');
+define('ondeEstou', 'Where I am');
+define('paraOndeVou', 'Where I go');
+define('resumoViagem', 'Trip Summary');
+define('btnTracarRota', 'Trace route');
+
 //Tela user/vehicle
 define('marca', 'BRAND');
 define('modelo', 'MODEL');
@@ -68,3 +80,35 @@ define('placa', 'PLAQUE');
 define('cor', 'COLOR');
 define('ano', 'YEAR');
 define('nPassageiros', 'Nº OF PASSENGERS');
+
+//Tela user/trip/my_trips
+define('finalizadas', 'Finished  ');
+define('pendentes', 'Pending');
+define('canceladas', 'Canceled');
+define('aceitas', 'Accepted');
+define('tempoEdicao', 'Edit timed out. Not to end the trip, only by cancellation');
+define('tempoEdicao1', 'This has already been or is being done!');
+
+//Botoes
+define('btnCancelar', 'Cancel');
+define('btnEditar', 'Edit');
+define('btnFinalizar', 'Finish');
+define('reservarViagem', 'Book trip');
+
+//Cancelar/Aceitar/Aguardar viagem
+define('cancelarViagem', 'Cancel trip');
+define('viagemReprovada', 'Disapproved travel');
+define('aguardandoAprovacao', 'Waiting for approval');
+define('editarViagem', 'Edit trip');
+
+//Tela index profile
+define('anos', 'years');
+define('sexo', 'Genre');
+define('telefone', 'Phone');
+define('sobrenome', 'Last name');
+define('idade', 'Age');
+define('genero', 'Genre');
+define('masculino', 'Male');
+define('feminino', 'Female');
+define('sobreVoce', 'Write a little about yourself...');
+define('attPerfil', 'Update Profile');

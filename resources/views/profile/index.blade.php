@@ -10,13 +10,13 @@
             </div>
             <div class="content">
                 <h3 class="card-title"> {{ $profile->name }} {{ $profile->last_name }}</h3>
-                <h5 class="category text-gray">{{ $profile->age }} anos</h5>
-                <h6 class="category text-gray">Sexo : {{ $profile->getGender() }}</h6>
-                <h6 class="category text-gray">Telefone : {{ $profile->phone }}</h6>
+                <h5 class="category text-gray">{{ $profile->age }} {{ anos }}</h5>
+                <h6 class="category text-gray">{{ sexo }} : {{ $profile->getGender() }}</h6>
+                <h6 class="category text-gray">{{ telefone }} : {{ $profile->phone }}</h6>
                 <p class="card-content">
                     {{ $profile->about }}
                 </p>
-                <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">Editar</a>
+                <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">{{ btnEditar }}</a>
 
             </div>
         </div>

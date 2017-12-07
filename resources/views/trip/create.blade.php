@@ -6,8 +6,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" data-background-color="purple">
-                        <h4 class="title">Nova Viagem</h4>
-                        <p class="category">Pontos de encontro e chegada</p>
+                        <h4 class="title">{{ novaViagem }}</h4>
+                        <p class="category">{{ pontosEncontro }}</p>
                     </div>
                     <div class="card-content">
                         @include('location._maps')

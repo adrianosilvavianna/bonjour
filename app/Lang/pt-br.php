@@ -10,8 +10,8 @@
 
 define('nomeProjeto', 'Bonjou');
 define('oProjeto', 'O Projeto Bonjou');  //sobreProjeto
-define('ajudaEinformacoes', 'Aide et informations utiles'); //ajudaInformacao
-define('contato', 'Contactez nous');
+define('ajudaEinformacoes', 'Ajuda e informações úteis'); //ajudaInformacao
+define('contato', 'Contato');
 
 //Itens principais da tela inicial.
 
@@ -19,6 +19,7 @@ define('significadoBonjou', 'O projeto Bonjou, que significa "Bom Dia" em dialet
 define('btnLogin', 'Login');
 define('btnCadastrarse', 'Cadastrar-se');
 define('btnEntrar', 'Entrar');
+define('btnEnviar', 'Enviar');
 
 define('objetivoProjeto1', 'O projeto visa a integração e caronas entre refugiados, migrantes de todas as nacionalidades e pessoas de Curitiba.');
 define('objetivoProjeto2', 'Sistema Web que possíbilita solicitar e oferecer caronas podendo ser agendadas previamente, auxiliando a locomoção dos refugiados e migrantes.');
@@ -70,6 +71,45 @@ define('ano', 'ANO');
 define('nPassageiros', 'Nº DE PASSAGEIROS');
 
 //Tela user/trip/create
+define('novaViagem', 'Nova viagem');
+define('pontosEncontro', 'Pontos de encontro e chegada');
 define('dataPartida', 'Data de partida');
 define('horaPartida', 'Hora de partida');
 define('veiculo', 'Veículo');
+define('ondeEstou', 'Onde estou');
+define('paraOndeVou', 'Para onde vou');
+define('resumoViagem', 'Resumo da viagem');
+define('btnTracarRota', 'Traçar rota');
+
+//Tela user/trip/my_trips
+define('finalizadas', 'Finalizdas  ');
+define('pendentes', 'Pendentes');
+define('canceladas', 'Canceladas');
+define('aceitas', 'Aceitas');
+define('tempoEdicao', 'Tempo de edição esgotado. Para não finalizar a viagem, apenas mediante cancelamento');
+define('tempoEdicao1', 'Essa já foi ou está sendo realizada!');
+
+//Botoes
+define('btnCancelar', 'Cancelar');
+define('btnEditar', 'Editar');
+define('btnFinalizar', 'Finalizar');
+define('reservarViagem', 'Reservar viagem');
+
+//Cancelar/Aceitar/Aguardar viagem
+define('cancelarViagem', 'Cancelar viagem');
+define('viagemReprovada', 'Viagem reprovada');
+define('aguardandoAprovacao', 'Aguardando aprovação');
+define('editarViagem', 'Editar viagem');
+
+//Tela index profile
+define('anos', 'anos');
+define('sexo', 'Sexo');
+define('telefone', 'Telefone');
+define('sobrenome', 'Sobrenome');
+define('idade', 'Idade');
+define('genero', 'Gênero');
+define('masculino', 'Masculino');
+define('feminino', 'Feminino');
+define('sobreVoce', 'Escreva um pouco sobre você...');
+define('attPerfil', 'Atualizar perfil');
+define('btnSalvarPerfil', 'Salvar Perfil');

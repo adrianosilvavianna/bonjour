@@ -28,19 +28,18 @@ class TripRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'exit_address'    => 'required|string|max:255',
-                    'arrival_address' => 'required|string|max:255',
+
                     'date'            => 'required|date',
                     'time'            => 'required',
                     'vehicle_id'      => 'required|integer',
-                    'num_passenger'   => 'required|integer'
+                    'num_passenger'   => 'required|integer|max:10'
                 ];
             }
             case 'PUT':{
                 return [
                     'date'            => 'required|date',
                     'time'            => 'required',
-                    'vehicle_id'      => 'required|integer'
+                    'vehicle_id'      => 'required|integer|max:10'
                 ];
             }
             default:break;

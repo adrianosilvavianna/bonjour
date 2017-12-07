@@ -19,24 +19,26 @@
                 <div class="card-header" data-background-color="purple">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title">Tasks:</span>
+
                             <ul class="nav nav-tabs" data-tabs="tabs">
                                 <li class="active">
                                     <a href="#finished" data-toggle="tab">
-                                        <i class="material-icons">bug_report</i>
-                                        Finalizadas
+                                        <i class="material-icons">check_box</i>
+                                        {{ finalizadas }}
+                                        {{ finalizadas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                                 <li class="">
                                     <a href="#pending" data-toggle="tab">
-                                        <i class="material-icons">code</i>
-                                        Pendentes
+                                        <i class="material-icons">error_outline</i>
+                                        
+                                        {{ pendentes }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                                 <li class="">
                                     <a href="#canceled" data-toggle="tab">
-                                        <i class="material-icons">cloud</i>
-                                        Canceladas
+                                        <i class="material-icons">cancel</i>
+                                        {{ canceladas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
                             </ul>
