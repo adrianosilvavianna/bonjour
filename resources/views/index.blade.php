@@ -62,7 +62,7 @@
             <!-- One -->
             <section id="one" class="wrapper style2 spotlights">
                 <section>
-                    <a href="#" class="image"><img src="{{ asset('web/images/pic01.png') }}" alt="" data-position="center center" /></a>
+                    <a href="#" class="image"><img src="{{ asset('web/images/img1.jpg') }}" alt="" data-position="center center" /></a>
                     <div class="content">
                         <div class="inner">
                             <h2>{{ oProjeto }}</h2>
@@ -73,7 +73,7 @@
                     </div>
                 </section>
                 <section>
-                    <a href="#" class="image"><img src="{{ asset('web/images/pic02.png') }}" alt="" data-position="top center" /></a>
+                    <a href="#" class="image"><img src="{{ asset('web/images/carpool3.jpeg') }}" alt="" data-position="top center" /></a>
                     <div class="content">
                         <div class="inner">
                             <h2>{{ planetaUmSo }}</h2>
@@ -82,7 +82,7 @@
                     </div>
                 </section>
                 <section>
-                    <a href="#" class="image"><img src="{{ asset('web/images/pic02.jog') }}" alt="" data-position="25% 25%" /></a>
+                    <a href="#" class="image"><img src="{{ asset('web/images/img2.jpg') }}" alt="" data-position="25% 25%" /></a>
                     <div class="content">
                         <div class="inner">
                             <h2>{{ localEncontros }}</h2>
@@ -105,37 +105,27 @@
                     <p>{{ ajudaInfos2 }}</p>
                     <div class="features">
                         <section>
-                            <span class="icon major fa-code"></span>
-                            <h3>Lorem ipsum amet</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+                            <span class="icon major fa-lightbulb-o"></span>
+                            <h3>Qual a ideia?</h3>
+                            <p>O sistema visa integração e caronas entre migrantes haitianos e pessoas de Curitiba</p>
                         </section>
                         <section>
-                            <span class="icon major fa-lock"></span>
-                            <h3>Aliquam sed nullam</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+                            <span class="icon major fa-ellipsis-h"></span>
+                            <h3>Extenções</h3>
+                            <p>Futuramente será ampliado para refugiados e migrantes de outras nacionalidades</p>
                         </section>
                         <section>
-                            <span class="icon major fa-cog"></span>
-                            <h3>Sed erat ullam corper</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+                            <span class="icon major  fa-cab"></span>
+                            <h3>Como funciona?</h3>
+                            <p>O sistema possibilita você solicitar e oferecer caronas, podendo ser agendadas previamente, auxiliando a locomoção dos refugiados e migrantes </p>
                         </section>
                         <section>
-                            <span class="icon major fa-desktop"></span>
-                            <h3>Veroeros quis lorem</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-                        </section>
-                        <section>
-                            <span class="icon major fa-chain"></span>
-                            <h3>Urna quis bibendum</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-                        </section>
-                        <section>
-                            <span class="icon major fa-diamond"></span>
-                            <h3>Aliquam urna dapibus</h3>
-                            <p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+                            <span class="icon major fa-child"></span>
+                            <h3>Participantes do projeto</h3>
+                            <p>Sistema criado em conjunto com o curso de Alálise e Desenvolvimento de sistemas da Universidade Tuiuti do Paraná</p>
                         </section>
                     </div>
-
+                </div>
             </section>
 
             <!-- Three -->
