@@ -10,13 +10,13 @@
                         <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="active">
                                 <a href="#profile" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">bug_report</i> Idioma
+                                    <i class="material-icons">language</i> Idioma
                                     <div class="ripple-container"></div>
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#messages" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">code</i> Usuário
+                                    <i class="material-icons">person</i> Usuário
                                     <div class="ripple-container"></div>
                                 </a>
                             </li>

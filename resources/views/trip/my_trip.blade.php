@@ -23,7 +23,7 @@
                             <ul class="nav nav-tabs" data-tabs="tabs">
                                 <li class="active">
                                     <a href="#finished" data-toggle="tab">
-                                        <i class="material-icons">bug_report</i>
+                                        <i class="material-icons">check_box</i>
                                         {{ finalizadas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
@@ -35,7 +35,7 @@
                                 </li>
                                 <li class="">
                                     <a href="#canceled" data-toggle="tab">
-                                        <i class="material-icons">cloud</i>
+                                        <i class="material-icons">cancel</i>
                                         {{ canceladas }}
                                         <div class="ripple-container"></div></a>
                                 </li>
