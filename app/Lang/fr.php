@@ -10,8 +10,8 @@
 
 define('nomeProjeto', 'Bonjou');
 define('oProjeto', 'Le projet Bonjou');  //sobreProjeto
-define('ajudaEinformacoes', 'Help and useful information'); //ajudaInformacao
-define('contato', 'Contact');
+define('ajudaEinformacoes', 'Aide et informations utiles'); //ajudaInformacao
+define('contato', 'Contactez nous');
 
 //Itens principais da tela inicial.
 
@@ -79,7 +79,7 @@ define('modelo', 'MODÃˆLE');
 define('placa', 'PLAQUE');
 define('cor', 'COULEUR');
 define('ano', 'ANNEE');
-define('nPassageiros', 'Nº DE PASSAGERS');
+define('nPassageiros', 'Nï¿½ DE PASSAGERS');
 
 //Tela user/trip/my_trips
 define('finalizadas', 'Termine  ');
