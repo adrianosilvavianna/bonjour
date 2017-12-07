@@ -29,7 +29,8 @@
                                 </li>
                                 <li class="">
                                     <a href="#pending" data-toggle="tab">
-                                        <i class="material-icons">code</i>
+                                        <i class="material-icons">error_outline</i>
+                                        
                                         {{ pendentes }}
                                         <div class="ripple-container"></div></a>
                                 </li>
