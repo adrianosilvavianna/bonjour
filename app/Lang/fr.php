@@ -79,7 +79,7 @@ define('modelo', 'MODÈLE');
 define('placa', 'PLAQUE');
 define('cor', 'COULEUR');
 define('ano', 'ANNEE');
-define('nPassageiros', 'N� DE PASSAGERS');
+define('nPassageiros', 'Nº DE PASSAGERS');
 
 //Tela user/trip/my_trips
 define('finalizadas', 'Termine  ');
