@@ -56,9 +56,9 @@
         <div class="form-group">
             <label class="control-label">{{ nPassageiros  }}</label>
             @if(!empty($trip))
-                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="{{ $trip->num_passenger }}">
+                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="{{ $trip->num_passenger }}" max="10" min="1">
             @else
-                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="">
+                <input type="number" class="form-control" name="num_passenger" id="num_passenger" value="3" max="10" min="1">
             @endif
         </div>
     </div>
