@@ -31,10 +31,9 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::put('/{trip}/update',            'TripController@update')->name('update');
     Route::get('/{trip}/show',              'TripController@show')->name('show');
     Route::get('/{trip}/canceled',          'TripController@canceled')->name('canceled');
-    Route::post('/{trip}/finish',                  'TripController@finish')->name('finish');
+    Route::get('/{trip}/finish',           'TripController@finish')->name('finish');
     Route::get('/my_trips',                 'TripController@myTrips')->name('myTrips');
     Route::post('/search',                  'TripController@search')->name('search');
-
 });
 
 Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
@@ -50,7 +49,7 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
 Route::group(['prefix' => 'avaliation', 'as' =>'avaliation.'], function () {
 
     Route::get('/',                         'AvaliationController@index')->name('index');
-    Route::get('/create',                   'AvaliationController@create')->name('create');
+    Route::get('/{trip}/create',                   'AvaliationController@create')->name('create');
     Route::post('/store',                   'AvaliationController@store')->name('store');
     Route::get('/{avaliation}/edit',        'AvaliationController@edit')->name('edit');
     Route::post('/update',                  'AvaliationController@update')->name('update');

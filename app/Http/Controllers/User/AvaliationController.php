@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Domains\Trip;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,9 @@ class AvaliationController extends Controller
         return view('avaliation.index')->with('avaliation', auth()->user()->Avaliation);
     }
 
-    public function create() {        
-        return view('avaliation.create');
+    public function create(Trip $trip) {
+        dd('Continua nos proximos captulos');
+        //return view('avaliation.create');
     }
 
     public function store(Request $request) {

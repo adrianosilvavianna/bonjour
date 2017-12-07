@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Domains\Traits\TripTrait;
 use App\Domains\Trip;
 use App\Events\TripCanceled;
+use App\Events\TripFinish;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TripRequest;
 use Carbon\Carbon;
@@ -70,6 +71,15 @@ class TripController extends Controller
         try{
            event(new TripCanceled($trip));
            return back()->with('success', "Viagem cancelado e passageiros notificados com sucesso");
+        }catch(\Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function finish(Trip $trip){
+        try{
+            event(new TripFinish($trip));
+            return back()->with('success', "Viagem finalizada com sucesso. Avalie seus passageiros");
         }catch(\Exception $e){
             return back()->with('error', $e->getMessage());
         }

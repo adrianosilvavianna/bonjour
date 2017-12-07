@@ -12,7 +12,6 @@ class CanceledTrip extends Notification
 {
     use Queueable;
     private $meeting;
-    private $user;
     /**
      * Create a new notification instance.
      *
