@@ -130,18 +130,14 @@
 
                         <li>
                             <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="material-icons">dashboard</i>
-                                <p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="material-icons">person</i>
                                 <a class="hidden-lg hidden-md">Perfil</a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('user.profile.index') }}">Meu perfil</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('user.evaluation.index') }}">Avaliações</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
