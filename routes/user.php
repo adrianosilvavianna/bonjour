@@ -46,13 +46,12 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
     Route::get('/my_rides',                 'MeetingController@myRides')->name('myRides');
 });
 
-Route::group(['prefix' => 'avaliation', 'as' =>'avaliation.'], function () {
+Route::group(['prefix' => 'evaluation', 'as' =>'evaluation.'], function () {
 
-    Route::get('/',                         'AvaliationController@index')->name('index');
-    Route::get('/{trip}/create',                   'AvaliationController@create')->name('create');
-    Route::post('/store',                   'AvaliationController@store')->name('store');
-    Route::get('/{avaliation}/edit',        'AvaliationController@edit')->name('edit');
-    Route::post('/update',                  'AvaliationController@update')->name('update');
+    Route::get('/',                         'EvaluationController@index')->name('index');
+    Route::get('/{trip}/driver',            'EvaluationController@driver')->name('driver');
+    Route::get('/{trip}/passenger',         'EvaluationController@passenger')->name('passenger');
+    Route::post('/{trip}/store',            'EvaluationController@store')->name('store');
 });
 
 Route::group(['prefix' => 'location', 'as' =>'location.'], function () {

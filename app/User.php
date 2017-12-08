@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Domains\Config;
+use App\Domains\Evaluation;
 use App\Domains\Location;
 use App\Domains\Meeting;
 use App\Domains\Profile;
@@ -54,8 +55,11 @@ class User extends Authenticatable
         return $this->hasMany(Meeting::class);
     }
 
-    public function Reports()
-    {
+    public function Evaluations(){
+        return $this->morphMany(Evaluation::class,  'evaluationable');
+    }
+
+    public function Reports(){
         return $this->morphMany(Report::class, 'reportable');
     }
 

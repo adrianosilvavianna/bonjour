@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Domains\Meeting;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -41,14 +42,13 @@ class FinishTrip extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Viagem Cancelada')
-                ->greeting('Olá ,'. $this->meeting->User->Profile->name. ' '. $this->meeting->User->Profile->last_name)
+                ->subject('Viagem Finalizada')
+                ->greeting('Olá ,')
                 ->line('A viagem realizada por '. $this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' foi finalizada.')
-                ->line('Detalhes da viagem: '.with(new \DateTime($this->meeting->Trip->date))->format('d/m/Y').' às : '. $this->meeting->Trip->time)
                 ->line('Saindo de : '.$this->meeting->Trip->exit_address)
                 ->line('Indo para : '.$this->meeting->Trip->arrival_address)
                 ->line('Se você participou desta viagem não deixe de avaliar o MOTORISTA!!')
-                ->action('Avaliar', url('/'))
+                ->action('Avaliar Passageiros', url('/user/avaliation/driver'))
                 ->line('Obrigado por usar nosso aplicativo!');
     }
 

@@ -31,7 +31,7 @@
                             <h3 class="title"> {{ with(new DateTime($trip->date))->format('d/m/Y') }}  às {{ $trip->time }}</h3><br>
                             <i class="material-icons">room</i> <strong>{{ de }} :</strong> {{ $trip->arrival_address }} <br/>
                             <i class="material-icons">radio_button_checked</i> <strong>{{ para }} :</strong> {{ $trip->exit_address }} <br>
-                            <i class="material-icons">group</i> <strong> {{ $trip->num_passenger }} </strong> {{ lugaresDisponiveis }}!
+                            <i class="material-icons">group</i> <strong> {{ $trip->num_passenger }} </strong> {{ lugaresDisponiveis }}
                         </div>
                     </div>
                 </div>
