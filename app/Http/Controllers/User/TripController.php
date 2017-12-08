@@ -27,7 +27,7 @@ class TripController extends Controller
     public function index()
     {
         $dataNow = Carbon::now();
-        return view('trip.index')->with('trips', $this->trip->where('date', '>=', $dataNow)->orderBy('id', 'desc')->get());
+        return view('trip.index')->with('trips', $this->trip->where('date', '>=', $dataNow->toDateString())->where('time', '>=', $dataNow->toTimeString())->orderBy('id', 'desc')->get());
     }
 
     public function create() {
