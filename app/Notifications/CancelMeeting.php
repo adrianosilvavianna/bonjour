@@ -51,7 +51,7 @@ class CancelMeeting extends Notification
                     ->greeting('Olá '.$this->trip->User->Profile->name.' '.$this->trip->User->Profile->last_name)
                     ->line($this->user->Profile->name.' '.$this->user->Profile->name.' Não pegará mais carona com você')
                     ->line('Não fique triste pois logo logo outras pessoas terão interesse em sua viagem.')
-                    ->action('Ver Viagem', url('/user/meeting/'.$this->trip->Meeting->id.'/show'))
+                    ->action('Ver Viagem', url('/user/trip'))
                     ->line('Obrigado por usar nosso aplicativo!');
     }
 
