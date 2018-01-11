@@ -28,7 +28,7 @@
                     @else
 
                         @if($trip->status == true)
-                            <a href="#" class="btn btn-success btn-round pull-right" id="avaliationPassenger">Avaliar Passageiros</a>
+                            <a href="{{ route('user.evaluation.passenger', $trip) }}" class="btn btn-success btn-round pull-right" id="avaliationPassenger">Avaliar Passageiros</a>
                         @else
                             <a href="{{ route('user.trip.canceled', $trip) }}" class="btn btn-danger btn-round pull-right">{{ btnCancelar }}</a>
                             <a href="{{ route('user.trip.edit', $trip) }}" class="btn btn-info btn-round pull-right" id="editTrip">{{ btnEditar }}</a>

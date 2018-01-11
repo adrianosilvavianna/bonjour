@@ -94,7 +94,6 @@ class RegisterController extends Controller
         ]);
 
         $user->Config()->create(['lang' => 'pt-br']);
-        $user->Evaluations()->create(['nota' => 5]);
 
         return $user;
     }

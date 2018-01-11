@@ -24,7 +24,7 @@
                 @else
 
                     @if($trip->status == false)
-                        <a href="{{ route('user.avaliation.create', $trip) }}" class="btn btn-success btn-round pull-right">Avaliar Passageiros</a>
+                        <a href="#" class="btn btn-success btn-round pull-right">Avaliar Passageiros</a>
                     @else
 
                         @if(auth()->user()->id == $trip->User->id)

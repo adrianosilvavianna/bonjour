@@ -93,7 +93,7 @@ class TripController extends Controller
         if($request->ajax())
         {
             return response()->json([
-                'message' => 'Sucesso',
+                'x  essage' => 'Sucesso',
                 'status' => 200
             ], 200);
         }

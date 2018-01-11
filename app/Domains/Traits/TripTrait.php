@@ -32,10 +32,11 @@ trait TripTrait
     }
 
     public function myTrips(){
-        $trip = auth()->user()->Trips();
-        $tripsPending = $trip->where('status', '=', true)->orderBy('id', 'desc')->get();
-        $tripsFinished  = $trip->where('status', '=', false)->orderBy('id', 'desc')->get();
-        $tripsCanceled  = $trip->where('canceled', '=', true)->orderBy('id', 'desc')->get();
+        $trip = auth()->user()->Trips;
+
+        $tripsPending = $trip->where('status', '=', true);
+        $tripsFinished  = $trip->where('status', '=', false);
+        $tripsCanceled  = $trip->where('canceled', '=', true);
 
         return view('trip.my_trip')->with(['tripsPending' => $tripsPending, 'tripsFinished' => $tripsFinished, 'tripsCanceled' => $tripsCanceled]);
     }

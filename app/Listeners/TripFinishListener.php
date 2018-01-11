@@ -27,8 +27,8 @@ class TripFinishListener
     public function handle($event)
     {
         $trip = $event->trip;
-        //$trip->status = false; //  status false significa que foi finalizada
-        //$trip->save();
+        $trip->status = false; //  status false significa que foi finalizada
+        $trip->save();
 
         foreach($trip->Meetings as $meeting){
             $meeting->User->notify(new FinishTrip($meeting));
