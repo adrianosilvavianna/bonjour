@@ -3,6 +3,16 @@
 Route::get('/home',                         'TripController@index')->name('index');
 Route::put('/update',                       'UserController@update')->name('update');
 
+Route::group(['prefix' => 'chat', 'as' =>'chat.'], function () {
+
+    Route::get('/',                         'ChatController@index')->name('index');
+    Route::post('/send',                     'ChatController@send')->name('send');
+//    Route::get('/create',                   'ProfileController@create')->name('create');
+//    Route::post('/store',                   'ProfileController@store')->name('store');
+//    Route::get('/{profile}/edit',           'ProfileController@edit')->name('edit');
+//    Route::put('/{profile}/update',         'ProfileController@update')->name('update');
+});
+
 Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
 
     Route::get('/',                         'ProfileController@index')->name('index');

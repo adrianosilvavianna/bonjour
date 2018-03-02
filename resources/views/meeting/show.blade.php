@@ -30,6 +30,8 @@
                         <strong>{{ $meeting->User->email }}</strong><br>
                     </p>
 
+                    <button  class="btn btn-primary btn-round " data-accept=1>Entrar em contato</button>
+
                     <div class="card-footer">
                         @if($meeting->accept == 2)
                             <div id="accept-{{ $meeting->id }}">

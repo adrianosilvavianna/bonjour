@@ -15,8 +15,45 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('message', require('./components/message.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#chatting',
+
+    data:{
+        message: '',
+        chat:{
+            message:[]
+        }
+
+    },
+
+    methods:{
+        send(){
+        	if(this.message.length != 0){
+                this.chat.message.push(this.message);
+
+                axios.post('/user/chat/send', {
+                    message: this.message
+                })
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+
+                  this.message= '';
+        	}
+        }
+    },
+
+    mounted(){
+        Echo.private('chat')
+            .listen('ChatEvent', (e) => {
+              this.chat.message.push(e.message);
+
+        });
+    }
+
 });

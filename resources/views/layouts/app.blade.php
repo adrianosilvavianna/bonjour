@@ -2,8 +2,8 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/img/logo/logo.png') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('/img/logo/logo.png') }}" />
+    {{--<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/img/logo/logo.png') }}" />--}}
+    {{--<link rel="icon" type="image/png" href="{{ asset('/img/logo/logo.png') }}" />--}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Bonjou</title>
@@ -11,7 +11,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
 
     <title>{{ config('app.name', 'Bonjour') }}</title>
 
@@ -42,7 +42,7 @@
 <div class="wrapper">
 
   @auth
-      <div class="sidebar" data-color="purple" >
+      <div class="sidebar" data-color="red" style="background-color: #fff">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -55,7 +55,7 @@
             </a>
         </div>
 
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" >
             <ul class="nav">
                 <li class="active">
                     <a href="{{ route('user.trip.index') }}">
@@ -272,15 +272,19 @@
 </div>
 
 <!--   Core JS Files   -->
+
 <script src="{{ asset('assets/js/jquery-3.1.0.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('js/app.js') }}" type="text/javascript" ></script>
+
 <script src="{{ asset('js/blockui.js') }}" type="text/javascript" ></script>
 
 <script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
 
-{{--<script src="{{ asset('assets/js/material-kit.js') }}"></script>--}}
+<script src="{{ asset('assets/js/material-kit.js') }}"></script>
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
 
@@ -288,14 +292,14 @@
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
 
 
+
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
 
-<!-- Material Dashboard javascript methods -->
 
 
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ asset('assets/js/demo.js') }}"></script>
+
+
 
 @section('scripts')
 
