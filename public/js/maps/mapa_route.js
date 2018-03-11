@@ -180,7 +180,7 @@
 
 		$("#btnEnviar").click(function (event) {
 			event.preventDefault();
-			$.blockUI({ message: '<div class="boxLoading"></div>' });
+			$.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
 
 			var enderecoPartida = $("#txtEnderecoPartida").val();
 			var enderecoChegada = $("#txtEnderecoChegada").val();
@@ -202,7 +202,7 @@
 
 		$("form").submit(function (event) {
 			event.preventDefault();
-			$.blockUI({ message: '<div class="boxLoading"></div>' });
+			$.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
 
 			var enderecoPartida = $("#txtEnderecoPartida").val();
 			var enderecoChegada = $("#txtEnderecoChegada").val();

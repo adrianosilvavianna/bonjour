@@ -205,7 +205,7 @@
 
             $( "#form-vehicle" ).submit(function(){
                 event.preventDefault();
-                $.blockUI({ message: '<div class="boxLoading"></div>' });
+                $.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
 
                 var parm = {
                     brand: name_marca,

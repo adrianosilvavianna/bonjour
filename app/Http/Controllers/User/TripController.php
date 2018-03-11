@@ -18,7 +18,6 @@ class TripController extends Controller
 
     public function __construct(Trip $trip)
     {
-        $this->middleware('auth');
         $this->middleware('vehicle')->only('create');
         $this->middleware('profile');
         $this->trip = $trip;
@@ -27,7 +26,7 @@ class TripController extends Controller
     public function index()
     {
         $dataNow = Carbon::now();
-        return view('trip.index')->with('trips', $this->trip->where('date', '>=', $dataNow->toDateString())->where('time', '>=', $dataNow->toTimeString())->orderBy('id', 'desc')->get());
+        return view('trip.index')->with('trips', $this->trip->where('date', '>=', $dataNow->toDateString())->orderBy('id', 'desc')->get());
     }
 
     public function create() {
@@ -64,7 +63,6 @@ class TripController extends Controller
     }
 
     public function show(Trip $trip){
-
         if($trip->User->id == auth()->user()->id){
             return view('trip.show_motorista', compact('trip'));
         }

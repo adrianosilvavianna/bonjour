@@ -56,7 +56,7 @@ class User extends Authenticatable
     }
 
     public function Evaluations(){
-        return $this->morphMany(Evaluation::class,  'evaluationable');
+        return $this->hasMany(Evaluation::class);
     }
 
     public function Reports(){
@@ -66,5 +66,15 @@ class User extends Authenticatable
     public function Config()
     {
         return $this->hasOne(Config::class);
+    }
+
+    public function ratingEvaluation(){
+        $evaluations = $this->Evaluations;
+        $nota = 0;
+        foreach($evaluations as $evaluation){
+            $nota =+ $evaluation->nota;
+        }
+        $media = $nota/$evaluations->count();
+        return $media;
     }
 }

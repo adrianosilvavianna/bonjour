@@ -27,9 +27,9 @@
     <!--  Material Dashboard CSS    -->
     <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
+    {{--<link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />--}}
 
-    <link href="{{ asset('css/loading.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/loading_2.css') }}" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">

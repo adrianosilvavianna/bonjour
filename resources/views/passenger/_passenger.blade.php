@@ -4,7 +4,7 @@
         <div class="col-lg-4 col-md-4 col-sm-4">
             <div class="card card-profile">
                 <div class="card-avatar">
-                    <a href="#pablo">
+                    <a href="">
                         <img class="img" src="{{ asset($meeting->User->Profile->photo_address) }}"/>
                     </a>
                 </div>

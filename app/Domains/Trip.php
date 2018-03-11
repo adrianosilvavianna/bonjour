@@ -3,6 +3,7 @@
 namespace App\Domains;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Trip extends Model
@@ -48,4 +49,10 @@ class Trip extends Model
         }
     }
 
+    public function dateExpired(){
+        $dataTrip = Carbon::parse($this->date.$this->time);
+        if(Carbon::now()->diffInDays($dataTrip, false) < 0){
+            return $this;
+        }
+    }
 }

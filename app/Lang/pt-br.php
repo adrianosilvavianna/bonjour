@@ -80,6 +80,7 @@ define('ondeEstou', 'Onde estou');
 define('paraOndeVou', 'Para onde vou');
 define('resumoViagem', 'Resumo da viagem');
 define('btnTracarRota', 'Traçar rota');
+define('btnViagemRealizada', 'Viagem Realizada');
 
 //Tela user/trip/my_trips
 define('finalizadas', 'Finalizdas  ');

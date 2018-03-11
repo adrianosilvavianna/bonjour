@@ -19,10 +19,11 @@ class CreateEvaluationsTable extends Migration
             $table->integer('nota');
             $table->string('comment', 150)->nullable();
 
-            $table->morphs('evaluationable');
-
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips');
 
             $table->timestamps();
         });

@@ -1,5 +1,7 @@
 <template>
-   <li class="list-group-item success"><slot></slot></li>
+   <li class="list-group-item list-group-item-success"><slot></slot>
+        <small>You</small>
+   </li>
 </template>
 
 <script>

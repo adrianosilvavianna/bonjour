@@ -49,19 +49,15 @@ class MeetingController extends Controller
 
         try{
             $meeting = $this->meeting->find($request->meeting_id);
-
             $meeting->update(['accept' => $request->accept]);
 
             if($request->accept){
-
                 $meeting->User->notify(new ApprovedMeeting($meeting));
-
                 $message =  $meeting->User->Profile->name." agora faz parte da sua viagem!!";
             }else{
-
                 $meeting->User->notify(new DisapprovedMeeting($meeting));
-
                 $message = $meeting->User->Profile->name." não irá com você";
+                $this->delete($meeting);
             }
 
             if($request->ajax())
@@ -85,6 +81,10 @@ class MeetingController extends Controller
 
             return back()->with('error', $e->getMessage());
         }
+    }
+
+    private function delete(Meeting $meeting){
+        $meeting->delete();
     }
 
 }

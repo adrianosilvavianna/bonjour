@@ -72,6 +72,7 @@ define('ondeEstou', 'Where I am');
 define('paraOndeVou', 'Where I go');
 define('resumoViagem', 'Trip Summary');
 define('btnTracarRota', 'Trace route');
+define('btnViagemRealizada', 'Viagem Realizada');
 
 //Tela user/vehicle
 define('marca', 'BRAND');

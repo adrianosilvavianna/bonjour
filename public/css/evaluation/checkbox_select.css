@@ -1,0 +1,39 @@
+label {
+    display: inline-block;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    border-radius: 0.125rem;
+    padding: 0 3em 0 0rem;
+    position: relative;
+    overflow: hidden;
+    line-height: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+label:before {
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    content: "";
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    opacity: 0;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><polyline points="1,9 5,13 15,3" stroke="#666" fill="none" stroke-width="1.5"></polyline></svg>');
+}
+
+input {
+    position: fixed;
+    left: -2rem;
+    top: -2rem;
+}
+
+input:checked + label {
+    background: Lime;
+    padding: 0 1em 0 2rem;
+}
+input:checked + label:before {
+    opacity: 0.9999;
+    left: 0.5rem;
+}

@@ -61,7 +61,7 @@
 
         $('.accept').click(function(){
 
-            $.blockUI({ message: '<div class="boxLoading"></div>' });
+            $.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
 
             var parm = {
                 user_id: $(this).data('user'),
