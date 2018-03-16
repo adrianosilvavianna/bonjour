@@ -159,14 +159,15 @@
             function getMarcas(){
 
                 var marcas   = {};
+
                 $.ajax({
-                    url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
+                    url: "https://fipe.parallelum.com.br/api/v1/carros/marcas",
                     async: false,
                     dataType: 'json',
                     success: function(data) {
                         results = data.map(function(item) {
-                            console.log(item.name);
-                            return { id: item.id, text: item.name,  };
+                            console.log(item.nome);
+                            return { id: item.codigo, text: item.nome,  };
                         });
                         marcas = results;
                     }
@@ -177,12 +178,13 @@
             //retorna modelos referente a marca solicitada
             function getModelos(marca){
 
-                var marca    = marca+'.json';
                 var modelos  = {};
 
                 $.ajax({
-                    url: "http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
-                    async: false,
+                    url: "https://fipe.parallelum.com.br/api/v1/carros/marcas/"+marca+"/modelos",
+                    type: 'GET',
+                    dataType: 'json',
+                    crossDomain: true,
                     success: function(data) {
 
                         console.log(data);

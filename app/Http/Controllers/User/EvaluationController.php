@@ -54,7 +54,7 @@ class EvaluationController extends Controller
 
     }
 
-    public function store() {
-        //usuario cadastra as notas
+    public function storeDriver(User $user) {
+        $user->Evaluations->create();
     }
 }

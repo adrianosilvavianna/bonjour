@@ -21,22 +21,24 @@ class TranslateApp
 
     public function handle($request, Closure $next)
     {
-         switch(auth()->user()->Config->lang){
-              case "pt-br":
-                  include_once $this->langPtBr;
-                  break;
-              case "en":
-                  include_once $this->langEn;
-                  break;
-              case "fr":
-                  include_once $this->langFr;
-                  break;
-              default:
-                  include_once $this->langPtBr;
-                  break;
-          }
-
+        if(auth()->user()->Config){
+            switch(auth()->user()->Config->lang){
+                case "pt-br":
+                    include_once $this->langPtBr;
+                    break;
+                case "en":
+                    include_once $this->langEn;
+                    break;
+                case "fr":
+                    include_once $this->langFr;
+                    break;
+                default:
+                    include_once $this->langPtBr;
+                    break;
+            }
+        }else{
+            include_once $this->langPtBr;
+        }
       return $next($request);
-
     }
 }

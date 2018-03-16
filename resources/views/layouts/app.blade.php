@@ -42,7 +42,7 @@
 <div class="wrapper">
 
   @auth
-      <div class="sidebar" data-color="red" style="background-color: #fff">
+      <div class="sidebar" data-color="blue" style="background: linear-gradient(#dde5ff, #0b12ff);">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -58,39 +58,39 @@
         <div class="sidebar-wrapper" >
             <ul class="nav">
                 <li class="active">
-                    <a href="{{ route('user.trip.index') }}">
+                    <a href="{{ route('user.trip.index') }}" style="color: #fff">
                         <i class="material-icons">dashboard</i>
                         <p>{{ caronas }}</p>
                     </a>
                 </li>
                 <li>
                 <li>
-                    <a href="{{route('user.vehicle.index') }}">
+                    <a href="{{route('user.vehicle.index') }}" style="color: #fff">
                         <i class="material-icons">directions_car</i>
                         <p>{{ meusVeiculos }}</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('user.trip.create') }}">
+                    <a href="{{ route('user.trip.create') }}" style="color: #fff">
                         <i class="material-icons">near_me</i>
                         <p>{{ oferecerCarona }}</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.trip.myTrips') }}">
+                    <a href="{{route('user.trip.myTrips') }}" style="color: #fff">
                         <i class="material-icons">map</i>
                         <p>{{ minhasViagens }}</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.meeting.myRides') }}">
+                    <a href="{{route('user.meeting.myRides') }}" style="color: #fff">
                         <i class="material-icons">room</i>
                         <p>{{ minhasCaronas }}</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('user.config.index') }}">
+                    <a href="{{route('user.config.index') }}" style="color: #fff">
                         <i class="material-icons">settings</i>
                         <p>{{ configuracoes }}</p>
                     </a>
@@ -119,12 +119,16 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            @if(auth()->user()->Config->lang == "pt-br")
+                            @if(auth()->user()->Config)
+                                @if(auth()->user()->Config->lang == "pt-br")
+                                    <a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
+                                @elseif(auth()->user()->Config->lang == "en")
+                                    <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
+                                @elseif(auth()->user()->Config->lang == "fr")
+                                    <a href="?lang=fr"><img src="{{ asset('/img/lang/fr.png') }}" alt="Idioma Francês"></a>
+                                @endif
+                            @else
                                 <a href="?lang=pt-br"><img src="#" alt="Idioma Português"></a>
-                            @elseif(auth()->user()->Config->lang == "en")
-                                <a href="?lang=en"><img src="#" alt="Idioma Inglês"></a>
-                            @elseif(auth()->user()->Config->lang == "fr")
-                                <a href="?lang=fr"><img src="#" alt="Idioma Francês"></a>
                             @endif
                         </li>
 

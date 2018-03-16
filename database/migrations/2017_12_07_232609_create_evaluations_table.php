@@ -17,13 +17,14 @@ class CreateEvaluationsTable extends Migration
             $table->increments('id');
 
             $table->integer('nota');
+            $table->integer('check_quality');
+            $table->boolean('complaint');
+            $table->longText('complaint_comment')->nullable();
+
             $table->string('comment', 150)->nullable();
 
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-
-            $table->integer('trip_id')->unsigned();
-            $table->foreign('trip_id')->references('id')->on('trips');
+            $table->integer('meeting_id')->unsigned();
+            $table->foreign('meeting_id')->references('id')->on('meetings');
 
             $table->timestamps();
         });
