@@ -132,6 +132,9 @@
         {
           var name_marca= '';
           var name_modelo = '';
+            $('#plaque').mask('AAA-0000');
+
+
             $("#color").select2();
             //inicia select marca
             $('#marcas').select2({
@@ -142,7 +145,7 @@
                         name_marca  = ($('#marcas option:selected').text());
                         console.log(name_marca);
 
-                        showModelos(id_marca);
+                        getModelos(id_marca);
                     });
 
             //inicia select modelos
@@ -178,27 +181,52 @@
             //retorna modelos referente a marca solicitada
             function getModelos(marca){
 
+                console.log(marca);
+
                 var modelos  = {};
 
-                $.ajax({
-                    url: "https://fipe.parallelum.com.br/api/v1/carros/marcas/"+marca+"/modelos",
-                    type: 'GET',
-                    dataType: 'json',
-                    crossDomain: true,
-                    success: function(data) {
+                var request = new XMLHttpRequest();
 
-                        console.log(data);
-                        results = data.map(function(item) {
-                            return { id: item.id, text: item.name, };
+                request.open('GET', 'https://fipe.parallelum.com.br/api/v1/carros/marcas/'+marca+'/modelos');
+
+                request.onreadystatechange = function() {
+                    if((request.readyState) === 4 && (request.status === 200)) {
+
+                        var models = JSON.parse(request.responseText).modelos;
+
+                        console.log(models);
+
+                        results = models.map(function(item) {
+                            return { id: item.codigo, text: item.nome };
                         });
-                        modelos = results;
+                        //console.log(results);
+                        console.log(results);
+                        $("#modelos").empty();
+                        $('#modelos').select2({ data: results });
+
                     }
-                });
-                return modelos;
+                };
+                request.send();
+                //console.log(res);
+
+//                $.ajax({
+//                    url: "https://fipe.parallelum.com.br/api/v1/carros/marcas/"+marca+"/modelos",
+//                    type: 'GET',
+//                    dataType: 'json',
+//                    crossDomain: true,
+//                    success: function(data) {
+//
+//                        console.log(data);
+//                        results = data.map(function(item) {
+//                            return { id: item.id, text: item.name, };
+//                        });
+//                        modelos = results;
+//                    }
+//                });
+                //return modelos;
             }
             //exibi na tela os modelos
             function showModelos(marca) {
-
                 $("#modelos").empty();
                 $('#modelos').select2({ data: getModelos(marca) });
             }

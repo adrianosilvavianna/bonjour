@@ -295,8 +295,6 @@
 <!--Restful-->
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
 
-
-
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
 
