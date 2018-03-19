@@ -28,6 +28,8 @@ class TripCanceledListener
     public function handle($event)
     {
         $trip = $event->trip;
+        $trip->canceled = true;
+        $trip->save();
 
         foreach($trip->Meetings as $meeting){
             $meeting->User->notify(new CanceledTrip($meeting));

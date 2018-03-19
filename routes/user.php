@@ -61,7 +61,7 @@ Route::group(['prefix' => 'evaluation', 'as' =>'evaluation.'], function () {
     Route::get('/',                         'EvaluationController@index')->name('index');
     Route::get('/{trip}/driver',            'EvaluationController@driver')->name('driver');
     Route::get('/{trip}/passenger',         'EvaluationController@passenger')->name('passenger');
-    Route::post('/{trip}/store/{user}/passenger',            'EvaluationController@storePassenger')->name('storePassenger');
+    Route::post('/{trip}/store',     'EvaluationController@store')->name('store');
 });
 
 Route::group(['prefix' => 'location', 'as' =>'location.'], function () {

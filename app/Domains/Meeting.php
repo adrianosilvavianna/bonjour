@@ -17,7 +17,7 @@ class Meeting extends Model
         return  $this->belongsTo(Trip::class);
     }
 
-    public function myRides(){
-
+    public function Evaluation(){
+        return $this->hasOne(Evaluation::class);
     }
 }

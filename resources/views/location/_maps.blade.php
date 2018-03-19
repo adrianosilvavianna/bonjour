@@ -1,6 +1,15 @@
 @section('css')
     <link href="{{ asset('css/maps/estilo_route.css') }}" type="text/css" rel="stylesheet"
           xmlns="http://www.w3.org/1999/html"/>
+    @mobile
+        <style>
+            #mapa { width: 300px; height: 400px; float: left }
+        </style>
+    @elsemobile
+        <style>
+            #mapa { width: 600px; height: 400px; float: left }
+        </style>
+    @endmobile
 @stop
 <div id="apresentacao">
 
@@ -41,16 +50,32 @@
             @include('trip._inputs', $vehicles)
 
 
-            <div class="row">
-                <h5>{{ resumoViagem  }}</h5>
-                <div class="col-md-6">
-                    <div id="mapa"></div>
-                </div>
+            {{--<div class="row">--}}
+                {{--<h5>{{ resumoViagem  }}</h5>--}}
+                {{--<div class="col-md-6">--}}
+                    {{--<div id="mapa"></div>--}}
+                {{--</div>--}}
 
-                <div class="col-md-6">
-                    <div id="trajeto-texto"></div>
+                {{--<div class="col-md-6">--}}
+                    {{--<div id="trajeto-texto"></div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>{{ resumoViagem  }}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="mapa"></div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div id="trajeto-texto"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
         </fieldset>
     </form>

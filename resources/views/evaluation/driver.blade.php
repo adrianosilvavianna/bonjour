@@ -4,21 +4,21 @@
             <div class="card-header" data-background-color="orange">
                 <i class="fa fa-star-o"></i>
             </div>
-            <form action="" class="form-group">
+            <form action="{{ route('user.evaluation.store', $trip) }}" class="form-group" method="post">
                 <div class="card-content">
                     <h3 class="title">Avaliação</h3>
                     <br>
                     <label>Dê uma nota para o motorista:</label>
                     <br>
-                    <input type="radio" name="star" class="star-1 rating" id="star-1" value="1"/>
+                    <input type="radio" name="nota" class="star-1 rating" id="star-1" value="1"/>
                     <label class="star-1" for="star-1">1</label>
-                    <input type="radio" name="star" class="star-2 rating" id="star-2" value="2"/>
+                    <input type="radio" name="nota" class="star-2 rating" id="star-2" value="2"/>
                     <label class="star-2" for="star-2">2</label>
-                    <input type="radio" name="star" class="star-3 rating" id="star-3" value="3"/>
+                    <input type="radio" name="nota" class="star-3 rating" id="star-3" value="3"/>
                     <label class="star-3" for="star-3">3</label>
-                    <input type="radio" name="star" class="star-4 rating" id="star-4" value="4"/>
+                    <input type="radio" name="nota" class="star-4 rating" id="star-4" value="4"/>
                     <label class="star-4" for="star-4">4</label>
-                    <input type="radio" name="star" class="star-5 rating" id="star-5" value="5"/>
+                    <input type="radio" name="nota" class="star-5 rating" id="star-5" value="5"/>
                     <label class="star-5" for="star-5">5</label>
                     <br>
                     <label>Selecione suas qualidades:</label>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary btn-round pull-right">Enviar formulário</a>
+                    <button type="submit" class="btn btn-primary btn-round pull-right">Enviar formulário</button>
                 </div>
             </form>
 
@@ -60,7 +60,7 @@
 </div>
 
 @section('scripts')
-
+@parent
     <script>
         $(document).ready(function(){
             $('#complaint_true').change(function(){

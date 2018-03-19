@@ -55,4 +55,8 @@ class Trip extends Model
             return $this;
         }
     }
+
+    public function evaluationExists(){
+         Meeting::where('trip_id', '=', $this->id)->where('user_id', '=', auth()->user()->id)->first();
+    }
 }

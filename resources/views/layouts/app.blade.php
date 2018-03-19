@@ -11,7 +11,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Bonjour') }}</title>
 
@@ -27,7 +27,7 @@
     <!--  Material Dashboard CSS    -->
     <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    {{--<link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />--}}
+    <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
     <link href="{{ asset('css/loading_2.css') }}" rel="stylesheet" />
 
@@ -42,7 +42,7 @@
 <div class="wrapper">
 
   @auth
-      <div class="sidebar" data-color="blue" style="background: linear-gradient(#dde5ff, #0b12ff);">
+      <div class="sidebar" data-color="purple" data-image="https://espiralinterativa.com/wp-content/uploads/2014/12/mais_carona_.jpg">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -57,40 +57,39 @@
 
         <div class="sidebar-wrapper" >
             <ul class="nav">
-                <li class="active">
-                    <a href="{{ route('user.trip.index') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == '') class="active" @endif>
+                    <a href="{{ route('user.trip.index') }}" >
                         <i class="material-icons">dashboard</i>
-                        <p>{{ caronas }}</p>
+                        <p>{{ caronas }} </p>
                     </a>
                 </li>
-                <li>
-                <li>
-                    <a href="{{route('user.vehicle.index') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'vehicle') class="active" @endif>
+                    <a href="{{route('user.vehicle.index') }}" >
                         <i class="material-icons">directions_car</i>
                         <p>{{ meusVeiculos }}</p>
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{ route('user.trip.create') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == 'create') class="active" @endif>
+                    <a href="{{ route('user.trip.create') }}" >
                         <i class="material-icons">near_me</i>
                         <p>{{ oferecerCarona }}</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{route('user.trip.myTrips') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == 'my_trips') class="active" @endif>
+                    <a href="{{route('user.trip.myTrips') }}" >
                         <i class="material-icons">map</i>
                         <p>{{ minhasViagens }}</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{route('user.meeting.myRides') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'meeting') class="active" @endif>
+                    <a href="{{route('user.meeting.myRides') }}" >
                         <i class="material-icons">room</i>
                         <p>{{ minhasCaronas }}</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{route('user.config.index') }}" style="color: #fff">
+                <li @if(\Request::segment(2) == 'config') class="active" @endif>
+                    <a href="{{route('user.config.index') }}" >
                         <i class="material-icons">settings</i>
                         <p>{{ configuracoes }}</p>
                     </a>
@@ -130,6 +129,30 @@
                             @else
                                 <a href="?lang=pt-br"><img src="#" alt="Idioma Português"></a>
                             @endif
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="hidden-lg hidden-md">Notifications</p>
+                                <div class="ripple-container"></div></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Mike John responded to your email</a>
+                                </li>
+                                <li>
+                                    <a href="#">You have 5 new tasks</a>
+                                </li>
+                                <li>
+                                    <a href="#">You're now friend with Andrew</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another Notification</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another One</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
@@ -287,6 +310,7 @@
 <script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
+<script src="{{ asset('assets/js/demo.js') }}"></script>
 
 <script src="{{ asset('assets/js/material-kit.js') }}"></script>
 <!--  Notifications Plugin    -->
@@ -298,11 +322,7 @@
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
 
-
-
-
-
-
+<script src="{{ asset('js/trip/time_trip.js') }}" type="application/javascript"></script>
 @section('scripts')
 
 @show

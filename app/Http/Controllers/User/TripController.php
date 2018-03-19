@@ -63,10 +63,14 @@ class TripController extends Controller
     }
 
     public function show(Trip $trip){
+
         if($trip->User->id == auth()->user()->id){
             return view('trip.show_motorista', compact('trip'));
         }
-        return view('trip.show', compact('trip'));
+
+        $meeting = $trip->Meetings->where('user_id', '=', auth()->user()->id)->first();
+
+        return view('trip.show')->with(['trip'=> $trip, 'meeting'=> $meeting]);
     }
 
     public function canceled(Trip $trip){

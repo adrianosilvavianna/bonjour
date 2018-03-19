@@ -27,7 +27,7 @@ class MeetingController extends Controller
     public function store(Trip $trip){
         try{
             $this->verifyTrips($trip);
-            event(new TripSubPassenger($trip));
+
             $meeting = auth()->user()->Meetings()->create(['trip_id'=> $trip->id]);
 
             $trip->User->notify(new CreateMeeting($meeting));
@@ -49,6 +49,7 @@ class MeetingController extends Controller
 
         try{
             $meeting = $this->meeting->find($request->meeting_id);
+            event(new TripSubPassenger($meeting->Trip));
             $meeting->update(['accept' => $request->accept]);
 
             if($request->accept){

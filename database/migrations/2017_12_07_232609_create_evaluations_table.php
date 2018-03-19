@@ -17,7 +17,7 @@ class CreateEvaluationsTable extends Migration
             $table->increments('id');
 
             $table->integer('nota');
-            $table->integer('check_quality');
+            $table->varchar('check_quality');
             $table->boolean('complaint');
             $table->longText('complaint_comment')->nullable();
 

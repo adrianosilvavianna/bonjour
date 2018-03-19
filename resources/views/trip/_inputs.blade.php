@@ -64,7 +64,7 @@
     </div>
     <div class="col-md-1">
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="btnEnviar"/>{{ btnEnviar }}</button>
+            <button type="submit" class="btn btn-primary" id="btnEnviar">{{ btnEnviar }}</button>
         </div>
     </div>
 </div>
