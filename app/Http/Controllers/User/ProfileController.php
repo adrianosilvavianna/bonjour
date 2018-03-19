@@ -37,7 +37,7 @@ class ProfileController extends Controller
             auth()->user()->Profile()->create($request);
             return redirect(route('user.profile.index'));
         }catch (\Exception $e){
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
     }
 
@@ -52,7 +52,7 @@ class ProfileController extends Controller
             $profile->update($request);
             return redirect(route('user.profile.index'))->with('success', 'Alterado com sucesso!');
         }catch (\Exception $e){
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
     }
 

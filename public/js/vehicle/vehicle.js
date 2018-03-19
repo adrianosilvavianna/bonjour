@@ -95,8 +95,8 @@ $(document).ready(function()
         console.log(parm);
 
         $.ajax({
-            type: 'POST',
-            url: '/user/vehicle/store',
+            type: $(this).data('method'),
+            url: $(this).attr('action'),
             data: parm,
             success: function(data) {
                 $("#form-vehicle input").val("");

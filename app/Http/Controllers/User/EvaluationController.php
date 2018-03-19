@@ -53,7 +53,7 @@ class EvaluationController extends Controller
                     'status' => $e->getCode()
                 ], 200);
             }
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
 
     }

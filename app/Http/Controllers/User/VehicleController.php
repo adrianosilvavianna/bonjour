@@ -45,12 +45,12 @@ class VehicleController extends Controller
         if($request->ajax())
         {
             return response()->json([
-                'message' =>  $e->getMessage(),
-                'data' => $e,
+                'message' =>  'Ops, algo deu errado',
+                'data' => $e->getMessage(),
                 'status' => 400
             ], 400);
         }
-          return back()->with('error', $e->getMessage());
+          return back()->withInput()->with('error',  'Ops, algo deu errado, verifique os dados e tente novamente');
       }
 
     }
@@ -71,28 +71,27 @@ class VehicleController extends Controller
                     'status' => 200
                 ], 200);
             }
-            return redirect()->route('user.vehicle.index')->with('success', 'Salvo com sucesso');
+            return redirect()->route('user.vehicle.index')->with('success',"Veiculo atualizado com sucesso");
 
         }catch (\Exception $e){
             if($request->ajax())
             {
                 return response()->json([
-                    'message' =>  $e->getMessage(),
-                    'data' => $e,
+                    'message' =>  'Ops, algo deu errado',
+                    'data' => $e->getMessage(),
                     'status' => 400
                 ], 400);
             }
-            return back()->with('error', $e->getMessage());
+            return back()->withInput()->with('error',  'Ops, algo deu errado, verifique os dados e tente novamente');
         }
-
     }
 
     public function delete(Vehicle $vehicle) {
         try{
             $vehicle->delete();
-            return back()->with('success', 'Salvo com sucesso');
+            return back()->with('success', 'Excluido com sucesso');
         }catch (\Exception $e){
-            return back()->with('error', $e->getMessage());
+            return back()->withInput()->with('error',  'Ops, algo deu errado, tente novamente');
         }
 
     }

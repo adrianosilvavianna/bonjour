@@ -1,0 +1,17 @@
+Usuario e senha do servidor Umbler:
+
+    * user: bonjou.app@gmail.com
+    * password: bonjouapp1234
+
+Dados do banco de dados da Umbler
+
+    * host: mysql762.umbler.com
+    * porta: 41890
+    * usuario: bonjou
+    * nome DB: bonjou
+    * senha: bonjouapp
+
+Email do projeto
+
+    *email:  bonjou.app@gmail.com
+    *senha: bonjouapp
