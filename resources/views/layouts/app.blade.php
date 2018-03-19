@@ -88,13 +88,28 @@
                         <p>{{ minhasCaronas }}</p>
                     </a>
                 </li>
+                <li @if(\Request::segment(2) == 'evaluation') class="active" @endif>
+                    <a href="{{route('user.meeting.myRides') }}" >
+                        <i class="material-icons">grade</i>
+                        <p>Avaliações</p>
+                    </a>
+                </li>
                 <li @if(\Request::segment(2) == 'config') class="active" @endif>
                     <a href="{{route('user.config.index') }}" >
                         <i class="material-icons">settings</i>
                         <p>{{ configuracoes }}</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="material-icons">power_settings_new</i>
+                        Sair
+                    </a>
 
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -130,52 +145,10 @@
                                 <a href="?lang=pt-br"><img src="#" alt="Idioma Português"></a>
                             @endif
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <i class="material-icons">notifications</i>
-                                <span class="notification">5</span>
-                                <p class="hidden-lg hidden-md">Notifications</p>
-                                <div class="ripple-container"></div></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Mike John responded to your email</a>
-                                </li>
-                                <li>
-                                    <a href="#">You have 5 new tasks</a>
-                                </li>
-                                <li>
-                                    <a href="#">You're now friend with Andrew</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another Notification</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another One</a>
-                                </li>
-                            </ul>
-                        </li>
 
                         <li>
-                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="{{ route('user.profile.index') }}">
                                 <i class="material-icons">person</i>
-                                <a class="hidden-lg hidden-md">Perfil</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('user.profile.index') }}">Meu perfil</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.evaluation.index') }}">Avaliações</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
                             </a>
                         </li>
                     </ul>
@@ -203,7 +176,7 @@
                         </li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="material-icons">input</i>
+                                <i class="material-icons">power_settings_new</i>
                                 Logout
                             </a>
 

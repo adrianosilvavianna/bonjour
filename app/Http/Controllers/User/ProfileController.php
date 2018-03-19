@@ -91,8 +91,10 @@ class ProfileController extends Controller
 
         $srcResize = '/img/resize/';
         $path = public_path().$srcResize.$fileName;
+        $pathCrop = public_path().$srcResize.'crop/'.$fileName;
 
-        $image = Image::make(public_path().$src.$fileName)->resize(200,200)->save($path);
+        Image::make(public_path().$src.$fileName)->resize(200,200)->save($path);
+        Image::make(public_path().$src.$fileName)->crop(500,500)->save($pathCrop);
 
         return $srcResize;
 
