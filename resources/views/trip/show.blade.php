@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-content">
                     <h3 class="title">Viagem</h3>
-                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>{{ $trip->num_passenger }}</strong> Lugares Disponíveis</p>
+                    <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>{{ $trip->num_passenger }}</strong> Lugares DisponÃ­veis</p>
                     <p class="card-content">
                         <i class="material-icons">room</i> <strong>De :</strong> {{ $trip->arrival_address }} <br/>
                         <i class="material-icons">radio_button_checked</i> <strong>Para :</strong> {{ $trip->exit_address }} <br>
@@ -28,8 +28,10 @@
                     @else
 
                         @if($trip->status == false)
-                            @if(!$meeting->Evaluation)
-                                <a href="#" class="btn btn-success btn-round pull-right" id="evaluation">Avaliar Motorista</a>
+                            @if(isset($meeting->Evaluation))
+                                @if(!$meeting->Evaluation)
+                                    <a href="#" class="btn btn-success btn-round pull-right" id="evaluation">Avaliar Motorista</a>
+                                @endif
                             @endif
                             <p class="text-center text-success"> VIAGEM ENCERRADA E AVALIADA COM SUCESSO </p>
                         @else

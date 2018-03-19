@@ -102,8 +102,11 @@
                             </div>
                             <div class="col-md-2">
                                 <img class="img" id="my_photo" src="{{ asset($profile->photo_address) }}" title="Imagem de perfil">
+                                <a href="#"><i class="material-icons">rotate_left</i></a>
+                                <a href="#"><i class="material-icons">rotate_right</i></a>
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary pull-right">Atualizar perfil</button>
                         </div>
