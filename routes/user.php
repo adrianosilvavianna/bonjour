@@ -20,6 +20,9 @@ Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
     Route::post('/store',                   'ProfileController@store')->name('store');
     Route::get('/{profile}/edit',           'ProfileController@edit')->name('edit');
     Route::put('/{profile}/update',         'ProfileController@update')->name('update');
+    Route::post('/{profile}/rotate_left',         'ProfileController@rotateLeft')->name('rotateLeft');
+    Route::post('/{profile}/rotate_right',         'ProfileController@rotateRight')->name('rotateRight');
+
 });
 
 Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {

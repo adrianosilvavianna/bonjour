@@ -102,8 +102,8 @@
                             </div>
                             <div class="col-md-2">
                                 <img class="img" id="my_photo" src="{{ asset($profile->photo_address) }}" title="Imagem de perfil">
-                                <a href="#"><i class="material-icons">rotate_left</i></a>
-                                <a href="#"><i class="material-icons">rotate_right</i></a>
+                                <a href="{{ route('user.profile.rotateLeft', $profile) }}" data-method="post"><i class="material-icons">rotate_left</i></a>
+                                <a href="{{ route('user.profile.rotateRight', $profile) }}" data-method="post"><i class="material-icons">rotate_right</i></a>
                             </div>
                         </div>
 

@@ -100,5 +100,18 @@ class ProfileController extends Controller
 
     }
 
+    public function rotateRight(Profile $profile){
+        $address = public_path().$profile->photo_address;
+        Image::make($address)->rotate(-90)->save($address);
+        return redirect()->back()->withInput();
+    }
+
+    public function rotateLeft(Profile $profile){
+        $address = public_path().$profile->photo_address;
+        Image::make($address)->rotate(90)->save($address);
+        return redirect()->back()->withInput();
+    }
+
+
 
 }
