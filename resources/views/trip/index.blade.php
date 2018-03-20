@@ -29,7 +29,16 @@
 
         </form>
 
-    @include('trip._cards', $trips)
+{{--eh obrigatorio o uso do container-fuid--}}
+
+    <div class="container-fluid">
+        @foreach($trips as $trip)
+            @include('trip._cards', $trip)
+        @endforeach
+    </div>
+
+
+
 
 
 @endsection

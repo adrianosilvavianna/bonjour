@@ -58,7 +58,6 @@ class MeetingController extends Controller
             }else{
                 $meeting->User->notify(new DisapprovedMeeting($meeting));
                 $message = $meeting->User->Profile->name." não irá com você";
-                $this->delete($meeting);
             }
 
             if($request->ajax())
@@ -79,7 +78,6 @@ class MeetingController extends Controller
                     'status' => 400
                 ], 400);
             }
-
             return back()->with('error', $e->getMessage());
         }
     }

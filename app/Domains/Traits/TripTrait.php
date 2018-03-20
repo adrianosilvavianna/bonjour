@@ -34,7 +34,7 @@ trait TripTrait
     public function myTrips(){
         $trip = auth()->user()->Trips;
 
-        $tripsPending = $trip->where('status', '=', true);
+        $tripsPending = $trip->where('status', '=', true)->where('canceled', '=', false);
         $tripsFinished  = $trip->where('status', '=', false);
         $tripsCanceled  = $trip->where('canceled', '=', true);
 
