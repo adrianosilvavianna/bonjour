@@ -2,8 +2,8 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8" />
-    {{--<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/img/logo/logo.png') }}" />--}}
-    {{--<link rel="icon" type="image/png" href="{{ asset('/img/logo/logo.png') }}" />--}}
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo_bonjou_icon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_bonjou_icon.png') }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Bonjou</title>
@@ -42,7 +42,7 @@
 <div class="wrapper">
 
   @auth
-      <div class="sidebar" data-color="purple" data-image="https://espiralinterativa.com/wp-content/uploads/2014/12/mais_carona_.jpg">
+      <div class="sidebar" data-color="purple" data-image="{{ asset('assets/img/lateral.jpeg') }}">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 

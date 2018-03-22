@@ -77,7 +77,19 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8">
+                            <div class="col-md-12 text-center">
+                                <a class="btn" href="/entrar/facebook" style="background-color: #3b5998">
+                                    Entre com Facebook
+                                </a>
+
+                                <a class="btn" href="#" style="background-color: #ea4335">
+                                    Entre com Google
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8" >
                                 <button type="submit" class="btn btn-primary">
                                     {{ btnLogin }}
                                 </button>
@@ -96,3 +108,29 @@
 </div>
 
 @endsection
+
+@section('scripts')
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '{your-app-id}',
+                cookie     : true,
+                xfbml      : true,
+                version    : '{latest-api-version}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+@show

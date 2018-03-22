@@ -15,4 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::get('/entrar/facebook', 'Auth\SocialAuthController@entrarFacebook');
+Route::get('/retorno/facebook', 'Auth\SocialAuthController@entrarFacebook');
+
 

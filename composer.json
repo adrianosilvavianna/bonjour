@@ -12,6 +12,7 @@
         "igorescobar/jquery-mask-plugin": "^1.14",
         "intervention/image": "^2.4",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "pusher/pusher-php-server": "~3.0",
         "riverskies/laravel-mobile-detect": "^1.3"
