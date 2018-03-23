@@ -6,69 +6,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <link href="{{ asset('css/error.css') }}" rel="stylesheet" />
+
 </head>
-
-<style>
-    body {
-        position: relative;
-        margin: 0 auto;
-        font-family: Montserrat, sans-serif;
-    }
-
-    .container-fluid {
-        margin: 0 auto;
-    }
-
-    h2 {
-        font-weight: bold;
-        font-size: 3.75em;
-        color: #ee6052;
-        margin-top: 50px;
-    }
-
-    #error {
-        font-size: 10em;
-    }
-
-    img.displayed {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        height: 50%;
-        width: 50%;
-    }
-
-    .footer {
-        margin-top: 50px;
-        padding: 10px;
-        background: #595859;
-        color: #fff;
-        text-align: center;
-    }
-
-    @media (max-width: 980px) {
-        #error {
-            text-align: center;
-            font-size: 12em;
-        }
-
-        img.displayed {
-            height: 20%;
-            width: 20%;
-        }
-    }
-    @media (max-width: 320px) {
-        #error {
-            text-align: center;
-            font-size: 11em;
-        }
-
-        img.displayed {
-            height: 30%;
-            width: 30%;
-        }
-    }
-</style>
 
 <body>
 <div id="main" class="container-fluid">
