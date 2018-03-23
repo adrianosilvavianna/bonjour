@@ -1,5 +1,3 @@
-	$(document).ready(function() {
-
 		var map;
 		var geocoder;
 
@@ -287,4 +285,3 @@
 			});
 
 		});
-	});

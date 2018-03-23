@@ -1,7 +1,7 @@
 var name_marca= '';
 var name_modelo = '';
 $("#color").select2();
-$('#plaque').mask("AAA-00");
+$('#plaque').mask("AAA-0000");
 
 //inicia select marca
 $('#marcas').select2({
@@ -20,7 +20,7 @@ function getMarcas(){
 
     var marcas   = {};
     $.ajax({
-        url: "http://localhost:8000/user/vehicle/getBrand",
+        url: "/user/vehicle/getBrand",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -39,7 +39,7 @@ function getModelos(marca){
     var modelos  = {};
 
     $.ajax({
-        url: "http://localhost:8000/user/vehicle/getModel?brand="+marca,
+        url: "/user/vehicle/getModel?brand="+marca,
         async: false,
         success: function(data) {
 
