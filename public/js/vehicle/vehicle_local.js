@@ -20,12 +20,13 @@ function getMarcas(){
 
     var marcas   = {};
     $.ajax({
-        url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
+        url: "http://localhost:8000/user/vehicle/getBrand",
         async: false,
         dataType: 'json',
         success: function(data) {
-            results = data.map(function(item) {
-                return { id: item.id, text: item.name };
+
+            results = data.data.map(function(item) {
+                return { id: item.make, text: item.make, };
             });
             marcas = results;
         }
@@ -35,19 +36,17 @@ function getMarcas(){
 //retorna modelos referente a marca solicitada
 function getModelos(marca){
 
-    var marca    = marca+'.json';
     var modelos  = {};
 
     $.ajax({
-        url: "http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
+        url: "http://localhost:8000/user/vehicle/getModel?brand="+marca,
         async: false,
         success: function(data) {
 
-            results = data.map(function(item) {
-                return { id: item.id, text: item.name, };
+            results = data.data.map(function(item) {
+                return { id: item.model, text: item.model, };
             });
             modelos = results;
-
         }
     });
     return modelos;

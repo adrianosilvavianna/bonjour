@@ -18,6 +18,7 @@
         <div class="form-group  label-floating">
             <label for="exampleFormControlSelect2">Modelos</label>
             <select class="form-control form-control-lg" id="modelos" name="model">
+
                 <option value="{{ isset($vehicle->model) ? $vehicle->model : '' }}"  @if(isset($vehicle->model)) selected @endif>{{ isset($vehicle->model) ? $vehicle->model : '' }}</option>
             </select>
         </div>

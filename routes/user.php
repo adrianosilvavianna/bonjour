@@ -33,6 +33,9 @@ Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
     Route::get('/{vehicle}/edit',           'VehicleController@edit')->name('edit');
     Route::put('/{vehicle}/update',         'VehicleController@update')->name('update');
     Route::get('/{vehicle}/delete',         'VehicleController@delete')->name('delete');
+    Route::get('/getBrand',                 'VehicleController@getBrand')->name('getBrand');
+    Route::get('/getModel',                 'VehicleController@getModel')->name('getModel');
+    Route::get('/getYear',                  'VehicleController@getYear')->name('getYear');
 });
 
 Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {

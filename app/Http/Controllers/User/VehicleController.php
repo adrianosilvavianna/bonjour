@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Domains\Vehicle;
+use App\Domains\VehicleModelYear;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PhoneRequest;
 use App\Domains\Phone;
@@ -94,5 +95,39 @@ class VehicleController extends Controller
             return back()->withInput()->with('error',  'Ops, algo deu errado, tente novamente');
         }
 
+    }
+
+    public function getBrand(Request $request){
+        if($request->ajax())
+        {
+            return response()->json([
+                'data' => VehicleModelYear::getMarcas(),
+                'status' => 200
+            ], 200);
+        }
+        return VehicleModelYear::getMarcas();
+    }
+
+    public function getModel(Request $request){
+
+        if($request->ajax())
+        {
+            return response()->json([
+                'data' => VehicleModelYear::getModels($request->brand),
+                'status' => 200
+            ], 200);
+        }
+        return VehicleModelYear::getModels($request->brand);
+    }
+
+    public function getYear(Request $request){
+        if($request->ajax())
+        {
+            return response()->json([
+                'data' => VehicleModelYear::getYear($request->model),
+                'status' => 200
+            ], 200);
+        }
+        return VehicleModelYear::getYear($request->model);
     }
 }
