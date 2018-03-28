@@ -26,7 +26,8 @@
 @endsection
 
 @section('scripts')
+    @parent
     <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/vehicle/vehicle.js') }}"></script>
+    <script src="{{ asset('js/vehicle/vehicle_local.js') }}"></script>
 
 @show

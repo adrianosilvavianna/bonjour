@@ -308,9 +308,9 @@
 <script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
-<script src="{{ asset('assets/js/demo.js') }}"></script>
+{{--<script src="{{ asset('assets/js/demo.js') }}"></script>--}}
 
-<script src="{{ asset('assets/js/material-kit.js') }}"></script>
+{{--<script src="{{ asset('assets/js/material-kit.js') }}"></script>--}}
 <!--  Notifications Plugin    -->
 <script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
 
@@ -319,11 +319,10 @@
 
 <!-- Mascaras -->
 <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
-
-<script src="{{ asset('js/trip/time_trip.js') }}" type="application/javascript"></script>
 @section('scripts')
 
 @show
+
 
 </body>
 </html>

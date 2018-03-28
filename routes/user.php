@@ -33,6 +33,9 @@ Route::group(['middleware'=>'profile','prefix' => 'vehicle', 'as' =>'vehicle.'],
     Route::get('/{vehicle}/edit',           'VehicleController@edit')->name('edit');
     Route::put('/{vehicle}/update',         'VehicleController@update')->name('update');
     Route::get('/{vehicle}/delete',         'VehicleController@delete')->name('delete');
+    Route::get('/getBrand',                 'VehicleController@getBrand')->name('getBrand');
+    Route::get('/getModel',                 'VehicleController@getModel')->name('getModel');
+    Route::get('/getYear',                  'VehicleController@getYear')->name('getYear');
 });
 
 Route::group(['middleware'=>'profile','prefix' => 'trip', 'as' =>'trip.'], function () {
