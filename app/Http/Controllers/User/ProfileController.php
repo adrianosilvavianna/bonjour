@@ -13,8 +13,6 @@ class ProfileController extends Controller
     private $profile;
 
     public function __construct(Profile $profile){
-
-        $this->middleware('auth');
         $this->profile = $profile;
     }
 
@@ -77,7 +75,6 @@ class ProfileController extends Controller
                 //Salva o endereço da img renderizada
                 $photo_address = $srcResize.$fileName;
                 $request = $request->input()+['photo_address' =>$photo_address];
-
                 return $request;
             }
             return back()->with('error', 'Esse Arquivo precisa ser do tipo JPG ou PNG');

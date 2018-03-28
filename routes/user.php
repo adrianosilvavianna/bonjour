@@ -3,7 +3,7 @@
 Route::get('/home',                         'TripController@index')->name('index');
 Route::put('/update',                       'UserController@update')->name('update');
 
-Route::group(['prefix' => 'chat', 'as' =>'chat.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'chat', 'as' =>'chat.'], function () {
 
     Route::get('/',                         'ChatController@index')->name('index');
     Route::post('/send',                     'ChatController@send')->name('send');
@@ -25,7 +25,7 @@ Route::group(['prefix' => 'profile', 'as' =>'profile.'], function () {
 
 });
 
-Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
 
     Route::get('/',                         'VehicleController@index')->name('index');
     Route::get('/create',                   'VehicleController@create')->name('create');
@@ -35,7 +35,7 @@ Route::group(['prefix' => 'vehicle', 'as' =>'vehicle.'], function () {
     Route::get('/{vehicle}/delete',         'VehicleController@delete')->name('delete');
 });
 
-Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'trip', 'as' =>'trip.'], function () {
 
     Route::get('/',                         'TripController@index')->name('index');
     Route::get('/create',                   'TripController@create')->name('create');
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'trip', 'as' =>'trip.'], function () {
     Route::post('/search',                  'TripController@search')->name('search');
 });
 
-Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'meeting', 'as' =>'meeting.'], function () {
 
     Route::get('/',                         'MeetingController@index')->name('index');
     Route::get('/{trip}/store',             'MeetingController@store')->name('store');
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'meeting', 'as' =>'meeting.'], function () {
     Route::get('/my_rides',                 'MeetingController@myRides')->name('myRides');
 });
 
-Route::group(['prefix' => 'evaluation', 'as' =>'evaluation.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'evaluation', 'as' =>'evaluation.'], function () {
 
     Route::get('/',                         'EvaluationController@index')->name('index');
     Route::get('/{trip}/driver',            'EvaluationController@driver')->name('driver');
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'evaluation', 'as' =>'evaluation.'], function () {
     Route::post('/{trip}/store',     'EvaluationController@store')->name('store');
 });
 
-Route::group(['prefix' => 'location', 'as' =>'location.'], function () {
+Route::group(['middleware'=>'profile','prefix' => 'location', 'as' =>'location.'], function () {
 
     Route::get('/',                         'LocationController@index')->name('index');
     Route::get('/create',                   'LocationController@create')->name('create');

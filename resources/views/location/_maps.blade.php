@@ -1,6 +1,6 @@
 @section('css')
     <link href="{{ asset('css/maps/estilo_route.css') }}" type="text/css" rel="stylesheet"
-          xmlns="http://www.w3.org/1999/html"/>
+          xmlns="https://www.w3.org/1999/html"/>
     @mobile
         <style>
             #mapa { width: 300px; height: 400px; float: left }
@@ -89,7 +89,7 @@
 {{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
 
         <!-- Maps API Javascript -->
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;"></script>
+<scripts src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;"></scripts>
 
 <!-- Arquivo de inicialização do mapa -->
 <script type="text/javascript" src="{{ asset('js/maps/jquery-ui.min.js') }}"></script>

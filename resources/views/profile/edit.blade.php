@@ -15,7 +15,7 @@
                     <form action="{{ route('user.profile.update', $profile) }}" method="post" enctype="multipart/form-data">
                         {{ method_field('PUT') }}
                         <div class="row">
-                            <div class="col-md-6 {{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="col-md-12 {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="form-group label-floating">
                                     <label class="control-label">{{ nome }}</label>
                                     <input type="text" name="name" class="form-control" value="{{ $profile->name  }}">
@@ -26,17 +26,17 @@
                                 </span>
                                 @endif
                             </div>
-                            <div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">{{ sobrenome }}</label>
-                                    <input type="text" name="last_name" class="form-control" value="{{ $profile->last_name }}">
-                                </div>
-                                @if ($errors->has('last_name'))
-                                    <span class="help-block">
-                                    <strong class="red-text">{{ $errors->first('last_name') }}</strong>
-                                </span>
-                                @endif
-                            </div>
+                            {{--<div class="col-md-6 {{ $errors->has('last_name') ? ' has-error' : '' }}">--}}
+                                {{--<div class="form-group label-floating">--}}
+                                    {{--<label class="control-label">{{ sobrenome }}</label>--}}
+                                    {{--<input type="text" name="last_name" class="form-control" value="{{ $profile->last_name }}">--}}
+                                {{--</div>--}}
+                                {{--@if ($errors->has('last_name'))--}}
+                                    {{--<span class="help-block">--}}
+                                    {{--<strong class="red-text">{{ $errors->first('last_name') }}</strong>--}}
+                                {{--</span>--}}
+                                {{--@endif--}}
+                            {{--</div>--}}
                         </div>
                         <div class="row">
                             <div class="col-md-2 {{ $errors->has('age') ? ' has-error' : '' }}">

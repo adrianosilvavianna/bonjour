@@ -27,7 +27,7 @@ class ProfileRequest extends FormRequest
                     'last_name' => 'required|string|max:40',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
-                    'photo_address' => 'required|file|image|mimes:jpeg,jpg,png'
+                    'photo_address' => 'required|image|mimes:jpeg,jpg,png'
                 ];
             }
             case 'PUT':{
@@ -36,7 +36,7 @@ class ProfileRequest extends FormRequest
                     'last_name' => 'required|string|max:40',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
-                    'photo_address' => 'file|image|mimes:jpeg,jpg,png'
+                    'photo_address' => 'nullable|image|mimes:jpeg,jpg,png'
                 ];
             }
             default:break;
