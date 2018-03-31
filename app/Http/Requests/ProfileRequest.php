@@ -23,17 +23,16 @@ class ProfileRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'name' => 'required|string|max:40',
-                    'last_name' => 'required|string|max:40',
+                    'name' => 'required|string|max:120',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
+                    'phone' => 'required',
                     'photo_address' => 'required|image|mimes:jpeg,jpg,png'
                 ];
             }
             case 'PUT':{
                 return [
-                    'name' => 'required|string|max:40',
-                    'last_name' => 'required|string|max:40',
+                    'name' => 'required|string|max:120',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
                     'photo_address' => 'nullable|image|mimes:jpeg,jpg,png'

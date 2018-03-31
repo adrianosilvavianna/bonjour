@@ -35,7 +35,7 @@ define('ajudaInfos2', 'Localização das   escolas, locais para fazer documentos
 
 define('escrevaSuaDuvida', 'Escreva a sua duvida, sujestão, pergunta ou escreva uma mensagem pedindo para ser apoiador do projeto O Planeta é um Só.');
 
-define('nome', 'Nome');
+define('nome', 'Nome Completo');
 define('email', 'E-mail');
 define('mensagem', 'Mensagem');
 define('btnEnviarMsg', 'Enviar mensagem');
