@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('css')
+    @parent
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+@show
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -11,10 +16,9 @@
                     <div class="basic-form">
                         <form action="{{ route('user.profile.store') }}" method="post"  enctype="multipart/form-data">
 
-                            @include('profile._inputs')
+                            @include('information._inputs')
 
                             <div class="col-md-12">
-
                                 <button type="submit" class="btn btn-primary pull-right">{{ btnSalvarPerfil }}</button>
                             </div>
                             <div class="clearfix"></div>
@@ -26,8 +30,9 @@
     </div>
 @endsection
 
-
 @section('scripts')
+    @parent
+    <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
     <script src="{{ asset('js/classes_mask.js') }}"></script>
 @show

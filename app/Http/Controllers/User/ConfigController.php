@@ -27,7 +27,8 @@ class ConfigController extends Controller
     public function update(Request $request) {
 
         $user = auth()->user();
-        $config = $user->Config()->update($request->input());
+        $config = $user->Config->update($request->input());
+        return redirect()->back()->with('success', 'A língua do sistema foi alterada');
 
         if($request->ajax())
         {

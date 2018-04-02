@@ -42,9 +42,9 @@
             <div class="card">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs profile-tab" role="tablist">
-                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Linha do tempo</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Perfil</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Mais Informações</a> </li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <div class="profiletimeline">
                                 <div class="sl-item">
-                                    <div class="sl-left"> <img src="images/users/avatar-3.jpg" alt="user" class="img-circle" /> </div>
+                                    <div class="sl-left"> <img src="{{ asset('img/layout/Appa2.png') }}" alt="user" class="img-circle" /> </div>
                                     <div class="sl-right">
                                         <div><a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
                                             <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
@@ -63,7 +63,7 @@
                                 </div>
                                 <hr>
                                 <div class="sl-item">
-                                    <div class="sl-left"> <img src="images/users/avatar-4.jpg" alt="user" class="img-circle" /> </div>
+                                    <div class="sl-left"> <img src="{{ asset('img/layout/Appa2.png') }}" alt="user" class="img-circle" /> </div>
                                     <div class="sl-right">
                                         <div><a href="#" class="link">Michael Qin</a> <span class="sl-date">5 minutes ago</span>
                                             <blockquote class="m-t-10">
@@ -116,14 +116,18 @@
                     </div>
                     <div class="tab-pane" id="settings" role="tabpanel">
                         <div class="card-body">
-                            <form class="form-horizontal form-material">
-                                @include('profile._inputs_more_information')
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Profile</button>
+                            @if(isset($profile->MoreInformation))
+
+                            @else
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Você precisa completar seu cadastro</h4>
+                                        <div class="card-content">
+                                            <a href="{{ route('user.more_information.create', $profile) }}" class="btn btn-info btn-flat btn-addon btn-lg m-b-10 m-l-5"><i class="ti-user"></i> Finalize seu cadastro</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -159,23 +163,14 @@
                 text: "Email principal é : {{ $profile->User->email }} <br> Este usuário também pode ter estes emails: <br> {{ $profile->User->facebook }} <br> {{ $profile->User->github }}",
                 html: true,
             });
-        })
+        });
 
         $('#more_information').click(function(){
             swal({
                 title: "Complete suas informações",
                 text: "Continue completando seu cadastro, essas infomações são importantes para os outros usuários te conhecerem melhor",
             });
-        })
-
-        var county = {{ listCountry() }}
-
-        console.log(county);
-
-        $('country_birth').select2({
-
         });
-
     </script>
 
 @show

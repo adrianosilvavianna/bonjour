@@ -5,15 +5,14 @@
 @show
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" data-background-color="purple">
-                        <h4 class="title">Meu Veículo</h4>
-                        <p class="category">Atualize seu veículo</p>
-                    </div>
-                    <div class="card-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Editar veiculo</h4>
+                </div>
+                <div class="card-body">
+                    <div class="basic-form">
                         <form action="{{ route('user.vehicle.update', $vehicle) }}" method="post" data-method="put" id="form-vehicle" data-vehicle="{{ $vehicle->id }}" >
                             {{ method_field('PUT') }}
                             @include('vehicle._inputs')

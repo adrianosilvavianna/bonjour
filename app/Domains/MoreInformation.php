@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoreInformation extends Model
 {
-    protected $fillable = ['country_birth', 'date_birth', 'cpf', 'passport', 'foreign', 'smoker', 'have_dog', 'confidence_phone'];
+    protected $fillable = ['country_birth', 'date_birth', 'cpf', 'passport', 'foreign', 'confidence_phone'];
 
     public function Profile(){
         return  $this->belongsTo(Profile::class);

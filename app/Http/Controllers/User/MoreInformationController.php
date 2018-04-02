@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class MoreInformationController extends Controller
 {
-    public function listCountry(){
-        return response()->json(listCountry());
-    }
+    //
 }

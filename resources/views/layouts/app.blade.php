@@ -19,6 +19,7 @@
 
     <link href="{{ asset('elaAdmin/css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('elaAdmin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/avatar.css') }}" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -60,11 +61,22 @@
                     <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                     <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-br"></i></a>
+                        @if(auth()->user()->Config)
+                            @if(auth()->user()->Config->lang == "pt-br")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-br"></i></a>
+                            @elseif(auth()->user()->Config->lang == "en")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
+                            @elseif(auth()->user()->Config->lang == "fr")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-fr"></i></a>
+                            @endif
+                        @else
+                            <a class="nav-link dropdown-toggle text-muted" href="?lang=pt-br" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-br"></i></a>
+                        @endif
+
                         <div class="dropdown-menu animated zoomIn">
-                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> Inglês</a>
-                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> Francês</a>
-                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-br"></i> Portugês</a>
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=pt-br" data-method="post"><i class="flag-icon flag-icon-br"></i> Portugês</a>
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=en" data-method="post"><i class="flag-icon flag-icon-us"></i> Inglês</a>
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=fr" data-method="post"><i class="flag-icon flag-icon-fr"></i> Francês</a>
                         </div>
                     </li>
                 </ul>
@@ -118,7 +130,7 @@
                                     <div class="message-center">
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="#" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                            <div class="user-img"> <img src="{{ asset('img/layout/Appa2.png') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
                                             </div>
@@ -135,13 +147,22 @@
                     <!-- End Messages -->
                     <!-- Profile -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('img/layout/Appa2.png') }}" alt="user" class="profile-pic" /></a>
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="round profile-pic"  avatar="{{ auth()->user()->name }}"></a>
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
                                 <li><a href="{{ route('user.profile.index') }}"><i class="ti-user"></i> Perfil</a></li>
                                 <li><a href="#"><i class="ti-star"></i> Avaliações</a></li>
-                                <li><a href="#"><i class="ti-settings"></i> Configurações</a></li>
-                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="{{ route('user.config.index') }}"><i class="ti-settings"></i> Configurações</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off"></i>
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -160,16 +181,20 @@
                     <li class="nav-devider"></li>
                     <li class="nav-label">Home</li>
                     <li>
-                        <a href="{{ route('user.trip.index') }}"><i class="fa fa-tachometer"></i>Dashboard</a>
+                        <a href="{{ route('user.trip.index') }}"><i class="fa fa-tachometer"></i>{{ caronas }}</a>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-car"></i><span class="hide-menu">{{ meusVeiculos }}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('user.vehicle.index') }}">Listar veiculos</a></li>
+                            <li><a href="{{ route('user.vehicle.create') }}">Cadastrar Veiculos</a></li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="{{ route('user.vehicle.index') }}"><i class="fa fa-car"></i><span class="hide-menu">Meus Veículos</span></a>
-                    </li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map-signs"></i><span class="hide-menu">Caronas</span></a>
+                        <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map-signs"></i><span class="hide-menu">Caronas</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="chart-flot.html">Oferecer Caronas</a></li>
-                            <li><a href="chart-morris.html">Caronas que ofereci</a></li>
-                            <li><a href="chart-chartjs.html">Caronas que peguei</a></li>
+                            <li><a href="{{ route('user.trip.create') }}">{{ oferecerCarona }}</a></li>
+                            <li><a href="{{route('user.trip.myTrips') }}">Caronas Que Ofereci</a></li>
+                            <li><a href="{{route('user.meeting.myRides') }}">Caronas Que Peguei</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -181,7 +206,7 @@
     <!-- End Left Sidebar  -->
     <!-- Page wrapper  -->
     <div class="page-wrapper">
-        <!-- Bread crumb -->
+        <!-- Bread crumb
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
                 <h3 class="text-primary">Dashboard</h3> </div>
@@ -195,6 +220,7 @@
                 </ol>
             </div>
         </div>
+        -->
         <div class="container-fluid">
 
             @if (session('error'))
@@ -261,12 +287,10 @@
 
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
 
+<script src="{{ asset('js/avatar.js') }}" type="text/javascript" ></script>
+
 <!--Custom JavaScript -->
 <script src="{{ asset('elaAdmin/js/custom.min.js') }}"></script>
-
-<script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
-
-<script src="{{ asset('js/classes_mask.js') }}"></script>
 
 @section('scripts')
 

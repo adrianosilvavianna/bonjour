@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-12 {{ $errors->has('name') ? ' has-error' : '' }}">
         <div class="form-group label-floating">
@@ -62,6 +61,7 @@
         @endif
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">

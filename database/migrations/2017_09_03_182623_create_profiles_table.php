@@ -21,6 +21,12 @@ class CreateProfilesTable extends Migration
             $table->string('phone');
             $table->string('photo_address')->nullable();
             $table->string('about');
+            $table->string('country_birth');
+            $table->date('date_birth');
+            $table->string('cpf');
+            $table->string('passport');
+            $table->boolean('foreign');
+            $table->string('confidence_phone');
 
 
             $table->integer('user_id')->unsigned();

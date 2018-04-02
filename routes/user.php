@@ -2,6 +2,7 @@
 
 Route::get('/home',                         'TripController@index')->name('index');
 Route::put('/update',                       'UserController@update')->name('update');
+Route::put('/reset_password',                'UserController@resetPassword')->name('reset_password');
 
 Route::group(['middleware'=>'profile','prefix' => 'chat', 'as' =>'chat.'], function () {
 
@@ -86,6 +87,8 @@ Route::group(['prefix' => 'config', 'as' =>'config.'], function () {
 
 Route::group(['prefix' => 'more_information', 'as' =>'more_information.'], function () {
 
-    Route::get('/list_country',                         'MoreInformationController@listCountry')->name('listCountry');
+    Route::get('/{profile}/create',                         'MoreInformationController@create')->name('create');
+    Route::post('/{profile}/store',                         'MoreInformationController@listCountry')->name('store');
+    Route::get('/list_country',                             'MoreInformationController@listCountry')->name('listCountry');
 
 });
