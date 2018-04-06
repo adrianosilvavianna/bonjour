@@ -1,7 +1,6 @@
 var name_marca= '';
 var name_modelo = '';
 $("#color").select2();
-$('#plaque').mask("AAA-00");
 
 //inicia select marca
 $('#marcas').select2({
@@ -44,7 +43,7 @@ function getModelos(marca){
         success: function(data) {
 
             results = data.map(function(item) {
-                return { id: item.id, text: item.name, };
+                return { id: item.name, text: item.name, };
             });
             modelos = results;
 

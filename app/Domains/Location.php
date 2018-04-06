@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    protected $fillable = ['txtEndereco', 'txtLatitude', 'txtLongitude', 'name'];
+    protected $fillable = ['address','number','city','zip_code','district','state_abbr','complement'];
 
-    protected $hidden = ['locationable_type', 'locationable_id'];
-
-    public function locationable()
-    {
-        return $this->morphTo();
+    public function MoreInformation(){
+        return $this->belongsTo(MoreInformation::class);
     }
+
 }

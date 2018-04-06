@@ -1,328 +1,302 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo_bonjou_icon.png') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_bonjou_icon.png') }}" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<html lang="pt-br">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="O projeto Bonjou, que significa Bom Dia em dialeto creóle, pretende ajudar na questão da forte evasão escolar, por falta de meios de transporte, além de promover a aproximação entre Brasileiros e Haitianos.">
+    <meta name="author" content="https://github.com/adrianosilvavianna">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="#">
     <title>Bonjou</title>
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <link href="{{ asset('elaAdmin/css/lib/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <script src="{{ asset('elaAdmin/js/lib/sweetalert/sweetalert.min.js') }}"></script>
 
-    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <link href="{{ asset('elaAdmin/css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
-    <title>{{ config('app.name', 'Bonjour') }}</title>
+    <link href="{{ asset('elaAdmin/css/helper.css') }}" rel="stylesheet">
+    <link href="{{ asset('elaAdmin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/avatar.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    @section('css')
-
-    @show
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-
-    <!--  Material Dashboard CSS    -->
-    <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
-
-    <link href="{{ asset('css/loading_2.css') }}" rel="stylesheet" />
-
-    <!--     Fonts and icons     -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-
+    {{--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
 
 </head>
-<body>
 
-<div class="wrapper">
+<body class="fix-header fix-sidebar">
+<!-- Preloader - style you can find in spinners.css -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+    <!-- header header  -->
+    <div class="header">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <!-- Logo icon -->
+                    <b><img src="{{ asset('img/layout/logo.png') }}" alt="homepage" class="dark-logo" /></b>
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span><img src="{{ asset('img/layout/logo_bonjou.png') }}" alt="homepage" class="dark-logo" /></span>
 
-  @auth
-      <div class="sidebar" data-color="purple" data-image="{{ asset('assets/img/lateral.jpeg') }}">
-        <!--
-            Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+                </a>
+                </a>
 
-            Tip 2: you can also add an image using data-image tag
-        -->
-
-        <div class="logo">
-            <a href="{{ route('user.profile.index') }}" class="simple-text">
-                {{ auth()->user()->name }}
-            </a>
-        </div>
-
-        <div class="sidebar-wrapper" >
-            <ul class="nav">
-                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == '') class="active" @endif>
-                    <a href="{{ route('user.trip.index') }}" >
-                        <i class="material-icons">dashboard</i>
-                        <p>{{ caronas }} </p>
-                    </a>
-                </li>
-                <li @if(\Request::segment(2) == 'vehicle') class="active" @endif>
-                    <a href="{{route('user.vehicle.index') }}" >
-                        <i class="material-icons">directions_car</i>
-                        <p>{{ meusVeiculos }}</p>
-                    </a>
-                </li>
-
-                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == 'create') class="active" @endif>
-                    <a href="{{ route('user.trip.create') }}" >
-                        <i class="material-icons">near_me</i>
-                        <p>{{ oferecerCarona }}</p>
-                    </a>
-                </li>
-                <li @if(\Request::segment(2) == 'trip' && \Request::segment(3) == 'my_trips') class="active" @endif>
-                    <a href="{{route('user.trip.myTrips') }}" >
-                        <i class="material-icons">map</i>
-                        <p>{{ minhasViagens }}</p>
-                    </a>
-                </li>
-                <li @if(\Request::segment(2) == 'meeting') class="active" @endif>
-                    <a href="{{route('user.meeting.myRides') }}" >
-                        <i class="material-icons">room</i>
-                        <p>{{ minhasCaronas }}</p>
-                    </a>
-                </li>
-                <li @if(\Request::segment(2) == 'evaluation') class="active" @endif>
-                    <a href="{{route('user.meeting.myRides') }}" >
-                        <i class="material-icons">grade</i>
-                        <p>Avaliações</p>
-                    </a>
-                </li>
-                <li @if(\Request::segment(2) == 'config') class="active" @endif>
-                    <a href="{{route('user.config.index') }}" >
-                        <i class="material-icons">settings</i>
-                        <p>{{ configuracoes }}</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="material-icons">power_settings_new</i>
-                        Sair
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="main-panel">
-
-        @desktop
-        <nav class="navbar navbar-transparent navbar-absolute">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">BONJOU</a>
-                </div>
-                <div class="collapse navbar-collapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            @if(auth()->user()->Config)
-                                @if(auth()->user()->Config->lang == "pt-br")
-                                    <a href="?lang=pt-br"><img src="{{ asset('/img/lang/pt-br.png') }}" alt="Idioma Português"></a>
-                                @elseif(auth()->user()->Config->lang == "en")
-                                    <a href="?lang=en"><img src="{{ asset('/img/lang/en.png') }}" alt="Idioma Inglês"></a>
-                                @elseif(auth()->user()->Config->lang == "fr")
-                                    <a href="?lang=fr"><img src="{{ asset('/img/lang/fr.png') }}" alt="Idioma Francês"></a>
-                                @endif
-                            @else
-                                <a href="?lang=pt-br"><img src="#" alt="Idioma Português"></a>
+            </div>
+            <!-- End Logo -->
+            <div class="navbar-collapse">
+                <!-- toggle and nav items -->
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                    <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    <li class="nav-item dropdown">
+                        @if(auth()->user()->Config)
+                            @if(auth()->user()->Config->lang == "pt-br")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-br"></i></a>
+                            @elseif(auth()->user()->Config->lang == "en")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
+                            @elseif(auth()->user()->Config->lang == "fr")
+                                <a class="nav-link dropdown-toggle text-muted" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-fr"></i></a>
                             @endif
-                        </li>
+                        @else
+                            <a class="nav-link dropdown-toggle text-muted" href="?lang=pt-br" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-br"></i></a>
+                        @endif
 
-                        <li>
-                            <a href="{{ route('user.profile.index') }}">
-                                <i class="material-icons">person</i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                        <div class="dropdown-menu animated zoomIn">
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=pt-br" data-method="post"><i class="flag-icon flag-icon-br"></i> Portugês</a>
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=en" data-method="post"><i class="flag-icon flag-icon-us"></i> Inglês</a>
+                            <a class="dropdown-item" href="{{ route('user.config.update') }}?lang=fr" data-method="post"><i class="flag-icon flag-icon-fr"></i> Francês</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- User profile and search -->
+                <ul class="navbar-nav my-lg-0">
+
+                    <!-- Search -->
+                    <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <form class="app-search">
+                            <input type="text" class="form-control" placeholder="Search here"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                    </li>
+                    <!-- Comment -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell"></i>
+                            <div class="notify"> <!--<span class="heartbit"></span>--> <span class="point"></span> </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
+                            <ul>
+                                <li>
+                                    <div class="drop-title">Notifications</div>
+                                </li>
+                                <li>
+                                    <div class="message-center">
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="btn btn-danger btn-circle m-r-10"><i class="fa fa-link"></i></div>
+                                            <div class="mail-contnet">
+                                                <h5>This is title</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- End Comment -->
+                    <!-- Messages -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
+                            <div class="notify"> <!--<span class="heartbit"></span>--> <span class="point"></span> </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
+                            <ul>
+                                <li>
+                                    <div class="drop-title">You have 4 new messages</div>
+                                </li>
+                                <li>
+                                    <div class="message-center">
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="{{ asset('img/layout/Appa2.png') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- End Messages -->
+                    <!-- Profile -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="round profile-pic"  avatar="{{ auth()->user()->name }}"></a>
+                        <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                            <ul class="dropdown-user">
+                                <li><a href="{{ route('user.profile.index') }}"><i class="ti-user"></i> Perfil</a></li>
+                                <li><a href="#"><i class="ti-star"></i> Avaliações</a></li>
+                                <li><a href="{{ route('user.config.index') }}"><i class="ti-settings"></i> Configurações</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off"></i>
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
-        @elsedesktop
-
-        <nav class="navbar navbar-primary">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-icons">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Bonjou</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="example-navbar-icons">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="{{ route('user.profile.index') }}"><i class="material-icons">person</i> Meu Perfil </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="material-icons">power_settings_new</i>
-                                Logout
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+    </div>
+    <!-- End header header -->
+    <!-- Left Sidebar  -->
+    <div class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="nav-devider"></li>
+                    <li class="nav-label">Home</li>
+                    <li>
+                        <a href="{{ route('user.trip.index') }}"><i class="fa fa-tachometer"></i>{{ caronas }}</a>
+                    </li>
+                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-car"></i><span class="hide-menu">{{ meusVeiculos }}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('user.vehicle.index') }}">Listar veiculos</a></li>
+                            <li><a href="{{ route('user.vehicle.create') }}">Cadastrar Veiculos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map-signs"></i><span class="hide-menu">Caronas</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('user.trip.create') }}">{{ oferecerCarona }}</a></li>
+                            <li><a href="{{route('user.trip.myTrips') }}">Caronas Que Ofereci</a></li>
+                            <li><a href="{{route('user.meeting.myRides') }}">Caronas Que Peguei</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </div>
+    <!-- End Left Sidebar  -->
+    <!-- Page wrapper  -->
+    <div class="page-wrapper">
+        <!-- Bread crumb
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">Dashboard</h3> </div>
+            <div class="col-md-7 align-self-center">
+                <?php $id = 1 ?>
+                <ol class="breadcrumb">
+                    @while(\Request::segment($id))
+                        <li class="breadcrumb-item">{{ \Request::segment($id) }}</li>
+                        <?php $id++ ?>
+                    @endwhile
+                </ol>
             </div>
-        </nav>
-
-        @enddesktop
-
-    @endauth
-
-        @desktop
-        <div class="content">
-        @enddesktop
+        </div>
+        -->
+        <div class="container-fluid">
 
             @if (session('error'))
-                <div class="alert alert-danger">
-                    <div class="container-fluid">
-                        <div class="alert-icon">
-                            <i class="material-icons">error_outline</i>
-                        </div>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                        </button>
-                        <b>Error:</b> {!! session('error') !!}
-                    </div>
-                </div>
+                <script>
+                    swal({
+                        title: "Error",
+                        text: "{{session('error')}}",
+                        icon: "error",
+                        button: "Ok",
+                    });
+                </script>
             @endif
 
             @if (session('success'))
-                    <div class="alert alert-success">
-                        <div class="container-fluid">
-                            <div class="alert-icon">
-                                <i class="material-icons">done</i>
-                            </div>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                            </button>
-                            <b>Sucesso:</b> {!! session('success') !!}
-                        </div>
-                    </div>
+                <script>
+                    swal({
+                        title: "Muito Bom!",
+                        text: "{{session('success')}}",
+                        icon: "success",
+                        button: "Ok",
+                    });
+                </script>
             @endif
             @if (session('info'))
-                    <div class="alert alert-info">
-                        <div class="container-fluid">
-                            <div class="alert-icon">
-                                <i class="material-icons">info_outline</i>
-                            </div>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                            </button>
-                            <b>Ops:</b> {!! session('info') !!}
-                        </div>
-                    </div>
+                <script>
+                    swal({
+                        title: "Ops",
+                        text: "{{session('info')}}",
+                        icon: "info",
+                        button: "Ok",
+                    });
+                </script>
             @endif
 
             @if (session('warning'))
-                <div class="alert alert-warning">
-                    <div class="container-fluid">
-                        <div class="alert-icon">
-                            <i class="material-icons">warning</i>
-                        </div>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                        </button>
-                        <b>Alerta:</b> {!! session('warning') !!}
-                    </div>
-                </div>
-
+                <script>
+                    swal({
+                        title: "Algo está errado",
+                        text: "{{session('warning')}}",
+                        icon: "warning",
+                        button: "Ok",
+                    });
+                </script>
             @endif
 
             @yield('content')
+        </div>
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        @desktop
-            </div>
-        @enddesktop
-
-
-        {{--<footer class="footer">--}}
-            {{--<div class="container-fluid">--}}
-                {{--<p class="copyright pull-right">--}}
-
-                {{--</p>--}}
-            {{--</div>--}}
-        {{--</footer>--}}
     </div>
+    <!-- End Page wrapper  -->
 </div>
+<!-- End Wrapper -->
+<!-- All Jquery -->
+<script src="{{ asset('elaAdmin/js/lib/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{ asset('elaAdmin/js/lib/bootstrap/js/popper.min.js') }}"></script>
+<script src="{{ asset('elaAdmin/js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{ asset('elaAdmin/js/jquery.slimscroll.js') }}"></script>
+<!--Menu sidebar -->
+<script src="{{ asset('elaAdmin/js/sidebarmenu.js') }}"></script>
+<!--stickey kit -->
+<script src="{{ asset('elaAdmin/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 
-<!--   Core JS Files   -->
-
-<script src="{{ asset('assets/js/jquery-3.1.0.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
-
-<script src="{{ asset('js/app.js') }}" type="text/javascript" ></script>
-
-<script src="{{ asset('js/blockui.js') }}" type="text/javascript" ></script>
-
-<script src="{{ asset('assets/js/material.min.js') }}" type="text/javascript"></script>
-
-<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
-{{--<script src="{{ asset('assets/js/demo.js') }}"></script>--}}
-
-{{--<script src="{{ asset('assets/js/material-kit.js') }}"></script>--}}
-<!--  Notifications Plugin    -->
-<script src="{{ asset('assets/js/bootstrap-notify.js') }}"></script>
-
-<!--Restful-->
 <script src="{{ asset('js/restful.js') }}" type="text/javascript" ></script>
 
-<!-- Mascaras -->
-<script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
+<script src="{{ asset('js/avatar.js') }}" type="text/javascript" ></script>
+
+<!--Custom JavaScript -->
+<script src="{{ asset('elaAdmin/js/custom.min.js') }}"></script>
+
 @section('scripts')
 
 @show
 
 
 </body>
+
 </html>

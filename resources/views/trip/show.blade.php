@@ -4,10 +4,7 @@
 
     <div class="row">
         <div class="col-md-7 col-md-7 col-sm-7">
-            <div class="card card-stats">
-                <div class="card-header" data-background-color="green">
-                    <i class="fa fa-map-o"></i>
-                </div>
+            <div class="card">
                 <div class="card-content">
                     <h3 class="title">Viagem</h3>
                     <p class="category"><i class="material-icons">airline_seat_recline_extra</i><strong>{{ $trip->num_passenger }}</strong> Lugares DisponÃ­veis</p>
@@ -62,35 +59,40 @@
             </div>
         </div>
 
-        <div class="col-lg-5 col-md-5 col-sm-5">
-            <div class="card card-profile">
-                <div class="card-avatar">
-                    <a href="#">
-                        <img class="img" src="{{ asset($trip->User->Profile->photo_address) }}"/>
-                    </a>
-                </div>
-
-                <div class="content">
-                    <h4 class="card-title">{{ $trip->User->Profile->name }} {{ $trip->User->Profile->last_name }}</h4>
-                    <h5 class="category text-gray">{{ $trip->User->Profile->age }} Anos</h5>
-                    <h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>
-                    @if($trip->searchMeeting())
-                        @if($trip->searchMyMeeting()->accept == true)
-                            <p class="card-content">
-                                {{ $trip->User->email }}<br>
-                                {{ $trip->User->Profile->phone }} <br>
-                                {{ $trip->User->Profile->about }}
-                            </p>
-                        @endif
-                    @else
-                        <p class="card-content">
-                            <i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>
-                            <i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>
-                        </p>
-                    @endif
-                </div>
-            </div>
+        <div class="col-lg-5">
+            @include('trip._profile_driver', $trip)
         </div>
+        
+        
+        {{--<div class="col-lg-5 col-md-5 col-sm-5">--}}
+            {{--<div class="card card-profile">--}}
+                {{--<div class="card-avatar">--}}
+                    {{--<a href="#">--}}
+                        {{--<img class="img" src="{{ asset($trip->User->Profile->photo_address) }}"/>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+
+                {{--<div class="content">--}}
+                    {{--<h4 class="card-title">{{ $trip->User->Profile->name }} {{ $trip->User->Profile->last_name }}</h4>--}}
+                    {{--<h5 class="category text-gray">{{ $trip->User->Profile->age }} Anos</h5>--}}
+                    {{--<h6 class="category text-gray">3 Avaliações - Nota 3,5</h6>--}}
+                    {{--@if($trip->searchMeeting())--}}
+                        {{--@if($trip->searchMyMeeting()->accept == true)--}}
+                            {{--<p class="card-content">--}}
+                                {{--{{ $trip->User->email }}<br>--}}
+                                {{--{{ $trip->User->Profile->phone }} <br>--}}
+                                {{--{{ $trip->User->Profile->about }}--}}
+                            {{--</p>--}}
+                        {{--@endif--}}
+                    {{--@else--}}
+                        {{--<p class="card-content">--}}
+                            {{--<i class="large material-icons">done</i> <strong> Email Confirmado</strong><br>--}}
+                            {{--<i class="large material-icons">done</i> <strong> Telefone Confirmado</strong>--}}
+                        {{--</p>--}}
+                    {{--@endif--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 
 

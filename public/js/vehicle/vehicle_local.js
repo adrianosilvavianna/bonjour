@@ -1,7 +1,6 @@
 var name_marca= '';
 var name_modelo = '';
 $("#color").select2();
-$('#plaque').mask("AAA-0000");
 
 //inicia select marca
 $('#marcas').select2({

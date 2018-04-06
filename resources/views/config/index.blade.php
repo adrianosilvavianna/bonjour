@@ -1,74 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-lg-6 col-md-12">
-        <div class="card card-nav-tabs">
-            <div class="card-header" data-background-color="purple">
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                        <span class="nav-tabs-title">Tasks:</span>
-                        <ul class="nav nav-tabs" data-tabs="tabs">
-                            <li class="active">
-                                <a href="#profile" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">language</i> Idioma
-                                    <div class="ripple-container"></div>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#messages" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">person</i> Usuário 
-                                    <div class="ripple-container"></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="card-content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-b-0">
+                    <h4 class="card-title">Configurações</h4>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs customtab" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#usuario" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Usuário</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#password_reset" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Alterar Senha</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#terms_use" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Termos de uso</span></a> </li>
+                    </ul>
+                    <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="profile">
+                        <div class="tab-pane active p-20" id="usuario" role="tabpanel">
                             <table class="table">
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="lang" @if(auth()->user()->Config->lang == "pt-br") checked @endif value="pt-br" class="lang">
-                                            </label>
-                                        </div>
+                                        <strong>Apelido</strong>
                                     </td>
-                                    <td>Português</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="lang" value="en" class="lang" @if(auth()->user()->Config->lang == "en") checked @endif>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Inglês</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="lang" value="fr" class="lang" @if(auth()->user()->Config->lang == "fr") checked @endif>
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>Francês</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane" id="messages">
-                            <table class="table">
-                                <tbody>
-                                <tr>
-                                   <td>
-                                       <strong>Apelido</strong>
-                                   </td>
                                     <td>
                                         {{ auth()->user()->name }}
                                     </td>
@@ -81,19 +33,60 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <a  class="btn btn-primary pull-right" id="btn-edit-user">Editar</a>
+                            <a href="#" class="btn btn-info btn-block" id="btn-edit-user">Editar</a>
+                        </div>
+                        <div class="tab-pane p-20" id="password_reset" role="tabpanel">
+                            <form action="{{ route('user.reset_password') }}" method="post">
+                                {{ method_field('PUT') }}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating is-empty {{ $errors->has('password') ? ' has-error' : '' }}">
+                                            <label class="control-label">Senha</label>
+                                            <input type="password" class="form-control" name="password" value="{{ old('password') }}" required>
+                                            <span class="material-input"></span></div>
+
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating is-empty {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                            <label class="control-label">Confirmar senha</label>
+                                            <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" required>
+                                            <span class="material-input"></span></div>
+
+                                        @if ($errors->has('password_confirmation'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary pull-right">Atualizar Password<div class="ripple-container"></div></button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div class="tab-pane p-20" id="terms_use" role="tabpanel">
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                            </p>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
+
 
     <div class="col-md-6" id="edit-user">
         <div class="card">
-            <div class="card-header" data-background-color="purple">
-                <h4 class="title">Editar Usuário</h4>
+            <div class="card-title">
+                <h4>Editar Usuário</h4>
             </div>
-            <div class="card-content">
+            <div class="card-body">
                 <form action="{{ route('user.update') }}" method="post">
                     {{ method_field('PUT') }}
                     <div class="row">
@@ -128,6 +121,8 @@
             </div>
         </div>
     </div>
+
+</div>
 @endsection
 
 @section('scripts')
@@ -139,38 +134,6 @@
                 $("#edit-user").show();
             });
 
-            $(".lang").change(function(){
-                $.blockUI({ message: '<div class="boxLoading"></div>' });
-                $.ajax({
-                    type: 'POST',
-                    url: '/user/config/update',
-                    data: {lang: $(this).val()},
-
-                    success: function(data) {
-                        console.log(data);
-                        $.unblockUI();
-                        $.notify({
-                            title: 'Sucesso',
-                            message: data.message+ "Idioma Alterado",
-                        },{
-                            type: 'success',
-                        });
-                        window.setTimeout(function(){
-                            window.location.reload();
-                        }, 1000);
-                    },
-                    error: function (error) {
-                        console.log(error);
-                        $.unblockUI();
-                        $.notify({
-                            title: 'Error',
-                            message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
-                        },{
-                            type: 'danger',
-                        });
-                    }
-                });
-            })
         });
     </script>
 @show

@@ -7,16 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    protected $fillable = ['name', 'last_name', 'age', 'gender', 'phone', 'photo_address', 'about'];
+    protected $fillable = ['name', 'age', 'gender', 'phone', 'photo_address', 'about'];
 
     public function User()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function getGender()
-    {
-        $this->gender == 0 ? $gender = "Feminino" : $gender = "Masculino";
-        return $gender;
+    public function MoreInformation(){
+        return $this->hasOne(MoreInformation::class);
     }
 }

@@ -5,29 +5,31 @@
     @show
 
 @section('content')
-<div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-12">
             <div class="card">
-                <div class="card-header" data-background-color="purple">
-                    <h4 class="title">Meu Veículo</h4>
-                    <p class="category">Cadastre um veiculo</p>
+                <div class="card-title">
+                    <h4>Cadastre seu veiculo</h4>
                 </div>
-                <div class="card-content">
-                    <form action="{{ route('user.vehicle.store') }}" method="post" data-method="post" id="form-vehicle" >
-                        @include('vehicle._inputs')
-                        <button type="submit" class="btn btn-primary pull-right">Salvar veículo</button>
-                    </form>
+                <div class="card-body">
+                    <div class="horizontal-form-elements">
+                        <form action="{{ route('user.vehicle.store') }}" method="post" data-method="post" id="form-vehicle" class="form-horizontal">
+                            @include('vehicle._inputs')
+                            <button type="submit" class="btn btn-primary pull-right">Salvar veículo</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('scripts')
-    @parent
+
     <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/vehicle/vehicle_local.js') }}"></script>
+    <script src="{{ asset('js/vehicle/vehicle.js') }}"></script>
+    <script src="{{ asset('js/mask/jquery.mask.min.js') }}" type="text/javascript" ></script>
+    <script src="{{ asset('js/classes_mask.js') }}"></script>
 
 @show
+

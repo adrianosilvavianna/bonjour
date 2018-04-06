@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'terms_use'
     ];
 
     /**
@@ -76,5 +76,27 @@ class User extends Authenticatable
         }
         $media = $nota/$evaluations->count();
         return $media;
+    }
+
+    public function rakingProfile(){
+        $punctuation = 33;
+        if(isset($this->Profile)){
+            $punctuation += 34;
+            if(isset($this->Profile->MoreInformation)){
+                $punctuation += 10;
+                if($this->Profile->MoreInformation->smoke){
+                    $punctuation += 10;
+                }
+                if($this->Profile->MoreInformation->have_dog){
+                    $punctuation += 5;
+                }
+                if($this->Profile->MoreInformation->confidence_number){
+                    $punctuation += 5;
+                }
+            }
+        }
+
+        return $punctuation;
+
     }
 }
