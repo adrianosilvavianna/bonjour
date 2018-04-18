@@ -30,7 +30,7 @@ class ProfileController extends Controller
     public function store(ProfileRequest $request) {
 
         try{
-            $request = $this->upload($request);
+            $request = array_merge($request->input(), ['photo_address' => $this->upload($request)]);
             auth()->user()->Profile()->create($request);
             return redirect(route('user.profile.index'))->with('success', 'Perfil completo');
         }catch (\Exception $e){
