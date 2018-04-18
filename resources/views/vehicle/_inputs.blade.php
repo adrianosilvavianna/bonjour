@@ -1,4 +1,5 @@
 <div class="col-md-12">
+
     <div class="col-md-4 {{ $errors->has('brand') ? ' has-error' : '' }}">
         <div class="form-group label-floating">
             <label for="exampleFormControlSelect1">Marcas</label>
