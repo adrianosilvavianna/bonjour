@@ -1,13 +1,11 @@
 		var map;
 		var geocoder;
 
-		var marker;
-		var directionsDisplay;
-		var directionsService = new google.maps.DirectionsService();
+		var marker, directionsDisplay, directionsService
 
 		function initialize() {
 
-
+            directionsService = new google.maps.DirectionsService();
 			directionsDisplay = new google.maps.DirectionsRenderer();
 			var latlng = new google.maps.LatLng(-25.427778, -49.273046);
 

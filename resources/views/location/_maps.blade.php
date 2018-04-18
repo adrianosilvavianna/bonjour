@@ -76,23 +76,15 @@
                 </div>
             </div>
 
-
         </fieldset>
     </form>
 
 </div>
 
 @section('scripts')
-{{--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;sensor=false"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/maps/jquery.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/maps/mapa.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/maps/jquery-ui.custom.min.js') }}"></script>--}}
-
-        <!-- Maps API Javascript -->
-<scripts src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;"></scripts>
-
 <!-- Arquivo de inicialização do mapa -->
 <script type="text/javascript" src="{{ asset('js/maps/jquery-ui.min.js') }}"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOXe8VnXBmjiT0rIjRYIetQyLnG-WUCa4&amp;sensor=false"></script>
 <script type="text/javascript" src="{{ asset('js/maps/mapa_route.js') }}"></script>
 
 
