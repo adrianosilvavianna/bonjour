@@ -24,7 +24,6 @@ class ProfileRequest extends FormRequest
             {
                 return [
                     'name' => 'required|string|max:40',
-                    'last_name' => 'required|string|max:40',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
                     'photo_address' => 'required|image|mimes:jpeg,jpg,png'
@@ -33,7 +32,6 @@ class ProfileRequest extends FormRequest
             case 'PUT':{
                 return [
                     'name' => 'required|string|max:40',
-                    'last_name' => 'required|string|max:40',
                     'age' => 'required|integer|min:18|max:90',
                     'gender' => 'required',
                     'photo_address' => 'nullable|image|mimes:jpeg,jpg,png'

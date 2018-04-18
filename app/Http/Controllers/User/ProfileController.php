@@ -27,13 +27,12 @@ class ProfileController extends Controller
     public function create() {
         return view('profile.create');
     }
-
     public function store(ProfileRequest $request) {
 
         try{
-            $request = $this->upload($request);
+            $request = array_merge($request->input(), ['photo_address' => $this->upload($request)]);
             auth()->user()->Profile()->create($request);
-            return redirect(route('user.profile.index'));
+            return redirect(route('user.profile.index'))->with('success', 'Perfil completo');
         }catch (\Exception $e){
             return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
@@ -43,57 +42,41 @@ class ProfileController extends Controller
         return view('profile.edit')->with('profile', $profile);
     }
 
-    public function update(ProfileRequest $request, Profile $profile) {
-
-        try{
-            $request->file() ? $request = $this->upload($request) : $request = $request->input();
+    public function update(ProfileRequest $request, Profile $profile)
+    {
+        try {
+            $request->file() ? $photo_address = $this->upload($request) : $photo_address = $request->input();
+            $request = $request->input()+['photo_address' => $photo_address];
             $profile->update($request);
             return redirect(route('user.profile.index'))->with('success', 'Alterado com sucesso!');
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
     }
 
     //metodo que faz o upload da imagem
     public function upload(ProfileRequest $request){
-
         $photo = $request->file('photo_address');
 
-        if ($photo->isValid()) {
-            $extension = $photo->getClientOriginalExtension();
+        if($request->hasFile('photo_address') && $request->file('photo_address')->isValid()){
+            $extension = $request->photo_address->extension();
+            $nameFile ='profile-'.auth()->user()->id.'.'.$extension;
 
-            if($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg'){
+            $upload = $request->photo_address->storeAs('profiles', $nameFile);
 
-                //Declara uma url para img principal
-                $src = '/img/photos/';
-                $destinationPath = public_path().$src;
-                $fileName = 'profile-'.auth()->user()->id.'.'.$extension;
-                $request->photo_address->move($destinationPath, $fileName);
-
-                $srcResize = $this->resizeImg($fileName, $src);
-
-                //Salva o endereço da img renderizada
-                $photo_address = $srcResize.$fileName;
-                $request = $request->input()+['photo_address' =>$photo_address];
-                return $request;
+            if ( !$upload ){
+                return redirect()->back()->with('error', 'Falha ao fazer upload')->withInput();
             }
-            return back()->with('error', 'Esse Arquivo precisa ser do tipo JPG ou PNG');
+
+            $photo_storage = storage_path()."/app/profiles/".$nameFile;
+
+            $photo_public = '/img/resize/'.$nameFile;
+
+            Image::make($photo_storage)->resize(200,200)->save(public_path().$photo_public);
+
+            return $photo_public;
         }
-        throw new \Exception('Arquivo Invalido');
-    }
-
-
-    //metodo que renderiza a imagem
-    public function resizeImg(String $fileName,String $src){
-
-        $srcResize = '/img/resize/';
-        $path = public_path().$srcResize.$fileName;
-        $pathCrop = public_path().$srcResize.'crop/'.$fileName;
-
-        Image::make(public_path().$src.$fileName)->resize(200,200)->save($path);
-        Image::make(public_path().$src.$fileName)->crop(500,500)->save($pathCrop);
-
-        return $srcResize;
+        throw new \Exception('Este tipo de arquivo nao Ã© valido');
 
     }
 
@@ -108,7 +91,5 @@ class ProfileController extends Controller
         Image::make($address)->rotate(90)->save($address);
         return redirect()->back();
     }
-
-
 
 }
