@@ -1,0 +1,10 @@
+[0;1;32m●[0m mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (running)[0m since Sun 2018-04-08 12:27:35 -03; 1min 51s ago
+ Main PID: 20641 (mysqld)
+    Tasks: 28 (limit: 4915)
+   CGroup: /system.slice/mysql.service
+           └─20641 /usr/sbin/mysqld
+
+abr 08 12:27:34 adrianopc-NI-1406 systemd[1]: Starting MySQL Community Server...
+abr 08 12:27:35 adrianopc-NI-1406 systemd[1]: Started MySQL Community Server.
