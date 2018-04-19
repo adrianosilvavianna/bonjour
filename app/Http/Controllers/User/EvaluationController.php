@@ -18,7 +18,7 @@ class EvaluationController extends Controller
     }
     
     public function index() {
-        return view('evaluation.index')->with('meetings', auth()->user()->Meetings);
+        return view('evaluation.index')->with('user', auth()->user());
     }
 
     public function drive(Trip $trip) {
@@ -33,7 +33,7 @@ class EvaluationController extends Controller
         try{
             $request['meeting_id'] = Meeting::where('trip_id', '=', $trip->id)->where('user_id', '=', auth()->user()->id)->first()->id;
             $request['check_quality'] = serialize($request->check_quality);
-
+            dd($request->all());
             Evaluation::create($request->all());
             if($request->ajax())
             {

@@ -1,50 +1,49 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="{{ asset('css/percentage_star.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/time_line.css') }}" rel="stylesheet">
+@show
+
 @section('content')
 
-    <style>
-        .card img {
-            width: 10%;
-            height: auto;
-            margin-bottom: 1%;
-        }
-        p{
-            height: auto;
-        }
-    </style>
+    <div class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <img class="img" id="my_photo" src="{{ asset($user->Profile->photo_address) }}" title="Imagem de perfil">
+            </div>
+            <div class="content">
+                <h3 class="card-title"> {{ $user->Profile->name }}</h3>
+                <div class="star-ratings-sprite"><span style="width:{{ $user->Profile->percentage() }}%" class="star-ratings-sprite-rating"></span></div>
+                <br><br>
+                <a href="{{ route('user.profile.edit', $user->Profile) }}" class="btn btn-primary btn-round">{{ btnEditar }}</a>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="card card-stats">
-                    <div class="card-content">
-                        <img class="pull-left" src="{{ asset(auth()->user()->Profile->photo_address) }}" style="border-radius: 50%" >
-                        <h3 class="pull-left" style="margin-left: 5%">{{ auth()->user()->Profile->name }} {{ auth()->user()->Profile->last_name }} <br>
-                            <i class="material-icons pull-left">star</i>
-                            <i class="material-icons pull-left">star</i>
-                            <i class="material-icons pull-left">star</i>
-                            <i class="material-icons pull-left">star_half</i>
-                            <i class="material-icons pull-left">star_border</i>
-                        </h3>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    @foreach($meetings as $meeting)
-
-        {{ $i = 0 }}
-
-        @while($i < $meeting->Evaluation->nota)
-
-            <i class="material-icons pull-left">star</i>
-
-            {{ $i++ }}
-
-        @endwhile
-
-    @endforeach
+    <div class="col-md-8">
+            <ul class="timeline">
+                @foreach($user->Evaluations as $evaluation)
+                    <li @if(($evaluation->id%2) == 0)class="timeline-inverted"@endif>
+                        <div class="timeline-badge" style="background-color: {{randomHex()}}"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">Viagem Finalizada dia {{ with(new DateTime($evaluation->Meeting->Trip->date))->format('d/m/Y') }}</h4>
+                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{ with(new DateTime($evaluation->created_at))->format('d/m/Y - H:i') }}</small></p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: {{ percentage($evaluation->nota) }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 
 
 @endsection

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="{{ asset('css/percentage_star.css') }}" rel="stylesheet">
+@show
+
 @section('content')
     <div class="col-md-3">
     </div>
@@ -10,12 +14,13 @@
             </div>
             <div class="content">
                 <h3 class="card-title"> {{ $profile->name }} {{ $profile->last_name }}</h3>
-                <h5 class="category text-gray">{{ $profile->age }} {{ anos }}</h5>
-                <h6 class="category text-gray">{{ sexo }} : {{ $profile->getGender() }}</h6>
+                <div class="star-ratings-sprite"><span style="width:{{ $profile->percentage() }}%" class="star-ratings-sprite-rating"></span></div>
+                <h5 class="category text-gray">{{ $profile->age }} {{ anos }} | {{ sexo }} : {{ $profile->getGender() }}</h5>
                 <h6 class="category text-gray">{{ telefone }} : {{ $profile->phone }}</h6>
                 <p class="card-content">
                     {{ $profile->about }}
                 </p>
+
                 <a href="{{ route('user.profile.edit', $profile) }}" class="btn btn-primary btn-round">{{ btnEditar }}</a>
 
             </div>

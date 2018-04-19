@@ -19,4 +19,17 @@ class Profile extends Model
         $this->gender == 0 ? $gender = "Feminino" : $gender = "Masculino";
         return $gender;
     }
+
+    public function percentage(){
+        $evaluations = auth()->user()->Evaluations;
+        $count = $evaluations->count();
+        if($count > 0){
+            $some = 0;
+            foreach($evaluations as $evaluation){
+                $some += $evaluation->nota;
+            }
+            return percentage($some/$count);
+        }
+        return 0;
+    }
 }
