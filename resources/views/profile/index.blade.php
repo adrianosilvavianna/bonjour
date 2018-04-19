@@ -17,6 +17,7 @@
                 <div class="star-ratings-sprite"><span style="width:{{ $profile->percentage() }}%" class="star-ratings-sprite-rating"></span></div>
                 <h5 class="category text-gray">{{ $profile->age }} {{ anos }} | {{ sexo }} : {{ $profile->getGender() }}</h5>
                 <h6 class="category text-gray">{{ telefone }} : {{ $profile->phone }}</h6>
+                <br>
                 <p class="card-content">
                     {{ $profile->about }}
                 </p>

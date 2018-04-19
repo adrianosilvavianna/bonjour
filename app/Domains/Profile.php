@@ -21,7 +21,7 @@ class Profile extends Model
     }
 
     public function percentage(){
-        $evaluations = auth()->user()->Evaluations;
+        $evaluations = $this->User->Evaluations;
         $count = $evaluations->count();
         if($count > 0){
             $some = 0;
