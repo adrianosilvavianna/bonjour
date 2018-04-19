@@ -63,7 +63,6 @@ class TripController extends Controller
     }
 
     public function show(Trip $trip){
-
         if($trip->User->id == auth()->user()->id){
             return view('trip.show_motorista', compact('trip'));
         }

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['nota', 'meeting_id', 'complaint', 'complaint_comment', 'check_quality', 'user_id'];
-    protected $hidden = ['meeting_id', 'user_id'];
+    protected $fillable = ['nota', 'trip_id', 'complaint', 'complaint_comment', 'check_quality', 'user_to', 'user_from'];
+    protected $hidden = ['trip_id', 'user_id'];
 
-    public function Meeting(){
-        return $this->belongsTo(Meeting::class);
+    public function Trip(){
+        return $this->belongsTo(Trip::class);
     }
 
     public function UserTo(){

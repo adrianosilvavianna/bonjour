@@ -29,7 +29,7 @@
                         <div class="timeline-badge" style="background-color: {{randomHex()}}"></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4 class="timeline-title">Viagem Finalizada dia {{ with(new DateTime($evaluation->Meeting->Trip->date))->format('d/m/Y') }}</h4>
+                                <h4 class="timeline-title">Viagem Finalizada dia {{ with(new DateTime($evaluation->Trip->date))->format('d/m/Y') }}</h4>
                                 <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{ with(new DateTime($evaluation->created_at))->format('d/m/Y - H:i') }}</small></p>
                             </div>
                             <div class="timeline-body">

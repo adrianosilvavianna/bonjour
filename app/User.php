@@ -56,7 +56,7 @@ class User extends Authenticatable
     }
 
     public function Evaluations(){
-        return $this->hasMany(Evaluation::class);
+        return $this->hasMany(Evaluation::class, 'user_to');
     }
 
     public function Reports(){

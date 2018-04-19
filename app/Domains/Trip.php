@@ -25,6 +25,11 @@ class Trip extends Model
         return $this->hasMany(Meeting::class);
     }
 
+    public function Evaluations()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
     public function searchMeeting()
     {
         foreach($this->Meetings as $meeting)
@@ -58,5 +63,9 @@ class Trip extends Model
 
     public function evaluationExists(){
          Meeting::where('trip_id', '=', $this->id)->where('user_id', '=', auth()->user()->id)->first();
+    }
+
+    public function EvaluationsFrom(){
+        return $this->Evaluations()->where('user_from', auth()->user()->id)->first();
     }
 }

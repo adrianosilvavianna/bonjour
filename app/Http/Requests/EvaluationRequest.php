@@ -24,10 +24,7 @@ class EvaluationRequest extends FormRequest
     public function rules()
     {
         return [
-            'nota' => 'required',
-            'complaint' => 'required|numeric',
-            'complaint_comment' => 'string|max:254',
-            'check_quality' => 'required'
+
 
         ];
     }

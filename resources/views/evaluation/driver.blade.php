@@ -4,7 +4,7 @@
             <div class="card-header" data-background-color="orange">
                 <i class="fa fa-star-o"></i>
             </div>
-            <form action="{{ route('user.evaluation.store', $trip) }}" class="form-group" method="post">
+            <form  method="post" action="{{ route('user.evaluation.store', $trip) }}" class="form-group">
                 <div class="card-content">
                     <h3 class="title">Avaliação</h3>
                     <br>

@@ -29,11 +29,11 @@
 
                         @if($trip->status == false)
 
-                            @if(!$meeting->Evaluation)
+                            @if($trip->EvaluationsFrom())
+                                <p class="text-center text-success"> VIAGEM ENCERRADA E AVALIADA COM SUCESSO </p>
+                            @else
                                 <a href="#" class="btn btn-success btn-round pull-right" id="evaluation">Avaliar Motorista</a>
                             @endif
-
-                            {{--<p class="text-center text-success"> VIAGEM ENCERRADA E AVALIADA COM SUCESSO </p>--}}
                         @else
 
                             @if($trip->searchMeeting())
