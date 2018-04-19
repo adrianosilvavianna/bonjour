@@ -1,3 +1,7 @@
+@section('css')
+    <link href="{{ asset('css/star.css') }}" rel="stylesheet">
+@show
+
 <div class="row">
     <div class="col-md-7 col-md-7 col-sm-7">
         <div class="card card-stats">
@@ -10,16 +14,18 @@
                     <br>
                     <label>Dê uma nota para o motorista:</label>
                     <br>
-                    <input type="radio" name="nota" class="star-1 rating" id="star-1" value="1"/>
-                    <label class="star-1" for="star-1">1</label>
-                    <input type="radio" name="nota" class="star-2 rating" id="star-2" value="2"/>
-                    <label class="star-2" for="star-2">2</label>
-                    <input type="radio" name="nota" class="star-3 rating" id="star-3" value="3"/>
-                    <label class="star-3" for="star-3">3</label>
-                    <input type="radio" name="nota" class="star-4 rating" id="star-4" value="4"/>
-                    <label class="star-4" for="star-4">4</label>
-                    <input type="radio" name="nota" class="star-5 rating" id="star-5" value="5"/>
-                    <label class="star-5" for="star-5">5</label>
+
+                    <fieldset>
+                        <span class="star-cb-group star_rating">
+                          <input type="radio" id="rating-5" name="nota" value="5" /><label for="rating-5">5</label>
+                          <input type="radio" id="rating-4" name="nota" value="4" checked="checked" /><label for="rating-4">4</label>
+                          <input type="radio" id="rating-3" name="nota" value="3" /><label for="rating-3">3</label>
+                          <input type="radio" id="rating-2" name="nota" value="2" /><label for="rating-2">2</label>
+                          <input type="radio" id="rating-1" name="nota" value="1" /><label for="rating-1">1</label>
+                          <input type="radio" id="rating-0" name="nota" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                        </span>
+                    </fieldset>
+
                     <br>
                     <label>Selecione suas qualidades:</label>
                     <br>
@@ -48,7 +54,7 @@
                         <textarea name="complaint_comment" class="form-control" placeholder="Reclame aqui...."></textarea>
                     </div>
                 </div>
-
+                <input type="number" name="user_to" value="{{ $trip->user_id }}" hidden>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-round pull-right">Enviar formulário</button>
                 </div>
@@ -62,15 +68,15 @@
 @section('scripts')
 @parent
     <script>
-        $(document).ready(function(){
-            $('#complaint_true').change(function(){
-                $('#complaint_comment').show();
-            });
+        $('#complaint_true').change(function(){
+            $('#complaint_comment').show();
+        });
 
-            $('#nop').change(function(){
-                $('#complaint_comment').hide();
-            });
+        $('#nop').change(function(){
+            $('#complaint_comment').hide();
         });
     </script>
 
-    @show
+    <script src="{{ asset('js/star.js') }}" type="text/javascript" ></script>
+
+@show

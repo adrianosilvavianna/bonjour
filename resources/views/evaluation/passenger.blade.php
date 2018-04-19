@@ -1,111 +1,89 @@
 @extends('layouts.app')
 
-{{--@section('css')--}}
-    {{--<link href="{{ asset('css/evaluation/star_rating.css') }}" rel="stylesheet">--}}
-{{--@show--}}
+@section('css')
+    <link href="{{ asset('css/star.css') }}" rel="stylesheet">
+@show
 
 @section('content')
 
-    <div class="row">
-        @foreach($trip->Meetings as $meeting)
-            <div class="col-lg-5 col-md-5 col-sm-5">
-                <div class="card card-profile">
-                    <div class="card-avatar">
-                        <a href="">
-                            <img class="img" src="{{ asset($meeting->User->Profile->photo_address) }}"/>
-                        </a>
-                    </div>
+    @foreach($trip->Meetings as $meeting)
 
-                    <div class="content">
-                        <h4 class="card-title">{{ $meeting->User->Profile->name }} {{ $meeting->User->Profile->last_name }}</h4>
-                        <h6 class="category text-gray"> {{ $meeting->User->Profile->about }}</h6>
-                        <h6 class="category text-gray">{{ $meeting->User->Profile->age }} Anos </h6>
-                        <h6 class="category text-gray">Nota no racking {{ $meeting->User->ratingEvaluation() }} </h6>
-                        <p class="card-content">
-                            <strong> {{ $meeting->User->Profile->phone }}</strong><br>
-                            <strong>{{ $meeting->User->email }}</strong><br>
-                        </p>
-                        @if($meeting->accept == 2)
-                            <div id="accept-{{ $meeting->id }}">
-                                <button  class="btn btn-success btn-round accept"  data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }}" data-accept=1>Aceitar</button>
-                                <button  class="btn btn-danger btn-round accept"   data-meeting="{{ $meeting->id }}" data-user="{{ $meeting->User->id }} " data-accept=0>Recusar</button>
-                            </div>
-                        @elseif($meeting->accept == 1)
-                            <h4 class="text-success">Aprovado</h4>
-                        @elseif($meeting->accept == 0)
-                            <h4 class="text-danger">Reprovado</h4>
-                        @endif
-
-                        <div class="card-footer" >
-                            <h4 class="text-primary">Avaliação</h4>
-                                <form action="{{ route('user.evaluation.storePassenger', [$meeting->Trip->id, $meeting->User->id]) }}" class="from_star">
-                                @include('evaluation._inputs_star_rating')
-                            </form>
-
+        @if(!$trip->EvaluationsTo($meeting->User))
+            <div class="col-md-4">
+                <div class="card card-stats">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <a href="">
+                                <img class="img circle" src="{{ asset($meeting->User->Profile->photo_address) }}"/>
+                            </a>
                         </div>
-
                     </div>
+                    <form method="post" action="{{ route('user.evaluation.store', $trip) }}" class="form-group">
+                        <div class="card-content">
+                            <h3 class="title">Avaliação</h3>
+                            <br>
+                            <label>Dê uma nota para o passageiro:</label>
+                            <br>
+
+                            <fieldset>
+                                <span class="star-cb-group star_rating">
+                                  <input type="radio" id="rating-5" name="nota" value="5"/><label for="rating-5">5</label>
+                                  <input type="radio" id="rating-4" name="nota" value="4" checked="checked"/><label for="rating-4">4</label>
+                                  <input type="radio" id="rating-3" name="nota" value="3"/><label for="rating-3">3</label>
+                                  <input type="radio" id="rating-2" name="nota" value="2"/><label for="rating-2">2</label>
+                                  <input type="radio" id="rating-1" name="nota" value="1"/><label for="rating-1">1</label>
+                                  <input type="radio" id="rating-0" name="nota" value="0" class="star-cb-clear"/><label for="rating-0">0</label>
+                                </span>
+                            </fieldset>
+
+                            <br>
+                            <label>Selecione suas qualidades:</label>
+                            <br>
+                            <label for="one">Muito Simpático</label>
+                            <input type="checkbox" id="one" name="check_quality[]" value="simpatico"/>
+                            <br>
+                            <label for="three">Educado</label>
+                            <input type="checkbox" id="three" name="check_quality[]" value="educado"/>
+                            <br>
+                            <label>Algo te incomodou?</label>
+                            <br>
+                            <label>Sim</label>
+                            <input type="radio" name="complaint" value="1" id="complaint_true">
+                            <br>
+                            <label>Sem Queixas</label>
+                            <input type="radio" value="0" name="complaint" id="nop">
+                            <br>
+                            <div id="complaint_comment" hidden>
+                                <label>Por favor, descreva o que te incomodou.</label>
+                                <textarea name="complaint_comment" class="form-control"
+                                          placeholder="Reclame aqui...."></textarea>
+                            </div>
+                        </div>
+                        <input type="number" name="user_to" value="{{ $meeting->user_id }}" hidden>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-round pull-right">Enviar formulário
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
-        @endforeach
-
-    </div>
-
-
-
-@section('scripts')
-    @parent
-    <script type="application/javascript">
-
-        $('.accept').click(function(){
-
-            $.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
-
-            var parm = {
-                user_id: $(this).data('user'),
-                meeting_id: $(this).data('meeting'),
-                accept: $(this).data('accept')
-            };
-
-            $("#accept-"+$(this).data('meeting')).hide();
-
-            $.ajax({
-                type: 'POST',
-                url: '/user/meeting/accept',
-                data: parm,
-                success: function(data) {
-                    $.unblockUI();
-                    if(data.data.accept){
-                        $('#acceptResult').html('Aprovado').addClass('text-success');
-                    }else{
-                        $('#acceptResult').html('Reprovado').addClass('text-danger');
-                    }
-
-                    $.notify({
-                        title: 'Sucesso',
-                        message: data.message,
-                    },{
-                        type: 'success',
-                    });
-                },
-                error: function (error) {
-                    console.log(error);
-                    $.unblockUI();
-                    $.notify({
-                        title: 'Error',
-                        message: "Algo deu errado ao aceitar essa viagem, tente novamente. :/",
-                    },{
-                        type: 'danger',
-                    });
-                }
-            });
-        });
-
-    </script>
-
-
-@show
-
+        @endif
+    @endforeach
 
 @endsection
 
+@section('scripts')
+    @parent
+    <script>
+        $('#complaint_true').change(function () {
+            $('#complaint_comment').show();
+        });
+
+        $('#nop').change(function () {
+            $('#complaint_comment').hide();
+        });
+    </script>
+    <script src="{{ asset('js/star.js') }}" type="text/javascript"></script>
+
+@show

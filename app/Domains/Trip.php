@@ -68,4 +68,8 @@ class Trip extends Model
     public function EvaluationsFrom(){
         return $this->Evaluations()->where('user_from', auth()->user()->id)->first();
     }
+
+    public function EvaluationsTo(User $user){
+        return $this->Evaluations()->where('user_to', $user->id)->first();
+    }
 }
