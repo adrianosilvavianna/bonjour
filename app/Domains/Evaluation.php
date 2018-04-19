@@ -14,7 +14,11 @@ class Evaluation extends Model
         return $this->belongsTo(Meeting::class);
     }
 
-    public function User(){
-        return $this->belongsTo(User::class);
+    public function UserTo(){
+        return $this->belongsTo(User::class, 'user_to');
+    }
+
+    public function UserFrom(){
+        return $this->belongsTo(User::class, 'user_from');
     }
 }

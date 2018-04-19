@@ -11,10 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new \App\User();
-        $user->name = "Adriano Vianna";
-        $user->email = "bonjou@gmail.com";
-        $user->password = bcrypt('123456');
-        $user  = $user->save();
+            factory(App\Domains\Vehicle::class, 10)->create();
     }
 }

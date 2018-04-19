@@ -27,10 +27,8 @@ class CreateEvaluationsTable extends Migration
             $table->foreign('meeting_id')->references('id')->on('meetings');
 
             $table->integer('user_to')->unsigned();
-            $table->foreign('user_to')->references('id')->on('users');
 
             $table->integer('user_from')->unsigned();
-            $table->foreign('user_from')->references('id')->on('users');
 
             $table->timestamps();
         });
