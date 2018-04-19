@@ -23,7 +23,6 @@ function getMarcas(){
         url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
         async: false,
         dataType: 'json',
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         success: function(data) {
             results = data.map(function(item) {
                 return { id: item.id, text: item.name };
@@ -42,8 +41,6 @@ function getModelos(marca){
     $.ajax({
         url: "http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
         async: false,
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-        dataType: 'get',
         success: function(data) {
 
             results = data.map(function(item) {

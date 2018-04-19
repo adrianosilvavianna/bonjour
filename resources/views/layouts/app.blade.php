@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li @if(\Request::segment(2) == 'evaluation') class="active" @endif>
-                    <a href="{{route('user.meeting.myRides') }}" >
+                    <a href="{{route('user.evaluation.index') }}" >
                         <i class="material-icons">grade</i>
                         <p>Avaliações</p>
                     </a>

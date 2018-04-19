@@ -31,21 +31,21 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header" data-background-color="purple">
-                        <h4 class="title">Thallyta Vianna</h4>
-                        <p class="category"></p>
-                    </div>
-                    <div class="card-content">
-                        Bom motorista
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    @foreach($meetings as $meeting)
+
+        {{ $i = 0 }}
+
+        @while($i < $meeting->Evaluation->nota)
+
+            <i class="material-icons pull-left">star</i>
+
+            {{ $i++ }}
+
+        @endwhile
+
+    @endforeach
+
 
 @endsection
 

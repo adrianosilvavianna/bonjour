@@ -18,7 +18,7 @@ class EvaluationController extends Controller
     }
     
     public function index() {
-        return view('evaluation.index');
+        return view('evaluation.index')->with('meetings', auth()->user()->Meetings);
     }
 
     public function drive(Trip $trip) {
