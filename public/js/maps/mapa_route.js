@@ -172,8 +172,6 @@
 			}
 		});
 
-
-
 		$("#btnEnviar").click(function (event) {
 			event.preventDefault();
 			$.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
@@ -194,10 +192,13 @@
 				}
 			});
 
+
+
 		});
 
 		$("form").submit(function (event) {
 			event.preventDefault();
+
 			$.blockUI({ message: '<div id="preloader"><div id="loader"></div></div>' });
 
 			var enderecoPartida = $("#txtEnderecoPartida").val();
@@ -207,7 +208,7 @@
 			var vehicle = $("#vehicle_id").val();
 			var num_passenger = $("#num_passenger").val();
 			var action = $(this).attr("action");
-
+			var trajeto_texto = $("#trajeto-texto").html();
 
 			//alert("saindo : " + enderecoPartida + " Destino :" + enderecoChegada + " Data :" + date_exit + " Tempo: " + time + " Veiculo :" + vehicle);
 
@@ -236,6 +237,7 @@
 				time: time,
 				vehicle_id: vehicle,
 				num_passenger: num_passenger,
+                trajeto_texto: trajeto_texto,
 
 			}
 
