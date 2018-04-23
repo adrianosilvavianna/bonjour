@@ -3,10 +3,12 @@
     <div class="col-md-4 {{ $errors->has('brand') ? ' has-error' : '' }}">
         <div class="form-group label-floating">
             <label for="exampleFormControlSelect1">Marcas</label>
-            <select class="form-control form-control-lg" id="marcas" name="brand">
+            <select class="form-control form-control-lg" id="marcas">
                 <option value="{{ isset($vehicle->brand) ? $vehicle->brand : '' }}"  @if(isset($vehicle->brand)) selected @endif>{{ isset($vehicle->brand) ? $vehicle->brand : '' }}</option>
             </select>
         </div>
+
+        <input type="text" name="brand" id="brand" hidden>
 
         @if ($errors->has('brand'))
             <span class="help-block">
@@ -18,11 +20,13 @@
 
         <div class="form-group  label-floating">
             <label for="exampleFormControlSelect2">Modelos</label>
-            <select class="form-control form-control-lg" id="modelos" name="model">
+            <select class="form-control form-control-lg" id="modelos" >
 
                 <option value="{{ isset($vehicle->model) ? $vehicle->model : '' }}"  @if(isset($vehicle->model)) selected @endif>{{ isset($vehicle->model) ? $vehicle->model : '' }}</option>
             </select>
         </div>
+
+        <input type="text" name="model" id="model" hidden>
 
         @if ($errors->has('model'))
             <span class="help-block">
@@ -85,12 +89,12 @@
     <div class="col-md-3 {{ $errors->has('plaque') ? ' has-error' : '' }}">
         <div class="form-group label-floating">
             <label class="control-label">Placa</label>
-            <input type="text" name="plaque" id="plaque" class="form-control" value="{{ isset($vehicle->plaque) ? $vehicle->plaque :'' }}" style="TEXT-TRANSFORM: uppercase">
+            <input type="text" name="plaque" id="plaque" class="form-control plaque" value="{{ isset($vehicle->plaque) ? $vehicle->plaque :'' }}" style="TEXT-TRANSFORM: uppercase" max="8">
         </div>
         @if ($errors->has('plaque'))
             <span class="help-block">
-                                    <strong class="red-text">{{ $errors->first('plaque') }}</strong>
-                                </span>
+                <strong class="red-text">{{ $errors->first('plaque') }}</strong>
+            </span>
         @endif
     </div>
     <div class="col-md-3">
