@@ -81,15 +81,25 @@ class ProfileController extends Controller
     }
 
     public function rotateRight(Profile $profile){
-        $address = public_path().$profile->photo_address;
-        Image::make($address)->rotate(-90)->save($address);
-        return redirect()->back();
+        try{
+            $address = public_path().$profile->photo_address;
+            Image::make($address)->rotate(-90)->save($address);
+            return redirect()->back();
+        }catch (\Exception $e){
+            return redirect()->back()->with('info', 'Não foi possível atualiizar essa imagem');
+        }
+
     }
 
     public function rotateLeft(Profile $profile){
-        $address = public_path().$profile->photo_address;
-        Image::make($address)->rotate(90)->save($address);
-        return redirect()->back();
+        try{
+            $address = public_path().$profile->photo_address;
+            Image::make($address)->rotate(90)->save($address);
+            return redirect()->back();
+        }catch (\Exception $e){
+            return redirect()->back()->with('info', 'Não foi possível atualiizar essa imagem');
+        }
+
     }
 
 }

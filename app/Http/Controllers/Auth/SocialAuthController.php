@@ -48,6 +48,7 @@ class SocialAuthController extends Controller
         $user->password = bcrypt($userSocial->token);
         $user->save();
         $user->Profile()->create(['name' => $userSocial->getName(), 'photo_address' => $userSocial->getAvatar()]) ;
+        $user->Config()->create(['lang' => 'pt-br']);
         Auth::login($user);
         return redirect()->intended('/user/trip');
 
