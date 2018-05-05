@@ -1,7 +1,6 @@
 var name_marca= '';
 var name_modelo = '';
 $("#color").select2();
-$('#plaque').mask("AAA-0000");
 
 //inicia select marca
 $('#marcas').select2({
@@ -20,7 +19,7 @@ function getMarcas(){
 
     var marcas   = {};
     $.ajax({
-        url: "http://fipeapi.appspot.com/api/1/carros/marcas.json",
+        url: "https://fipeapi.appspot.com/api/1/carros/marcas.json",
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -39,7 +38,7 @@ function getModelos(marca){
     var modelos  = {};
 
     $.ajax({
-        url: "http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
+        url: "https://fipeapi.appspot.com/api/1/carros/veiculos/"+marca,
         async: false,
         success: function(data) {
 

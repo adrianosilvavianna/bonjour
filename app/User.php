@@ -10,6 +10,7 @@ use App\Domains\Profile;
 use App\Domains\Report;
 use App\Domains\Trip;
 use App\Domains\Vehicle;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

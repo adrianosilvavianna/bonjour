@@ -67,6 +67,12 @@
                         </div>
 
                         <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                {{ btnLogin }}
+                            </button>
+                        </div>
+
+                        <div class="form-group">
                             <div class="checkbox">
                                 <label>
                                     <a class="" href="{{ route('password.request') }}">
@@ -78,24 +84,14 @@
 
                         <div class="form-group">
                             <div class="col-md-12" >
-                                <button type="submit" class="btn btn-primary">
-                                    {{ btnLogin }}
-                                </button>
+
 
                                 <a class="btn btn-link" href="{{ route('register') }}">
                                     {{ btnCadastrarse }}
                                 </a>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <a class="btn" href="/entrar/facebook" style="background-color: #3b5998">
+                                <a class="btn pull-right" href="/entrar/facebook" style="background-color: #3b5998">
                                     Entre com Facebook <i class="fa fa-facebook"></i>
-                                </a>
-
-                                <a class="btn" href="/entrar/github" style="background-color: #000; color: #fff">
-                                    Entre com Github <i class="fa fa-github"></i>
                                 </a>
                             </div>
                         </div>

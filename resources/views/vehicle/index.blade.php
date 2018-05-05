@@ -37,11 +37,11 @@
                                     <td>{{ $vehicle->year }}</td>
                                     <td>{{ $vehicle->num_passenger }}</td>
                                     <td>
-                                        <a href="{{ route('user.vehicle.edit', $vehicle) }}" rel="tooltip" title="Editar carro" class="btn btn-primary btn-simple btn-xs">
-<!--                                        <a href="{{ route('user.vehicle.edit', $vehicle) }}">-->
-                                            <i class="material-icons">edit</i>
-<!--                                        </a>-->
-                                        </a>
+                                        {{--<a href="{{ route('user.vehicle.edit', $vehicle) }}" rel="tooltip" title="Editar carro" class="btn btn-primary btn-simple btn-xs">--}}
+{{--<!--                                        <a href="{{ route('user.vehicle.edit', $vehicle) }}">-->--}}
+                                            {{--<i class="material-icons">edit</i>--}}
+{{--<!--                                        </a>-->--}}
+                                        {{--</a>--}}
                                         <a href="{{ route('user.vehicle.delete', $vehicle) }}" rel="tooltip" title="Deletar carro" class="btn btn-danger btn-simple btn-xs">
 <!--                                        <a href="{{ route('user.vehicle.delete', $vehicle) }}">-->
                                             <i class="material-icons">close</i>

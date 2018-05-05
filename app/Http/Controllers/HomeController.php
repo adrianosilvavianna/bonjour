@@ -60,7 +60,6 @@ class HomeController extends Controller
         else{
             include_once $this->langPtBr;
         }
-
         return view('index');
     }
 
