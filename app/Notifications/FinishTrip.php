@@ -43,12 +43,12 @@ class FinishTrip extends Notification
     {
         return (new MailMessage)
                 ->subject('Viagem Finalizada')
-                ->greeting('Olá ,')
+                ->greeting('Olï¿½ ,')
                 ->line('A viagem realizada por '. $this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' foi finalizada.')
                 ->line('Saindo de : '.$this->meeting->Trip->exit_address)
                 ->line('Indo para : '.$this->meeting->Trip->arrival_address)
-                ->line('Se você participou desta viagem não deixe de avaliar o MOTORISTA!!')
-                ->action('Avaliar Passageiros', url('/user/avaliation/driver'))
+                ->line('Se vocï¿½ participou desta viagem nï¿½o deixe de avaliar o MOTORISTA!!')
+                ->action('Avaliar Passageiros', url('/user/evaluation/'.$this->meeting->Trip->id.'/passenger'))
                 ->line('Obrigado por usar nosso aplicativo!');
     }
 

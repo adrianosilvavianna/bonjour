@@ -67,7 +67,7 @@ Route::group(['middleware'=>'profile','prefix' => 'evaluation', 'as' =>'evaluati
     Route::get('/',                         'EvaluationController@index')->name('index');
     Route::get('/{trip}/driver',            'EvaluationController@driver')->name('driver');
     Route::get('/{trip}/passenger',         'EvaluationController@passenger')->name('passenger');
-    Route::post('/{trip}/store',     'EvaluationController@store')->name('store');
+    Route::post('/{trip}/store',            'EvaluationController@store')->name('store');
 });
 
 Route::group(['middleware'=>'profile','prefix' => 'location', 'as' =>'location.'], function () {

@@ -43,11 +43,11 @@ class CanceledTrip extends Notification
     {
         return (new MailMessage)
                     ->subject('Viagem Cancelada')
-                    ->greeting('Olá ,'. $this->meeting->User->Profile->name. ' '. $this->meeting->User->Profile->last_name)
-                    ->line('lamentamos informar, porém a sua viagem realizada por '. $this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' foi cancelada.')
+                    ->greeting('Olï¿½ ,'. $this->meeting->User->Profile->name. ' '. $this->meeting->User->Profile->last_name)
+                    ->line('lamentamos informar, porï¿½m a sua viagem realizada por '. $this->meeting->Trip->User->Profile->name.' '.$this->meeting->Trip->User->Profile->last_name.' foi cancelada.')
                     ->line('Detalhes da viagem')
                     ->line('Data -'. $this->meeting->Trip->date. ' Hora - '. $this->meeting->Trip->time)
-                    ->action('Ver Viagem', url('/'))
+                    ->action('Ver Viagem', url('/user/trip/'.$this->meeting->Trip->id.'/show'))
                     ->line('Obrigado por usar nosso aplicativo!');
     }
 
