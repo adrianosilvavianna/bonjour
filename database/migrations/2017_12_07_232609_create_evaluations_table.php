@@ -23,8 +23,8 @@ class CreateEvaluationsTable extends Migration
 
             $table->string('comment', 150)->nullable();
 
-            $table->integer('meeting_id')->unsigned();
-            $table->foreign('meeting_id')->references('id')->on('meetings');
+            $table->integer('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips');
 
             $table->integer('user_to')->unsigned();
 
