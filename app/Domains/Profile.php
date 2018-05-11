@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    protected $fillable = ['name', 'last_name', 'age', 'gender', 'phone', 'photo_address', 'about'];
+    protected $fillable = ['name', 'last_name', 'age', 'gender', 'phone', 'photo_address', 'about', 'is_immigrant', 'cpf', 'rg', 'cnh', 'rne', 'whats_app'];
 
     public function User()
     {
